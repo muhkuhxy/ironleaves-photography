@@ -2,13 +2,14 @@
   <div>
     <div class="bg-white text-bluegray z-50 sticky top-0">
       <nav class="max-w-screen-xl mx-auto px-4 flex justify-between py-4">
-        <ul class="nav-links flex justify-between">
+        <span class="md:hidden cursor-pointer">(TODO: Burger-Icon) Menü</span>
+        <ul class="nav-links hidden md:flex justify-between gap-8">
           <NavLink v-for="link in links"
             :key="link.title"
             v-bind="link"
             @scrollTo="scrollTo" />
         </ul>
-        <ul class="social-links flex justify-between">
+        <ul class="social-links hidden md:flex justify-between gap-2">
           <li v-for="link in social"
             :key="`social-link-${link}`">
             <IconBase :icon-name="link"
@@ -56,13 +57,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style scoped>
-.nav-links :not(:last-child) {
-  margin-right: 2rem;
-}
-.social-links :not(:first-child) {
-  margin-left: 0.5rem;
-}
-</style>
-
