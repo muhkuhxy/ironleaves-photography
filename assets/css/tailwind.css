@@ -11,4 +11,22 @@
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@700&display=swap');
+
+  .font-wavy {
+    line-height: 0.87;
+    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 7.9558)), 7rem);
+    min-height: 0vw;
+  }
+
+  .font-roofline {
+    /* TODO */
+  }
+
+  :root {
+    /* TODO */
+  }
+
+  .font-screaming {
+    /* TODO */
+  }
 }

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Hero/>
-    <Passion/>
-    <AboutMe/>
-    <Candor/>
+    <Hero class="scroll-target-top"/>
+    <Passion class="scroll-target-passion" />
+    <AboutMe class="scroll-target-about-me" />
+    <Candor class="scroll-target-candor"/>
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 module.exports = {
+  // TODO: add purge files
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -15,6 +16,9 @@ module.exports = {
       },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
+      },
+      maxHeight: {
+        '9/10': '90vh'
       }
     },
   },
