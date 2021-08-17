@@ -6,6 +6,9 @@
   @font-face {
     font-family: Melinda;
     font-weight: 400;
+    /* TODO: lizenz ist nicht frei */
     src: url(~/assets/fonts/Melinda.otf)
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@700&display=swap');
 }

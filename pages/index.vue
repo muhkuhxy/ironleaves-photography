@@ -1,5 +1,10 @@
 <template>
-  <Hero/>
+  <div>
+    <Hero/>
+    <Passion/>
+    <AboutMe/>
+    <Candor/>
+  </div>
 </template>
 
 <script lang="ts">
