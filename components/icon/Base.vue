@@ -3,12 +3,7 @@
     class="inline align-middle"
     viewBox="0 0 512 512"
     :aria-labelledby="iconName"
-    role="presentation"
-  >
-    <title
-      :id="iconName"
-      lang="en"
-    >{{ iconName }} icon</title>
+    role="presentation">
     <g :fill="iconColor">
       <slot />
     </g>

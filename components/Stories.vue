@@ -10,7 +10,7 @@
         alt="Happy couple">
       <Spacer class="mb-8"/>
       <SectionHeader class="text-center mb-6">
-        Valerie &amp; Max
+        Valerie&nbsp;&amp; Max
       </SectionHeader>
       <p class="max-w-prose">
         Das Pärchen, das mir wohl das größte Vertrauen
@@ -21,28 +21,17 @@
         Planungen mit dabei sein.
       </p>
     </SectionContent>
-    <div ref="carousel"
-      class="carousel relative bg-dust overflow-hidden pb-8">
-      <div class="carousel__inner relative flex flex-row flex-nowrap gap-px">
-        <img class="carousel__current" src="~/assets/images/Valerie-und-Max-3.jpg">
-        <img src="~/assets/images/Valerie-und-Max-1.jpg">
-        <img src="~/assets/images/Valerie-und-Max-2.jpg">
-        <img src="~/assets/images/Valerie-und-Max-4.jpg">
-        <img src="~/assets/images/Valerie-und-Max-54.jpg">
-        <img src="~/assets/images/Valerie-und-Max-701.jpg">
-        <img src="~/assets/images/Valerie-und-Max-703.jpg">
-        <img src="~/assets/images/Valerie-und-Max-712.jpg">
-        <img src="~/assets/images/Valerie-und-Max-713.jpg">
-        <img src="~/assets/images/Valerie-und-Max-730.jpg">
-        <img src="~/assets/images/Valerie-und-Max-Shooting-117.jpg">
-        <img src="~/assets/images/Valerie-und-Max-Shooting-159.jpg">
-        <img src="~/assets/images/Valerie-und-Max-Shooting-1.jpg">
-        <img src="~/assets/images/Valerie-und-Max-Shooting-2.jpg">
-        <img src="~/assets/images/Valerie-und-Max-Shooting-69.jpg">
+    <div class="carousel relative bg-dust pb-8">
+      <div ref="carousel" class="carousel__inner overflow-hidden flex flex-row flex-nowrap gap-px">
+        <img v-for="url in slides" :key="url" class="carousel__slide" :src="require(`~/assets/images/${url}`)">
       </div>
-      <a class="arrow absolute right-0 mr-4" @click="next">
-        <IconBase class="text-white transform -rotate-90 w-16"
-          icon-name="Rechts">
+      <a class="arrow absolute right-0 mr-4" @click="move()">
+        <IconBase class="text-white transform -rotate-90 w-16">
+          <IconArrow />
+        </IconBase>
+      </a>
+      <a class="arrow absolute left-0 ml-4" @click="move(-1)">
+        <IconBase class="text-white transform rotate-90 w-16">
           <IconArrow />
         </IconBase>
       </a>
@@ -52,26 +41,39 @@
 
 <script lang="ts">
 import Vue from 'vue'
+const slides = [
+  'Valerie-und-Max-3.jpg',
+  'Valerie-und-Max-1.jpg',
+  'Valerie-und-Max-2.jpg',
+  'Valerie-und-Max-4.jpg',
+  'Valerie-und-Max-54.jpg',
+  'Valerie-und-Max-701.jpg',
+  'Valerie-und-Max-703.jpg',
+  'Valerie-und-Max-712.jpg',
+  'Valerie-und-Max-713.jpg',
+  'Valerie-und-Max-730.jpg',
+  'Valerie-und-Max-Shooting-117.jpg',
+  'Valerie-und-Max-Shooting-159.jpg',
+  'Valerie-und-Max-Shooting-1.jpg',
+  'Valerie-und-Max-Shooting-2.jpg',
+  'Valerie-und-Max-Shooting-69.jpg',
+]
 export default Vue.extend({
+  data: () => ({
+    slideIndex: 0
+  }),
+  computed: {
+    slides: () => slides
+  },
   methods: {
-    next() {
-      const carousel = this.$refs.carousel
-      console.log({
-        x: carousel?.scrollLeft
+    move(offset = 1) {
+      const slides = this.$refs.carousel?.querySelectorAll('.carousel__slide') || []
+      this.slideIndex = (this.slideIndex + offset + slides.length) % slides.length
+      const { left } = slides[ this.slideIndex ]?.getBoundingClientRect()
+      this.$refs.carousel?.scrollBy({
+        top: 0,
+        left: left - 16,
       })
-      const current = carousel?.querySelector('.carousel__current')
-      const next = current.nextElementSibling
-      if (next) {
-        current.classList.toggle('carousel__current')
-        next.classList.toggle('carousel__current')
-        const { left } = next.getBoundingClientRect()
-        carousel?.scrollBy({
-          top: 0,
-          left,
-          behavior: 'smooth'
-        })
-      }
-      // console.log({next})
     }
   }
 })
@@ -82,11 +84,13 @@ export default Vue.extend({
   height: 40vh;
   &__inner {
     height: 100%;
+    scroll-behavior: smooth;
   }
   img {
     object-fit: cover;
     float: right;
     scroll-margin: 1rem;
+    scroll-snap-align: center;
   }
   .arrow {
     top: calc(50% - 2rem);
