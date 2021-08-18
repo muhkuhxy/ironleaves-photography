@@ -17,7 +17,8 @@ module.exports = {
       colors: {
         'bluegray': '#547077',
         'sunset': '#FF7964',
-        'emerald': '#234A2E'
+        'emerald': '#234A2E',
+        'dust': '#f4f6f5'
       },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'

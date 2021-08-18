@@ -10,12 +10,14 @@
             @scrollTo="scrollTo" />
         </ul>
         <ul class="social-links hidden md:flex justify-between gap-2">
-          <li v-for="link in social"
-            :key="`social-link-${link}`">
-            <IconBase :icon-name="link"
-              class="w-6">
-              <component :is="`Icon${link}`"/>
-            </IconBase>
+          <li v-for="{ name, url } in social"
+            :key="`social-link-${name}`">
+            <a :href="url" target="_blank">
+              <IconBase :icon-name="name"
+                class="w-6">
+                <component :is="`Icon${name}`"/>
+              </IconBase>
+            </a>
           </li>
         </ul>
       </nav>
@@ -38,11 +40,11 @@ const links = [
   { title: 'Kontakt', target: 'contact' }
 ]
 const social = [
-  'Facebook',
-  'Instagram',
-  'Pinterest',
-  'Whatsapp',
-  'Behance'
+  { name: 'Facebook', url: 'https://facebook.com' },
+  { name: 'Instagram', url: 'https://instagram.com/_ironleaves_' },
+  { name: 'Pinterest', url: 'https://pinterest.com' },
+  { name: 'Whatsapp', url: '' },
+  { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
 export default Vue.extend({
   computed: {

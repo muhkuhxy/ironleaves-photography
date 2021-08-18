@@ -6,7 +6,7 @@
     <Candor class="scroll-target-candor"/>
     <Spacer class="mb-16"/>
     <Looks class="scroll-target-looks"/>
-    <div class="scroll-target-stories">Stories</div>
+    <Stories class="scroll-target-stories"/>
     <div class="scroll-target-papeterie">Papeterie</div>
     <div class="scroll-target-contact">Kontakt</div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <SectionParent class="bg-emerald text-white">
-    <IlFigure class="relative">
+    <IlFigure>
       <img class="object-contain"
         src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
         alt="Happy couple">
