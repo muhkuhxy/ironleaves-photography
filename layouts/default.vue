@@ -32,10 +32,10 @@ const links = [
   { title: 'Leidenschaft', target: 'passion' },
   { title: 'Über mich', target: 'about-me' },
   { title: 'Werte', target: 'candor' },
-  { title: 'Bildlooks', target: '' },
-  { title: 'Stories', target: '' },
-  { title: 'Papeterie', target: '' },
-  { title: 'Kontakt', target: '' }
+  { title: 'Bildlooks', target: 'looks' },
+  { title: 'Stories', target: 'stories' },
+  { title: 'Papeterie', target: 'papeterie' },
+  { title: 'Kontakt', target: 'contact' }
 ]
 const social = [
   'Facebook',

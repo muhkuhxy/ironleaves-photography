@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <SectionParent>
     <figure class="relative shadow-lg">
       <img class="object-cover w-full max-h-80-vh"
         src="~/assets/images/Pfad-1.jpg"
@@ -8,7 +8,7 @@
         Herzklopfen für<br/> die Ewigkeit
       </figcaption>
     </figure>
-  </div>
+  </SectionParent>
 </template>
 
 <script lang="ts">
