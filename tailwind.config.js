@@ -28,7 +28,13 @@ module.exports = {
           ...result,
           [`${number}-vh`]: `${number}vh`
         }
-      }, {})
+      }, {}),
+      width: {
+        '3/10': '30%'
+      },
+      minWidth: {
+       '1/2': '50%',
+      }
     },
   },
   variants: {

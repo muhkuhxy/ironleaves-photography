@@ -1,6 +1,6 @@
 <template>
   <div class="btn-effect__parent">
-    <button class="btn-effect block relative py-3 px-6 appearance-none font-screaming tracking-wide">
+    <button class="btn-effect block relative py-2 px-6 min-w-1/2 appearance-none font-screaming tracking-wide">
       <slot/>
       <div class="btn-effect__horizontal"></div>
       <div class="btn-effect__vertical"></div>
