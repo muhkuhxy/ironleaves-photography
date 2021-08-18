@@ -1,6 +1,11 @@
 module.exports = {
-  // TODO: add purge files
-  purge: [],
+  purge: [
+    './components/**/*.{vue,js}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -17,9 +22,13 @@ module.exports = {
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
       },
-      maxHeight: {
-        '9/10': '90vh'
-      }
+      maxHeight: Array(9).fill().reduce((result, _, index) => {
+        const number = (index + 1) * 10
+        return {
+          ...result,
+          [`${number}-vh`]: `${number}vh`
+        }
+      }, {})
     },
   },
   variants: {

@@ -1,0 +1,77 @@
+<template>
+  <div class="btn-effect__parent">
+    <button class="btn-effect block relative py-3 px-6 appearance-none font-screaming tracking-wide">
+      <slot/>
+      <div class="btn-effect__horizontal"></div>
+      <div class="btn-effect__vertical"></div>
+    </button>
+  </div>
+</template>
+
+<style lang="postcss">
+.btn-effect {
+  &__parent {
+    --offset: 10px;
+    --border-size: 1px;
+
+    padding-left: var(--offset);
+    padding-top: var(--offset);
+  }
+
+	box-shadow: inset 0 0 0 var(--border-size) currentColor;
+
+	&__horizontal,
+	&__vertical {
+		position: absolute;
+		top: var(--horizontal-offset, 0);
+		right: var(--vertical-offset, 0);
+		bottom: var(--horizontal-offset, 0);
+		left: var(--vertical-offset, 0);
+		transition: transform .8s ease;
+		will-change: transform;
+
+		&::before {
+			content: '';
+			position: absolute;
+			border: inherit;
+		}
+	}
+
+	&__horizontal {
+		--vertical-offset: calc(var(--offset) * -1);
+
+		/* bottom: calc(var(--border-size) * -1); */
+		border-top: var(--border-size) solid currentColor;
+		border-bottom: var(--border-size) solid currentColor;
+
+		&::before {
+			top: calc(var(--vertical-offset) - var(--border-size));
+			bottom: calc(var(--vertical-offset) - var(--border-size));
+			left: calc(var(--vertical-offset) * -1);
+			right: calc(var(--vertical-offset) * -1);
+		}
+	}
+
+	&:hover &__horizontal {
+		transform: scaleX(0);
+	}
+
+	&__vertical {
+		--horizontal-offset: calc(var(--offset) * -1);
+
+		border-left: var(--border-size) solid currentColor;
+		border-right: var(--border-size) solid currentColor;
+
+		&::before {
+			top: calc(var(--horizontal-offset) * -1);
+			bottom: calc(var(--horizontal-offset) * -1);
+			left: calc(var(--horizontal-offset) - var(--border-size));
+			right: calc(var(--horizontal-offset) - var(--border-size));
+		}
+	}
+
+	&:hover &__vertical {
+		transform: scaleY(0);
+	}
+}
+</style>

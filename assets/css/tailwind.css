@@ -10,7 +10,7 @@
     src: url(~/assets/fonts/Melinda.otf)
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
 
   .font-wavy {
     line-height: 0.87;
@@ -23,7 +23,7 @@
   }
 
   :root {
-    /* TODO */
+    font-size: clamp(0.875rem, calc(0.875rem + ((1vw - 0.48rem) * 0.7813)), 1.125rem);
   }
 
   .font-screaming {

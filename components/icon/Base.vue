@@ -1,5 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg"
+    class="inline align-middle"
     viewBox="0 0 512 512"
     :aria-labelledby="iconName"
     role="presentation"
@@ -38,9 +39,3 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-svg {
-  vertical-align: middle;
-  display: inline;
-}
-</style>
