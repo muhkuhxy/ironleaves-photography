@@ -3,18 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+  /* stylelint-disable no-invalid-position-at-import-rule */
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
+
   @font-face {
     font-family: Melinda;
     font-weight: 400;
+
     /* TODO: lizenz ist nicht frei */
     src: url(~/assets/fonts/Melinda.otf)
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
-
   .font-wavy {
     line-height: 0.87;
     font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 7.9558)), 7rem);
+    /* stylelint-disable length-zero-no-unit */
     min-height: 0vw;
   }
 

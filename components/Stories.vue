@@ -21,8 +21,8 @@
         Planungen mit dabei sein.
       </p>
     </SectionContent>
-    <div ref="carousel" class="carousel relative bg-dust pb-8">
-      <div ref="carousel_track" class="carousel__track overflow-hidden flex flex-row flex-nowrap gap-px">
+    <div class="carousel relative bg-dust pb-8">
+      <div class="carousel__track overflow-hidden flex flex-row flex-nowrap gap-px">
         <img v-for="(url, index) in slides"
           :key="url"
           class="carousel__slide"
@@ -78,9 +78,9 @@ export default Vue.extend({
   },
   mounted() {
     this.updateWidth()
-    const slides: Element[] = this.$refs.carousel_track?.querySelectorAll('.carousel__slide') || []
+    const slides = Array.from(this.$el.querySelectorAll('.carousel__slide'))
     const center = (this.viewport.width) / 2
-    const startingIndex = [ ...slides ].findIndex( s => s.getBoundingClientRect().left > center )
+    const startingIndex = slides.findIndex( s => s.getBoundingClientRect().left > center )
     if (startingIndex > 0) {
       this.slideIndex = startingIndex
       this.scrollCarousel()
@@ -92,22 +92,25 @@ export default Vue.extend({
       this.scrollCarousel()
     },
     scrollCarousel() {
-      const slides = this.$refs.carousel_track?.querySelectorAll('.carousel__slide') || []
-      const slide = slides[this.slideIndex]
-      const { left, width } = slide?.getBoundingClientRect()
-      const imageCenterOffset = (this.viewport.width - width) / 2
-      const scrollOffset = (this.$refs.carousel_track?.scrollLeft + left) - imageCenterOffset
+      const track = this.$el.querySelector('.carousel__track')
+      if (track) {
+        const slides = track?.querySelectorAll('.carousel__track .carousel__slide') || []
+        const slide = slides[this.slideIndex]
+        const { left, width } = slide?.getBoundingClientRect()
+        const imageCenterOffset = (this.viewport.width - width) / 2
+        const scrollOffset = (track.scrollLeft + left) - imageCenterOffset
 
-      console.log({scrollOffset})
+        // console.log({scrollOffset})
 
-      // this.$refs.carousel_track?.style.transform = `translateX(-${scrollOffset}px)`
-      this.$refs.carousel_track?.scrollTo({
-        top: 0,
-        left: scrollOffset,
-      })
+        // this.$refs.carousel_track?.style.transform = `translateX(-${scrollOffset}px)`
+        track.scrollTo({
+          top: 0,
+          left: scrollOffset,
+        })
+      }
     },
     updateWidth() {
-      this.viewport = this.$refs.carousel?.getBoundingClientRect()
+      this.viewport = this.$el.querySelector(`.carousel`)?.getBoundingClientRect() || { width: 0 }
     },
     updateWidthAndScroll() {
       this.updateWidth()

@@ -1,6 +1,9 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  router: {
+    base: '/ironleaves-photography/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -53,7 +56,9 @@ export default {
     },
     postcss: {
       plugins: {
-        'postcss-nested': {}
+        'postcss-nested': {},
+        'postcss-calc': {},
+        'postcss-custom-properties': {}
       }
     }
   }

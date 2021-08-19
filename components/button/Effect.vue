@@ -29,12 +29,6 @@
 		left: var(--vertical-offset, 0);
 		transition: transform .8s ease;
 		will-change: transform;
-
-		&::before {
-			content: '';
-			position: absolute;
-			border: inherit;
-		}
 	}
 
 	&__horizontal {
@@ -45,6 +39,9 @@
 		border-bottom: var(--border-size) solid currentColor;
 
 		&::before {
+			content: '';
+			position: absolute;
+			border: inherit;
 			top: calc(var(--vertical-offset) - var(--border-size));
 			bottom: calc(var(--vertical-offset) - var(--border-size));
 			left: calc(var(--vertical-offset) * -1);
@@ -63,6 +60,9 @@
 		border-right: var(--border-size) solid currentColor;
 
 		&::before {
+			content: '';
+			position: absolute;
+			border: inherit;
 			top: calc(var(--horizontal-offset) * -1);
 			bottom: calc(var(--horizontal-offset) * -1);
 			left: calc(var(--horizontal-offset) - var(--border-size));
