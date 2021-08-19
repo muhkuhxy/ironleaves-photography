@@ -1,3 +1,11 @@
+const height10to90vh = Array(9).fill().reduce((result, _, index) => {
+  const number = (index + 1) * 10
+  return {
+    ...result,
+    [`${number}vh`]: `${number}vh`
+  }
+}, {})
+
 module.exports = {
   purge: [
     './components/**/*.{vue,js}',
@@ -23,13 +31,8 @@ module.exports = {
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
       },
-      maxHeight: Array(9).fill().reduce((result, _, index) => {
-        const number = (index + 1) * 10
-        return {
-          ...result,
-          [`${number}-vh`]: `${number}vh`
-        }
-      }, {}),
+      maxHeight: height10to90vh,
+      height: height10to90vh,
       width: {
         '3/10': '30%'
       },
