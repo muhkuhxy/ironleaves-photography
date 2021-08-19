@@ -21,16 +21,21 @@
         Planungen mit dabei sein.
       </p>
     </SectionContent>
-    <div class="carousel relative bg-dust pb-8">
-      <div ref="carousel" class="carousel__inner overflow-hidden flex flex-row flex-nowrap gap-px">
-        <img v-for="url in slides" :key="url" class="carousel__slide" :src="require(`~/assets/images/${url}`)">
+    <div ref="carousel" class="carousel relative bg-dust pb-8">
+      <div ref="carousel_track" class="carousel__track overflow-hidden flex flex-row flex-nowrap gap-px">
+        <img v-for="(url, index) in slides"
+          :key="url"
+          class="carousel__slide"
+          :class="{ current: index === slideIndex}"
+          :src="require(`~/assets/images/${url}`)"
+          draggable="false">
       </div>
-      <a class="arrow absolute right-0 mr-4" @click="move()">
+      <a class="arrow cursor-pointer absolute right-0 mr-4" @click="move()">
         <IconBase class="text-white transform -rotate-90 w-16">
           <IconArrow />
         </IconBase>
       </a>
-      <a class="arrow absolute left-0 ml-4" @click="move(-1)">
+      <a class="arrow cursor-pointer absolute left-0 ml-4" @click="move(-1)">
         <IconBase class="text-white transform rotate-90 w-16">
           <IconArrow />
         </IconBase>
@@ -60,20 +65,53 @@ const slides = [
 ]
 export default Vue.extend({
   data: () => ({
-    slideIndex: 0
+    slideIndex: 0,
+    viewport: {
+      width: 0
+    }
   }),
   computed: {
     slides: () => slides
   },
+  beforeMount() {
+    window.addEventListener('resize', this.updateWidthAndScroll)
+  },
+  mounted() {
+    this.updateWidth()
+    const slides: Element[] = this.$refs.carousel_track?.querySelectorAll('.carousel__slide') || []
+    const center = (this.viewport.width) / 2
+    const startingIndex = [ ...slides ].findIndex( s => s.getBoundingClientRect().left > center )
+    if (startingIndex > 0) {
+      this.slideIndex = startingIndex
+      this.scrollCarousel()
+    }
+  },
   methods: {
     move(offset = 1) {
-      const slides = this.$refs.carousel?.querySelectorAll('.carousel__slide') || []
-      this.slideIndex = (this.slideIndex + offset + slides.length) % slides.length
-      const { left } = slides[ this.slideIndex ]?.getBoundingClientRect()
-      this.$refs.carousel?.scrollBy({
+      this.slideIndex = (this.slideIndex + offset + this.slides.length) % this.slides.length
+      this.scrollCarousel()
+    },
+    scrollCarousel() {
+      const slides = this.$refs.carousel_track?.querySelectorAll('.carousel__slide') || []
+      const slide = slides[this.slideIndex]
+      const { left, width } = slide?.getBoundingClientRect()
+      const imageCenterOffset = (this.viewport.width - width) / 2
+      const scrollOffset = (this.$refs.carousel_track?.scrollLeft + left) - imageCenterOffset
+
+      console.log({scrollOffset})
+
+      // this.$refs.carousel_track?.style.transform = `translateX(-${scrollOffset}px)`
+      this.$refs.carousel_track?.scrollTo({
         top: 0,
-        left: left - 16,
+        left: scrollOffset,
       })
+    },
+    updateWidth() {
+      this.viewport = this.$refs.carousel?.getBoundingClientRect()
+    },
+    updateWidthAndScroll() {
+      this.updateWidth()
+      this.scrollCarousel()
     }
   }
 })
@@ -82,13 +120,16 @@ export default Vue.extend({
 <style scoped lang="postcss">
 .carousel {
   height: 40vh;
-  &__inner {
+  &__track {
     height: 100%;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+  }
+  .current {
+    border: 1px solid blueviolet;
   }
   img {
     object-fit: cover;
-    float: right;
     scroll-margin: 1rem;
     scroll-snap-align: center;
   }
