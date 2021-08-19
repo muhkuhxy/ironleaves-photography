@@ -1,8 +1,14 @@
 <template>
-  <SectionParent class="text-bluegray">
+  <SectionParent class="text-bluegray relative">
+    <Spacer class="mt-8" />
+    <div class="flex flex-center absolute w-full justify-center top-0 -mt-12">
+      <IconBase class="text-sunset transform w-16">
+        <IconArrow />
+      </IconBase>
+    </div>
     <SectionContent>
-      <figure class="flex justify-center">
-        <img class="w-1/2"
+      <figure class="">
+        <img class="relative mx-auto -left-4 w-1/2"
           src="~/assets/images/IMG_20190206_161314.jpg"
           alt="Tamara Loeffen Portrait">
       </figure>
