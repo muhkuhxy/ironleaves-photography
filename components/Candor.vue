@@ -8,6 +8,7 @@
         Embrace the flaws<br> and the gems
       </IlFigureCaption>
     </IlFigure>
+    <SvgSingleGrass class="w-1/4 float-right transform -translate-x-6 -translate-y-10 text-white fill-current"/>
     <SectionContent>
       <SectionHeader>
         <template #roofline>Meine Werte</template>

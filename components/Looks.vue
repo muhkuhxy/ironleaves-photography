@@ -5,10 +5,11 @@
         src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
         alt="Happy couple">
     </IlFigure>
+    <SvgThreeStraws class="text-white fill-current float-right relative right-0 mr-1 -mt-32 w-1/4" />
     <SectionContent>
       <SectionHeader>
         <template #roofline>Bildlooks</template>
-        Die Welt ist bunt – und ihr seid es auch!
+        Die Welt ist bunt &ndash; und ihr seid es auch!
       </SectionHeader>
       <Spacer class="mb-8"/>
       <p class="mb-4 max-w-prose">

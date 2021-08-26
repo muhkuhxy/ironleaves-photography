@@ -1,5 +1,8 @@
 <template>
   <SectionParent class="">
+    <IconBase class="text-sunset w-16 w-full h-16 mt-8">
+      <IconArrow />
+    </IconBase>
     <SectionHeader class="my-8 text-center">
       <template #roofline>Stories</template>
       <span class="text-bluegray">Echte Emotionen</span>
@@ -8,6 +11,7 @@
       <img class="w-5/6 border-8 border-solid border-white filter drop-shadow"
         src="~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg"
         alt="Happy couple">
+      <SvgSingleBranch class="w-1/5 text-emerald fill-current absolute right-0 transform -translate-x-12 -translate-y-32" />
       <Spacer class="mb-8"/>
       <SectionHeader class="text-center mb-6">
         Valerie&nbsp;&amp; Max
