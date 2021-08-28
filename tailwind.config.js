@@ -34,10 +34,15 @@ module.exports = {
       maxHeight: height10to90vh,
       height: height10to90vh,
       width: {
-        '3/10': '30%'
+        '3/10': '30%',
+        '4/5': '80%'
       },
       minWidth: {
        '1/2': '50%',
+       '4/5': '80%'
+      },
+      maxWidth: {
+        '9/10': '90%'
       }
     },
   },

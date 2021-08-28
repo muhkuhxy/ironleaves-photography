@@ -25,7 +25,7 @@
         Planungen mit dabei sein.
       </p>
     </SectionContent>
-    <IlCarousel class="bg-dust pb-8 h-40vh"
+    <IlSlider class="bg-dust pb-8 h-80vh"
       :slides="slides" />
   </SectionParent>
 </template>
