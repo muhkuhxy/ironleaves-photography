@@ -3,8 +3,8 @@
     <div class="swiper-wrapper">
       <div v-for="(url) in slides"
         :key="url"
-        class="swiper-slide flex items-center max-w-9/10">
-        <img class="w-full"
+        class="swiper-slide flex items-center">
+        <img class="object-contain h-full"
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
@@ -58,7 +58,7 @@ export default Vue.extend({
 <style scoped lang="postcss">
 .swiper {
   &-slide {
-    /* width: 90%; */
+    width: auto;
   }
   .arrow {
     --width: 2rem;
