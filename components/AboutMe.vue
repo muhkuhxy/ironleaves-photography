@@ -23,10 +23,7 @@
       <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis unde dolorem, quaerat dolores reprehenderit sit at quae explicabo nam itaque exercitationem dolore architecto esse harum soluta, mollitia nulla consectetur repellendus.</p>
       <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda molestiae fuga corporis, quasi quis ducimus? Corrupti soluta cupiditate voluptatum velit dicta! Minus reiciendis soluta ad cumque quaerat libero nostrum corrupti?</p>
       <Spacer class="mt-4" />
-      <button class="flex items-center gap-2">
-        <IconBase class="text-sunset transform -rotate-90 w-8"><IconArrow/></IconBase>
-        Weiterlesen &mldr;
-      </button>
+      <ButtonArrow />
       <Spacer class="mb-8"/>
       <ButtonEffect class="text-sunset">Schreibt mir!</ButtonEffect>
     </SectionContent>

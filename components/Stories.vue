@@ -7,7 +7,7 @@
       <template #roofline>Stories</template>
       <span class="text-bluegray">Echte Emotionen</span>
     </SectionHeader>
-    <SectionContent class="bg-dust text-bluegray">
+    <SectionContent class="bg-dust text-bluegray pb-6">
       <img class="w-5/6 border-8 border-solid border-white filter drop-shadow"
         src="~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg"
         alt="Happy couple">
@@ -24,6 +24,8 @@
         Papeterie durfte ich auch hautnah bei den
         Planungen mit dabei sein.
       </p>
+      <Spacer class="mt-4" />
+      <ButtonArrow />
     </SectionContent>
     <IlSlider class="bg-dust pb-8 h-50vh"
       :slides="slides" />
