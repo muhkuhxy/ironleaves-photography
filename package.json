@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
+    "@braid/vue-formulate": "^2.5.2",
+    "@braid/vue-formulate-i18n": "^1.16.0",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",

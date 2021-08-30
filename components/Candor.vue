@@ -14,7 +14,7 @@
         <template #roofline>Meine Werte</template>
         Ganz ehrlich
       </SectionHeader>
-      <Spacer class="mb-8"/>
+      <IlSpacer />
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque accusamus laboriosam cumque. Illo expedita dignissimos ducimus modi culpa cum reprehenderit quasi odio voluptatem earum, iste et ratione nesciunt? At, unde!</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam commodi corrupti nulla quisquam quas vero, possimus natus praesentium, harum consequuntur aspernatur voluptatem neque ex optio itaque ipsam iste ut rem?</p>
     </SectionContent>

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Hero class="scroll-target-top"/>
+    <Hero class="scroll-target-top" />
     <Passion class="scroll-target-passion" />
     <AboutMe class="scroll-target-about-me" />
-    <Candor class="scroll-target-candor"/>
-    <Spacer class="mb-16"/>
-    <Looks class="scroll-target-looks"/>
-    <Stories class="scroll-target-stories"/>
+    <Candor class="scroll-target-candor" />
+    <IlSpacer :m="4" />
+    <Looks class="scroll-target-looks" />
+    <Stories class="scroll-target-stories" />
     <div class="scroll-target-papeterie">Papeterie</div>
-    <div class="scroll-target-contact">Kontakt</div>
+    <Contact class="scroll-target-contact" />
   </div>
 </template>
 

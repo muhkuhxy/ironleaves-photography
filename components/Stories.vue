@@ -12,7 +12,7 @@
         src="~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg"
         alt="Happy couple">
       <SvgSingleBranch class="w-1/5 text-emerald fill-current absolute right-0 transform -translate-x-12 -translate-y-32" />
-      <Spacer class="mb-8"/>
+      <IlSpacer />
       <SectionHeader class="text-center mb-6">
         Valerie&nbsp;&amp; Max
       </SectionHeader>
@@ -24,7 +24,7 @@
         Papeterie durfte ich auch hautnah bei den
         Planungen mit dabei sein.
       </p>
-      <Spacer class="mt-4" />
+      <IlSpacer :m="1" />
       <ButtonArrow />
     </SectionContent>
     <IlSlider class="bg-dust pb-8 h-50vh"

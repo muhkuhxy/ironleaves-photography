@@ -7,12 +7,12 @@
         <template #roofline>Leidenschaft</template>
         Eure einzig&shy;artigen Momente
       </SectionHeader>
-      <Spacer class="mb-8"/>
+      <IlSpacer />
       <p class="max-w-prose">
         Seid ihr schon gespannt auf Eure Hochzeit? Ich halte eure unvergesslichen Momente, die zahlreichen Emotionen, eure ganz besondere
         intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
       </p>
-      <Spacer class="mb-8"/>
+      <IlSpacer />
       <ButtonEffect>Hier geht's zur Galerie</ButtonEffect>
     </SectionContent>
   </SectionParent>

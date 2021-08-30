@@ -12,7 +12,7 @@
         <template #roofline>Bildlooks</template>
         Die Welt ist bunt &ndash; und ihr seid es auch!
       </SectionHeader>
-      <Spacer class="mb-8"/>
+      <IlSpacer />
       <p class="mb-4 max-w-prose">
         Immerhin ist es euer besonderer Tag! Die Fotos
         sollten also euch widerspiegeln. Ihr bestimmt

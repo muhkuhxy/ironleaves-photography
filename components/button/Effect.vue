@@ -1,12 +1,26 @@
 <template>
   <div class="btn-effect__parent">
-    <button class="btn-effect block relative py-2 px-6 min-w-1/2 appearance-none font-screaming tracking-wide">
+    <button class="btn-effect block relative py-2 px-6 min-w-1/2 appearance-none font-screaming tracking-wide"
+      :type="type"
+      @click="$emit('click', $event)">
       <slot/>
       <div class="btn-effect__horizontal"></div>
       <div class="btn-effect__vertical"></div>
     </button>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  props: {
+    type: {
+      type: String,
+      default: 'button'
+    }
+  }
+})
+</script>
 
 <style lang="postcss">
 .btn-effect {
