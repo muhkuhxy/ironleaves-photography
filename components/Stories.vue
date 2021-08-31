@@ -24,7 +24,7 @@
         Papeterie durfte ich auch hautnah bei den
         Planungen mit dabei sein.
       </p>
-      <IlSpacer :m="1" />
+      <IlSpacer :ms="1" />
       <ButtonArrow />
     </SectionContent>
     <IlSlider class="bg-dust pb-8 h-50vh"

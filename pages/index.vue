@@ -4,7 +4,7 @@
     <Passion class="scroll-target-passion" />
     <AboutMe class="scroll-target-about-me" />
     <Candor class="scroll-target-candor" />
-    <IlSpacer :m="4" />
+    <IlSpacer :ms="4" />
     <Looks class="scroll-target-looks" />
     <Stories class="scroll-target-stories" />
     <div class="scroll-target-papeterie">Papeterie</div>

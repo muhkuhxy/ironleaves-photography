@@ -22,7 +22,7 @@
       <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, aspernatur aut distinctio iste saepe id incidunt, quod est sit labore facere. Quod ipsam possimus amet sit veniam et dolores omnis!</p>
       <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis unde dolorem, quaerat dolores reprehenderit sit at quae explicabo nam itaque exercitationem dolore architecto esse harum soluta, mollitia nulla consectetur repellendus.</p>
       <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda molestiae fuga corporis, quasi quis ducimus? Corrupti soluta cupiditate voluptatum velit dicta! Minus reiciendis soluta ad cumque quaerat libero nostrum corrupti?</p>
-      <IlSpacer :m="1" />
+      <IlSpacer :ms="1" />
       <ButtonArrow />
       <IlSpacer />
       <ButtonEffect class="text-sunset">Schreibt mir!</ButtonEffect>
