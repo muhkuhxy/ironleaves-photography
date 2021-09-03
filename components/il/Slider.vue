@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper relative" :class="`swiper-${id}`">
+  <div class="swiper relative overflow-x-hidden" :class="`swiper-${id}`">
     <div class="swiper-wrapper">
       <div v-for="(url) in slides"
         :key="url"
