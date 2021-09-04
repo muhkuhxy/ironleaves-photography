@@ -33,7 +33,7 @@ interface Form {
   message: string
 }
 export default Vue.extend({
-  data: () => ({
+  data: () : { form: Form } => ({
     form: {
       name: '',
       email: '',
