@@ -1,7 +1,7 @@
 <template>
   <SectionParent class="bg-emerald text-white">
     <SectionContent>
-      <SvgHeroFlower class="hero-flower w-3/10 relative float-right -mr-4 -mt-32 mb-4"/>
+      <SvgHeroFlower class="hero-flower w-3/10 relative float-right -mr-4 -mt-32 mb-4 text-white fill-current"/>
       <SectionHeader>
         <template #roofline>Leidenschaft</template>
         Eure einzig&shy;artigen Momente

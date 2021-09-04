@@ -7,7 +7,10 @@
     <nav class="relative">
       <!-- TODO: button der zwischen burger und x toggelt -->
       <div v-if="!gtMd" class="relative z-20 bg-white p-4 flex w-full justify-between">
-        <ButtonArrow @click="menuShown = !menuShown">Menü {{ menuShown ? 'schließen' : '' }}</ButtonArrow>
+        <button type="button" @click="menuShown = !menuShown">
+          <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
+          Menü
+        </button>
         <a v-for="{ name, url } in social" :key="`social-link-${name}-md`"
           :href="url" target="_blank">
           <IconBase :icon-name="name" class="w-6">
