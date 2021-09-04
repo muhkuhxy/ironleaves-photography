@@ -7,8 +7,10 @@
     <IlSpacer :ms="4" />
     <Looks class="scroll-target-looks" />
     <Stories class="scroll-target-stories" />
-    <div class="scroll-target-papeterie">Papeterie</div>
+    <Papeterie class="scroll-target-papeterie" />
     <Contact class="scroll-target-contact" />
+    <!-- TODO -->
+    <div class="scroll-target-packages">Pakete</div>
   </div>
 </template>
 

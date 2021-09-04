@@ -22,6 +22,10 @@ module.exports = {
         screaming: ['Playfair Display', 'ui-serif'],
         roofline: ['Nunito', 'ui-sans-serif']
       },
+      flex: {
+        '1/2': '1 0 50%',
+        '4/10': '1 0 40%'
+      },
       colors: {
         'bluegray': '#547077',
         'sunset': '#FF7964',
@@ -49,7 +53,7 @@ module.exports = {
         '1/4': '25%',
         '3/10': '30%',
         '1/3': '33%',
-        '1/2': '50',
+        '1/2': '50%',
         '3/4': '75%',
         '4/5': '80%',
         '7/8': `${700/8}%`

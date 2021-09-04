@@ -1,22 +1,23 @@
 <template>
-  <div class="swiper relative overflow-x-hidden" :class="`swiper-${id}`">
+<!-- TODO: slider geht kaputt wenn viewport breiter ist -->
+  <div class="swiper relative overflow-x-hidden w-full" :class="`swiper-${id}`">
     <div class="swiper-wrapper">
       <div v-for="(url) in slides"
         :key="url"
         class="swiper-slide flex items-center">
-        <img class="object-contain h-full"
+        <img class="object-cover h-full"
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <a class="arrow cursor-pointer absolute left-0 ml-6 z-20"
+    <a :class="baseStyles.link" class="left-0 translate-x-4"
       @click="swiper.slidePrev()">
-      <IconBase class="text-white transform rotate-90 w-16">
+      <IconBase :class="baseStyles.icon" class="rotate-90">
         <IconArrow />
       </IconBase>
     </a>
-    <a class="arrow cursor-pointer absolute right-0 mr-6 z-20"
+    <a :class="baseStyles.link" class="right-0 -translate-x-4"
       @click="swiper.slideNext()">
-      <IconBase class="text-white transform -rotate-90 w-16">
+      <IconBase :class="baseStyles.icon" class="-rotate-90">
         <IconArrow />
       </IconBase>
     </a>
@@ -43,6 +44,12 @@ export default Vue.extend({
       id: id++
     }
   },
+  computed: {
+    baseStyles: () => ({
+      link: 'cursor-pointer absolute bottom-0 transform -translate-y-4 z-20',
+      icon: 'text-white transform w-10'
+    })
+  },
   mounted() {
     this.swiper = new Swiper(`.swiper-${this.id}`, {
       loop: true,
@@ -58,15 +65,9 @@ export default Vue.extend({
 <style scoped lang="postcss">
 .swiper {
   &-slide {
+    /* override default swiper style */
     width: auto;
-  }
-  .arrow {
-    --width: 2rem;
-
-    top: calc(50% - var(--width));
-    svg {
-      width: var(--width);
-    }
+    height: auto;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <SectionParent class="">
-    <IconBase class="text-sunset w-16 w-full h-16 mt-8">
+    <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
     <SectionHeader class="my-8 text-center">
@@ -109,6 +109,11 @@
         </p>
       </template>
     </IlStory>
+
+    <IconBase class="text-sunset w-full h-16 mt-8 mb-12">
+      <IconArrow />
+    </IconBase>
+
   </SectionParent>
 </template>
 

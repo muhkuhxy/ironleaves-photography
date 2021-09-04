@@ -6,12 +6,21 @@
     }">
     <nav class="relative">
       <!-- TODO: button der zwischen burger und x toggelt -->
-      <div class="md:hidden relative z-20 bg-white p-4">
+      <div v-if="!gtMd" class="relative z-20 bg-white p-4 flex w-full justify-between">
         <ButtonArrow @click="menuShown = !menuShown">Menü {{ menuShown ? 'schließen' : '' }}</ButtonArrow>
+        <a v-for="{ name, url } in social" :key="`social-link-${name}-md`"
+          :href="url" target="_blank">
+          <IconBase :icon-name="name" class="w-6">
+            <component :is="`Icon${name}`" />
+          </IconBase>
+        </a>
       </div>
       <transition name="slide">
         <div v-if="menuShown || gtMd" class="absolute md:static bg-white px-4 pb-4 md:pt-4 flex flex-col md:flex-row w-full justify-between">
-          <ul class="flex flex-col md:flex-row justify-between gap-4 lg:gap-8">
+          <ul class="grid md:flex justify-between gap-4 lg:gap-8"
+            :class="{
+              'grid-cols-2 grid-rows-5 grid-flow-col': !gtMd,
+            }">
             <NavLink
               v-for="link in links"
               :key="link.title"
@@ -19,7 +28,7 @@
               @scrollTo="scrollTo"
             />
           </ul>
-          <div class="flex justify-end">
+          <div v-if="gtMd" class="flex justify-end">
             <ul class="flex gap-2">
               <li v-for="{ name, url } in social" :key="`social-link-${name}`">
                 <a :href="url" target="_blank">
@@ -49,14 +58,15 @@ const links = [
   { title: 'Bildlooks', target: 'looks' },
   { title: 'Stories', target: 'stories' },
   { title: 'Papeterie', target: 'papeterie' },
+  { title: 'Pakete', target: 'packages' },
   { title: 'Kontakt', target: 'contact' },
 ]
 const social = [
-  { name: 'Facebook', url: 'https://facebook.com' },
+  // { name: 'Facebook', url: 'https://facebook.com' },
   { name: 'Instagram', url: 'https://instagram.com/_ironleaves_' },
-  { name: 'Pinterest', url: 'https://pinterest.com' },
-  { name: 'Whatsapp', url: '' },
-  { name: 'Behance', url: 'https://behance.net/ironleaves' },
+  // { name: 'Pinterest', url: 'https://pinterest.com' },
+  // { name: 'Whatsapp', url: '' },
+  // { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
 const fullConfig = resolveConfig(tailwindConfig)
 const breakpointMd = parseInt(fullConfig.theme.screens.md, 10)

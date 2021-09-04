@@ -1,8 +1,7 @@
 <template>
   <SectionParent class="bg-emerald text-white">
     <SectionContent>
-      <SvgHeroFlower id="svg-hero-flower"
-        class="w-3/10 relative float-right -mr-4 -mt-32 mb-4"/>
+      <SvgHeroFlower class="hero-flower w-3/10 relative float-right -mr-4 -mt-32 mb-4"/>
       <SectionHeader>
         <template #roofline>Leidenschaft</template>
         Eure einzig&shy;artigen Momente
@@ -18,8 +17,8 @@
   </SectionParent>
 </template>
 
-<style>
-#svg-hero-flower {
-  shape-outside: ellipse(46.64% 84.46% at 58.66% 16.54%)
+<style lang="postcss" scoped>
+.hero-flower {
+  shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35.00%, 21.59% 65.9%, 87.94% 101.47%);
 }
 </style>
