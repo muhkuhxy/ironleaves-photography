@@ -10,7 +10,7 @@
       <IlSpacer />
       <FormulateForm v-model="form" @submit="submit">
         <FormulateInput v-for="{type, name, label, validation, inputClass, outerClass} in formSchema"
-          :key="name" 
+          :key="name"
           v-bind="{ type, name, label, validation, 'validation-name': label, 'input-class': baseClasses.input.concat(inputClass || []), 'outer-class': baseClasses.outer.concat(outerClass || []) }" />
         <IlSpacer :ms="2" />
         <div class="flex justify-center">
@@ -87,13 +87,13 @@ export default Vue.extend({
       }
     ],
     baseClasses: () => ({
-      input: ['border-2 border-solid border-color-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:border-bluegray-300 my-1'],
+      input: ['border-2 border-solid border-color-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1'],
       outer: ['mb-4']
     })
   },
   methods: {
-    submit(event: Form) {
-      console.log(event)
+    submit(/* event: Form */) {
+      // console.log(event)
     }
   }
 })

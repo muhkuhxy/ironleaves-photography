@@ -8,9 +8,8 @@
     <Looks class="scroll-target-looks" />
     <Stories class="scroll-target-stories" />
     <Papeterie class="scroll-target-papeterie" />
+    <Packages class="scroll-target-packages" />
     <Contact class="scroll-target-contact" />
-    <!-- TODO -->
-    <div class="scroll-target-packages">Pakete</div>
   </div>
 </template>
 
