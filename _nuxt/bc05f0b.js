@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[17],{444:function(t,e,l){"use strict";l.r(e);var n=l(9),component=Object(n.a)({},(function(){var t=this,e=t.$createElement;return(t._self._c||e)("figcaption",{staticClass:"caption filter drop-shadow absolute bottom-0 left-0 ml-8 mb-6"},[t._t("default")],2)}),[],!1,null,null,null);e.default=component.exports}}]);
