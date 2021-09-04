@@ -1,5 +1,10 @@
 <template>
-  <div :class="`h-${ms*4} w-full`"></div>
+  <div class="w-full" :class="{
+      'h-4': ms === 1,
+      'h-8': ms === 2,
+      'h-12': ms === 3,
+      'h-16': ms === 4,
+    }"></div>
 </template>
 
 <script lang="ts">

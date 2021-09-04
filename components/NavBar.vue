@@ -1,42 +1,46 @@
 <template>
   <header class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out filter"
     :class="{
-      '-translate-y-full delay-150': scrolledDown && !menuOpen,
-      [`duration-${duration}`]: true,
-      'drop-shadow-xl': !(scrolledDown && !menuOpen)
+      '-translate-y-full delay-150': scrolledDown && (!menuShown || gtMd),
+      'drop-shadow-xl': !(scrolledDown && (!menuShown || gtMd))
     }">
-    <nav ref="nav"
-      class="flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto p-4">
+    <nav class="relative">
       <!-- TODO: button der zwischen burger und x toggelt -->
-      <ButtonArrow class="md:hidden" @click="menuOpen = !menuOpen">Menü {{ menuOpen ? 'schließen' : '' }}</ButtonArrow>
-      <div class="flex flex-col md:flex-row w-full justify-between md:h-full transform md:transform-none transition-all ease-in-out duration-300"
-        :class="{'-translate-x-full h-0': !menuOpen, 'h-full': menuOpen}">
-        <ul class="flex flex-col md:flex-row justify-between gap-4 lg:gap-8">
-          <NavLink
-            v-for="link in links"
-            :key="link.title"
-            v-bind="link"
-            @scrollTo="scrollTo"
-          />
-        </ul>
-        <div class="flex justify-end">
-          <ul class="flex gap-2" :class="{'invisible md:visible': !menuOpen}">
-            <li v-for="{ name, url } in social" :key="`social-link-${name}`">
-              <a :href="url" target="_blank">
-                <IconBase :icon-name="name" class="w-6">
-                  <component :is="`Icon${name}`" />
-                </IconBase>
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div class="md:hidden relative z-20 bg-white p-4">
+        <ButtonArrow @click="menuShown = !menuShown">Menü {{ menuShown ? 'schließen' : '' }}</ButtonArrow>
       </div>
+      <transition name="slide">
+        <div v-if="menuShown || gtMd" class="absolute md:static bg-white px-4 pb-4 md:pt-4 flex flex-col md:flex-row w-full justify-between">
+          <ul class="flex flex-col md:flex-row justify-between gap-4 lg:gap-8">
+            <NavLink
+              v-for="link in links"
+              :key="link.title"
+              v-bind="link"
+              @scrollTo="scrollTo"
+            />
+          </ul>
+          <div class="flex justify-end">
+            <ul class="flex gap-2">
+              <li v-for="{ name, url } in social" :key="`social-link-${name}`">
+                <a :href="url" target="_blank">
+                  <IconBase :icon-name="name" class="w-6">
+                    <component :is="`Icon${name}`" />
+                  </IconBase>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </transition>
     </nav>
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '@/tailwind.config.js'
+
 let lastScrollY = 0
 const links = [
   { title: 'Leidenschaft', target: 'passion' },
@@ -54,33 +58,30 @@ const social = [
   { name: 'Whatsapp', url: '' },
   { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
+const fullConfig = resolveConfig(tailwindConfig)
+const breakpointMd = parseInt(fullConfig.theme.screens.md, 10)
+
 export default Vue.extend({
   data: () => ({
     scrolledDown: false,
-    menuOpen: false,
-    duration: 500
+    menuShown: false,
+    gtMd: false,
   }),
   computed: {
     links: () => links,
     social: () => social,
   },
-  watch: {
-    menuOpen(opening) {
-      if (opening) {
-        (this.$refs.nav as HTMLElement).classList.toggle('gap-4', true);
-      } else {
-        window.setTimeout(() =>
-          (this.$refs.nav as HTMLElement).classList.toggle('gap-4', false), this.duration)
-      }
-    }
-  },
   mounted() {
+    this.gtMd = window.innerWidth >= breakpointMd
+    window.addEventListener('resize', () => { 
+      this.gtMd = window.innerWidth >= breakpointMd
+    } )
     document.addEventListener('scroll', this.onScroll)
   },
   methods: {
     scrollTo(clazz: String) {
-      if (this.menuOpen) {
-        this.menuOpen = false;
+      if (this.menuShown) {
+        this.menuShown = false;
       }
       document
         .querySelector(`.scroll-target-${clazz}`)
@@ -93,3 +94,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+
+<style lang="postcss" scoped>
+.slide-enter-active, .slide-leave-active {
+  transition: all .3s ease-in-out;
+}
+.slide-enter, .slide-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+</style>
