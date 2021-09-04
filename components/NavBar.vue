@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out filter"
+  <header class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out duration-500 filter"
     :class="{
       '-translate-y-full delay-150': scrolledDown && (!menuShown || gtMd),
       'drop-shadow-xl': !(scrolledDown && (!menuShown || gtMd))
@@ -73,7 +73,7 @@ export default Vue.extend({
   },
   mounted() {
     this.gtMd = window.innerWidth >= breakpointMd
-    window.addEventListener('resize', () => { 
+    window.addEventListener('resize', () => {
       this.gtMd = window.innerWidth >= breakpointMd
     } )
     document.addEventListener('scroll', this.onScroll)
@@ -85,16 +85,15 @@ export default Vue.extend({
       }
       document
         .querySelector(`.scroll-target-${clazz}`)
-        ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        ?.scrollIntoView({ behavior: 'smooth' })
     },
     onScroll() {
-      this.scrolledDown = window.scrollY > lastScrollY
+      this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
     }
   }
 })
 </script>
-
 
 <style lang="postcss" scoped>
 .slide-enter-active, .slide-leave-active {
