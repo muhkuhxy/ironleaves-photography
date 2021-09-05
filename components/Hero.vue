@@ -5,7 +5,7 @@
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <figcaption class="caption filter drop-shadow text-white absolute bottom-0 left-0 ml-8 mb-6 sm:ml-16 sm:mb-12 md:ml-24 md:mb-12">
-        Herzklopfen für<br/> die Ewigkeit
+        Moments for<br>Eternity
       </figcaption>
     </figure>
   </SectionParent>

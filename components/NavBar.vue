@@ -22,7 +22,7 @@
         <div v-if="menuShown || gtMd" class="absolute md:static bg-white px-4 pb-4 md:pt-4 flex flex-col md:flex-row w-full justify-between">
           <ul class="grid md:flex justify-between gap-4 lg:gap-8"
             :class="{
-              'grid-cols-2 grid-rows-5 grid-flow-col': !gtMd,
+              'grid-cols-2 grid-rows-4 grid-flow-col': !gtMd,
             }">
             <NavLink
               v-for="link in links"

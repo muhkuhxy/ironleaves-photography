@@ -9,7 +9,7 @@
           <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-tr from-black opacity-50"></div>
         </div>
         <IlFigureCaption>
-          handmade<br>with love
+          Handmade<br>with love
         </IlFigureCaption>
       </IlFigure>
       <SvgFlowerWhite class="shape-poly w-1/4 float-right transform -translate-x-8 -translate-y-24 text-white fill-current"/>
