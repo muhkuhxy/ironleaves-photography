@@ -1,6 +1,6 @@
 <template>
   <SectionParent>
-    <div class="bg-bluegray text-white">
+    <div class="bg-bluegray text-white overflow-y-hidden">
       <IlFigure>
         <div class="relative">
           <img class="object-cover w-full"
@@ -26,7 +26,7 @@
   alles in eurem Stil.</p>
       </SectionContent>
     </div>
-    <IlSlider :slides="slides" />
+    <IlSlider class="pb-8 h-50vh" :slides="slides" />
   </SectionParent>
 </template>
 
@@ -47,6 +47,6 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 .shape-poly {
-  shape-outside: polygon(0 0, 115.60% 16.94%, 88.4% 115.26%);
+  shape-outside: polygon(68.75% 100.1%, -5.66% -5.19%, 87.5% 28.01%, 110.30% 99.89%);
 }
 </style>

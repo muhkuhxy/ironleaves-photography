@@ -9,8 +9,8 @@
     <SectionContent>
       <figure class="">
         <img class="mx-auto transform -translate-x-4 w-1/2"
-          src="~/assets/images/IMG_20190206_161314.jpg"
-          alt="Tamara Loeffen Portrait">
+          src="~/assets/images/IMG_20190206_161314@2x.jpg"
+          alt="Tamara Loeffen">
       </figure>
       <SvgFlowerGrass class="text-sunset fill-current w-1/3 float-right relative transform -translate-y-32 -translate-x-6"/>
       <IlSpacer />

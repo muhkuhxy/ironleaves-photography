@@ -4,18 +4,18 @@
     <div class="swiper-wrapper">
       <div v-for="(url) in slides"
         :key="url"
-        class="swiper-slide flex items-center">
+        class="swiper-slide flex items-center max-w-9/10">
         <img class="object-cover h-full"
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <a :class="baseStyles.link" class="left-0 translate-x-4"
+    <a :class="baseStyles.link" class="left-0 translate-x-8"
       @click="swiper.slidePrev()">
       <IconBase :class="baseStyles.icon" class="rotate-90">
         <IconArrow />
       </IconBase>
     </a>
-    <a :class="baseStyles.link" class="right-0 -translate-x-4"
+    <a :class="baseStyles.link" class="right-0 -translate-x-8"
       @click="swiper.slideNext()">
       <IconBase :class="baseStyles.icon" class="-rotate-90">
         <IconArrow />
@@ -46,7 +46,7 @@ export default Vue.extend({
   },
   computed: {
     baseStyles: () => ({
-      link: 'cursor-pointer absolute bottom-0 transform -translate-y-4 z-20',
+      link: 'cursor-pointer absolute bottom-0 transform -translate-y-10 z-20',
       icon: 'text-white transform w-10'
     })
   },
@@ -66,8 +66,8 @@ export default Vue.extend({
 .swiper {
   &-slide {
     /* override default swiper style */
+
     width: auto;
-    height: auto;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <SectionParent>
-    <IconBase class="text-sunset w-full h-16 mt-8">
+    <IconBase class="text-sunset w-full h-16">
       <IconArrow />
     </IconBase>
 
