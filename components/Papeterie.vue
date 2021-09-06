@@ -22,7 +22,7 @@
         <p>Egal was ihr braucht – ich helfe euch, ein Design zu entwickeln, was zu
   eurer Hochzeit passt. Wir finden gemeinsam heraus, wie euer Stil ist und
   dann können wir loslegen.</p>
-        <p>Von den Save-the-Date-Karten bis hin zum Dankesgeschenk machen wir
+        <p class="mt-4">Von den Save-the-Date-Karten bis hin zum Dankesgeschenk machen wir
   alles in eurem Stil.</p>
       </SectionContent>
     </div>

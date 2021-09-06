@@ -12,10 +12,21 @@
         intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
       </p>
       <IlSpacer />
-      <ButtonEffect>Hier geht's zur Galerie</ButtonEffect>
+      <ButtonEffect @click="scrollTo('stories')">Zu den Bilderstories</ButtonEffect>
     </SectionContent>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  methods: {
+    scrollTo(target: string) {
+      this.$nuxt.$emit('scrollTo', target)
+    }
+  }
+})
+</script>
 
 <style lang="postcss" scoped>
 .hero-flower {

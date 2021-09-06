@@ -6,7 +6,11 @@
         Ich freue mich auf eure Nachrichten!
       </SectionHeader>
       <IlSpacer />
-      <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, enim, dolores, provident molestias esse ab quibusdam quas quos nam pariatur nisi nemo. Nesciunt, suscipit vel? Facilis eveniet numquam recusandae sed.</div>
+      <p class="max-w-prose">
+        Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch
+        kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
+        von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
+      </p>
       <IlSpacer />
       <FormulateForm v-model="form" @submit="submit">
         <FormulateInput v-for="{type, name, label, validation, inputClass, outerClass} in formSchema"

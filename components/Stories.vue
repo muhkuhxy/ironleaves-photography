@@ -22,12 +22,20 @@
 
       <template #content>
         <p class="max-w-prose">
-          Das Pärchen, das mir wohl das größte Vertrauen
-          entgegen gebracht und mich komplett bei ihrer
-          aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten
-          Papeterie durfte ich auch hautnah bei den
-          Planungen mit dabei sein.
+          Das Pärchen, das mir wohl das größste Vertrauen entgegen gebracht und
+          mich komplett bei ihrer aufregenden Reise bis zur Hochzeit
+          mitgenommen hat. Neben der kompletten Papeterie durfte ich auch
+          hautnah bei den Planungen mit dabei sein.
+        </p>
+        <p class="max-w-prose mt-4">
+          Unvergessen wird für mich immer der Moment sein, als ich mit Valerie und
+          ihrem Vater kurz vor der Zeremonie im Standesamt vor der noch
+          geschlossenen Tür stand. Sekunden, bevor er sie zu Max führen würde.
+        </p>
+        <p class="max-w-prose mt-4">
+          Der unperfekte Wald- und Wiesenstil hat perfekt zu den beiden gepasst
+          und wurde von Anfang an auch in der Papeterie berücksichtigt. Alles wirkt
+          wie aus einem Guss.
         </p>
       </template>
     </IlStory>

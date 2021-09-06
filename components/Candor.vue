@@ -15,8 +15,23 @@
         Ganz ehrlich
       </SectionHeader>
       <IlSpacer />
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque accusamus laboriosam cumque. Illo expedita dignissimos ducimus modi culpa cum reprehenderit quasi odio voluptatem earum, iste et ratione nesciunt? At, unde!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam commodi corrupti nulla quisquam quas vero, possimus natus praesentium, harum consequuntur aspernatur voluptatem neque ex optio itaque ipsam iste ut rem?</p>
+      <p class="max-w-prose">
+        Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
+        unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
+        fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
+        Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
+        jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
+        so sollten eure Fotos auch sein.
+      </p>
+      <p class="max-w-prose mt-4">
+        Hautretuschen, bis man keine Poren mehr sehen kann, gehören einfach
+        nicht in mein Programm. Ebensowenig gestellte Posen mit
+        herausgestreckten Brüsten und aufgesetztem Lächeln. Das seid nicht ihr.
+        Ihr seid authentisch. Liebt euch so wie ihr seid.
+      </p>
+      <p class="max-w-prose mt-4">
+        Und was mir ganz wichtig ist: Habt einfach Spaß vor der Kamera! :)
+      </p>
     </SectionContent>
   </SectionParent>
 </template>
