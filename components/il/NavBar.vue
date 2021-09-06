@@ -4,7 +4,6 @@
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
     <nav class="relative">
-      <!-- TODO: button der zwischen burger und x toggelt -->
       <div v-if="!gtMd" class="relative z-20 bg-white p-4 flex w-full justify-between">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />

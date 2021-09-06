@@ -1,5 +1,4 @@
 <template>
-<!-- TODO: slider geht kaputt wenn viewport breiter ist -->
   <div class="swiper relative overflow-x-hidden w-full" :class="`swiper-${id}`">
     <div class="swiper-wrapper">
       <div v-for="(url) in slides"
