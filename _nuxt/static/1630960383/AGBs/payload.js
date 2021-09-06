@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/AGBs", {data:[{}],fetch:{},mutations:void 0});
