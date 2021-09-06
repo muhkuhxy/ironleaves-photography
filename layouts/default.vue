@@ -1,33 +1,39 @@
 <template>
-  <div>
-    <NavBar />
-    <main>
-      <Nuxt/>
+  <div class="min-h-screen flex flex-col">
+    <IlNavBar @scrollTo="scrollTo" />
+    <main class="flex-1">
+      <Nuxt @scrollTo="scrollTo" />
     </main>
-    <footer class="text-bluegray flex justify-between p-4 md:p-8 flex-col md:flex-row gap-4 text-center">
-      <ul class="flex justify-center gap-4">
-        <!-- TODO links einfügen -->
-        <li>
-          AGBs
-        </li>
-        <li>
-          Datenschutz
-        </li>
-        <li>
-          Impressum
-        </li>
-      </ul>
-      <hr>
-      <span>&copy; Tamara Loeffen &ndash; Ironleaves Design {{ year }}</span>
-    </footer>
+    <IlFooter />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+let retries = 0
 export default Vue.extend({
-  computed: {
-    year: () => new Date().getFullYear()
+  created() {
+    this.$nuxt.$on('scrollTo', this.scrollTo)
+  },
+  methods: {
+    scrollTo(clazz: string) {
+      if (this.$route.path !== '/') {
+        this.$router.push({ path: '/', query: { go: clazz } })
+      } else {
+        const target = document.querySelector(`.scroll-target-${clazz}`)
+        target?.scrollIntoView({ behavior: 'smooth' })
+        if (this.$route.query.go) {
+          if (target) {
+            // done
+            this.$router.push({ path: '/' })
+          } else if (retries < 10) {
+            window.setTimeout(() => this.scrollTo(clazz), 300)
+            retries++
+          }
+        }
+      }
+    }
+
   }
 })
 </script>

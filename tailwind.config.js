@@ -36,12 +36,13 @@ module.exports = {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
       },
       minHeight: {
+        ...height10to90vh,
         '4': '1rem',
         '8': '2rem',
         '12': '3rem',
         '16': '4rem',
         '24': '6rem',
-        '32': '8rem'
+        '32': '8rem',
       },
       height: height10to90vh,
       maxHeight: height10to90vh,

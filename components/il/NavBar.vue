@@ -1,9 +1,8 @@
 <template>
   <header class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out duration-500 filter"
-    :class="{
-      '-translate-y-full delay-150': scrolledDown && (!menuShown || gtMd),
-      'drop-shadow-xl': !(scrolledDown && (!menuShown || gtMd))
-    }">
+    :class="[scrolledDown && (!menuShown || gtMd) ?
+      '-translate-y-full delay-150' :
+      'drop-shadow-xl']">
     <nav class="relative">
       <!-- TODO: button der zwischen burger und x toggelt -->
       <div v-if="!gtMd" class="relative z-20 bg-white p-4 flex w-full justify-between">
@@ -24,12 +23,11 @@
             :class="{
               'grid-cols-2 grid-rows-4 grid-flow-col': !gtMd,
             }">
-            <NavLink
-              v-for="link in links"
-              :key="link.title"
-              v-bind="link"
-              @scrollTo="scrollTo"
-            />
+            <li
+              v-for="{title, target} in links"
+              :key="title"
+              class="cursor-pointer"
+              @click="scrollTo(target)">{{ title }}</li>
           </ul>
           <div v-if="gtMd" class="flex justify-end">
             <ul class="flex gap-2">
@@ -92,13 +90,11 @@ export default Vue.extend({
     document.addEventListener('scroll', this.onScroll)
   },
   methods: {
-    scrollTo(clazz: String) {
+    scrollTo(clazz: string) {
       if (this.menuShown) {
         this.menuShown = false;
       }
-      document
-        .querySelector(`.scroll-target-${clazz}`)
-        ?.scrollIntoView({ behavior: 'smooth' })
+      this.$emit('scrollTo', clazz)
     },
     onScroll() {
       this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY

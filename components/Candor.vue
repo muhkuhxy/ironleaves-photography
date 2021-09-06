@@ -1,7 +1,7 @@
 <template>
   <SectionParent class="bg-bluegray text-white">
     <IlFigure>
-      <img class="object-contain"
+      <img class="object-cover"
         src="~/assets/images/Gruppe_310.jpg"
         alt="Happy guests">
       <IlFigureCaption>

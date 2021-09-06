@@ -13,11 +13,11 @@
 
       <div class="bg-emerald text-white">
         <div class="">
-          <h2 class="px-8 py-4 text-xl font-bold flex justify-between"
+          <h2 class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
             @click="active = !active">
             Grafik-Paket
             <span class="md:hidden transition-all transform duration-300 ease-linear"
-              :class="{'-rotate-90': active, 'rotate-90': !active}">&#10095;</span>
+              :class="[active ? '-rotate-90' : 'rotate-90']">&#10095;</span>
           </h2>
           <transition name="grow">
             <div v-if="active" class="">
@@ -88,11 +88,8 @@ export default Vue.extend({
 }
 .grow-enter, .grow-leave-to {
   transform: scaleY(0);
-
-  /* max-height: 0; */
 }
 .grow-enter-to {
-  /* max-height: 100vh; */
   transform: scaleY(1);
 }
 </style>
