@@ -1,10 +1,10 @@
 <template>
-  <SectionParent class="bg-emerald text-white">
+  <SectionParent class="bg-emerald text-white py-12">
     <SectionContent>
-      <SvgHeroFlower class="hero-flower w-3/10 relative float-right -mr-4 -mt-32 mb-4 text-white fill-current"/>
+      <SvgHeroFlower class="hero-flower w-1/3 relative -mt-42% sm:-mt-30% float-right text-white fill-current "/>
       <SectionHeader>
         <template #roofline>Leidenschaft</template>
-        Eure einzig&shy;artigen Momente
+        Eure einzig&shy;artigen<br class="hidden md:block"> Momente
       </SectionHeader>
       <IlSpacer />
       <p class="max-w-prose">

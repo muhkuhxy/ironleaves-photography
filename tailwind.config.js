@@ -1,10 +1,14 @@
-const height10to90vh = Array(9).fill().reduce((result, _, index) => {
-  const number = (index + 1) * 10
-  return {
-    ...result,
-    [`${number}vh`]: `${number}vh`
-  }
-}, {})
+function fill(n, transform) {
+  return Array(n).fill().reduce((result, _, index) => {
+    const value = transform(index+1)
+    return {
+      ...result,
+      [value]: value
+    }
+  }, {})
+}
+
+const height10to100vh = fill(10, number => `${number * 10}vh`)
 
 module.exports = {
   purge: [
@@ -32,11 +36,14 @@ module.exports = {
         'emerald': '#234A2E',
         'dust': '#f4f6f5'
       },
+      margin: {
+        ...fill(100, number => `-${number}%`)
+      },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
       },
       minHeight: {
-        ...height10to90vh,
+        ...height10to100vh,
         '4': '1rem',
         '8': '2rem',
         '12': '3rem',
@@ -44,8 +51,8 @@ module.exports = {
         '24': '6rem',
         '32': '8rem',
       },
-      height: height10to90vh,
-      maxHeight: height10to90vh,
+      height: height10to100vh,
+      maxHeight: height10to100vh,
       minWidth: {
        '1/2': '50%',
        '4/5': '80%'
