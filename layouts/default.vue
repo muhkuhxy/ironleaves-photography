@@ -26,6 +26,7 @@ export default Vue.extend({
           if (target) {
             // done
             this.$router.push({ path: '/' })
+            retries = 0
           } else if (retries < 10) {
             window.setTimeout(() => this.scrollTo(clazz), 300)
             retries++

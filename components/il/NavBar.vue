@@ -88,7 +88,7 @@ export default Vue.extend({
   mounted() {
     this.updateBreakpoint()
     window.addEventListener('resize', this.updateBreakpoint)
-    window.addEventListener('scroll', this.onScroll)
+    document.addEventListener('scroll', this.onScroll)
   },
   methods: {
     scrollTo(clazz: string) {
