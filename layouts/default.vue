@@ -12,7 +12,7 @@
 import Vue from 'vue'
 let retries = 0
 export default Vue.extend({
-  created() {
+  mounted() {
     this.$nuxt.$on('scrollTo', this.scrollTo)
   },
   methods: {

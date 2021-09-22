@@ -55,7 +55,8 @@ export default Vue.extend({
       spaceBetween: 2,
       slidesPerView: 'auto',
       loopedSlides: this.slides.length,
-      centeredSlides: true
+      centeredSlides: true,
+      slideToClickedSlide: true
     })
   }
 })
