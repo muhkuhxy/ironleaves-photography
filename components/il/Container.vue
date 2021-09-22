@@ -18,8 +18,6 @@ export default Vue.extend({
       type: String,
       default: 'div'
     }
-  },
-  computed: {
   }
 })
 </script>

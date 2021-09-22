@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <h2 class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
-      @click="active = !active">
+      @click="open = !open">
       {{ title }}
       <span class="md:hidden transition-all transform duration-300 ease-linear"
-        :class="[active ? '-rotate-90' : 'rotate-90']">&#10095;</span>
+        :class="[open ? '-rotate-90' : 'rotate-90']">&#10095;</span>
     </h2>
-    <transition name="grow">
-      <div v-if="active">
+    <transition name="grow"
+      :css="false"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @leave="leave">
+      <div v-show="open">
         <slot name="img"></slot>
-        <div class="p-8">
+        <div class="p-8 flex flex-col gap-6">
           <slot name="content"></slot>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, doloremque. Error et facere iusto deserunt nam, possimus deleniti aut asperiores dolores architecto harum, ratione doloribus libero magnam voluptas? Necessitatibus, voluptas?</p>
-          <p class="mt-6">75 &euro; / Stunde</p>
         </div>
       </div>
     </transition>
@@ -29,19 +31,26 @@ export default Vue.extend({
     }
   },
   data: () => ({
-    active: false
-  })
+    open: false,
+  }),
+  methods: {
+    beforeEnter(el: HTMLElement) {
+      el.style.height = '0'
+    },
+    enter(el: HTMLElement, done: () => void) {
+      const height = el.scrollHeight
+      this.$velocity(el, { height: `${height}px` }, {
+        complete: () => {
+          el.style.height = 'auto'
+          done()
+        },
+      })
+    },
+    leave(el: HTMLElement, done: () => void) {
+      this.$velocity(el, { height: '0px' }, {
+        complete: done,
+      })
+    }
+  }
 })
 </script>
-
-<style lang="postcss" scoped>
-.grow-enter-active, .grow-leave-active {
-  transition: all .3s ease-in-out;
-}
-.grow-enter, .grow-leave-to {
-  transform: scaleY(0);
-}
-.grow-enter-to {
-  transform: scaleY(1);
-}
-</style>

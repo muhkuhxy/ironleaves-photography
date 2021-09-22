@@ -1,4 +1,3 @@
-
 declare module "tailwindcss/resolveConfig" {
   interface Config {
     theme: {
