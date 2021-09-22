@@ -4,7 +4,7 @@
       <img class="object-contain"
         src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
         alt="Happy couple">
-        <div class="absolute top-1/2 bottom-0 right-0 left-0 bg-gradient-to-t from-black opacity-50"></div>
+      <IlGradient :half-height="true" />
     </IlFigure>
     <SvgThreeStraws class="text-white fill-current float-right relative right-0 mr-1 -mt-32 w-1/4" />
     <SectionContent>

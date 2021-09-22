@@ -1,5 +1,5 @@
 <template>
-  <div class="il-container">
+  <IlContainer class="py-12">
     <slot/>
-  </div>
+  </IlContainer>
 </template>

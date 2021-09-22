@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <SectionContent class="bg-dust text-bluegray pb-6">
+  <div class="bg-dust text-bluegray pb-6">
+    <SectionContent>
       <slot name="image"></slot>
       <IlSpacer />
       <SectionHeader class="text-center mb-6">

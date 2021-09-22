@@ -1,5 +1,5 @@
 <template>
-  <SectionParent class="bg-emerald text-white py-12">
+  <SectionParent class="bg-emerald text-white">
     <SectionContent>
       <SvgHeroFlower class="hero-flower w-1/3 relative -mt-42% sm:-mt-30% float-right text-white fill-current "/>
       <SectionHeader>

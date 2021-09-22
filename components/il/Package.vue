@@ -9,8 +9,10 @@
     <transition name="grow">
       <div v-if="active">
         <slot name="img"></slot>
-        <div class="p-8 flex flex-col gap-6">
+        <div class="p-8">
           <slot name="content"></slot>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, doloremque. Error et facere iusto deserunt nam, possimus deleniti aut asperiores dolores architecto harum, ratione doloribus libero magnam voluptas? Necessitatibus, voluptas?</p>
+          <p class="mt-6">75 &euro; / Stunde</p>
         </div>
       </div>
     </transition>

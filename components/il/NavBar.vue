@@ -4,7 +4,7 @@
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
     <nav class="relative">
-      <div v-if="ltMd" class="relative z-20 bg-white px-8 py-4 flex w-full justify-between">
+      <IlContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
           Menü
@@ -15,12 +15,13 @@
             <component :is="`Icon${name}`" />
           </IconBase>
         </a>
-      </div>
+      </IlContainer>
       <transition name="slide">
-        <div v-if="menuShown || gtMd" class="absolute md:static bg-white px-8 lg:px-0 lg:mx-16 pb-4 md:pt-4 flex flex-col md:flex-row w-full lg:w-auto justify-between">
+        <IlContainer v-if="menuShown || gtMd"
+          :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4 flex flex-col md:flex-row justify-between">
           <ul class="grid md:flex justify-between gap-4 lg:gap-8"
             :class="{
-              'grid-cols-2 grid-rows-4 grid-flow-col': !gtMd,
+              'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
             }">
             <li
               v-for="{title, target} in links"
@@ -39,7 +40,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </IlContainer>
       </transition>
     </nav>
   </header>
@@ -85,11 +86,9 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.gtMd = window.innerWidth >= breakpointMd
-    window.addEventListener('resize', () => {
-      this.gtMd = window.innerWidth >= breakpointMd
-    })
-    document.addEventListener('scroll', this.onScroll)
+    this.updateBreakpoint()
+    window.addEventListener('resize', this.updateBreakpoint)
+    window.addEventListener('scroll', this.onScroll)
   },
   methods: {
     scrollTo(clazz: string) {
@@ -101,6 +100,9 @@ export default Vue.extend({
     onScroll() {
       this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
+    },
+    updateBreakpoint() {
+      this.gtMd = window.innerWidth >= breakpointMd
     }
   }
 })

@@ -17,12 +17,6 @@
   }
 }
 
-@layer components {
-  .il-container {
-    @apply max-w-screen-2xl mx-8 lg:mx-16 2xl:mx-auto;
-  }
-}
-
 @layer utilities {
   .caption {
     font-family: 'Flanella', serif;

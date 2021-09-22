@@ -2,12 +2,10 @@
   <SectionParent>
     <div class="bg-bluegray text-white overflow-y-hidden">
       <IlFigure>
-        <div class="relative">
-          <img class="object-cover w-full"
-            src="~/assets/images/Valerie-und-Max-712@2x.jpg"
-            alt="Happy guests">
-          <div class="absolute top-0 bottom-0 right-0 left-0 bg-gradient-to-tr from-black opacity-50"></div>
-        </div>
+        <img class="object-cover w-full"
+          src="~/assets/images/Valerie-und-Max-712@2x.jpg"
+          alt="Happy guests">
+        <IlGradient direction="top-right" />
         <IlFigureCaption>
           Handmade<br>with love
         </IlFigureCaption>
