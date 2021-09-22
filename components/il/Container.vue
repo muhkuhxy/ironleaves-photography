@@ -1,6 +1,6 @@
 <template>
   <component :is="tag"
-    class="2xl:mx-auto lg:mx-16"
+    class="2xl:mx-auto lg:mx-16 md:mx-8"
     :class="retractable ? 'w-full md:w-auto md:max-w-screen-2xl px-8 md:px-0' : 'max-w-screen-2xl mx-8'">
     <slot />
   </component>
