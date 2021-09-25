@@ -9,6 +9,7 @@ function fill(n, transform) {
 }
 
 const height10to100vh = fill(10, number => `${number * 10}vh`)
+const _1to100percent = fill(100, number => `${number}%`)
 
 module.exports = {
   purge: [
@@ -36,8 +37,12 @@ module.exports = {
         'emerald': '#234A2E',
         'dust': '#f4f6f5'
       },
+      fill: {
+        none: 'none'
+      },
       margin: {
-        ...fill(100, number => `-${number}%`)
+        ..._1to100percent,
+        ...fill(100, number => `-${number}%`),
       },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
@@ -51,20 +56,29 @@ module.exports = {
         '24': '6rem',
         '32': '8rem',
       },
-      height: height10to100vh,
+      height: {
+        ...height10to100vh,
+        overflow: '110%',
+      },
+      inset: {
+        '-5%': '-5%'
+      },
       maxHeight: height10to100vh,
       minWidth: {
        '1/2': '50%',
        '4/5': '80%'
       },
       width: {
+        '1/5': '20%',
         '1/4': '25%',
         '3/10': '30%',
         '1/3': '33%',
         '1/2': '50%',
         '3/4': '75%',
         '4/5': '80%',
-        '7/8': `${700/8}%`
+        '7/8': `${700/8}%`,
+        ..._1to100percent
+
       },
       maxWidth: {
         '9/10': '90%'

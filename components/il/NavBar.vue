@@ -19,7 +19,7 @@
       <transition name="slide">
         <IlContainer v-if="menuShown || gtMd"
           :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4 flex flex-col md:flex-row justify-between">
-          <ul class="grid md:flex justify-between gap-4 lg:gap-8"
+          <ul class="grid md:flex justify-between gap-4 md:gap-3 lg:gap-8"
             :class="{
               'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
             }">

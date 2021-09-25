@@ -1,7 +1,7 @@
 <template>
   <component :is="tag"
-    class="2xl:mx-auto lg:mx-16 md:mx-8"
-    :class="retractable ? 'w-full md:w-auto md:max-w-screen-2xl px-8 md:px-0' : 'max-w-screen-2xl mx-8'">
+    class="xl:mx-auto xl:px-16 px-8 md:px-16"
+    :class="retractable ? 'w-full md:w-auto md:max-w-screen-xl' : 'max-w-screen-xl'">
     <slot />
   </component>
 </template>
@@ -18,6 +18,6 @@ export default Vue.extend({
       type: String,
       default: 'div'
     }
-  }
+  },
 })
 </script>
