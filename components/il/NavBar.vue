@@ -18,28 +18,26 @@
       </IlContainer>
       <transition name="slide">
         <IlContainer v-if="menuShown || gtMd"
-          :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4 flex flex-col md:flex-row justify-between">
-          <ul class="grid md:flex justify-between gap-4 md:gap-3 lg:gap-8"
+          :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4">
+          <ul class="grid md:flex gap-3.5 lg:gap-8"
             :class="{
               'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
             }">
-            <li
-              v-for="{title, target} in links"
+            <li v-for="{title, target} in links"
               :key="title"
               class="cursor-pointer"
-              @click="scrollTo(target)">{{ title }}</li>
+              @click="scrollTo(target)">
+              {{ title }}
+            </li>
+            <li v-for="{ name, url } in social" :key="`social-link-${name}`"
+              class="hidden md:block ml-auto">
+              <a :href="url" target="_blank">
+                <IconBase :icon-name="name" class="w-6">
+                  <component :is="`Icon${name}`" />
+                </IconBase>
+              </a>
+            </li>
           </ul>
-          <div v-if="gtMd" class="flex justify-end">
-            <ul class="flex gap-2">
-              <li v-for="{ name, url } in social" :key="`social-link-${name}`">
-                <a :href="url" target="_blank">
-                  <IconBase :icon-name="name" class="w-6">
-                    <component :is="`Icon${name}`" />
-                  </IconBase>
-                </a>
-              </li>
-            </ul>
-          </div>
         </IlContainer>
       </transition>
     </nav>
