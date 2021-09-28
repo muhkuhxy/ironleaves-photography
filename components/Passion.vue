@@ -20,15 +20,14 @@
           <template #roofline>Leidenschaft</template>
           Eure einzig&shy;artigen<br class="hidden md:block"> Momente
         </SectionHeader>
-        <IlSpacer class="md:mt-4" />
-        <p class="max-w-xs">
+        <IlSpacer class="md:mt-4 xl:mt-8" />
+        <p class="max-w-xs xl:max-w-sm">
           Seid ihr schon gespannt auf Eure Hochzeit? Ich halte eure unvergesslichen Momente, die zahlreichen Emotionen, eure ganz besondere
           intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
         </p>
-        <IlSpacer class="md:mt-4" />
+        <IlSpacer class="md:mt-4 xl:mt-8" />
         <ButtonEffect class="" @click="scrollTo('stories')">Zu den Bilderstories</ButtonEffect>
       </SectionContent>
-      <IlSpacer class="hidden md:block" />
     </div>
   </SectionParent>
 </template>
