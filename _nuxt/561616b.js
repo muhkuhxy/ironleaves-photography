@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{436:function(n,t,e){"use strict";e.r(t);var l=e(9),component=Object(l.a)({},(function(){var n=this,t=n.$createElement;return(n._self._c||t)("IlContainer",{staticClass:"py-12"},[n._t("default")],2)}),[],!1,null,null,null);t.default=component.exports;installComponents(component,{IlContainer:e(240).default})}}]);
