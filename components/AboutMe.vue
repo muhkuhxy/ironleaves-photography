@@ -45,9 +45,7 @@
         </div>
       </div>
     </SectionContent>
-    <IconBase class="text-sunset w-full h-16 mb-4">
-      <IconArrow />
-    </IconBase>
+    <IlSpacer class="md:mt-4 xl:mt-8" />
   </SectionParent>
 </template>
 

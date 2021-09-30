@@ -1,5 +1,8 @@
 <template>
-  <SectionParent class="bg-bluegray text-white">
+  <SectionParent class="bg-bluegray text-white relative">
+    <IconBase class="text-sunset w-full h-16 absolute top-0 -mt-12 z-10">
+      <IconArrow />
+    </IconBase>
     <IlFigure>
       <img class="object-cover w-full"
         src="~/assets/images/Gruppe_310.jpg"
