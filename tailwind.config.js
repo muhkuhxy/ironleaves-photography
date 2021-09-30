@@ -9,7 +9,8 @@ function fill(n, transform) {
 }
 
 const height10to100vh = fill(10, number => `${number * 10}vh`)
-const _1to100percent = fill(100, number => `${number}%`)
+const positive1to100percent = fill(100, number => `${number}%`)
+const negative1to100percent = fill(100, number => `-${number}%`)
 
 module.exports = {
   purge: [
@@ -41,11 +42,21 @@ module.exports = {
         none: 'none'
       },
       margin: {
-        ..._1to100percent,
-        ...fill(100, number => `-${number}%`),
+        ...positive1to100percent,
+        ...negative1to100percent,
       },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
+      },
+      // top/bottom/left/right
+      inset: {
+        ...positive1to100percent,
+        ...negative1to100percent,
+      },
+      // transform
+      spacing: {
+        ...positive1to100percent,
+        ...negative1to100percent,
       },
       minHeight: {
         ...height10to100vh,
@@ -59,9 +70,6 @@ module.exports = {
       height: {
         ...height10to100vh,
         overflow: '110%',
-      },
-      inset: {
-        '-5%': '-5%'
       },
       maxHeight: height10to100vh,
       minWidth: {
@@ -77,7 +85,7 @@ module.exports = {
         '3/4': '75%',
         '4/5': '80%',
         '7/8': `${700/8}%`,
-        ..._1to100percent
+        ...positive1to100percent
 
       },
       maxWidth: {

@@ -1,5 +1,6 @@
 <template>
   <div class="w-full" :class="{
+      'h-0': ms === 0,
       'h-4': ms === 1,
       'h-8': ms === 2,
       'h-12': ms === 3,

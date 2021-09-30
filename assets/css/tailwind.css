@@ -20,7 +20,7 @@
 @layer utilities {
   .caption {
     font-family: 'Flanella', serif;
-    line-height: 0.87;
+    line-height: 0.6;
     font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 7.9558)), 7rem);
     /* stylelint-disable-next-line length-zero-no-unit */
     min-height: 0vw;
