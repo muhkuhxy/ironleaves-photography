@@ -13,7 +13,7 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "core-js": "^3.17.3",
+    "core-js": "^3.18.2",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
