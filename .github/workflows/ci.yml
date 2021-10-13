@@ -49,7 +49,7 @@ jobs:
       - name: Build 🔧
         run: npm run generate
 
-      - name: Deployv3
+      - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
