@@ -110,6 +110,7 @@ export default Vue.extend({
 .slide-enter-active, .slide-leave-active {
   transition: all .3s ease-in-out;
 }
+
 .slide-enter, .slide-leave-to {
   transform: translate3d(0, -100%, 0);
 }
