@@ -20,15 +20,18 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 rect {
-  transition: all .3s linear;
+transition: all .3s linear;
 }
+
 .open {
   .upper {
     transform: rotate(45deg) translate(10px, -10px);
   }
+
   .middle {
     opacity: 0;
   }
+
   .lower {
     transform: translate(-35px, 30px) rotate(-45deg);
   }
