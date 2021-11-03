@@ -12,8 +12,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
+
 export default Vue.extend({
   beforeRouteEnter(to, _, next) {
     next(vm => {
@@ -21,6 +22,6 @@ export default Vue.extend({
         vm.$nuxt.$emit('scrollTo', to.query.go)
       }
     })
-  },
+  }
 })
 </script>

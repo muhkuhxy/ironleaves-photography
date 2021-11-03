@@ -9,15 +9,13 @@
         <template #roofline>Pakete</template>
         Genau, was ihr braucht!
       </SectionHeader>
-    </SectionContent>
 
-      <div class="bg-emerald text-white">
+      <IlSpacer class="md:mt-4 xl:mt-8" />
 
-        <IlPackage title="Grafik-Paket">
-          <template #img>
-            <img class="object-cover w-full"
-              src="~/assets/images/Valerie-und-Max-712@2x.jpg">
-          </template>
+      <div class="bg-emerald lg:bg-transparent text-white lg:grid lg:gap-1 lg:grid-cols-4">
+
+        <IlPackage :img-src="require('~/assets/images/Valerie-und-Max-712@2x.jpg')">
+          <template #title>Grafik-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
               Ihr braucht individuelle Papeterie? Na klar! Lasst uns darüber quatschen!
@@ -29,13 +27,10 @@
           </template>
         </IlPackage>
 
-        <hr class="mx-8">
+        <hr class="mx-8 lg:hidden">
 
-        <IlPackage title="Standesamt-Paket">
-          <template #img>
-            <img class="object-cover w-full"
-              src="~/assets/images/Sandra-und-Jonas-Standesamt-Reportage-2.jpg">
-          </template>
+        <IlPackage :img-src="require('~/assets/images/Sandra-und-Jonas-Standesamt-Reportage-2.jpg')">
+          <template #title>Standesamt-Paket</template>
           <template #content>
             <p>
               Ihr braucht eigentlich nur ganz kurz fotografische Unterstützung für einen
@@ -47,13 +42,10 @@
           </template>
         </IlPackage>
 
-        <hr class="mx-8">
+        <hr class="mx-8 lg:hidden">
 
-        <IlPackage title="Reportage-Paket">
-          <template #img>
-            <img class="object-cover w-full"
-              src="~/assets/images/Valerie-und-Max-54.jpg">
-          </template>
+        <IlPackage :img-src="require('~/assets/images/Valerie-und-Max-54.jpg')">
+          <template #title>Reportage-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
               Ihr habt das volle Programm und wollt euch später auch an die
@@ -65,13 +57,10 @@
           </template>
         </IlPackage>
 
-        <hr class="mx-8">
+        <hr class="mx-8 lg:hidden">
 
-        <IlPackage title="All-inclusive-Paket">
-          <template #img>
-            <img class="object-cover w-full"
-              src="~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg">
-          </template>
+        <IlPackage :img-src="require('~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg')">
+          <template #title>All-inclusive-Paket</template>
           <template #content>
             <p>
               Es soll alles perfekt sein und zueinander passen? Ihr wollt eure
@@ -85,7 +74,9 @@
 
       </div>
 
-      <IlSpacer :ms="4" />
+    </SectionContent>
+
+    <IlSpacer :ms="4" />
 
   </SectionParent>
 </template>

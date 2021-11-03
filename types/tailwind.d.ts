@@ -2,7 +2,11 @@ declare module "tailwindcss/resolveConfig" {
   interface Config {
     theme: {
       screens: {
-        md: string
+        sm: string,
+        md: string,
+        lg: string,
+        xl: string,
+        '2xl': string,
       }
     }
   }

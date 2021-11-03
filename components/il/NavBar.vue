@@ -46,8 +46,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '@/tailwind.config.js'
+import { VueConstructor } from 'vue/types/vue'
+import { BreakpointsInjection } from '@/types/declarations'
 
 let lastScrollY = 0
 const links = [
@@ -67,25 +67,26 @@ const social = [
   // { name: 'Whatsapp', url: '' },
   // { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
-const fullConfig = resolveConfig(tailwindConfig)
-const breakpointMd = parseInt(fullConfig.theme.screens.md, 10)
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & BreakpointsInjection>).extend({
+  inject: {
+    breakpoints: 'breakpoints'
+  } as Record<keyof BreakpointsInjection, string>,
   data: () => ({
     scrolledDown: false,
     menuShown: false,
-    gtMd: false,
   }),
   computed: {
     links: () => links,
     social: () => social,
+    gtMd(): boolean {
+      return this.breakpoints.gtmd
+    },
     ltMd(): boolean {
       return !this.gtMd
     }
   },
   mounted() {
-    this.updateBreakpoint()
-    window.addEventListener('resize', this.updateBreakpoint)
     document.addEventListener('scroll', this.onScroll)
   },
   methods: {
@@ -99,9 +100,6 @@ export default Vue.extend({
       this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
     },
-    updateBreakpoint() {
-      this.gtMd = window.innerWidth >= breakpointMd
-    }
   }
 })
 </script>
