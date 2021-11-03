@@ -1,20 +1,24 @@
 <template>
   <div class="swiper relative overflow-x-hidden w-full" :class="`swiper-${id}`">
     <div class="swiper-wrapper">
-      <div v-for="(url) in slides"
+      <div
+        v-for="(url) in slides"
         :key="url"
         class="swiper-slide flex items-center max-w-9/10">
-        <img class="object-cover h-full"
+        <img
+          class="object-cover h-full"
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <a :class="baseStyles.link" class="left-0 translate-x-8"
+    <a
+      :class="baseStyles.link" class="left-0 translate-x-8"
       @click="swiper.slidePrev()">
       <IconBase :class="baseStyles.icon" class="rotate-90">
         <IconArrow />
       </IconBase>
     </a>
-    <a :class="baseStyles.link" class="right-0 -translate-x-8"
+    <a
+      :class="baseStyles.link" class="right-0 -translate-x-8"
       @click="swiper.slideNext()">
       <IconBase :class="baseStyles.icon" class="-rotate-90">
         <IconArrow />

@@ -5,7 +5,7 @@
     </IconBase>
     <SectionContent class="flex flex-col lg:flex-row items-center lg:items-start">
       <figure class="relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16">
-        <img class=""
+        <img
           src="~/assets/images/IMG_20190206_161314@2x.jpg"
           alt="Tamara Loeffen">
         <SvgFlowerGrass class="text-sunset fill-current w-45% lg:w-40% absolute bottom-0 right-0 -mb-8 md:-mb-12"/>

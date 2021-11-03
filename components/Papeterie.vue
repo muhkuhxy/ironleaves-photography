@@ -2,7 +2,8 @@
   <SectionParent>
     <div class="bg-bluegray text-white overflow-y-hidden relative">
       <IlFigure class="lg:absolute lg:w-50% 2xl:w-40% lg:inset-y-0 lg:right-0">
-        <img class="object-cover w-full h-full"
+        <img
+          class="object-cover w-full h-full"
           src="~/assets/images/Valerie-und-Max-712@2x.jpg"
           alt="Happy guests">
         <IlGradient direction="top-right" />

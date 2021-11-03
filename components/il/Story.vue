@@ -12,7 +12,8 @@
         <IlSpacer :ms="1" />
       </div>
     </SectionContent>
-    <IlSlider class="bg-dust pb-8 h-50vh"
+    <IlSlider
+      class="bg-dust pb-8 h-50vh"
       :slides="slides" />
   </div>
 </template>

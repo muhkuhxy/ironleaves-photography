@@ -1,7 +1,8 @@
 <template>
   <SectionParent class="bg-emerald text-white lg:relative">
     <IlFigure class="lg:absolute lg:w-50% 2xl:w-40% lg:inset-y-0 lg:left-0">
-      <img class="object-cover w-full h-full"
+      <img
+       class="object-cover w-full h-full"
         src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
         alt="Happy couple">
       <IlGradient :half-height="true" />

@@ -1,20 +1,26 @@
 <template>
   <div class="overflow-hidden bg-emerald">
-    <h2 v-if="!breakpoints.gtlg" class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
+    <h2
+      v-if="!breakpoints.gtlg"
+      class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
       @click="open = !open">
       <slot name="title"></slot>
-      <span class="lg:hidden transition-all transform duration-300 ease-linear"
+      <span
+        class="lg:hidden transition-all transform duration-300 ease-linear"
         :class="[open ? '-rotate-90' : 'rotate-90']">&#10095;</span>
     </h2>
-    <transition name="grow"
+    <transition
+      name="grow"
       :css="false"
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave">
-      <div v-show="open || breakpoints.gtlg"
+      <div
+        v-show="open || breakpoints.gtlg"
         class="lg:flex lg:flex-col lg:gap-8">
         <img class="object-cover w-full" :src="imgSrc">
-        <h2 v-if="breakpoints.gtlg"
+        <h2
+          v-if="breakpoints.gtlg"
           class="px-4 xl:px-8 text-3xl font-bold text-center">
           <slot name="title"></slot>
         </h2>

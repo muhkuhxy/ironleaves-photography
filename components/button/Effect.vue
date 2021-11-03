@@ -1,6 +1,7 @@
 <template>
   <div class="btn-effect__parent">
-    <button class="btn-effect block relative py-3 px-8 min-w-1/2 md:min-w-0 appearance-none font-screaming tracking-wide"
+    <button
+      class="btn-effect block relative py-3 px-8 min-w-1/2 md:min-w-0 appearance-none font-screaming tracking-wide"
       :type="type"
       @click="$emit('click', $event)">
       <slot/>
