@@ -1,5 +1,6 @@
 <template>
-  <header class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out duration-500 filter"
+  <header
+    class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out duration-500 filter"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
@@ -9,7 +10,8 @@
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
           Menü
         </button>
-        <a v-for="{ name, url } in social" :key="`social-link-${name}-md`"
+        <a
+          v-for="{ name, url } in social" :key="`social-link-${name}-md`"
           :href="url" target="_blank">
           <IconBase :icon-name="name" class="w-6">
             <component :is="`Icon${name}`" />
@@ -17,19 +19,23 @@
         </a>
       </IlContainer>
       <transition name="slide">
-        <IlContainer v-if="menuShown || gtMd"
+        <IlContainer
+          v-if="menuShown || gtMd"
           :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4">
-          <ul class="grid md:flex gap-3.5 lg:gap-8"
+          <ul
+            class="grid md:flex gap-3.5 lg:gap-8"
             :class="{
               'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
             }">
-            <li v-for="{title, target} in links"
+            <li
+              v-for="{title, target} in links"
               :key="title"
               class="cursor-pointer"
               @click="scrollTo(target)">
               {{ title }}
             </li>
-            <li v-for="{ name, url } in social" :key="`social-link-${name}`"
+            <li
+              v-for="{ name, url } in social" :key="`social-link-${name}`"
               class="hidden md:block ml-auto">
               <a :href="url" target="_blank">
                 <IconBase :icon-name="name" class="w-6">

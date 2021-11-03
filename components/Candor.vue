@@ -4,7 +4,8 @@
       <IconArrow />
     </IconBase>
     <IlFigure class="lg:absolute lg:w-50% 2xl:w-40% lg:inset-y-0 lg:right-0">
-      <img class="object-cover w-full h-full"
+      <img
+        class="object-cover w-full h-full"
         src="~/assets/images/Gruppe_310.jpg"
         alt="Happy guests">
       <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25" />

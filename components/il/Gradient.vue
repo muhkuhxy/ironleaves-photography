@@ -1,5 +1,6 @@
 <template>
-  <div class="absolute top-0 bottom-0 right-0 left-0 from-black"
+  <div
+    class="absolute top-0 bottom-0 right-0 left-0 from-black"
     :class="{
       'bg-gradient-to-tr': direction === 'top-right',
       'bg-gradient-to-br': direction === 'bottom-right',

@@ -13,9 +13,10 @@
       </p>
       <IlSpacer />
       <FormulateForm v-model="form" @submit="submit">
-        <FormulateInput v-for="{type, name, label, validation, inputClass, outerClass} in formSchema"
+        <FormulateInput
+          v-for="{type, name, label, validation, inputClass} in formSchema"
           :key="name"
-          v-bind="{ type, name, label, validation, 'validation-name': label, 'input-class': baseClasses.input.concat(inputClass || []), 'outer-class': baseClasses.outer.concat(outerClass || []) }" />
+          v-bind="{ type, name, label, validation, 'validation-name': label, 'input-class': baseClasses.input.concat(inputClass || []), 'outer-class': baseClasses.outer }" />
         <IlSpacer :ms="2" />
         <div class="flex justify-center">
           <ButtonEffect type="submit">Abschicken</ButtonEffect>
