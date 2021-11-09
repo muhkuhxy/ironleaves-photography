@@ -1,27 +1,40 @@
 <template>
   <SectionParent class="bg-sunset text-white">
-    <SectionContent>
-      <SectionHeader>
-        <template #roofline><span class="text-white">Kontakt</span></template>
-        Ich freue mich auf eure Nachrichten!
-      </SectionHeader>
-      <IlSpacer />
-      <p class="max-w-prose">
-        Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch
-        kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
-        von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
-      </p>
-      <IlSpacer />
-      <FormulateForm v-model="form" @submit="submit">
-        <FormulateInput
-          v-for="{type, name, label, validation, inputClass} in formSchema"
-          :key="name"
-          v-bind="{ type, name, label, validation, 'validation-name': label, 'input-class': baseClasses.input.concat(inputClass || []), 'outer-class': baseClasses.outer }" />
-        <IlSpacer :ms="2" />
-        <div class="flex justify-center">
-          <ButtonEffect type="submit">Abschicken</ButtonEffect>
-        </div>
-      </FormulateForm>
+    <SectionContent class="flex">
+      <div class="xl:w-1/2 flex-initial">
+        <SectionHeader>
+          <template #roofline><span class="text-white">Kontakt</span></template>
+          Ich freue mich auf eure Nachrichten!
+        </SectionHeader>
+        <IlSpacer />
+        <p class="max-w-prose">
+          Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch
+          kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
+          von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
+        </p>
+        <IlSpacer class="md:mt-4 xl:mt-8" />
+        <FormulateForm v-model="form" class="grid gap-2 grid-cols-1 sm:grid-cols-2" @submit="submit">
+          <FormulateInput
+            v-for="{type, name, label, validation, inputClass = [], outerClass = []} in formSchema"
+            :key="name"
+            v-bind="{
+              type,
+              name,
+              label,
+              validation,
+              'validation-name': label,
+              'input-class': baseClasses.input.concat(inputClass || []),
+              'outer-class': outerClass,
+            }" />
+          <IlSpacer class="col-span-full" :ms="2" />
+          <div class="col-span-full justify-self-center">
+            <ButtonEffect type="submit">Abschicken</ButtonEffect>
+          </div>
+        </FormulateForm>
+      </div>
+      <div class="hidden xl:block mx-auto">
+        <SvgHeroFlower class="h-full text-white fill-current transform translate-x-12"/>
+      </div>
     </SectionContent>
   </SectionParent>
 </template>
@@ -88,12 +101,12 @@ export default Vue.extend({
         name: 'message',
         type: 'textarea',
         label: 'Nachricht',
-        inputClass: ['min-h-24']
+        inputClass: ['min-h-24'],
+        outerClass: ['col-span-full']
       }
     ],
     baseClasses: () => ({
       input: ['border-2 border-solid border-color-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1'],
-      outer: ['mb-4']
     })
   },
   methods: {
