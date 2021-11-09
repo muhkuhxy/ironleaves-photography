@@ -6,6 +6,8 @@ export interface Breakpoints {
   gt2xl: boolean
 }
 
-export interface BreakpointsInjection {
-  breakpoints: Breakpoints
+export interface IlInjection {
+  $il: {
+    breakpoints: Breakpoints
+  }
 }

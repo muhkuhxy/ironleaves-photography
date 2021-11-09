@@ -53,7 +53,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
-import { BreakpointsInjection } from '@/types/declarations'
+import { IlInjection } from '@/types/declarations'
 
 let lastScrollY = 0
 const links = [
@@ -74,10 +74,10 @@ const social = [
   // { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
 
-export default (Vue as VueConstructor<Vue & BreakpointsInjection>).extend({
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
-    breakpoints: 'breakpoints'
-  } as Record<keyof BreakpointsInjection, string>,
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
   data: () => ({
     scrolledDown: false,
     menuShown: false,
@@ -86,7 +86,7 @@ export default (Vue as VueConstructor<Vue & BreakpointsInjection>).extend({
     links: () => links,
     social: () => social,
     gtMd(): boolean {
-      return this.breakpoints.gtmd
+      return this.$il.breakpoints.gtmd
     },
     ltMd(): boolean {
       return !this.gtMd

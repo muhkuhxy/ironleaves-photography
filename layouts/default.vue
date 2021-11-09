@@ -24,7 +24,11 @@ let retries = 0
 
 export default Vue.extend({
   provide() {
-    return { breakpoints: this.breakpoints }
+    return {
+      '$il': {
+        breakpoints: this.breakpoints
+      }
+    }
   },
   data: () => ({
     breakpoints: {
@@ -37,7 +41,7 @@ export default Vue.extend({
   }),
   mounted() {
     this.$nuxt.$on('scrollTo', this.scrollTo)
-    this.updateBreakpoints()
+    this.$nextTick(() => this.updateBreakpoints())
     window.addEventListener('resize', this.updateBreakpoints)
   },
   methods: {
@@ -66,7 +70,6 @@ export default Vue.extend({
         }
       }
     }
-
   }
 })
 </script>

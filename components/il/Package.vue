@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden bg-emerald">
     <h2
-      v-if="!breakpoints.gtlg"
+      v-show="!gtLg"
       class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
       @click="open = !open">
       <slot name="title"></slot>
@@ -12,15 +12,16 @@
     <transition
       name="grow"
       :css="false"
+      :appear="true"
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave">
       <div
-        v-show="open || breakpoints.gtlg"
+        v-show="gtLg || open"
         class="lg:flex lg:flex-col lg:gap-8">
         <img class="object-cover w-full" :src="imgSrc">
         <h2
-          v-if="breakpoints.gtlg"
+          v-show="gtLg"
           class="px-4 xl:px-8 text-3xl font-bold text-center">
           <slot name="title"></slot>
         </h2>
@@ -35,12 +36,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
-import { BreakpointsInjection } from '@/types/declarations'
+import { IlInjection } from '@/types/declarations'
 
-export default (Vue as VueConstructor<Vue & BreakpointsInjection>).extend({
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
-    breakpoints: 'breakpoints'
-  } as Record<keyof BreakpointsInjection, string>,
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
   props: {
     imgSrc: {
       type: String,
@@ -50,6 +51,11 @@ export default (Vue as VueConstructor<Vue & BreakpointsInjection>).extend({
   data: () => ({
     open: false,
   }),
+  computed: {
+    gtLg(): boolean {
+      return this.$il.breakpoints.gtlg
+    }
+  },
   methods: {
     beforeEnter(el: HTMLElement) {
       el.style.height = '0'
