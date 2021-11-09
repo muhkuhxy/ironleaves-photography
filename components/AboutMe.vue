@@ -3,7 +3,7 @@
     <IconBase class="text-sunset w-full h-16 transform -translate-y-4">
       <IconArrow />
     </IconBase>
-    <SectionContent class="flex flex-col lg:flex-row items-center lg:items-start">
+    <SectionContent class="flex flex-col lg:flex-row items-center">
       <figure class="relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16">
         <img
           src="~/assets/images/IMG_20190206_161314@2x.jpg"

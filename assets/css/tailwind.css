@@ -28,6 +28,7 @@
 
   h1 {
     .roofline {
+      letter-spacing: 0.15em;
       font-size: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.663)), 1.375rem);
       /* stylelint-disable-next-line length-zero-no-unit */
       min-height: 0vw;

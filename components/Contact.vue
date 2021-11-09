@@ -13,24 +13,25 @@
           von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
         </p>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <FormulateForm v-model="form" class="grid gap-2 grid-cols-1 sm:grid-cols-2" @submit="submit">
+        <FormulateForm v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2" @submit="submit">
           <FormulateInput
             v-for="{type, name, label, validation, inputClass = [], outerClass = []} in formSchema"
             :key="name"
             v-bind="{
               type,
               name,
-              label,
+              label: (validation || '').includes('required') ? `${label}*` : label,
               validation,
               'validation-name': label,
               'input-class': baseClasses.input.concat(inputClass || []),
               'outer-class': outerClass,
+              'errors-class': baseClasses.errors
             }" />
-          <IlSpacer class="col-span-full" :ms="2" />
-          <div class="col-span-full justify-self-center">
+        </FormulateForm>
+        <IlSpacer class="md:mt-4 xl:mt-8" />
+        <div class="col-span-full justify-self-center">
             <ButtonEffect type="submit">Abschicken</ButtonEffect>
           </div>
-        </FormulateForm>
       </div>
       <div class="hidden xl:block mx-auto">
         <SvgHeroFlower class="h-full text-white fill-current transform translate-x-12"/>
@@ -80,7 +81,6 @@ export default Vue.extend({
         name: 'phone',
         type: 'text',
         label: 'Telefonnummer',
-        validation: 'required',
       },
       {
         name: 'kind',
@@ -101,12 +101,14 @@ export default Vue.extend({
         name: 'message',
         type: 'textarea',
         label: 'Nachricht',
+        validation: 'required',
         inputClass: ['min-h-24'],
         outerClass: ['col-span-full']
       }
     ],
     baseClasses: () => ({
       input: ['border-2 border-solid border-color-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1'],
+      errors: ['text-sm']
     })
   },
   methods: {
