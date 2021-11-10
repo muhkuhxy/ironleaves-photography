@@ -15,7 +15,7 @@
         <SvgHeroLine2 class="hidden sm:block absolute transform md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-29% md:mr-31% lg:mr-34%" />
         <SvgHeroLine3 class="hidden lg:block absolute text-white opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-1%" />
       </IlContainer>
-      <SectionContent>
+      <SectionContent class="relative">
         <SvgHeroFlower class="hero-flower w-1/3 lg:w-1/4 xl:w-23% relative -mt-30% md:-mt-22% lg:-mt-17% xl:-mt-16% lg:mr-10% float-right text-white fill-current "/>
         <SectionHeader>
           <template #roofline>Leidenschaft</template>

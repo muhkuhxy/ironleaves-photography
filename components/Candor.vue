@@ -17,7 +17,7 @@
       <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
       <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
     </div>
-    <SectionContent class="">
+    <SectionContent class="relative">
       <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
         <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-30% lg:w-15% xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-37% mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
         <SectionHeader>

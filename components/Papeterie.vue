@@ -16,7 +16,7 @@
         <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
         <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
       </div>
-      <SectionContent>
+      <SectionContent class="relative z-20">
         <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
           <SectionHeader>
             <template #roofline>Papeterie</template>
