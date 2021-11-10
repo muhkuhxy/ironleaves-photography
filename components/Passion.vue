@@ -5,6 +5,7 @@
         class="object-cover w-full max-h-80vh"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
+      <IlGradient :half-height="true" />
       <IlFigureCaption>
         Moments for<br>Eternity
       </IlFigureCaption>
