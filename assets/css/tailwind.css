@@ -21,9 +21,12 @@
   .caption {
     font-family: 'Flanella', serif;
     line-height: 0.6;
-    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 7.9558)), 7rem);
-    /* stylelint-disable-next-line length-zero-no-unit */
-    min-height: 0vw;
+
+    /* 4rem(64px) @ 23.4375rem(375px) increasing to 10rem(160px) @ 80rem(1280px) */
+    font-size: clamp(4rem, calc(4rem + ((1vw - 0.234375rem) * 10.6077)), 10rem);
+
+    /* Safari resize fix */
+    min-height: 0;
   }
 
   h1 {
@@ -36,14 +39,23 @@
 
     .headline {
       font-family: 'Playfair Display', serif;
+
+      /* 2rem @ 375px increasing to 4rem @ 1280px */
       font-size: clamp(2rem, calc(2rem + ((1vw - 0.234375rem) * 3.5359)), 4rem);
       line-height: 1;
-      /* stylelint-disable-next-line length-zero-no-unit */
-      min-height: 0vw;
+
+      /* Safari resize fix */
+      min-height: 0;
     }
   }
 
   h2 {
     font-family: 'Playfair Display', serif;
+
+    /* 1.5rem(24px) @ 23.4375rem(375px) increasing to 2rem(32px) @ 80rem(1280px) */
+    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.234375rem) * 0.884)), 2rem);
+
+    /* Safari resize fix */
+    min-height: 0;
   }
 }
