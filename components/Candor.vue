@@ -17,31 +17,33 @@
       <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
       <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
     </div>
-    <SectionContent class="relative">
+    <SectionContent class="relative z-10">
       <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
-        <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-30% lg:w-15% xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-37% mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
+        <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-30% lg:w-15% xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-37% 2xl:mr-28% mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
           Ganz ehrlich
         </SectionHeader>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <p class="max-w-prose">
-          Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
-          unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
-          fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
-          Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
-          jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
-          so sollten eure Fotos auch sein.
-        </p>
-        <p class="max-w-prose mt-4">
-          Hautretuschen, bis man keine Poren mehr sehen kann, gehören einfach
-          nicht in mein Programm. Ebensowenig gestellte Posen mit
-          herausgestreckten Brüsten und aufgesetztem Lächeln. Das seid nicht ihr.
-          Ihr seid authentisch. Liebt euch so wie ihr seid.
-        </p>
-        <p class="max-w-prose mt-4">
-          Und was mir ganz wichtig ist: Habt einfach Spaß vor der Kamera! :)
-        </p>
+        <div class="max-w-prose flex flex-col gap-4">
+          <p>
+            Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
+            unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
+            fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
+            Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
+            jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
+            so sollten eure Fotos auch sein.
+          </p>
+          <p>
+            Hautretuschen, bis man keine Poren mehr sehen kann, gehören einfach
+            nicht in mein Programm. Ebensowenig gestellte Posen mit
+            herausgestreckten Brüsten und aufgesetztem Lächeln. Das seid nicht ihr.
+            Ihr seid authentisch. Liebt euch so wie ihr seid.
+          </p>
+          <p>
+            Und was mir ganz wichtig ist: Habt einfach Spaß vor der Kamera! :)
+          </p>
+        </div>
       </div>
     </SectionContent>
   </SectionParent>
