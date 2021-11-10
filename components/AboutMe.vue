@@ -10,26 +10,26 @@
           alt="Tamara Loeffen">
         <SvgFlowerGrass class="text-sunset fill-current w-45% lg:w-40% absolute bottom-0 right-0 -mb-8 md:-mb-12"/>
       </figure>
-      <div class="lg:flex-initial lg:w-1/2 lg:mt-8">
-        <SectionHeader class="">
+      <div class="lg:flex-initial lg:w-1/2 md:mt-8 text-center lg:text-left">
+        <SectionHeader class="max-w-prose">
           <template #roofline>Über mich</template>
           Hoch&shy;zeits&shy;foto&shy;grafin&nbsp;&amp; Gestalterin
         </SectionHeader>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <div class="lg:pl-8 xl:lp-16 max-w-prose">
-          <p class="">
+        <div class="lg:pl-8 xl:lp-16 max-w-prose flex flex-col gap-4">
+          <p>
             Ich freue mich, euch kennenzulernen. Mein Name ist Tamara und ich
             komme aus Bayreuth. Seit ein paar Monaten wohne ich in der
             wunderschönen Eifel in Nordrhein-Westfalen bei Monschau.
           </p>
-          <p class="mt-4">
+          <p>
             Ich habe den wunderbaren Beruf der Mediengestalterin gelernt und liebe
             es, mich kreativ auszutoben. Neben dem Marketing habe ich mich daher
             auch auf Hochzeits-Papeterie spezialisiert. Ich freue mich immer wieder
             über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen,
             damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
           </p>
-          <p class="mt-4">
+          <p>
             Auf Hochzeiten fotografiere ich besonders gerne, weil mich die
             Emotionen, die Aufregung und die ganz intimen und einzigartigen
             Momente immer wieder in den Bann ziehen. Ich liebe Bilder, mit denen
@@ -39,7 +39,7 @@
             zugewendet haben und das feiern möchten.
           </p>
           <IlSpacer class="md:mt-4 xl:mt-8" />
-          <ButtonEffect class="text-sunset" @click="scrollTo('contact')">
+          <ButtonEffect class="text-sunset mx-auto lg:mx-0" @click="scrollTo('contact')">
             Schreibt mich gerne an!
           </ButtonEffect>
         </div>

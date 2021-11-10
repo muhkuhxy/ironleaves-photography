@@ -1,13 +1,11 @@
 <template>
   <div class="bg-dust text-bluegray pb-6">
-    <SectionContent class="lg:flex items-center lg:gap-8">
+    <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
       <slot name="image"></slot>
-      <IlSpacer class="sm:mt-4 xl:mt-8 lg:hidden" />
-      <div class="lg:w-1/2 flex-initial">
-        <h2 class="font-bold text-center lg:text-left">
+      <div class="lg:w-1/2 flex-initial text-center lg:text-left flex flex-col gap-4 max-w-prose mx-auto lg:mx-0">
+        <h2 class="font-bold">
           <slot name="title"></slot>
         </h2>
-        <IlSpacer />
         <slot name="content"></slot>
         <IlSpacer :ms="1" />
       </div>
