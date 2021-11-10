@@ -25,7 +25,7 @@
           <p>
             Ich habe den wunderbaren Beruf der Mediengestalterin gelernt und liebe
             es, mich kreativ auszutoben. Neben dem Marketing habe ich mich daher
-            auch auf Hochzeits-Papeterie spezialisiert. Ich freue mich immer wieder
+            auch auf <IlLink target="papeterie">Hochzeits-Papeterie</IlLink> spezialisiert. Ich freue mich immer wieder
             über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen,
             damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
           </p>
