@@ -1,7 +1,7 @@
 <template>
   <SectionParent class="bg-sunset text-white">
-    <SectionContent class="flex">
-      <div class="xl:w-1/2 flex-initial">
+    <SectionContent class="grid grid-cols-1 xl:grid-cols-2">
+      <div class="">
         <SectionHeader>
           <template #roofline><span class="text-white">Kontakt</span></template>
           Ich freue mich auf eure Nachrichten!
@@ -29,13 +29,14 @@
             }" />
         </FormulateForm>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <div class="col-span-full justify-self-center">
-            <ButtonEffect type="submit">Abschicken</ButtonEffect>
-          </div>
       </div>
-      <div class="hidden xl:block mx-auto">
-        <SvgHeroFlower class="h-full text-white fill-current transform translate-x-12"/>
+      <div class="hidden xl:block w-1/2 place-self-center row-span-2">
+        <SvgHeroFlower class="fill-current transform translate-x-12"/>
       </div>
+      <ButtonEffect
+        type="submit">
+        Abschicken
+      </ButtonEffect>
     </SectionContent>
   </SectionParent>
 </template>
