@@ -5,6 +5,8 @@
       'bg-gradient-to-tr': direction === 'top-right',
       'bg-gradient-to-br': direction === 'bottom-right',
       'bg-gradient-to-t': direction === 'top',
+      'bg-gradient-to-r': direction === 'right',
+      'bg-gradient-to-l': direction === 'left',
       'top-1/2': halfHeight,
       'top-0': !halfHeight,
       'opacity-25': halfOpacity,

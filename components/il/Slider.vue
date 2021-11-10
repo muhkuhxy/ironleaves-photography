@@ -10,20 +10,26 @@
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <a
-      :class="baseStyles.link" class="left-0 translate-x-8"
-      @click="swiper.slidePrev()">
-      <IconBase :class="baseStyles.icon" class="rotate-90">
-        <IconArrow />
-      </IconBase>
-    </a>
-    <a
-      :class="baseStyles.link" class="right-0 -translate-x-8"
-      @click="swiper.slideNext()">
-      <IconBase :class="baseStyles.icon" class="-rotate-90">
-        <IconArrow />
-      </IconBase>
-    </a>
+    <div class="absolute mb-8 bottom-0 top-0 left-0 flex items-end z-20">
+      <IlGradient direction="right" />
+      <a
+        class="cursor-pointer mb-2 text-white ml-8 mr-4"
+        @click="swiper.slidePrev()">
+        <IconBase :class="baseStyles.icon" class="rotate-90 w-10 lg:w-16">
+          <IconArrow />
+        </IconBase>
+      </a>
+    </div>
+    <div class="absolute mb-8 bottom-0 top-0 right-0 flex items-end z-20">
+      <IlGradient direction="left" />
+      <a
+        class="cursor-pointer mb-2 text-white mr-8 ml-4 "
+        @click="swiper.slideNext()">
+        <IconBase :class="baseStyles.icon" class="-rotate-90 w-10 lg:w-16">
+          <IconArrow />
+        </IconBase>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -49,8 +55,8 @@ export default Vue.extend({
   },
   computed: {
     baseStyles: () => ({
-      link: 'cursor-pointer absolute bottom-0 transform -translate-y-10 z-20',
-      icon: 'text-white transform w-10'
+      link: '',
+      icon: 'text-white transform w-10 lg:w-16'
     })
   },
   mounted() {
