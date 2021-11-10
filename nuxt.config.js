@@ -28,7 +28,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/velocity.client.js'
+    '~/plugins/velocity.client.js',
+    '~/plugins/click-outside.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

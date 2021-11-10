@@ -21,7 +21,9 @@
       <transition name="slide">
         <IlContainer
           v-if="menuShown || gtMd"
-          :retractable="true" class="absolute md:static bg-white pb-4 md:pt-4">
+          v-click-outside="clickOutside"
+          :retractable="true"
+          class="bg-white pb-4 md:pt-4">
           <ul
             class="grid md:flex gap-3.5 lg:gap-8"
             :class="{
@@ -30,7 +32,7 @@
             <li
               v-for="{title, target} in links"
               :key="title"
-              class="cursor-pointer"
+              class="cursor-pointer nav-link relative after:h-0 md:after:h-px after:bg-bluegray"
               @click="scrollTo(target)">
               {{ title }}
             </li>
@@ -106,6 +108,11 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
     },
+    clickOutside() {
+      if (this.menuShown) {
+        this.menuShown = false
+      }
+    }
   }
 })
 </script>
@@ -117,5 +124,19 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 
 .slide-enter, .slide-leave-to {
   transform: translate3d(0, -100%, 0);
+}
+
+.nav-link {
+  &::after {
+    position: absolute;
+    bottom: 3px;
+    width: 0;
+    left: 0;
+    transition: all .3s ease-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }
 </style>
