@@ -3,7 +3,7 @@
     <h2
       v-show="!gtLg"
       class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
-      @click="open = !open">
+      @click="$emit('change')">
       <slot name="title"></slot>
       <span
         class="lg:hidden transition-all transform duration-300 ease-linear"
@@ -46,11 +46,12 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     imgSrc: {
       type: String,
       required: true
+    },
+    open: {
+      type: Boolean,
+      required: true
     }
   },
-  data: () => ({
-    open: false,
-  }),
   computed: {
     gtLg(): boolean {
       return this.$il.breakpoints.gtlg

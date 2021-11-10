@@ -14,7 +14,10 @@
 
       <div class="bg-emerald lg:bg-transparent text-white lg:grid lg:gap-1 lg:grid-cols-4">
 
-        <IlPackage :img-src="require('~/assets/images/Valerie-und-Max-712@2x.jpg')">
+        <IlPackage
+          :img-src="require('~/assets/images/Valerie-und-Max-712@2x.jpg')"
+          :open="open[0]"
+          @change="toggle(0)">
           <template #title>Grafik-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
@@ -29,7 +32,10 @@
 
         <hr class="mx-8 lg:hidden">
 
-        <IlPackage :img-src="require('~/assets/images/Sandra-und-Jonas-Standesamt-Reportage-2.jpg')">
+        <IlPackage
+          :img-src="require('~/assets/images/Sandra-und-Jonas-Standesamt-Reportage-2.jpg')"
+          :open="open[1]"
+          @change="toggle(1)">
           <template #title>Standesamt-Paket</template>
           <template #content>
             <p>
@@ -44,7 +50,10 @@
 
         <hr class="mx-8 lg:hidden">
 
-        <IlPackage :img-src="require('~/assets/images/Valerie-und-Max-54.jpg')">
+        <IlPackage
+          :img-src="require('~/assets/images/Valerie-und-Max-54.jpg')"
+          :open="open[2]"
+          @change="toggle(2)">
           <template #title>Reportage-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
@@ -59,7 +68,10 @@
 
         <hr class="mx-8 lg:hidden">
 
-        <IlPackage :img-src="require('~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg')">
+        <IlPackage
+          :img-src="require('~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg')"
+          :open="open[3]"
+          @change="toggle(3)">
           <template #title>All-inclusive-Paket</template>
           <template #content>
             <p>
@@ -84,5 +96,13 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data: () => ({
+    open: [false, false, false, false]
+  }),
+  methods: {
+    toggle(index: number) {
+      this.open = this.open.map((open: boolean, i: number) => !open && i === index)
+    }
+  }
 })
 </script>
