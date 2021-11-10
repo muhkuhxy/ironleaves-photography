@@ -9,7 +9,7 @@
         src="~/assets/images/Gruppe_310.jpg"
         alt="Happy guests">
       <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25" />
-      <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 transform lg:-translate-x-40% lg:w-max">
+      <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 transform lg:-translate-x-40% lg:w-max z-20">
         Embrace the flaws<br class=""> and the gems
       </IlFigureCaption>
     </IlFigure>
