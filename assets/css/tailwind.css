@@ -22,8 +22,13 @@
     font-family: 'Flanella', serif;
     line-height: 0.6;
 
-    /* 4rem(64px) @ 23.4375rem(375px) increasing to 10rem(160px) @ 80rem(1280px) */
-    font-size: clamp(4rem, calc(4rem + ((1vw - 0.234375rem) * 10.6077)), 10rem);
+    &.hero {
+      /* 4rem(64px) @ 23.4375rem(375px) increasing to 10rem(160px) @ 80rem(1280px) */
+      font-size: clamp(4rem, calc(4rem + ((1vw - 0.234375rem) * 10.6077)), 10rem);
+    }
+
+    /* 2.5rem @ 375px to 7rem @ 1280px */
+    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 7.9558)), 7rem);
 
     /* Safari resize fix */
     min-height: 0;

@@ -13,6 +13,7 @@ const positive1to100percent = fill(100, number => `${number}%`)
 const negative1to100percent = fill(100, number => `-${number}%`)
 
 module.exports = {
+  mode: 'jit',
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
