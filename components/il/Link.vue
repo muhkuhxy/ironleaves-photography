@@ -1,5 +1,5 @@
 <template>
-  <span class="cursor-pointer underline" @click="scroll">
+  <span class="cursor-pointer underline" @click="click">
     <slot></slot>
   </span>
 </template>
@@ -10,12 +10,16 @@ export default Vue.extend({
   props: {
     target: {
       type: String,
-      required: true,
+      default: '',
     }
   },
   methods: {
-    scroll() {
-      this.$nuxt.$emit('scrollTo', this.target)
+    click() {
+      if (this.target) {
+        this.$nuxt.$emit('scrollTo', this.target)
+      } else {
+        this.$emit('click')
+      }
     },
   },
 })

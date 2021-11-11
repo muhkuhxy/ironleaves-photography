@@ -41,12 +41,24 @@
             }" />
           <IlSpacer class="md:mt-4 xl:mt-8" />
           <FormulateErrors class="sm:col-span-2" />
-          <ButtonEffect type="submit">
-            Abschicken
+          <ButtonEffect class="sm:col-span-2" type="submit" @click="resetTransmit">
+            {{ transit.sending ? `Wird gesendet ${dots}` :
+              transit.error ? 'Schade :(' :
+              transit.success ? 'Vielen Dank :)' :
+              'Abschicken' }}
           </ButtonEffect>
+          <div class="max-w-prose sm:col-span-2">
+            <p v-if="transit.error">
+              Leider gab es ein technisches Problem, bitte versuch es später nochmal,
+              oder schreib mir eine <IlLink @click="composeMail">E-Mail</IlLink>.
+            </p>
+            <p v-if="transit.success">
+              Ich melde mich so bald wie möglich.
+            </p>
+          </div>
         </FormulateForm>
       </div>
-      <div class="hidden xl:block w-1/2 place-self-center row-span-2">
+      <div class="hidden xl:block w-60%">
         <SvgHeroFlower class="fill-current transform translate-x-12"/>
       </div>
     </SectionContent>
@@ -55,6 +67,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 interface Form {
   name: string,
   email: string,
@@ -65,8 +78,24 @@ interface Form {
   message: string,
   acceptedAgbs: boolean
 }
+interface Transit {
+  sending: boolean
+  error: boolean
+  success: boolean
+}
+
+function fakeFetch(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (Date.now() % 2 === 0) {
+      setTimeout(resolve, 3000)
+    } else {
+      setTimeout(reject, 3000)
+    }
+  })
+}
+
 export default Vue.extend({
-  data: () : { form: Form } => ({
+  data: () : { form: Form, transit: Transit, dots: string } => ({
     form: {
       name: '',
       email: '',
@@ -76,7 +105,13 @@ export default Vue.extend({
       place: '',
       message: '',
       acceptedAgbs: false
-    }
+    },
+    transit: {
+      sending: false,
+      error: false,
+      success: false,
+    },
+    dots: ''
   }),
   computed: {
     formSchema: () => [
@@ -131,7 +166,7 @@ export default Vue.extend({
           },
           'wrapper-class': ['flex gap-2'],
           'element-class': ['flex items-center'],
-          'decorator-class': ['border-2 border-solid border-white']
+          'decorator-class': ['border-2 border-solid border-white'],
         }
       },
     ],
@@ -149,9 +184,47 @@ export default Vue.extend({
     }
   },
   methods: {
-    submit(/* event: Form */) {
-      // console.log(event)
-    }
+    resetTransmit() {
+      const { transit } = this
+      transit.success = false
+      transit.error = false
+    },
+    async submit(form: Form) {
+      const { transit } = this
+      if (transit.sending) {
+        return;
+      }
+
+      console.log('sending', {form})
+
+      const interval = setInterval(() => {
+          this.dots += '.'
+        }, 750 )
+      transit.sending = true
+      try {
+        await fakeFetch();
+        transit.success = true
+      } catch (error) {
+        transit.error = true
+      } finally {
+        clearInterval(interval)
+        transit.sending = false
+        this.dots = ''
+      }
+    },
+    composeMail() {
+      const el = document.createElement('a')
+      el.href = 'mailto:' + rot13('uryyb@vebayrnirf-qrfvta.pbz')
+      el.click()
+    },
   }
 })
+
+function rot13(str: string) {
+  const input  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const index = (x: string) => input.indexOf(x);
+  const translate = (x: string) => index(x) > -1 ? output[index(x)] : x;
+  return str.split('').map(translate).join('');
+}
 </script>

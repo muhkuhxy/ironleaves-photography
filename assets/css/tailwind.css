@@ -67,7 +67,7 @@
   .formulate-input {
     input[type="checkbox"] {
       ~ label.formulate-input-element-decorator {
-        @apply w-6 h-6 relative leading-0;
+        @apply w-6 h-6 relative leading-0 cursor-pointer;
 
         &::before {
           @apply absolute;
