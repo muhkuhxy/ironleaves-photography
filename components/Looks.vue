@@ -16,7 +16,7 @@
           Die Welt ist bunt &ndash; und ihr seid es auch!
         </SectionHeader>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <p class="max-w-prose">
+        <p class="max-w-prose mb-4">
           Immerhin ist es euer besonderer Tag! Die Fotos
           sollten also euch widerspiegeln. Ihr bestimmt
           also den Bildlook eurer Bilder in
@@ -24,13 +24,15 @@
           unterschiedlichen Atmosphären den Look
           auswählen, der am besten zu euch passt!
         </p>
-        <p class="max-w-prose mt-4">
-          Natürlich stehe ich euch dabei tatkräftig
-          beratend zur Seite und erkläre euch, worauf es
-          ankommt.
-          Seid ihr schon gespannt auf Eure Hochzeit? Ich halte eure unvergesslichen Momente, die zahlreichen Emotionen, eure ganz besondere
-          intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
-        </p>
+        <IlTextExpander class="items-start">
+          <p>
+            Natürlich stehe ich euch dabei tatkräftig
+            beratend zur Seite und erkläre euch, worauf es
+            ankommt.
+            Seid ihr schon gespannt auf Eure Hochzeit? Ich halte eure unvergesslichen Momente, die zahlreichen Emotionen, eure ganz besondere
+            intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
+          </p>
+        </IlTextExpander>
       </div>
     </SectionContent>
   </SectionParent>

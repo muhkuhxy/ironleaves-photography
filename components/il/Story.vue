@@ -7,6 +7,9 @@
           <slot name="title"></slot>
         </h2>
         <slot name="content"></slot>
+        <IlTextExpander v-if="$slots.moreContent">
+          <slot name="moreContent"></slot>
+        </IlTextExpander>
         <IlSpacer :ms="1" />
       </div>
     </SectionContent>

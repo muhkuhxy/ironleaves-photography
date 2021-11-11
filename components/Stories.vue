@@ -28,6 +28,9 @@
           mitgenommen hat. Neben der kompletten Papeterie durfte ich auch
           hautnah bei den Planungen mit dabei sein.
         </p>
+      </template>
+
+      <template #moreContent>
         <p>
           Unvergessen wird für mich immer der Moment sein, als ich mit Valerie und
           ihrem Vater kurz vor der Zeremonie im Standesamt vor der noch

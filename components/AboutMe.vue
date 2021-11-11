@@ -22,22 +22,24 @@
             komme aus Bayreuth. Seit ein paar Monaten wohne ich in der
             wunderschönen Eifel in Nordrhein-Westfalen bei Monschau.
           </p>
-          <p>
-            Ich habe den wunderbaren Beruf der Mediengestalterin gelernt und liebe
-            es, mich kreativ auszutoben. Neben dem Marketing habe ich mich daher
-            auch auf <IlLink target="papeterie">Hochzeits-Papeterie</IlLink> spezialisiert. Ich freue mich immer wieder
-            über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen,
-            damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
-          </p>
-          <p>
-            Auf Hochzeiten fotografiere ich besonders gerne, weil mich die
-            Emotionen, die Aufregung und die ganz intimen und einzigartigen
-            Momente immer wieder in den Bann ziehen. Ich liebe Bilder, mit denen
-            man einen ganzen Tag in seinen Erinnerungen komplett wieder erleben
-            kann. Und ich bin gerne mit den Menschen zusammen, die zueinander
-            gefunden haben und sich mit ganz viel Liebe und Vertrauen einander
-            zugewendet haben und das feiern möchten.
-          </p>
+          <IlTextExpander>
+            <p>
+              Ich habe den wunderbaren Beruf der Mediengestalterin gelernt und liebe
+              es, mich kreativ auszutoben. Neben dem Marketing habe ich mich daher
+              auch auf <IlLink target="papeterie">Hochzeits-Papeterie</IlLink> spezialisiert. Ich freue mich immer wieder
+              über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen,
+              damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
+            </p>
+            <p>
+              Auf Hochzeiten fotografiere ich besonders gerne, weil mich die
+              Emotionen, die Aufregung und die ganz intimen und einzigartigen
+              Momente immer wieder in den Bann ziehen. Ich liebe Bilder, mit denen
+              man einen ganzen Tag in seinen Erinnerungen komplett wieder erleben
+              kann. Und ich bin gerne mit den Menschen zusammen, die zueinander
+              gefunden haben und sich mit ganz viel Liebe und Vertrauen einander
+              zugewendet haben und das feiern möchten.
+            </p>
+          </IlTextExpander>
           <IlSpacer class="md:mt-4 xl:mt-8" />
           <ButtonEffect class="text-sunset mx-auto lg:mx-0" @click="scrollTo('contact')">
             Schreibt mich gerne an!
@@ -51,6 +53,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
   methods: {
     scrollTo(target: string) {

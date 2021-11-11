@@ -25,15 +25,15 @@
           Ganz ehrlich
         </SectionHeader>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <div class="max-w-prose flex flex-col gap-4">
-          <p>
-            Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
-            unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
-            fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
-            Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
-            jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
-            so sollten eure Fotos auch sein.
-          </p>
+        <p class="max-w-prose mb-4">
+          Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
+          unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
+          fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
+          Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
+          jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
+          so sollten eure Fotos auch sein.
+        </p>
+        <IlTextExpander class="items-start">
           <p>
             Hautretuschen, bis man keine Poren mehr sehen kann, gehören einfach
             nicht in mein Programm. Ebensowenig gestellte Posen mit
@@ -43,7 +43,7 @@
           <p>
             Und was mir ganz wichtig ist: Habt einfach Spaß vor der Kamera! :)
           </p>
-        </div>
+        </IlTextExpander>
       </div>
     </SectionContent>
   </SectionParent>
