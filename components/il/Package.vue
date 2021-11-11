@@ -9,13 +9,7 @@
         class="lg:hidden transition-all transform duration-300 ease-linear"
         :class="[open ? '-rotate-90' : 'rotate-90']">&#10095;</span>
     </h2>
-    <transition
-      name="grow"
-      :css="false"
-      :appear="true"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @leave="leave">
+    <TransitionGrow>
       <div
         v-show="gtLg || open"
         class="lg:flex lg:flex-col lg:gap-8">
@@ -29,7 +23,7 @@
           <slot name="content"></slot>
         </div>
       </div>
-    </transition>
+    </TransitionGrow>
   </div>
 </template>
 
@@ -55,25 +49,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   computed: {
     gtLg(): boolean {
       return this.$il.breakpoints.gtlg
-    }
-  },
-  methods: {
-    beforeEnter(el: HTMLElement) {
-      el.style.height = '0'
-    },
-    enter(el: HTMLElement, done: () => void) {
-      const height = el.scrollHeight
-      this.$velocity(el, { height: `${height}px` }, {
-        complete: () => {
-          el.style.height = 'auto'
-          done()
-        },
-      })
-    },
-    leave(el: HTMLElement, done: () => void) {
-      this.$velocity(el, { height: '0px' }, {
-        complete: done,
-      })
     }
   }
 })
