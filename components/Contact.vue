@@ -13,14 +13,25 @@
           von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
         </p>
         <IlSpacer class="md:mt-4 xl:mt-8" />
-        <FormulateForm v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2" @submit="submit">
+        <FormulateForm
+          v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
+          invalid-message="Leider ist das Formular noch nicht vollständig. Bitte überprüfe deine Angaben."
+          @submit="submit">
           <FormulateInput
-            v-for="{type, name, label, validation = '', inputClass = [], outerClass = [], extra = {}} in formSchema"
+            v-for="{
+              type,
+              name,
+              label,
+              validation = '',
+              inputClass = [],
+              outerClass = [],
+              extra = {}
+            } in formSchema"
             :key="name"
             v-bind="{
               type,
               name,
-              label: validation.includes('required') && type !== 'checkbox' ? `${label}*` : label,
+              label: validation.includes('required') ? `${label}*` : label,
               validation,
               'validation-name': label,
               'input-class': (baseClasses.input[type] || []).concat(inputClass || []),
@@ -29,6 +40,7 @@
               ...extra
             }" />
           <IlSpacer class="md:mt-4 xl:mt-8" />
+          <FormulateErrors class="sm:col-span-2" />
           <ButtonEffect type="submit">
             Abschicken
           </ButtonEffect>
@@ -112,14 +124,10 @@ export default Vue.extend({
         name: 'acceptedAgbs',
         type: 'checkbox',
         label: 'AGBs zugestimmt',
-        validation: 'accepted',
+        validation: 'required',
         extra: {
-          // 'label-position': 'before',
           'validation-messages': {
-            accepted: 'Bitte stimm\' den AGBs zu.'
-          },
-          'validation-rules': {
-            accepted: ({value}: {value: boolean}) => value
+            required: 'Bitte stimm\' den AGBs zu.'
           },
           'wrapper-class': ['flex gap-2'],
           'element-class': ['flex items-center'],
