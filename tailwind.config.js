@@ -14,13 +14,19 @@ const negative1to100percent = fill(100, number => `-${number}%`)
 
 module.exports = {
   mode: 'jit',
-  purge: [
+  purge: {
+    content: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
-  ],
+    ],
+    safelist: [
+      'formulate-input',
+      'formulate-input-element-decorator',
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -28,6 +34,9 @@ module.exports = {
         wavy: ['Melinda', 'ui-serif'],
         screaming: ['Playfair Display', 'ui-serif'],
         roofline: ['Nunito', 'ui-sans-serif']
+      },
+      lineHeight: {
+        '0': '0',
       },
       flex: {
         '1/2': '1 0 50%',
@@ -75,8 +84,8 @@ module.exports = {
       },
       maxHeight: height10to100vh,
       minWidth: {
-       '1/2': '50%',
-       '4/5': '80%'
+        '1/2': '50%',
+        '4/5': '80%'
       },
       width: {
         '1/5': '20%',

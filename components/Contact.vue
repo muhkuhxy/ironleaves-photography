@@ -15,28 +15,28 @@
         <IlSpacer class="md:mt-4 xl:mt-8" />
         <FormulateForm v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2" @submit="submit">
           <FormulateInput
-            v-for="{type, name, label, validation, inputClass = [], outerClass = []} in formSchema"
+            v-for="{type, name, label, validation = '', inputClass = [], outerClass = [], extra = {}} in formSchema"
             :key="name"
             v-bind="{
               type,
               name,
-              label: (validation || '').includes('required') ? `${label}*` : label,
+              label: validation.includes('required') && type !== 'checkbox' ? `${label}*` : label,
               validation,
               'validation-name': label,
-              'input-class': baseClasses.input.concat(inputClass || []),
+              'input-class': (baseClasses.input[type] || []).concat(inputClass || []),
               'outer-class': outerClass,
-              'errors-class': baseClasses.errors
+              'errors-class': baseClasses.errors,
+              ...extra
             }" />
+          <IlSpacer class="md:mt-4 xl:mt-8" />
+          <ButtonEffect type="submit">
+            Abschicken
+          </ButtonEffect>
         </FormulateForm>
-        <IlSpacer class="md:mt-4 xl:mt-8" />
       </div>
       <div class="hidden xl:block w-1/2 place-self-center row-span-2">
         <SvgHeroFlower class="fill-current transform translate-x-12"/>
       </div>
-      <ButtonEffect
-        type="submit">
-        Abschicken
-      </ButtonEffect>
     </SectionContent>
   </SectionParent>
 </template>
@@ -47,10 +47,11 @@ interface Form {
   name: string,
   email: string,
   phone: string,
-  date: string | null,
-  kind: string | null,
-  place: string | null,
-  message: string
+  date: string,
+  kind: string,
+  place: string,
+  message: string,
+  acceptedAgbs: boolean
 }
 export default Vue.extend({
   data: () : { form: Form } => ({
@@ -61,7 +62,8 @@ export default Vue.extend({
       date: '',
       kind: '',
       place: '',
-      message: ''
+      message: '',
+      acceptedAgbs: false
     }
   }),
   computed: {
@@ -105,12 +107,38 @@ export default Vue.extend({
         validation: 'required',
         inputClass: ['min-h-24'],
         outerClass: ['col-span-full']
-      }
+      },
+      {
+        name: 'acceptedAgbs',
+        type: 'checkbox',
+        label: 'AGBs zugestimmt',
+        validation: 'accepted',
+        extra: {
+          // 'label-position': 'before',
+          'validation-messages': {
+            accepted: 'Bitte stimm\' den AGBs zu.'
+          },
+          'validation-rules': {
+            accepted: ({value}: {value: boolean}) => value
+          },
+          'wrapper-class': ['flex gap-2'],
+          'element-class': ['flex items-center'],
+          'decorator-class': ['border-2 border-solid border-white']
+        }
+      },
     ],
-    baseClasses: () => ({
-      input: ['border-2 border-solid border-color-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1'],
-      errors: ['text-sm']
-    })
+    baseClasses: () => {
+      const textBaseClasses = ['border-2 border-solid border-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1']
+      return {
+        input: {
+          email: textBaseClasses,
+          text: textBaseClasses,
+          textarea: textBaseClasses,
+          checkbox: ['appearance-none']
+        },
+        errors: ['text-sm']
+      }
+    }
   },
   methods: {
     submit(/* event: Form */) {
