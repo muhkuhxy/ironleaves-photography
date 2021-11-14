@@ -19,7 +19,7 @@
     </div>
     <SectionContent class="relative z-10">
       <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
-        <SvgSingleGrass class="relative lg:absolute z-10 w-[30%] lg:w-[15%] xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-[37%] 2xl:mr-[28%] mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
+        <SvgSingleGrass class="relative lg:absolute z-10 w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
           Ganz ehrlich
