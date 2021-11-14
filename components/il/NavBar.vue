@@ -13,9 +13,7 @@
         <a
           v-for="{ name, url } in social" :key="`social-link-${name}-md`"
           :href="url" target="_blank">
-          <IconBase :icon-name="name" class="w-6">
-            <component :is="`Icon${name}`" />
-          </IconBase>
+            <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
         </a>
       </IlContainer>
       <transition name="slide">
@@ -40,9 +38,7 @@
               v-for="{ name, url } in social" :key="`social-link-${name}`"
               class="hidden md:block ml-auto">
               <a :href="url" target="_blank">
-                <IconBase :icon-name="name" class="w-6">
-                  <component :is="`Icon${name}`" />
-                </IconBase>
+                <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
               </a>
             </li>
           </ul>
