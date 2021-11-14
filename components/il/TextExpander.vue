@@ -8,8 +8,7 @@
       </div>
     </TransitionGrow>
     <button
-      v-if="!gtSm"
-      class="underline"
+      class="underline sm:hidden"
       :class="btnClass"
       @click="showMore = !showMore">
       <transition name="fade" mode="out-in">
