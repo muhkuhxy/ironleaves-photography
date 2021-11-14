@@ -7,16 +7,16 @@
           src="~/assets/images/Valerie-und-Max-712@2x.jpg"
           alt="Happy guests">
         <IlGradient direction="top-right" />
-        <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 lg:-translate-x-40% lg:w-max z-20">
+        <IlFigureCaption class="lg:text-right lg:top-0 lg:left-0 lg:pt-12 lg:px-0 lg:ml-[-30%] z-20">
           Handmade<br>with love
         </IlFigureCaption>
       </IlFigure>
       <div class="hidden xl:block absolute z-10 inset-0 overflow-hidden">
-        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[37%] 2xl:ml-[50%]" />
-        <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
+        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[37%] 2xl:ml-[50%]" />
+        <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
       </div>
-      <SvgFlowerWhite class="shape-poly w-1/4 lg:w-[15%] 2xl:w-[13%] float-right lg:float-none lg:absolute -translate-x-8 -translate-y-24 lg:transform-none lg:right-0 lg:bottom-0 lg:mr-[40%] 2xl:mr-[30%] text-white fill-current z-10"/>
       <SectionContent class="relative z-20">
+        <SvgFlowerWhite class="shape-poly float-right w-[33%] sm:w-[30%] lg:w-[20%] top-0 lg:top-[unset] lg:left-0 mt-[-30%] sm:mt-[-20%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-8 lg:absolute lg:bottom-0 text-white fill-current z-10"/>
         <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
           <SectionHeader>
             <template #roofline>Papeterie</template>
@@ -31,7 +31,7 @@
         </div>
       </SectionContent>
     </div>
-    <IlSlider class="pb-8 h-50vh" :slides="slides" />
+    <IlSlider class="pb-8 h-[50vh]" :slides="slides" />
   </SectionParent>
 </template>
 
@@ -52,6 +52,11 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 .shape-poly {
-  shape-outside: polygon(68.75% 100.1%, -5.66% -5.19%, 87.5% 28.01%, 110.30% 99.89%);
+  shape-outside: polygon(74.01% 105.69%, 40.53% -10.65%, 43.71% -89.7%, 103.66% 113.29%);
+
+  @screen lg {
+    shape-outside: none;
+  }
 }
+
 </style>

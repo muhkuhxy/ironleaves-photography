@@ -4,7 +4,7 @@
       <div
         v-for="(url) in slides"
         :key="url"
-        class="swiper-slide flex items-center max-w-9/10">
+        class="swiper-slide flex items-center max-w-[90%]">
         <img
           class="object-cover h-full"
           :src="require(`~/assets/images/${url}`)">

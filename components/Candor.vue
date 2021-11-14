@@ -9,17 +9,17 @@
         src="~/assets/images/Gruppe_310.jpg"
         alt="Happy guests">
       <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25" />
-      <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 lg:-translate-x-40% lg:w-max z-20">
+      <IlFigureCaption class="lg:text-right lg:left-0 lg:top-0 lg:pt-12 lg:px-0 lg:ml-[-40%] z-20">
         Embrace the flaws<br class=""> and the gems
       </IlFigureCaption>
     </IlFigure>
     <div class="hidden xl:block absolute z-10 inset-0 overflow-hidden">
-      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[37%] 2xl:ml-[50%]" />
-      <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
+      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[37%] 2xl:ml-[50%]" />
+      <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
     </div>
     <SectionContent class="relative z-10">
       <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
-        <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-[30%] lg:w-[15%] xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-[37%] 2xl:mr-[28%] mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
+        <SvgSingleGrass class="relative lg:absolute z-10 w-[30%] lg:w-[15%] xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-[37%] 2xl:mr-[28%] mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
           Ganz ehrlich
