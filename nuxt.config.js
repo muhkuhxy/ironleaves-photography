@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/ironleaves-photography/'
+    base: process.env.DEPLOY_ENV === 'gh-pages' ? '/ironleaves-photography/' : '/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

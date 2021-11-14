@@ -47,7 +47,7 @@ jobs:
         run: npm run test
 
       - name: Build 🔧
-        run: npm run generate
+        run: npm run generate:gh-pages
 
       - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
