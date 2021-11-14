@@ -6,8 +6,8 @@
       @click="$emit('change')">
       <slot name="title"></slot>
       <span
-        class="lg:hidden transition-all transform duration-300 ease-linear"
-        :class="[open ? '-rotate-90' : 'rotate-90']">&#10095;</span>
+        class="lg:hidden transition-all duration-300 ease-linear"
+        :class="[open ? '-rotate-90 -translate-x-1' : 'rotate-90']">&#10095;</span>
     </h2>
     <TransitionGrow>
       <div

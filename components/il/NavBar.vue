@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-white text-bluegray z-50 sticky top-0 transform transition-all ease-in-out duration-500 filter"
+    class="bg-white text-bluegray z-50 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">

@@ -56,7 +56,7 @@ export default Vue.extend({
   computed: {
     baseStyles: () => ({
       link: '',
-      icon: 'text-white transform w-10 lg:w-16'
+      icon: 'text-white w-10 lg:w-16'
     })
   },
   mounted() {

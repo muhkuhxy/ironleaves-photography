@@ -13,7 +13,7 @@
     <div class="relative">
       <IlContainer class="absolute inset-0 overflow-hidden">
         <SvgHeroLine1 class="hidden md:block absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow right-0 -top-5% -mr-15% lg:mr-12%" />
-        <SvgHeroLine2 class="hidden sm:block absolute transform md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-29% md:mr-31% lg:mr-34%" />
+        <SvgHeroLine2 class="hidden sm:block absolute md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-29% md:mr-31% lg:mr-34%" />
         <SvgHeroLine3 class="hidden lg:block absolute text-white opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-1%" />
       </IlContainer>
       <SectionContent class="relative">

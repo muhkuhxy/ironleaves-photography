@@ -15,7 +15,7 @@
             class="w-7/8 border-8 border-solid border-white filter drop-shadow"
             src="~/assets/images/IMG_20190206_161314.jpg"
             alt="Happy couple">
-          <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 transform -translate-x-1 translate-y-4" />
+          <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
         </div>
       </template>
 
@@ -53,7 +53,7 @@
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
             src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-3695.jpg"
             alt="Happy couple">
-          <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 transform translate-y-6 translate-x-4" />
+          <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
         </div>
       </template>
 
@@ -80,7 +80,7 @@
             class="w-5/6 border-8 border-solid border-white filter drop-shadow"
             src="~/assets/images/Samira-und-Kerem-Shooting-1173.jpg"
             alt="Happy couple">
-          <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 transform -translate-x-1 translate-y-3" />
+          <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-3" />
         </div>
       </template>
 
@@ -107,7 +107,7 @@
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
             src="~/assets/images/Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg"
             alt="Happy couple">
-          <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute left-0 bottom-0 transform translate-x-2 translate-y-4" />
+          <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute left-0 bottom-0 translate-x-2 translate-y-4" />
         </div>
       </template>
 

@@ -1,6 +1,6 @@
 <template>
   <SectionParent class="text-bluegray relative">
-    <IconBase class="text-sunset w-full h-16 transform -translate-y-4">
+    <IconBase class="text-sunset w-full h-16 -translate-y-4">
       <IconArrow />
     </IconBase>
     <SectionContent class="flex flex-col lg:flex-row items-center">

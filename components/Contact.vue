@@ -58,8 +58,8 @@
           </div>
         </FormulateForm>
       </div>
-      <div class="hidden xl:block w-60%">
-        <SvgHeroFlower class="fill-current transform translate-x-12"/>
+      <div class="hidden xl:block place-self-center w-60%">
+        <SvgHeroFlower class="fill-current translate-x-12"/>
       </div>
     </SectionContent>
   </SectionParent>

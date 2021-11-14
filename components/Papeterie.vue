@@ -7,7 +7,7 @@
           src="~/assets/images/Valerie-und-Max-712@2x.jpg"
           alt="Happy guests">
         <IlGradient direction="top-right" />
-        <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 transform lg:-translate-x-40% lg:w-max z-20">
+        <IlFigureCaption class="lg:text-right lg:top-0 lg:pt-12 lg:px-0 lg:-translate-x-40% lg:w-max z-20">
           Handmade<br>with love
         </IlFigureCaption>
       </IlFigure>
@@ -15,7 +15,7 @@
         <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
         <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
       </div>
-      <SvgFlowerWhite class="shape-poly w-1/4 lg:w-15% 2xl:w-13% float-right lg:float-none lg:absolute transform -translate-x-8 -translate-y-24 lg:transform-none lg:right-0 lg:bottom-0 lg:mr-40% 2xl:mr-30% text-white fill-current z-10"/>
+      <SvgFlowerWhite class="shape-poly w-1/4 lg:w-15% 2xl:w-13% float-right lg:float-none lg:absolute -translate-x-8 -translate-y-24 lg:transform-none lg:right-0 lg:bottom-0 lg:mr-40% 2xl:mr-30% text-white fill-current z-10"/>
       <SectionContent class="relative z-20">
         <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
           <SectionHeader>
