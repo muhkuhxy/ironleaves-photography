@@ -12,12 +12,12 @@
     </IlFigure>
     <div class="relative">
       <IlContainer class="absolute inset-0 overflow-hidden">
-        <SvgHeroLine1 class="hidden md:block absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow right-0 -top-5% -mr-15% lg:mr-12%" />
-        <SvgHeroLine2 class="hidden sm:block absolute md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-29% md:mr-31% lg:mr-34%" />
-        <SvgHeroLine3 class="hidden lg:block absolute text-white opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-1%" />
+        <SvgHeroLine1 class="hidden md:block absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] right-0 -top-5% -mr-[15%] lg:mr-[12%]" />
+        <SvgHeroLine2 class="hidden sm:block absolute md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-[29%] md:mr-[31%] lg:mr-[34%]" />
+        <SvgHeroLine3 class="hidden lg:block absolute text-white opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
       </IlContainer>
       <SectionContent class="relative">
-        <SvgHeroFlower class="hero-flower w-1/3 lg:w-1/4 xl:w-23% relative -mt-30% md:-mt-22% lg:-mt-17% xl:-mt-16% lg:mr-10% float-right text-white fill-current "/>
+        <SvgHeroFlower class="hero-flower w-1/3 lg:w-1/4 xl:w-[23%] relative -mt-[30%] md:-mt-[22%] lg:-mt-[17%] xl:-mt-[16%] lg:mr-[10%] float-right text-white fill-current "/>
         <SectionHeader>
           <template #roofline>Leidenschaft</template>
           Eure einzig&shy;artigen<br class="hidden md:block"> Momente

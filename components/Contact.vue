@@ -58,7 +58,7 @@
           </div>
         </FormulateForm>
       </div>
-      <div class="hidden xl:block place-self-center w-60%">
+      <div class="hidden xl:block place-self-center w-[60%]">
         <SvgHeroFlower class="fill-current translate-x-12"/>
       </div>
     </SectionContent>

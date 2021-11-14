@@ -8,7 +8,7 @@
         <img
           src="~/assets/images/IMG_20190206_161314@2x.jpg"
           alt="Tamara Loeffen">
-        <SvgFlowerGrass class="text-sunset fill-current w-45% lg:w-40% absolute bottom-0 right-0 -mb-8 md:-mb-12"/>
+        <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 -mb-8 md:-mb-12"/>
       </figure>
       <div class="lg:flex-initial lg:w-1/2 md:mt-8 text-center lg:text-left">
         <SectionHeader class="max-w-prose">

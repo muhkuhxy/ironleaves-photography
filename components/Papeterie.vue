@@ -1,7 +1,7 @@
 <template>
   <SectionParent>
     <div class="bg-bluegray text-white overflow-y-hidden relative">
-      <IlFigure class="lg:absolute lg:w-50% 2xl:w-40% lg:inset-y-0 lg:right-0">
+      <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
         <img
           class="object-cover w-full h-full"
           src="~/assets/images/Valerie-und-Max-712@2x.jpg"
@@ -12,12 +12,12 @@
         </IlFigureCaption>
       </IlFigure>
       <div class="hidden xl:block absolute z-10 inset-0 overflow-hidden">
-        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
-        <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
+        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[37%] 2xl:ml-[50%]" />
+        <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
       </div>
-      <SvgFlowerWhite class="shape-poly w-1/4 lg:w-15% 2xl:w-13% float-right lg:float-none lg:absolute -translate-x-8 -translate-y-24 lg:transform-none lg:right-0 lg:bottom-0 lg:mr-40% 2xl:mr-30% text-white fill-current z-10"/>
+      <SvgFlowerWhite class="shape-poly w-1/4 lg:w-[15%] 2xl:w-[13%] float-right lg:float-none lg:absolute -translate-x-8 -translate-y-24 lg:transform-none lg:right-0 lg:bottom-0 lg:mr-[40%] 2xl:mr-[30%] text-white fill-current z-10"/>
       <SectionContent class="relative z-20">
-        <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
+        <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
           <SectionHeader>
             <template #roofline>Papeterie</template>
             So individuell wie ihr!

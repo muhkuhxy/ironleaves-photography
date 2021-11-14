@@ -3,7 +3,7 @@
     <IconBase class="text-sunset w-full h-16 absolute top-0 -mt-12 z-10">
       <IconArrow />
     </IconBase>
-    <IlFigure class="lg:absolute lg:w-50% 2xl:w-40% lg:inset-y-0 lg:right-0">
+    <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
       <img
         class="object-cover w-full h-full"
         src="~/assets/images/Gruppe_310.jpg"
@@ -14,12 +14,12 @@
       </IlFigureCaption>
     </IlFigure>
     <div class="hidden xl:block absolute z-10 inset-0 overflow-hidden">
-      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-37% 2xl:ml-50%" />
-      <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-overflow -mt-2.5% ml-48% xl:ml-49% 2xl:ml-55%" />
+      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[37%] 2xl:ml-[50%]" />
+      <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] -mt-[2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
     </div>
     <SectionContent class="relative z-10">
-      <div class="lg:py-32 lg:mr-55% 2xl:mr-45%">
-        <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-30% lg:w-15% xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-37% 2xl:mr-28% mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
+      <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
+        <SvgSingleGrass class="relative lg:absolute z-10 w-1/3 sm:w-[30%] lg:w-[15%] xl:w-48 float-right -mt-20 sm:-mt-24 lg:mt-0 md:mr-6 lg:mr-[37%] 2xl:mr-[28%] mb-4 lg:-mb-2 text-white fill-current lg:bottom-0 lg:right-0"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
           Ganz ehrlich

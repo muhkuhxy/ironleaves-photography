@@ -1,17 +1,3 @@
-function fill(n, transform) {
-  return Array(n).fill().reduce((result, _, index) => {
-    const value = transform(index+1)
-    return {
-      ...result,
-      [value]: value
-    }
-  }, {})
-}
-
-const height10to100vh = fill(10, number => `${number * 10}vh`)
-const positive1to100percent = fill(100, number => `${number}%`)
-const negative1to100percent = fill(100, number => `-${number}%`)
-
 module.exports = {
   mode: 'jit',
   purge: {
@@ -38,10 +24,6 @@ module.exports = {
       lineHeight: {
         '0': '0',
       },
-      flex: {
-        '1/2': '1 0 50%',
-        '4/10': '1 0 40%'
-      },
       colors: {
         'bluegray': '#547077',
         'sunset': '#FF7964',
@@ -51,25 +33,10 @@ module.exports = {
       fill: {
         none: 'none'
       },
-      margin: {
-        ...positive1to100percent,
-        ...negative1to100percent,
-      },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'
       },
-      // top/bottom/left/right
-      inset: {
-        ...positive1to100percent,
-        ...negative1to100percent,
-      },
-      // transform
-      spacing: {
-        ...positive1to100percent,
-        ...negative1to100percent,
-      },
       minHeight: {
-        ...height10to100vh,
         '4': '1rem',
         '8': '2rem',
         '12': '3rem',
@@ -78,11 +45,6 @@ module.exports = {
         '24': '6rem',
         '32': '8rem',
       },
-      height: {
-        ...height10to100vh,
-        overflow: '110%',
-      },
-      maxHeight: height10to100vh,
       minWidth: {
         '1/2': '50%',
         '4/5': '80%'
@@ -96,7 +58,6 @@ module.exports = {
         '3/4': '75%',
         '4/5': '80%',
         '7/8': `${700/8}%`,
-        ...positive1to100percent
 
       },
       maxWidth: {
