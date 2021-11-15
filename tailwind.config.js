@@ -31,7 +31,7 @@ module.exports = {
         'dust': '#f4f6f5'
       },
       fill: {
-        none: 'none'
+        none: 'none',
       },
       dropShadow: {
         'DEFAULT': '6px 6px 6px rgba(0, 0, 0, 0.42)'

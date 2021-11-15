@@ -1,10 +1,11 @@
 <template>
   <header
-    class="bg-white text-bluegray z-50 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter"
+    v-click-outside="clickOutside"
+    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
-    <nav class="relative">
+    <nav>
       <IlContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
@@ -19,11 +20,11 @@
       <transition name="slide">
         <IlContainer
           v-if="menuShown || gtMd"
-          v-click-outside="clickOutside"
           :retractable="true"
-          class="bg-white pb-4 md:pt-4">
+          class="bg-white pb-4 md:pt-4 lg:grid grid-cols-[1fr,auto,1fr] gap-3.5 lg:gap-8">
+          <hr class="mb-4 col-span-2 lg:hidden">
           <ul
-            class="grid md:flex gap-3.5 lg:gap-8"
+            class="col-span-3 md:col-span-1 md:col-start-2 grid md:flex justify-center gap-3.5 lg:gap-8"
             :class="{
               'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
             }">
@@ -34,9 +35,11 @@
               @click="scrollTo(target)">
               {{ title }}
             </li>
+          </ul>
+          <ul class="col-start-3 justify-self-end">
             <li
               v-for="{ name, url } in social" :key="`social-link-${name}`"
-              class="hidden md:block ml-auto">
+              class="justify-self-end hidden md:block">
               <a :href="url" target="_blank">
                 <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
               </a>
@@ -101,7 +104,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       this.$emit('scrollTo', clazz)
     },
     onScroll() {
-      this.scrolledDown = window.scrollY > 100 && window.scrollY > lastScrollY
+      this.scrolledDown = window.scrollY > 400 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
     },
     clickOutside() {

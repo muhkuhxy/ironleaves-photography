@@ -1,5 +1,8 @@
 <template>
   <div class="min-h-screen flex flex-col">
+    <div class="w-full p-4 z-50 bg-white">
+      <SvgLogo class="w-40 xl:w-60 mx-auto"></SvgLogo>
+    </div>
     <IlNavBar @scrollTo="scrollTo" />
     <main class="flex-1">
       <Nuxt @scrollTo="scrollTo" />
