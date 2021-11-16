@@ -159,6 +159,8 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 }
 
 .nav-link {
+  text-underline-offset: calc(1rem / 8);
+
   &::after {
     position: absolute;
     bottom: 3px;

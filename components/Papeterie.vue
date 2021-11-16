@@ -15,7 +15,7 @@
         <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[37%] 2xl:ml-[50%]" />
         <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
       </div>
-      <SectionContent class="relative z-20">
+      <SectionContent class="relative z-10">
         <SvgFlowerWhite class="shape-poly float-right w-[40%] sm:w-[30%] lg:w-auto lg:h-[50%] top-0 lg:top-[unset] lg:left-0 mt-[-40%] sm:mt-[-30%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-4 lg:absolute lg:bottom-0 text-white fill-current z-10"/>
         <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
           <SectionHeader>
