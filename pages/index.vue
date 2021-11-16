@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Passion class="scroll-target-passion" />
-    <AboutMe class="scroll-target-about-me" />
-    <Candor class="scroll-target-candor" />
+    <Passion class="scroll-target" data-section="passion" />
+    <AboutMe class="scroll-target" data-section="about-me" />
+    <Candor class="scroll-target" data-section="candor" />
     <IlSpacer :ms="4" />
-    <Looks class="scroll-target-looks" />
-    <Stories class="scroll-target-stories" />
-    <Papeterie class="scroll-target-papeterie" />
-    <Packages class="scroll-target-packages" />
-    <Contact class="scroll-target-contact" />
+    <Looks class="scroll-target" data-section="looks" />
+    <Stories class="scroll-target" data-section="stories" />
+    <Papeterie class="scroll-target" data-section="papeterie" />
+    <Packages class="scroll-target" data-section="packages" />
+    <Contact class="scroll-target" data-section="contact" />
   </div>
 </template>
 

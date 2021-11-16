@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <IlLogo />
-    <IlNavBar @scrollTo="scrollTo" />
+    <IlNavBar :key="`navbar-${$route.path}`" @scrollTo="scrollTo" />
     <main class="flex-1">
       <Nuxt @scrollTo="scrollTo" />
     </main>
@@ -57,7 +57,7 @@ export default Vue.extend({
       if (this.$route.path !== '/') {
         this.$router.push({ path: '/', query: { go: clazz } })
       } else {
-        const target = document.querySelector(`.scroll-target-${clazz}`)
+        const target = document.querySelector(`.scroll-target[data-section=${clazz}]`)
         target?.scrollIntoView({ behavior: 'smooth' })
         if (this.$route.query.go) {
           if (target) {

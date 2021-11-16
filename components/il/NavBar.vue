@@ -19,7 +19,7 @@
       </IlContainer>
       <transition name="slide">
         <IlContainer
-          v-if="menuShown || gtMd"
+          v-show="menuShown || gtMd"
           :retractable="true"
           class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3.5 lg:gap-8 xl:gap-12">
           <hr class="mb-4 col-span-full md:hidden">
@@ -29,6 +29,9 @@
               v-for="{title, target} in links"
               :key="title"
               class="cursor-pointer nav-link relative after:h-0 md:after:h-px after:bg-bluegray"
+              :class="{
+                'font-bold underline': target === maxSection
+              }"
               @click="scrollTo(target)">
               {{ title }}
             </li>
@@ -79,6 +82,10 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   data: () => ({
     scrolledDown: false,
     menuShown: false,
+    sectionRatios: links.reduce((result, { target } ) => {
+      result[target] = 0
+      return result
+    }, {} as Record<string, number>)
   }),
   computed: {
     links: () => links,
@@ -88,10 +95,39 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     },
     ltMd(): boolean {
       return !this.gtMd
+    },
+    maxSection() {
+      return Object.entries(this.sectionRatios)
+        .reduce((memo, entry) => {
+          return entry[1] > memo[1] ? entry : memo
+        }, ['', 0])[0]
     }
   },
   mounted() {
     document.addEventListener('scroll', this.onScroll)
+
+    if (this.$route.path === '/') {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const section = (entry.target as HTMLElement).dataset.section
+          this.sectionRatios[section!!] = entry.intersectionRatio
+        })
+      }, {
+        threshold: Array(10).fill(undefined).map((_, index) => (index+1)/10)
+      })
+
+
+      const observeSections = () => {
+        const sections = document.querySelectorAll('.scroll-target[data-section]')
+        if (sections.length) {
+          sections.forEach(section => observer.observe(section))
+        } else {
+          setTimeout(observeSections, 500)
+        }
+      }
+
+      observeSections()
+    }
   },
   methods: {
     scrollTo(clazz: string) {
