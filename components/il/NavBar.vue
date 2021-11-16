@@ -21,13 +21,10 @@
         <IlContainer
           v-if="menuShown || gtMd"
           :retractable="true"
-          class="bg-white pb-4 md:pt-4 lg:grid grid-cols-[1fr,auto,1fr] gap-3.5 lg:gap-8">
-          <hr class="mb-4 col-span-2 lg:hidden">
+          class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3.5 lg:gap-8 xl:gap-12">
+          <hr class="mb-4 col-span-full md:hidden">
           <ul
-            class="col-span-3 md:col-span-1 md:col-start-2 grid md:flex justify-center gap-3.5 lg:gap-8"
-            :class="{
-              'grid-cols-2 grid-rows-4 grid-flow-col': ltMd,
-            }">
+            class="md:col-span-1 md:col-start-2 grid grid-cols-2 md:grid-cols-[repeat(8,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3.5 lg:gap-8 xl:gap-12">
             <li
               v-for="{title, target} in links"
               :key="title"
@@ -104,7 +101,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       this.$emit('scrollTo', clazz)
     },
     onScroll() {
-      this.scrolledDown = window.scrollY > 400 && window.scrollY > lastScrollY
+      this.scrolledDown = window.scrollY > 600 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY
     },
     clickOutside() {

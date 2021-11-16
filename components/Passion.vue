@@ -2,7 +2,7 @@
   <SectionParent class="bg-emerald text-white relative">
     <IlFigure class="shadow-lg">
       <img
-        class="object-cover w-full max-h-[80vh]"
+        class="object-cover w-full max-h-[75vh]"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <IlGradient :half-height="true" />
