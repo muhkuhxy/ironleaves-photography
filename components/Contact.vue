@@ -1,6 +1,12 @@
 <template>
-  <SectionParent class="bg-sunset text-white">
-    <SectionContent class="grid grid-cols-1 xl:grid-cols-2">
+  <SectionParent class="bg-sunset text-white relative">
+    <div class="hidden xl:block absolute inset-0 overflow-hidden">
+      <div class="relative max-w-screen-xl mx-auto h-full">
+        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-1 fill-none max-w-[100%] h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-24%]" />
+        <SvgHeroLine2 class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none max-w-[100%] h-[110%] mt-[-2.5%] scale-x-[-1] right-0" />
+      </div>
+    </div>
+    <SectionContent class="relative grid grid-cols-1 xl:grid-cols-2">
       <div class="">
         <SectionHeader>
           <template #roofline><span class="text-white">Kontakt</span></template>
@@ -84,7 +90,8 @@ interface Transit {
   success: boolean
 }
 
-function fakeFetch(): Promise<void> {
+function fakeFetch(form: Form): Promise<void> {
+  console.log('sending', {form})
   return new Promise((resolve, reject) => {
     if (Date.now() % 2 === 0) {
       setTimeout(resolve, 3000)
@@ -195,14 +202,12 @@ export default Vue.extend({
         return;
       }
 
-      console.log('sending', {form})
-
       const interval = setInterval(() => {
           this.dots += '.'
         }, 750 )
       transit.sending = true
       try {
-        await fakeFetch();
+        await fakeFetch(form);
         transit.success = true
       } catch (error) {
         transit.error = true
