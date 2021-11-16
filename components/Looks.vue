@@ -7,7 +7,9 @@
         alt="Happy couple">
       <IlGradient :half-height="true" />
     </IlFigure>
-    <SvgHeroLine2 class="hidden 2xl:block absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[37%]" />
+    <SectionLines class="xl:block">
+      <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full 2xl:h-[124%] 2xl:top-[-16%] ml-[42%] 2xl:ml-[31%] 2xl:rotate-[24deg]" />
+    </SectionLines>
     <SectionContent>
       <SvgThreeStraws class="fill-current float-right lg:float-none w-[28%] md:w-1/4 lg:w-auto lg:h-[60%] relative lg:absolute right-0 lg:bottom-0 lg:right-0 -mt-48 md:-mt-56 lg:mt-0 -mr-6 lg:mr-[45%] 2xl:mr-[55%] mb-8 lg:-mb-4 ml-4 lg:pr-8" />
       <div class="lg:py-24 lg:ml-[55%] 2xl:ml-[45%]">

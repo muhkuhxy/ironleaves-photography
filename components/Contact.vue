@@ -1,11 +1,10 @@
 <template>
   <SectionParent class="bg-sunset text-white relative">
-    <div class="hidden xl:block absolute inset-0 overflow-hidden">
-      <div class="relative max-w-screen-xl mx-auto h-full">
-        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-1 fill-none max-w-[100%] h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-24%]" />
-        <SvgHeroLine2 class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none max-w-[100%] h-[110%] mt-[-2.5%] scale-x-[-1] right-0" />
-      </div>
-    </div>
+    <SectionLines class="xl:block">
+      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-1 fill-none h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-24%]" />
+      <SvgHeroLine2 class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none h-[110%] mt-[-2.5%] scale-x-[-1] right-0" />
+      <SvgHeroFlower class="absolute right-0 top-0 h-[96%] mt-[1%] mr-[6%] fill-current"/>
+    </SectionLines>
     <SectionContent class="relative grid grid-cols-1 xl:grid-cols-2">
       <div class="">
         <SectionHeader>
@@ -63,9 +62,6 @@
             </p>
           </div>
         </FormulateForm>
-      </div>
-      <div class="hidden xl:block place-self-center w-[60%]">
-        <SvgHeroFlower class="fill-current translate-x-12"/>
       </div>
     </SectionContent>
   </SectionParent>

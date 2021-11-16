@@ -11,11 +11,11 @@
       </IlFigureCaption>
     </IlFigure>
     <div class="relative">
-      <IlContainer class="absolute inset-0 overflow-hidden">
-        <SvgHeroLine1 class="hidden md:block absolute opacity-25 stroke-current stroke-2 fill-none h-[110%] right-0 top-[-5%] mr-[-15%] lg:mr-[12%]" />
-        <SvgHeroLine2 class="hidden sm:block absolute md:transform-none rotate-180 text-sunset opacity-75 stroke-current stroke-2 fill-none h-full right-0 mr-[29%] md:mr-[31%] lg:mr-[34%]" />
-        <SvgHeroLine3 class="hidden lg:block absolute opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
-      </IlContainer>
+      <SectionLines class="sm:block">
+        <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0" />
+        <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
+        <SvgHeroLine3 class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
+      </SectionLines>
       <SectionContent class="relative">
         <SvgHeroFlower class="hero-flower w-[37%] lg:w-[30%] xl:w-[27%] relative mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%] float-right fill-current "/>
         <SectionHeader>
