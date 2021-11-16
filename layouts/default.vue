@@ -9,29 +9,30 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '@/tailwind.config.js'
+import { Breakpoints, IlInjection } from '@/types/declarations'
 
 const fullConfig = resolveConfig(tailwindConfig)
 const breakpoints = Object.entries(fullConfig.theme.screens)
   .reduce((result, [breakpoint, value]) => {
     result[breakpoint] = parseInt(value, 10)
     return result
-  }, {})
+  }, {} as Record<string, number>)
 
 let retries = 0
 
 export default Vue.extend({
-  provide() {
+  provide(): IlInjection {
     return {
       '$il': {
         breakpoints: this.breakpoints
       }
     }
   },
-  data: () => ({
+  data: (): { breakpoints: Breakpoints } => ({
     breakpoints: {
       gtsm: false,
       gtmd: false,
@@ -53,7 +54,7 @@ export default Vue.extend({
           return result
         }, this.breakpoints)
     },
-    scrollTo(clazz) {
+    scrollTo(clazz: string) {
       if (this.$route.path !== '/') {
         this.$router.push({ path: '/', query: { go: clazz } })
       } else {
