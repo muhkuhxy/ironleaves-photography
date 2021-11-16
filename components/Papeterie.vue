@@ -16,7 +16,7 @@
         <SvgHeroLine2 class="absolute text-sunset opacity-50 stroke-current stroke-2 fill-none h-[110%] mt-[-2.5%] ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
       </div>
       <SectionContent class="relative z-20">
-        <SvgFlowerWhite class="shape-poly float-right w-[33%] sm:w-[30%] lg:w-[20%] top-0 lg:top-[unset] lg:left-0 mt-[-30%] sm:mt-[-20%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-8 lg:absolute lg:bottom-0 text-white fill-current z-10"/>
+        <SvgFlowerWhite class="shape-poly float-right w-[40%] sm:w-[30%] lg:w-auto lg:h-[50%] top-0 lg:top-[unset] lg:left-0 mt-[-40%] sm:mt-[-30%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-4 lg:absolute lg:bottom-0 text-white fill-current z-10"/>
         <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
           <SectionHeader>
             <template #roofline>Papeterie</template>
@@ -52,7 +52,7 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 .shape-poly {
-  shape-outside: polygon(74.01% 105.69%, 40.53% -10.65%, 43.71% -89.7%, 103.66% 113.29%);
+  shape-outside: polygon(75.23% 110.65%, -3.22% -17.56%, 18.98% -43.21%, 119.22% 39.56%);
 
   @screen lg {
     shape-outside: none;
