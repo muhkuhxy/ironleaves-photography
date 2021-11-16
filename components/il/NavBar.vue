@@ -96,7 +96,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     ltMd(): boolean {
       return !this.gtMd
     },
-    maxSection() {
+    maxSection(): string {
       return Object.entries(this.sectionRatios)
         .reduce((memo, entry) => {
           return entry[1] > memo[1] ? entry : memo
