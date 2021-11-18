@@ -18,12 +18,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  beforeRouteEnter(to, _, next) {
-    next(vm => {
-      if (to.query.go) {
-        vm.$nuxt.$emit('scrollTo', to.query.go)
-      }
-    })
-  }
+  layout: 'IlLanding'
 })
 </script>

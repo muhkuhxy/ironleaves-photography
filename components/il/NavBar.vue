@@ -21,10 +21,10 @@
         <IlContainer
           v-show="menuShown || gtMd"
           :retractable="true"
-          class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3.5 lg:gap-8 xl:gap-12">
+          class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3 lg:gap-8 xl:gap-12">
           <hr class="mb-4 col-span-full md:hidden">
           <ul
-            class="md:col-span-1 md:col-start-2 grid grid-cols-2 md:grid-cols-[repeat(8,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3.5 lg:gap-8 xl:gap-12">
+            class="md:col-span-1 md:col-start-2 grid grid-cols-2 md:grid-cols-[repeat(8,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12">
             <li
               v-for="{title, target} in links"
               :key="title"
@@ -79,13 +79,24 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
+  props: {
+    retractable: {
+      type: Boolean,
+      default: false
+    },
+    highlightCurrentSection: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: () => ({
     scrolledDown: false,
     menuShown: false,
     sectionRatios: links.reduce((result, { target } ) => {
       result[target] = 0
       return result
-    }, {} as Record<string, number>)
+    }, {} as Record<string, number>),
+    observer: null as null | IntersectionObserver
   }),
   computed: {
     links: () => links,
@@ -104,10 +115,12 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   mounted() {
-    document.addEventListener('scroll', this.onScroll)
+    if (this.retractable) {
+      document.addEventListener('scroll', this.onScroll)
+    }
 
-    if (this.$route.path === '/') {
-      const observer = new IntersectionObserver((entries) => {
+    if (this.highlightCurrentSection) {
+      this.observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const section = (entry.target as HTMLElement).dataset.section
           this.sectionRatios[section!!] = entry.intersectionRatio
@@ -120,7 +133,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       const observeSections = () => {
         const sections = document.querySelectorAll('.scroll-target[data-section]')
         if (sections.length) {
-          sections.forEach(section => observer.observe(section))
+          sections.forEach(section => this.observer?.observe(section))
         } else {
           setTimeout(observeSections, 500)
         }
@@ -129,11 +142,17 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       observeSections()
     }
   },
+  beforeDestroy() {
+    if (this.retractable) {
+      document.removeEventListener('scroll', this.onScroll)
+    }
+    this.observer?.disconnect()
+  },
   methods: {
     scrollTo(clazz: string) {
-      if (this.menuShown) {
-        this.menuShown = false;
-      }
+      // if (this.menuShown) {
+      //   this.menuShown = false;
+      // }
       this.$emit('scrollTo', clazz)
     },
     onScroll() {
