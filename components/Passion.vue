@@ -1,10 +1,10 @@
 <template>
   <SectionParent
-    class="scroll-target bg-emerald text-white relative"
+    class="scroll-target bg-emerald text-white"
     data-section="passion">
     <IlFigure class="shadow-lg">
       <img
-        class="object-cover w-full max-h-[75vh]"
+        class="object-cover w-full max-h-[75vh] parallax--back"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <IlGradient :half-height="true" />
@@ -12,7 +12,7 @@
         Moments for<br>Eternity
       </IlFigureCaption>
     </IlFigure>
-    <div class="relative">
+    <div class="relative bg-emerald">
       <SectionLines class="sm:block">
         <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0" />
         <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
@@ -50,5 +50,9 @@ export default Vue.extend({
 <style lang="postcss" scoped>
 .hero-flower {
   shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35.00%, 21.59% 65.9%, 87.94% 101.47%);
+}
+
+.parallax--back {
+  transform: translateZ(-1px) scale(1.3)
 }
 </style>
