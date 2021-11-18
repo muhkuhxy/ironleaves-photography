@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Passion class="scroll-target" data-section="passion" />
+    <!-- scroll-target + data-section have to be inside the component,
+    nuxt strips them for some reason -->
+    <Passion />
     <AboutMe class="scroll-target" data-section="about-me" />
     <Candor class="scroll-target" data-section="candor" />
     <IlSpacer :ms="4" />

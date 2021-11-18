@@ -1,5 +1,7 @@
 <template>
-  <SectionParent class="bg-emerald text-white relative">
+  <SectionParent
+    class="scroll-target bg-emerald text-white relative"
+    data-section="passion">
     <IlFigure class="shadow-lg">
       <img
         class="object-cover w-full max-h-[75vh]"
