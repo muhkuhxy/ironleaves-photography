@@ -31,21 +31,29 @@ export default Vue.extend({
     },
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
-      gsap.to(el, {
-        height,
-        duration: this.duration,
-        onComplete: () => {
-          el.style.height = 'auto'
-          done()
-        }
-      })
+      if (gsap) {
+        gsap.to(el, {
+          height,
+          duration: this.duration,
+          onComplete: () => {
+            el.style.height = 'auto'
+            done()
+          }
+        })
+      } else {
+        el.style.height = 'auto'
+      }
     },
     leave(el: HTMLElement, done: () => void) {
-      gsap.to(el, {
-        height: '0px',
-        duration: this.duration,
-        onComplete: done,
-      })
+      if (gsap) {
+        gsap.to(el, {
+          height: '0px',
+          duration: this.duration,
+          onComplete: done,
+        })
+      } else {
+        el.style.height = '0'
+      }
     }
   },
 })
