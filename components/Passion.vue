@@ -2,12 +2,12 @@
   <SectionParent
     class="scroll-target bg-emerald text-white relative"
     data-section="passion">
-    <IlFigure class="shadow-lg overflow-hidden">
+    <IlFigure class="shadow-lg">
       <img
         class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.15]"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
-      <IlGradient :half-height="true" />
+      <IlGradient class="translate-y-2" :half-height="true" />
       <IlFigureCaption class="hero">
         Moments for<br>Eternity
       </IlFigureCaption>
