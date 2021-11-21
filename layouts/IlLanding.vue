@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col parallax">
+  <div class="min-h-screen flex flex-col">
     <IlLogo />
     <IlNavBar
       key="landing-navbar"
@@ -74,12 +74,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="postcss" scoped>
-.parallax {
-  perspective: 5px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-</style>

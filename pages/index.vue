@@ -2,7 +2,7 @@
   <div>
     <!-- scroll-target + data-section have to be inside the component,
     nuxt strips them for some reason -->
-    <Passion />
+    <Passion :animation-ready="gsapLoaded && gsapScrollTriggerLoaded" />
     <AboutMe class="scroll-target" data-section="about-me" />
     <Candor class="scroll-target" data-section="candor" />
     <IlSpacer :ms="4" />
@@ -18,6 +18,28 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'IlLanding'
+  layout: 'IlLanding',
+  data: () => ({
+    gsapLoaded: false,
+    gsapScrollTriggerLoaded: false
+  }),
+  head() {
+    return {
+      script: [
+      {
+          hid: 'gsap',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js',
+          defer: true,
+          callback: () => { this.gsapLoaded = true },
+        },
+        {
+          hid: 'gsap-scrolltrigger',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js',
+          defer: true,
+          callback: () => { this.gsapScrollTriggerLoaded = true },
+        }
+      ]
+    }
+  }
 })
 </script>

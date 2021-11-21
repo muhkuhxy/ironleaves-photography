@@ -1,10 +1,10 @@
 <template>
   <SectionParent
-    class="scroll-target bg-emerald text-white"
+    class="scroll-target bg-emerald text-white relative"
     data-section="passion">
-    <IlFigure class="shadow-lg">
+    <IlFigure class="shadow-lg overflow-hidden">
       <img
-        class="object-cover w-full max-h-[75vh] parallax--back"
+        class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.15]"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <IlGradient :half-height="true" />
@@ -38,7 +38,34 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
+declare global {
+  /* eslint-disable no-var */
+  var gsap: any;
+  var ScrollTrigger: any;
+}
+
 export default Vue.extend({
+  props: {
+    animationReady: Boolean
+  },
+  watch: {
+    animationReady: {
+      immediate: true,
+      handler(ready) {
+        if (ready) {
+          gsap.to('.parallax-pic', {
+            scrollTrigger: {
+              scrub: true,
+            },
+            y: () => ScrollTrigger.maxScroll(window) * 0.15,
+            ease: 'none'
+
+          })
+        }
+      }
+    }
+  },
   methods: {
     scrollTo(target: string) {
       this.$nuxt.$emit('scrollTo', target)
@@ -50,9 +77,5 @@ export default Vue.extend({
 <style lang="postcss" scoped>
 .hero-flower {
   shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35.00%, 21.59% 65.9%, 87.94% 101.47%);
-}
-
-.parallax--back {
-  transform: translateZ(-1px) scale(1.3)
 }
 </style>
