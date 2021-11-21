@@ -2,7 +2,7 @@
   <div>
     <!-- scroll-target + data-section have to be inside the component,
     nuxt strips them for some reason -->
-    <Passion :animation-ready="gsapLoaded && gsapScrollTriggerLoaded" />
+    <Passion />
     <AboutMe class="scroll-target" data-section="about-me" />
     <Candor class="scroll-target" data-section="candor" />
     <IlSpacer :ms="4" />
@@ -39,6 +39,34 @@ export default Vue.extend({
           callback: () => { this.gsapScrollTriggerLoaded = true },
         }
       ]
+    }
+  },
+  computed: {
+    animationReady() {
+      return this.gsapLoaded && this.gsapScrollTriggerLoaded
+    }
+  },
+  watch: {
+    animationReady(ready) {
+      if (ready) {
+        this.$nextTick(this.parallax)
+      }
+      this.$store.commit('animationReady', ready)
+    }
+  },
+  methods: {
+    parallax() {
+      gsap.utils.toArray(".parallax-pic").forEach((img) => {
+        gsap.to(img, {
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            scrub: true,
+            // markers: true,
+          },
+          yPercent: 20
+        })
+      })
     }
   }
 })

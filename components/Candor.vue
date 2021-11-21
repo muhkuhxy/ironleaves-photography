@@ -5,7 +5,7 @@
     </IconBase>
     <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
       <img
-        class="object-cover w-full h-full"
+        class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full scale-[1.15]"
         src="~/assets/images/Gruppe_310.jpg"
         alt="Happy guests">
       <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25" />
@@ -17,7 +17,7 @@
       <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] mt-[-0.5rem] ml-[37%] 2xl:ml-[50%]" />
       <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full ml-[49%] 2xl:ml-[55%]" />
     </SectionLines>
-    <SectionContent class="relative">
+    <SectionContent class="bg-bluegray relative">
       <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
         <SvgSingleGrass class="relative lg:absolute w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0"/>
         <SectionHeader>

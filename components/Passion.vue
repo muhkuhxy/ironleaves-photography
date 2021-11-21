@@ -4,7 +4,7 @@
     data-section="passion">
     <IlFigure class="shadow-lg">
       <img
-        class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.15]"
+        class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.23]"
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <IlGradient class="translate-y-2" :half-height="true" />
@@ -38,34 +38,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
-declare global {
-  /* eslint-disable no-var */
-  var gsap: any;
-  var ScrollTrigger: any;
-}
-
 export default Vue.extend({
-  props: {
-    animationReady: Boolean
-  },
-  watch: {
-    animationReady: {
-      immediate: true,
-      handler(ready) {
-        if (ready) {
-          gsap.to('.parallax-pic', {
-            scrollTrigger: {
-              scrub: true,
-            },
-            y: () => ScrollTrigger.maxScroll(window) * 0.15,
-            ease: 'none'
-
-          })
-        }
-      }
-    }
-  },
   methods: {
     scrollTo(target: string) {
       this.$nuxt.$emit('scrollTo', target)
