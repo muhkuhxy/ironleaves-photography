@@ -2,7 +2,7 @@
   <SectionParent class="bg-emerald text-white lg:relative overflow-y-hidden">
     <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0">
       <img
-       class="object-cover w-full h-full"
+       class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
         src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
         alt="Happy couple">
       <IlGradient :half-height="true" />

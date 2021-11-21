@@ -1,25 +1,27 @@
 <template>
   <SectionParent class="bg-bluegray text-white relative">
-    <IconBase class="text-sunset w-full h-16 absolute top-0 -mt-12 z-10">
+    <IconBase class="text-sunset w-full h-16 absolute top-0 -mt-12 z-20">
       <IconArrow />
     </IconBase>
-    <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
-      <img
-        class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full scale-[1.15]"
-        src="~/assets/images/Gruppe_310.jpg"
-        alt="Happy guests">
-      <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25" />
+    <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0 z-10">
+      <IlFigure class="lg:h-full lg:w-full">
+        <img
+          class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
+          src="~/assets/images/Gruppe_310.jpg"
+          alt="Happy guests">
+        <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25 translate-y-2 lg:translate-y-0" />
+      </IlFigure>
       <IlFigureCaption class="lg:text-right lg:left-0 lg:top-0 lg:pt-12 lg:px-0 lg:ml-[-40%] z-20">
         Embrace the flaws<br class=""> and the gems
       </IlFigureCaption>
-    </IlFigure>
+    </div>
     <SectionLines class="xl:block">
       <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] mt-[-0.5rem] ml-[37%] 2xl:ml-[50%]" />
       <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full ml-[49%] 2xl:ml-[55%]" />
     </SectionLines>
     <SectionContent class="bg-bluegray relative">
       <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
-        <SvgSingleGrass class="relative lg:absolute w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0"/>
+        <SvgSingleGrass class="relative lg:absolute w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0 z-10"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
           Ganz ehrlich

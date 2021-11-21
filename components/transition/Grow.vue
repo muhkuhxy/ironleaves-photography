@@ -13,6 +13,11 @@
 <script lang="ts">
 import Vue from 'vue'
 
+declare global {
+  // eslint-disable-next-line no-var
+  var gsap: any
+}
+
 export default Vue.extend({
   props: {
     duration: {
@@ -27,7 +32,6 @@ export default Vue.extend({
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
       gsap.to(el, {
-        // ease: 'power2.out',
         height,
         duration: this.duration,
         onComplete: () => {

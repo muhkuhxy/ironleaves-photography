@@ -5,7 +5,7 @@
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
-    <nav>
+    <nav class="bg-white -mt-px">
       <IlContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
@@ -150,9 +150,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   },
   methods: {
     scrollTo(clazz: string) {
-      // if (this.menuShown) {
-      //   this.menuShown = false;
-      // }
       this.$emit('scrollTo', clazz)
     },
     onScroll() {

@@ -1,16 +1,18 @@
 <template>
   <SectionParent>
     <div class="bg-bluegray text-white overflow-y-hidden relative">
-      <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
-        <img
-          class="object-cover w-full h-full"
-          src="~/assets/images/Valerie-und-Max-712@2x.jpg"
-          alt="Happy guests">
-        <IlGradient direction="top-right" />
+      <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
+        <IlFigure class="lg:w-full lg:h-full">
+          <img
+            class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.3]"
+            src="~/assets/images/Valerie-und-Max-712@2x.jpg"
+            alt="Happy guests">
+          <IlGradient direction="top-right" />
+        </IlFigure>
         <IlFigureCaption class="lg:text-right lg:top-0 lg:left-0 lg:pt-12 lg:px-0 lg:ml-[-30%] z-10">
           Handmade<br>with love
         </IlFigureCaption>
-      </IlFigure>
+      </div>
       <SectionLines class="xl:block">
         <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+7rem)] mt-[-4rem] ml-[37%] 2xl:ml-[47%]" />
         <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />

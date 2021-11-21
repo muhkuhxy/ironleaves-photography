@@ -8,7 +8,7 @@
         src="~/assets/images/Pfad-1.jpg"
         alt="Glückliches Ehepaar">
       <IlGradient class="translate-y-2" :half-height="true" />
-      <IlFigureCaption class="hero">
+      <IlFigureCaption>
         Moments for<br>Eternity
       </IlFigureCaption>
     </IlFigure>
