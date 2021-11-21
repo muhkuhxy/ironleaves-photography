@@ -13,7 +13,7 @@
     <div class="absolute mb-8 bottom-0 top-0 left-0 flex items-end z-20">
       <IlGradient direction="right" />
       <a
-        class="cursor-pointer mb-2 text-white ml-8 mr-4"
+        class="cursor-pointer mb-2 text-white ml-4 md:ml-8 mr-4"
         @click="swiper.slidePrev()">
         <IconBase :class="baseStyles.icon" class="rotate-90 w-10 lg:w-16">
           <IconArrow />
@@ -23,7 +23,7 @@
     <div class="absolute mb-8 bottom-0 top-0 right-0 flex items-end z-20">
       <IlGradient direction="left" />
       <a
-        class="cursor-pointer mb-2 text-white mr-8 ml-4 "
+        class="cursor-pointer mb-2 text-white mr-4 md:mr-8 ml-4 "
         @click="swiper.slideNext()">
         <IconBase :class="baseStyles.icon" class="-rotate-90 w-10 lg:w-16">
           <IconArrow />
