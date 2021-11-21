@@ -69,6 +69,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Botpoison from "@botpoison/browser";
 
 interface Form {
   name: string,
@@ -80,14 +81,49 @@ interface Form {
   message: string,
   acceptedAgbs: boolean
 }
+
 interface Transit {
   sending: boolean
   error: boolean
   success: boolean
 }
 
-function fakeFetch(form: Form): Promise<void> {
-  console.log('sending', {form})
+const botpoison = new Botpoison({
+  publicKey: "pk_0ab7175c-f232-43a7-a50d-671477c36db3",
+});
+
+function pick(keys: string[], object: Record<string, any>): Record<string, object> {
+  return keys.reduce((result, key) => {
+    result[key] = object[key]
+    return result
+  }, {} as Record<string, object>)
+}
+
+async function sendForm(form: Form, fake: boolean): Promise<Response> {
+  const solution = fake ? 'fake' : (await botpoison.challenge()).solution
+  const payload = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      accept: 'application/json'
+    },
+    body: JSON.stringify({
+      ...pick(['name', 'email', 'phone', 'date', 'kind', 'date', 'place', 'message'], form),
+      _email: {
+        subject: `Ironleaves Photography - Neue Anfrage von ${form.name}`
+      },
+      _botpoison: solution,
+      _redirect: false
+    })
+  }
+  if (fake) {
+    return fakeSendForm(payload)
+  }
+  return await fetch('https://submit-form.com/ccaegGs4', payload)
+}
+
+function fakeSendForm(payload: any): Promise<Response> {
+  console.log('sending', payload)
   return new Promise((resolve, reject) => {
     if (Date.now() % 2 === 0) {
       setTimeout(resolve, 3000)
@@ -194,7 +230,7 @@ export default Vue.extend({
     },
     async submit(form: Form) {
       const { transit } = this
-      if (transit.sending) {
+      if (transit.sending || transit.success) {
         return;
       }
 
@@ -202,10 +238,13 @@ export default Vue.extend({
           this.dots += '.'
         }, 750 )
       transit.sending = true
+
       try {
-        await fakeFetch(form);
-        transit.success = true
+        const response = await sendForm(form, false)
+        // console.log(response)
+        transit.success = response.ok
       } catch (error) {
+        console.error(error)
         transit.error = true
       } finally {
         clearInterval(interval)
@@ -215,7 +254,7 @@ export default Vue.extend({
     },
     composeMail() {
       const el = document.createElement('a')
-      el.href = 'mailto:' + rot13('uryyb@vebayrnirf-qrfvta.pbz')
+      el.href = 'mailto:' + rot13('uryyb@vebayrnirf-cubgbtencul.pbz')
       el.click()
     },
   }
