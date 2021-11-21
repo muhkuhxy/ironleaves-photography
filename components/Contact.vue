@@ -70,6 +70,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Botpoison from "@botpoison/browser";
+import { composeMail } from '@/lib/mail'
 
 interface Form {
   name: string,
@@ -240,8 +241,7 @@ export default Vue.extend({
       transit.sending = true
 
       try {
-        const response = await sendForm(form, false)
-        // console.log(response)
+        const response = await sendForm(form, true)
         transit.success = response.ok
       } catch (error) {
         console.error(error)
@@ -252,19 +252,7 @@ export default Vue.extend({
         this.dots = ''
       }
     },
-    composeMail() {
-      const el = document.createElement('a')
-      el.href = 'mailto:' + rot13('uryyb@vebayrnirf-cubgbtencul.pbz')
-      el.click()
-    },
+    composeMail
   }
 })
-
-function rot13(str: string) {
-  const input  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  const index = (x: string) => input.indexOf(x);
-  const translate = (x: string) => index(x) > -1 ? output[index(x)] : x;
-  return str.split('').map(translate).join('');
-}
 </script>

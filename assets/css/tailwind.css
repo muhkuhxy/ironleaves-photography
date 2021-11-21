@@ -35,22 +35,21 @@
   }
 
   h1 {
+    font-family: 'Playfair Display', serif;
+
+    /* 2rem @ 375px increasing to 4rem @ 1280px */
+    font-size: clamp(2rem, calc(2rem + ((1vw - 0.234375rem) * 3.5359)), 4rem);
+    line-height: 1;
+
+    /* Safari resize fix */
+    min-height: 0;
+
     .roofline {
+      font-family: 'Nunito', sans-serif;
       letter-spacing: 0.15em;
       font-size: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.663)), 1.375rem);
       /* stylelint-disable-next-line length-zero-no-unit */
       min-height: 0vw;
-    }
-
-    .headline {
-      font-family: 'Playfair Display', serif;
-
-      /* 2rem @ 375px increasing to 4rem @ 1280px */
-      font-size: clamp(2rem, calc(2rem + ((1vw - 0.234375rem) * 3.5359)), 4rem);
-      line-height: 1;
-
-      /* Safari resize fix */
-      min-height: 0;
     }
   }
 
@@ -70,16 +69,19 @@
         @apply w-6 h-6 relative leading-0 cursor-pointer;
 
         &::before {
-          @apply absolute;
+          @apply absolute bg-white;
 
-          font-size: 2em;
-          top: 0.28em;
-          left: 0.02em;
+          top: 2px;
+          right: 2px;
+          bottom: 0;
+          left: 1px;
+          clip-path: polygon(19% 49%, 9% 65%, 45% 90%, 94% 19%, 80% 9%, 42% 66%);
+          font-size: 0;
         }
       }
 
       &:checked ~ label.formulate-input-element-decorator::before {
-        content: "\000d7";
+        content: "";
       }
     }
   }
