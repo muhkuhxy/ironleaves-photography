@@ -1,8 +1,10 @@
+const base = process.env.DEPLOY_ENV === 'gh-pages' ? '/ironleaves-photography/' : '/';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: process.env.DEPLOY_ENV === 'gh-pages' ? '/ironleaves-photography/' : '/'
+    base,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -18,7 +20,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/png', href: `${base}favicon.png` }
     ]
   },
 
@@ -28,7 +30,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/velocity.client.js',
     '~/plugins/click-outside.client.js',
   ],
 

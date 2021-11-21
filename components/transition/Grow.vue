@@ -2,7 +2,7 @@
   <transition
       name="grow"
       :css="false"
-      :appear="true"
+      :appear="false"
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave">
@@ -12,11 +12,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
 export default Vue.extend({
   props: {
     duration: {
       type: Number,
-      default: 500
+      default: 0.75
     },
   },
   methods: {
@@ -25,18 +26,21 @@ export default Vue.extend({
     },
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
-      this.$velocity(el, { height: `${height}px` }, {
-        complete: () => {
+      gsap.to(el, {
+        // ease: 'power2.out',
+        height,
+        duration: this.duration,
+        onComplete: () => {
           el.style.height = 'auto'
           done()
-        },
-        duration: this.duration,
+        }
       })
     },
     leave(el: HTMLElement, done: () => void) {
-      this.$velocity(el, { height: '0px' }, {
-        complete: done,
+      gsap.to(el, {
+        height: '0px',
         duration: this.duration,
+        onComplete: done,
       })
     }
   },
