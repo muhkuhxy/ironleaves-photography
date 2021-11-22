@@ -241,7 +241,7 @@ export default Vue.extend({
       transit.sending = true
 
       try {
-        const response = await sendForm(form, true)
+        const response = await sendForm(form, false)
         transit.success = response.ok
       } catch (error) {
         console.error(error)
