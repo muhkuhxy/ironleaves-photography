@@ -36,6 +36,7 @@ export default Vue.extend({
   }),
   mounted() {
     this.$nextTick(() => this.updateBreakpoints())
+    this.$nuxt.$on('scrollTo', this.scrollTo)
     window.addEventListener('resize', this.updateBreakpoints)
   },
   beforeDestroy() {
