@@ -46,7 +46,7 @@
             }" />
           <IlSpacer />
           <FormulateErrors class="sm:col-span-2" />
-          <ButtonEffect class="sm:col-span-2" type="submit" @click="resetTransmit">
+          <ButtonEffect class="sm:col-span-2" type="submit">
             {{ transit.sending ? `Wird gesendet ${dots}` :
               transit.error ? 'Schade :(' :
               transit.success ? 'Vielen Dank :)' :
@@ -127,7 +127,7 @@ function fakeSendForm(payload: any): Promise<Response> {
   console.log('sending', payload)
   return new Promise((resolve, reject) => {
     if (Date.now() % 2 === 0) {
-      setTimeout(resolve, 3000)
+      setTimeout(() => resolve({ok: true} as Response), 3000)
     } else {
       setTimeout(reject, 3000)
     }
@@ -224,11 +224,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    resetTransmit() {
-      const { transit } = this
-      transit.success = false
-      transit.error = false
-    },
     async submit(form: Form) {
       const { transit } = this
       if (transit.sending || transit.success) {
