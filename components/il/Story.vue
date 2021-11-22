@@ -10,7 +10,7 @@
         <IlTextExpander v-if="$slots.moreContent">
           <slot name="moreContent"></slot>
         </IlTextExpander>
-        <IlSpacer :ms="1" />
+        <IlSpacer :responsive="false" :ms="1" />
       </div>
     </SectionContent>
     <IlSlider

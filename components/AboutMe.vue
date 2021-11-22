@@ -10,13 +10,13 @@
           alt="Tamara Loeffen">
         <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 -mb-8 md:-mb-12"/>
       </figure>
-      <div class="lg:flex-initial lg:w-1/2 md:mt-8 text-center lg:text-left">
-        <SectionHeader class="max-w-prose">
+      <div class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 md:mt-8 text-center lg:text-left">
+        <SectionHeader>
           <template #roofline>Über mich</template>
           Hoch&shy;zeits&shy;foto&shy;grafin&nbsp;&amp; Gestalterin
         </SectionHeader>
-        <IlSpacer class="md:mt-4 xl:mt-8" />
-        <div class="lg:pl-8 xl:lp-16 max-w-prose flex flex-col gap-4">
+        <IlSpacer />
+        <div class="lg:pl-8 xl:lp-16 flex flex-col gap-4">
           <p>
             Ich freue mich, euch kennenzulernen. Mein Name ist Tamara und ich
             komme aus Bayreuth. Seit ein paar Monaten wohne ich in der
@@ -40,14 +40,14 @@
               zugewendet haben und das feiern möchten.
             </p>
           </IlTextExpander>
-          <IlSpacer class="md:mt-4 xl:mt-8" />
+          <IlSpacer />
           <ButtonEffect class="text-sunset mx-auto lg:mx-0" @click="scrollTo('contact')">
             Schreibt mich gerne an!
           </ButtonEffect>
         </div>
       </div>
     </SectionContent>
-    <IlSpacer class="md:mt-4 xl:mt-8" />
+    <IlSpacer />
   </SectionParent>
 </template>
 

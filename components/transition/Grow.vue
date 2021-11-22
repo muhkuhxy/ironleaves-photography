@@ -12,11 +12,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
-declare global {
-  // eslint-disable-next-line no-var
-  var gsap: any
-}
+import { mapState } from 'vuex'
 
 export default Vue.extend({
   props: {
@@ -25,14 +21,15 @@ export default Vue.extend({
       default: 0.75
     },
   },
+  computed: mapState(['animationReady', 'gsap']),
   methods: {
     beforeEnter(el: HTMLElement) {
       el.style.height = '0'
     },
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
-      if (gsap) {
-        gsap.to(el, {
+      if (this.animationReady) {
+        this.gsap.to(el, {
           height,
           duration: this.duration,
           onComplete: () => {
@@ -45,8 +42,8 @@ export default Vue.extend({
       }
     },
     leave(el: HTMLElement, done: () => void) {
-      if (gsap) {
-        gsap.to(el, {
+      if (this.animationReady) {
+        this.gsap.to(el, {
           height: '0px',
           duration: this.duration,
           onComplete: done,

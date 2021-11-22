@@ -10,7 +10,7 @@
         Genau, was ihr braucht!
       </SectionHeader>
 
-      <IlSpacer class="md:mt-4 xl:mt-8" />
+      <IlSpacer />
 
       <div class="bg-emerald lg:bg-transparent text-white lg:grid lg:gap-1 lg:grid-cols-4">
 
@@ -88,7 +88,7 @@
 
     </SectionContent>
 
-    <IlSpacer :ms="4" />
+    <IlSpacer :responsive="false" :ms="4" />
 
   </SectionParent>
 </template>

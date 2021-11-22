@@ -17,7 +17,7 @@
           kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
           von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
         </p>
-        <IlSpacer class="md:mt-4 xl:mt-8" />
+        <IlSpacer />
         <FormulateForm
           v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
           invalid-message="Leider ist das Formular noch nicht vollständig. Bitte überprüfe deine Angaben."
@@ -44,7 +44,7 @@
               'errors-class': baseClasses.errors,
               ...extra
             }" />
-          <IlSpacer class="md:mt-4 xl:mt-8" />
+          <IlSpacer />
           <FormulateErrors class="sm:col-span-2" />
           <ButtonEffect class="sm:col-span-2" type="submit" @click="resetTransmit">
             {{ transit.sending ? `Wird gesendet ${dots}` :

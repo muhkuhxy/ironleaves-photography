@@ -44,7 +44,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :ms="4" />
+    <IlSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[1]">
       <template #image>
@@ -71,7 +71,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :ms="4" />
+    <IlSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[2]">
       <template #image>
@@ -98,7 +98,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :ms="4" />
+    <IlSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[3]">
       <template #image>

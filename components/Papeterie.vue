@@ -24,7 +24,7 @@
             <template #roofline>Papeterie</template>
             So individuell wie ihr!
           </SectionHeader>
-          <IlSpacer class="md:mt-4 xl:mt-8" />
+          <IlSpacer />
           <p class="max-w-prose">Egal was ihr braucht – ich helfe euch, ein Design zu entwickeln, was zu
     eurer Hochzeit passt. Wir finden gemeinsam heraus, wie euer Stil ist und
     dann können wir loslegen.</p>

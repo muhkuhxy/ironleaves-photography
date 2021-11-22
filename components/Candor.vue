@@ -26,7 +26,7 @@
           <template #roofline>Meine Werte</template>
           Ganz ehrlich
         </SectionHeader>
-        <IlSpacer class="md:mt-4 xl:mt-8" />
+        <IlSpacer />
         <p class="max-w-prose mb-4">
           Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
           unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
