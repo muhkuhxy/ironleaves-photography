@@ -14,7 +14,7 @@
           <img
             class="w-7/8 border-8 border-solid border-white filter drop-shadow"
             src="~/assets/images/stories/valerie_max/ironleaves-photography-stories-valerie-max.jpg"
-            alt="Happy couple">
+            alt="Valerie und Max Hochzeits-Shooting">
           <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
         </div>
       </template>
@@ -51,8 +51,8 @@
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/old/Sandra-und-Jonas-Standesamt-Shooting-3695.jpg"
-            alt="Happy couple">
+            src="~/assets/images/stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt.jpg"
+            alt="Sandra und Jonas Standesamt Shooting">
           <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
         </div>
       </template>
@@ -78,8 +78,8 @@
         <div class="relative lg:w-1/2 flex-initial">
           <img
             class="w-5/6 border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/old/Samira-und-Kerem-Shooting-1173.jpg"
-            alt="Happy couple">
+            src="~/assets/images/stories/samira_kerem/ironleaves-photography-stories-samira-kerem.jpg"
+            alt="Samira und Kerem Hochzeits-Shooting">
           <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-3" />
         </div>
       </template>
@@ -105,9 +105,36 @@
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/old/Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg"
-            alt="Happy couple">
-          <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute left-0 bottom-0 translate-x-2 translate-y-4" />
+            src="~/assets/images/stories/julia_martin/ironleaves-photography-stories-julia-martin.jpg"
+            alt="Julia und Martin Hochzeits-Shooting">
+          <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
+        </div>
+      </template>
+
+      <template #title>Julia&nbsp;&amp; Martin</template>
+
+      <template #content>
+        <p>
+          Das Pärchen, das mir wohl das größte Vertrauen
+          entgegen gebracht und mich komplett bei ihrer
+          aufregenden Reise bis zur Hochzeit
+          mitgenommen hat. Neben der kompletten
+          Papeterie durfte ich auch hautnah bei den
+          Planungen mit dabei sein.
+        </p>
+      </template>
+    </IlStory>
+
+    <IlSpacer :responsive="false" :ms="4" />
+
+    <IlStory :slides="slides[4]">
+      <template #image>
+        <div class="relative lg:w-1/2 flex-initial">
+          <img
+            class="w-5/6 border-8 border-solid border-white filter drop-shadow"
+            src="~/assets/images/stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit.jpg"
+            alt="Sandra und Jonas Hochzeits-Shooting">
+          <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute right-0 bottom-0 scale-x-[-1] -translate-x-2 translate-y-4" />
         </div>
       </template>
 
@@ -136,7 +163,7 @@
 import Vue from 'vue'
 const slides = [
   {
-    dir: 'assets/images/stories/valerie_max',
+    dir: 'valerie_max',
     files: [
       'ironleaves-photography-stories-valerie-max-laecheln.jpg',
       'ironleaves-photography-stories-valerie-max-bank-waldrand.jpg',
@@ -156,48 +183,102 @@ const slides = [
     ],
   },
   {
-    dir: 'old',
+    dir: 'sandra_jonas_standesamt',
     files: [
-      'Sandra-und-Jonas-Standesamt-Reportage-1.jpg',
-      'Sandra-und-Jonas-Standesamt-Reportage-2.jpg',
-      'Sandra-und-Jonas-Standesamt-Reportage-4917.jpg',
-      'Sandra-und-Jonas-Standesamt-Reportage-5313.jpg',
-      'Sandra-und-Jonas-Standesamt-Reportage-5430.jpg',
-      'Sandra-und-Jonas-Standesamt-Shooting-3695.jpg',
-      'Sandra-und-Jonas-Standesamt-Shooting-3876.jpg',
-      'Sandra-und-Jonas-Standesamt-Shooting-3917.jpg',
-      'Sandra-und-Jonas-Standesamt-Shooting-6105.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-tanzend-ungestellt.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-shooting-standesamt.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-brautpaar-zeremonie.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-brautstrauss-beine.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-brautstrauss-detail.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-detail-haendchen-halten.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-inniger-kuss.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-kuss-verheiratet.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-natuerlich.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-park-haendchen-halten.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-ring-anstecken-detail.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-schlossgarten-eckersdorf.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-schlossgarten-pflanzenbogen.jpg',
+      'ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-spontaner-kuss.jpg',
     ]
   },
   {
-    dir: 'old',
+    dir: 'samira_kerem',
     files: [
-      'Samira-und-Kerem-1.jpg',
-      'Samira-und-Kerem-2.jpg',
-      'Samira-und-Kerem-3.jpg',
-      'Samira-und-Kerem-Shooting-1173.jpg',
-      'Samira-und-Kerem-Shooting-9867.jpg'
+      'ironleaves-photography-stories-samira-kerem-slider-wald-ungestellt-momentaufnahme.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-autoschmuck-mercedes-sonnenuntergang.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-kuss-sonnenuntergang.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-autoschmuck-rosen.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-wald-verliebt.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-blick-in-die-augen.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-braeutigam-blumenschmuck-anstecker.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-braut-authentisch-natuerlich.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-brautkleid-prinzessin.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-kuss-wiese-sonnenuntergang.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-lens-flare.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-lensflare.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-naehe-vertraulichkeit.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-ringe-detailansicht.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-sonnenuntergang-kuss.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-sonnenuntergang-wiese.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-tanz-ungestellt.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-wald-natuerliches-licht.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-wald-panorama.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-wald-schnappschuss.jpg',
+      'ironleaves-photography-stories-samira-kerem-slider-wald-shooting.jpg',
     ],
   },
   {
-    dir: 'old',
+    dir: 'julia_martin',
     files: [
-      'Sandra-und-Jonas-Hochzeit-Reportage-1.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1200568.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1200570.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1200657.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1211662.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1211796.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1865.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-1889.jpg',
-      'Sandra-und-Jonas-Hochzeit-Reportage-2926.jpg',
-      'Sandra-und-Jonas-Hochzeit-Shooting-0874.jpg',
-      'Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-braeutigam-blauer-anzug.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-braut-brautkleid-boho.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-braut-dom-magdeburg.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-brautpaar-laufend.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-bruecke-stadt.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-bruecke-urban.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-detail-ringe.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-dom-magdeburg.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-erster-tanz-abends.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-first-look.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-haendchen-halten.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-naehe-natuerlichkeit.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-natuerliche-braut-boho.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-sonnenuntergang-shooting.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-stadtpark.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-tradition-standesamt-herz-ausschneiden.jpg',
+      'ironleaves-photography-stories-julia-martin-slider-ungestellt-ehrlich.jpg',
     ]
   },
-].map(({dir, files}) => files.map(file => `${dir}/${file}`))
-// console.log(slides)
-// assets/images/stories/valerie_max/ironleaves-photography-stories-valerie-max-bank-waldrand.jpg
+  {
+    dir: 'sandra_jonas_hochzeit',
+    files: [
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-shooting-pfuetze-spiegelung-abends.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-seifenblasen-einmarsch.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-verliebt-vertraulichkeit.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-schnappschuss.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-auf-haenden-tragend-spass.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-blumen-fruehling.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-hofgarten-bayreuth.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-kuss-park-hofgarten-bayreuth.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-momentaufnahme-braut.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-probe-tanz-parkplatz.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-anschnitt-kuchen.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-brautstrass-kuchen.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-deko.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-erster-tanz.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-location-eckersdorf.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-segen.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-gluehbirnen-detail.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-liebesbier.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-regen-nass-hochzeitsauto.jpg',
+      'ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-sitzplan-papeterie.jpg',
+    ]
+  },
+].map(({dir, files}) => files.map(file => `stories/${dir}/${file}`))
+
 export default Vue.extend({
   computed: {
     slides: () => slides
