@@ -3,8 +3,11 @@
     <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0">
       <img
        class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
-        src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-6105.jpg"
-        alt="Happy couple">
+       srcset="~/assets/images/mobile/ironleaves-photography-bildlooks-mobile.jpg 768w,
+            ~/assets/images/desktop/ironleaves-photography-bildlooks.jpg 1920w"
+          sizes="(max-width: 768px) 768px,
+            1920px"
+          alt="Paarshooting im Freien">
       <IlGradient :half-height="true" />
     </IlFigure>
     <SectionLines class="xl:block">

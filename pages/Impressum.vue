@@ -7,7 +7,7 @@
         Tamara Loeffen
         <br />Kluckweg 5a
         <br />52156 Monschau
-        <br />Tel: 123456789
+        <br />Tel: +49 151 6755 2704
         <br />
         <a class="cursor-pointer underline" @click="composeMail">{{ getMail() }}</a>
       </address>

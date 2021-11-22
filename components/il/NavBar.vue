@@ -1,7 +1,7 @@
 <template>
   <header
     v-click-outside="clickOutside"
-    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter"
+    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter opacity-90"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'drop-shadow-xl']">
@@ -128,7 +128,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       }, {
         threshold: Array(10).fill(undefined).map((_, index) => (index+1)/10)
       })
-
 
       const observeSections = () => {
         const sections = document.querySelectorAll('.scroll-target[data-section]')

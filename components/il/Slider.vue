@@ -7,7 +7,7 @@
         class="swiper-slide flex items-center max-w-[90%]">
         <img
           class="object-cover h-full"
-          :src="require(`~/assets/images/${url}`)">
+          :src="require(`~/${url}`)">
       </div>
     </div>
     <div class="absolute mb-8 bottom-0 top-0 left-0 flex items-end z-20">

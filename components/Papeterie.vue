@@ -40,10 +40,10 @@
 <script lang="ts">
 import Vue from 'vue'
 const slides = [
-    'Valerie-und-Max-701.jpg',
-    'Valerie-und-Max-712.jpg',
-    'Valerie-und-Max-713.jpg',
-    'Valerie-und-Max-730.jpg',
+    'assets/images/Valerie-und-Max-701.jpg',
+    'assets/images/Valerie-und-Max-712.jpg',
+    'assets/images/Valerie-und-Max-713.jpg',
+    'assets/images/Valerie-und-Max-730.jpg',
 ]
 export default Vue.extend({
   computed: {

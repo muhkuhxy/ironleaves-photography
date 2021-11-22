@@ -38,6 +38,7 @@ export default Vue.extend({
   }),
   mounted() {
     this.$nextTick(() => this.updateBreakpoints())
+    this.$nuxt.$on('scrollTo', this.scrollTo)
     window.addEventListener('resize', this.updateBreakpoints)
     if (typeof this.$route.query.go === 'string') {
       this.scrollTo(this.$route.query.go)

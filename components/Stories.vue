@@ -13,7 +13,7 @@
         <div class="relative lg:w-1/2 flex-initial">
           <img
             class="w-7/8 border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/IMG_20190206_161314.jpg"
+            src="~/assets/images/stories/valerie_max/ironleaves-photography-stories-valerie-max.jpg"
             alt="Happy couple">
           <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
         </div>
@@ -135,52 +135,69 @@
 <script lang="ts">
 import Vue from 'vue'
 const slides = [
-  [
-    'Valerie-und-Max-4.jpg',
-    'Valerie-und-Max-54.jpg',
-    'Valerie-und-Max-701.jpg',
-    'Valerie-und-Max-703.jpg',
-    'Valerie-und-Max-712.jpg',
-    'Valerie-und-Max-713.jpg',
-    'Valerie-und-Max-730.jpg',
-    'Valerie-und-Max-Shooting-117.jpg',
-    'Valerie-und-Max-Shooting-159.jpg',
-    'Valerie-und-Max-Shooting-1.jpg',
-    'Valerie-und-Max-Shooting-2.jpg',
-    'Valerie-und-Max-Shooting-69.jpg',
-  ],
-  [
-    'Sandra-und-Jonas-Standesamt-Reportage-1.jpg',
-    'Sandra-und-Jonas-Standesamt-Reportage-2.jpg',
-    'Sandra-und-Jonas-Standesamt-Reportage-4917.jpg',
-    'Sandra-und-Jonas-Standesamt-Reportage-5313.jpg',
-    'Sandra-und-Jonas-Standesamt-Reportage-5430.jpg',
-    'Sandra-und-Jonas-Standesamt-Shooting-3695.jpg',
-    'Sandra-und-Jonas-Standesamt-Shooting-3876.jpg',
-    'Sandra-und-Jonas-Standesamt-Shooting-3917.jpg',
-    'Sandra-und-Jonas-Standesamt-Shooting-6105.jpg',
-  ],
-  [
-    'Samira-und-Kerem-1.jpg',
-    'Samira-und-Kerem-2.jpg',
-    'Samira-und-Kerem-3.jpg',
-    'Samira-und-Kerem-Shooting-1173.jpg',
-    'Samira-und-Kerem-Shooting-9867.jpg'
-  ],
-  [
-    'Sandra-und-Jonas-Hochzeit-Reportage-1.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1200568.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1200570.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1200657.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1211662.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1211796.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1865.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-1889.jpg',
-    'Sandra-und-Jonas-Hochzeit-Reportage-2926.jpg',
-    'Sandra-und-Jonas-Hochzeit-Shooting-0874.jpg',
-    'Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg',
-  ]
-]
+  {
+    dir: 'assets/images/stories/valerie_max',
+    files: [
+      'ironleaves-photography-stories-valerie-max-laecheln.jpg',
+      'ironleaves-photography-stories-valerie-max-bank-waldrand.jpg',
+      'ironleaves-photography-stories-valerie-max-blumenstrauss-wildblumen.jpg',
+      'ironleaves-photography-stories-valerie-max-ehrlich-ungestellt.jpg',
+      'ironleaves-photography-stories-valerie-max-eskimo.jpg',
+      'ironleaves-photography-stories-valerie-max-wald-rueckenansicht.jpg',
+      'ironleaves-photography-stories-valerie-max-hochformat.jpg',
+      'ironleaves-photography-stories-valerie-max-hochzeitskleid.jpg',
+      'ironleaves-photography-stories-valerie-max-wald.jpg',
+      'ironleaves-photography-stories-valerie-max-tanzend.jpg',
+      'ironleaves-photography-stories-valerie-max-standesamt.jpg',
+      'ironleaves-photography-stories-valerie-max-frisur.jpg',
+      'ironleaves-photography-stories-valerie-max-location-scheune.jpg',
+      'ironleaves-photography-stories-valerie-max-blumenvasen-deko.jpg',
+      'ironleaves-photography-stories-valerie-max-sitzplan.jpg',
+    ],
+  },
+  {
+    dir: 'assets/images',
+    files: [
+      'Sandra-und-Jonas-Standesamt-Reportage-1.jpg',
+      'Sandra-und-Jonas-Standesamt-Reportage-2.jpg',
+      'Sandra-und-Jonas-Standesamt-Reportage-4917.jpg',
+      'Sandra-und-Jonas-Standesamt-Reportage-5313.jpg',
+      'Sandra-und-Jonas-Standesamt-Reportage-5430.jpg',
+      'Sandra-und-Jonas-Standesamt-Shooting-3695.jpg',
+      'Sandra-und-Jonas-Standesamt-Shooting-3876.jpg',
+      'Sandra-und-Jonas-Standesamt-Shooting-3917.jpg',
+      'Sandra-und-Jonas-Standesamt-Shooting-6105.jpg',
+    ]
+  },
+  {
+    dir: 'assets/images',
+    files: [
+      'Samira-und-Kerem-1.jpg',
+      'Samira-und-Kerem-2.jpg',
+      'Samira-und-Kerem-3.jpg',
+      'Samira-und-Kerem-Shooting-1173.jpg',
+      'Samira-und-Kerem-Shooting-9867.jpg'
+    ],
+  },
+  {
+    dir: 'assets/images',
+    files: [
+      'Sandra-und-Jonas-Hochzeit-Reportage-1.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1200568.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1200570.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1200657.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1211662.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1211796.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1865.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-1889.jpg',
+      'Sandra-und-Jonas-Hochzeit-Reportage-2926.jpg',
+      'Sandra-und-Jonas-Hochzeit-Shooting-0874.jpg',
+      'Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg',
+    ]
+  },
+].map(({dir, files}) => files.map(file => `${dir}/${file}`))
+// console.log(slides)
+// assets/images/stories/valerie_max/ironleaves-photography-stories-valerie-max-bank-waldrand.jpg
 export default Vue.extend({
   computed: {
     slides: () => slides

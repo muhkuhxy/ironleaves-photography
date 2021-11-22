@@ -7,8 +7,11 @@
       <IlFigure class="lg:h-full lg:w-full">
         <img
           class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
-          src="~/assets/images/Gruppe_310.jpg"
-          alt="Happy guests">
+          srcset="~/assets/images/mobile/ironleaves-photography-werte-mobile.jpg 768w,
+            ~/assets/images/desktop/ironleaves-photography-werte.jpg 1920w"
+          sizes="(max-width: 768px) 768px,
+            1920px"
+          alt="Ehrliche Schnappschüsse">
         <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25 translate-y-2 lg:translate-y-0" />
       </IlFigure>
       <IlFigureCaption class="lg:text-right lg:left-0 lg:top-0 lg:pt-12 lg:px-0 lg:ml-[-40%] z-20">

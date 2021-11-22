@@ -6,9 +6,12 @@
     <SectionContent class="flex flex-col lg:flex-row items-center">
       <figure class="relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16">
         <img
-          src="~/assets/images/IMG_20190206_161314@2x.jpg"
-          alt="Tamara Loeffen">
-        <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 -mb-8 md:-mb-12"/>
+          srcset="~/assets/images/mobile/ironleaves-photography-ueber-mich-tamara-loeffen-SW-mobile.jpg 768w,
+            ~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg 1920w"
+          sizes="(max-width: 768px) 768px,
+            1920px"
+          alt="Tamara Loeffen Portrait">
+        <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 mr-[max(-2.5rem,-8%)] sm:mr-[-11%] lg:mr-0 -mb-8 md:-mb-12"/>
       </figure>
       <div class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 md:mt-8 text-center lg:text-left">
         <SectionHeader>

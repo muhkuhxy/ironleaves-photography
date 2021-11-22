@@ -5,8 +5,11 @@
     <IlFigure class="shadow-lg">
       <img
         class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.23]"
-        src="~/assets/images/Pfad-1.jpg"
-        alt="Glückliches Ehepaar">
+        srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg 768w,
+          ~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg 1920w"
+        sizes="(max-width: 768px) 768px,
+          1920px"
+        alt="Hochzeitsshooting im Wald">
       <IlGradient class="translate-y-2" :half-height="true" />
       <IlFigureCaption>
         Moments for<br>Eternity
