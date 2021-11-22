@@ -5,7 +5,7 @@
         <IlFigure class="lg:w-full lg:h-full">
           <img
             class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.3]"
-            src="~/assets/images/Valerie-und-Max-712@2x.jpg"
+            src="~/assets/images/old/Valerie-und-Max-712@2x.jpg"
             alt="Happy guests">
           <IlGradient direction="top-right" />
         </IlFigure>
@@ -40,10 +40,10 @@
 <script lang="ts">
 import Vue from 'vue'
 const slides = [
-    'assets/images/Valerie-und-Max-701.jpg',
-    'assets/images/Valerie-und-Max-712.jpg',
-    'assets/images/Valerie-und-Max-713.jpg',
-    'assets/images/Valerie-und-Max-730.jpg',
+    'old/Valerie-und-Max-701.jpg',
+    'old/Valerie-und-Max-712.jpg',
+    'old/Valerie-und-Max-713.jpg',
+    'old/Valerie-und-Max-730.jpg',
 ]
 export default Vue.extend({
   computed: {

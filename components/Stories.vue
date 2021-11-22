@@ -51,7 +51,7 @@
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/Sandra-und-Jonas-Standesamt-Shooting-3695.jpg"
+            src="~/assets/images/old/Sandra-und-Jonas-Standesamt-Shooting-3695.jpg"
             alt="Happy couple">
           <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
         </div>
@@ -78,7 +78,7 @@
         <div class="relative lg:w-1/2 flex-initial">
           <img
             class="w-5/6 border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/Samira-und-Kerem-Shooting-1173.jpg"
+            src="~/assets/images/old/Samira-und-Kerem-Shooting-1173.jpg"
             alt="Happy couple">
           <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-3" />
         </div>
@@ -105,7 +105,7 @@
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
             class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
-            src="~/assets/images/Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg"
+            src="~/assets/images/old/Sandra-und-Jonas-Hochzeit-Shooting-1067.jpg"
             alt="Happy couple">
           <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute left-0 bottom-0 translate-x-2 translate-y-4" />
         </div>
@@ -156,7 +156,7 @@ const slides = [
     ],
   },
   {
-    dir: 'assets/images',
+    dir: 'old',
     files: [
       'Sandra-und-Jonas-Standesamt-Reportage-1.jpg',
       'Sandra-und-Jonas-Standesamt-Reportage-2.jpg',
@@ -170,7 +170,7 @@ const slides = [
     ]
   },
   {
-    dir: 'assets/images',
+    dir: 'old',
     files: [
       'Samira-und-Kerem-1.jpg',
       'Samira-und-Kerem-2.jpg',
@@ -180,7 +180,7 @@ const slides = [
     ],
   },
   {
-    dir: 'assets/images',
+    dir: 'old',
     files: [
       'Sandra-und-Jonas-Hochzeit-Reportage-1.jpg',
       'Sandra-und-Jonas-Hochzeit-Reportage-1200568.jpg',

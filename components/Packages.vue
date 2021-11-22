@@ -15,7 +15,7 @@
       <div class="bg-emerald lg:bg-transparent text-white lg:grid lg:gap-1 lg:grid-cols-4">
 
         <IlPackage
-          :img-src="require('~/assets/images/Valerie-und-Max-712@2x.jpg')"
+          :img-src="require('~/assets/images/old/Valerie-und-Max-712@2x.jpg')"
           :open="open[0]"
           @change="toggle(0)">
           <template #title>Grafik-<br class="hidden lg:inline">Paket</template>
@@ -33,7 +33,7 @@
         <hr class="mx-8 lg:hidden">
 
         <IlPackage
-          :img-src="require('~/assets/images/Sandra-und-Jonas-Standesamt-Reportage-2.jpg')"
+          :img-src="require('~/assets/images/old/Sandra-und-Jonas-Standesamt-Reportage-2.jpg')"
           :open="open[1]"
           @change="toggle(1)">
           <template #title>Standesamt-Paket</template>
@@ -51,7 +51,7 @@
         <hr class="mx-8 lg:hidden">
 
         <IlPackage
-          :img-src="require('~/assets/images/Valerie-und-Max-54.jpg')"
+          :img-src="require('~/assets/images/old/Valerie-und-Max-54.jpg')"
           :open="open[2]"
           @change="toggle(2)">
           <template #title>Reportage-<br class="hidden lg:inline">Paket</template>
@@ -69,7 +69,7 @@
         <hr class="mx-8 lg:hidden">
 
         <IlPackage
-          :img-src="require('~/assets/images/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg')"
+          :img-src="require('~/assets/images/old/Sandra-und-Jonas-Hochzeit-Reportage-1.jpg')"
           :open="open[3]"
           @change="toggle(3)">
           <template #title>All-inclusive-Paket</template>
