@@ -56,13 +56,14 @@ export default Vue.extend({
   },
   methods: {
     parallax() {
-      gsap.utils.toArray(".parallax-pic").forEach((img) => {
+      gsap.utils.toArray(".parallax-pic").forEach(img => {
         gsap.to(img, {
           ease: "none",
           scrollTrigger: {
             trigger: img,
             scrub: true,
             // markers: true,
+            start: img.dataset.start || 'top bottom'
           },
           yPercent: 20
         })

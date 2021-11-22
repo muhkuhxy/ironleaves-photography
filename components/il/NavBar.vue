@@ -149,6 +149,9 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   },
   methods: {
     scrollTo(clazz: string) {
+      if (this.menuShown) {
+        this.menuShown = false
+      }
       this.$emit('scrollTo', clazz)
     },
     onScroll() {

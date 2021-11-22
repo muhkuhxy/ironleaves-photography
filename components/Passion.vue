@@ -3,13 +3,15 @@
     class="scroll-target bg-emerald text-white relative"
     data-section="passion">
     <IlFigure class="shadow-lg">
-      <img
-        class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.23]"
-        srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg 768w,
-          ~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg 1920w"
-        sizes="(max-width: 768px) 768px,
-          1920px"
-        alt="Hochzeitsshooting im Wald">
+      <picture>
+        <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg">
+        <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg">
+        <img
+          class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.23] translate-y-[-9%] sm:translate-y-[-15%] md:translate-y-[-10%] lg:translate-y-0"
+          data-start="top center"
+          src="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
+          alt="Hochzeitsshooting im Wald">
+      </picture>
       <IlGradient class="translate-y-2" :half-height="true" />
       <IlFigureCaption>
         Moments for<br>Eternity
