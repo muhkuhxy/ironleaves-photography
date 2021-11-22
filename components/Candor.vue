@@ -5,13 +5,13 @@
     </IconBase>
     <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0 z-10">
       <IlFigure class="lg:h-full lg:w-full">
-        <img
-          class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
-          srcset="~/assets/images/mobile/ironleaves-photography-werte-mobile.jpg 768w,
-            ~/assets/images/desktop/ironleaves-photography-werte.jpg 1920w"
-          sizes="(max-width: 768px) 768px,
-            1920px"
-          alt="Ehrliche Schnappschüsse">
+        <picture>
+          <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-werte-mobile.jpg">
+          <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-werte.jpg">
+          <img
+            class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
+            alt="Ehrliche Schnappschüsse">
+        </picture>
         <IlGradient direction="disabled" :half-height="true" class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25 translate-y-2 lg:translate-y-0" />
       </IlFigure>
       <IlFigureCaption class="lg:text-right lg:left-0 lg:top-0 lg:pt-12 lg:px-0 lg:ml-[-40%] z-20">

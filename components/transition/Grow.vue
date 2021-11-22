@@ -1,8 +1,9 @@
 <template>
+  <!-- appear MUST be true, otherwise TextExpander breaks -->
   <transition
       name="grow"
       :css="false"
-      :appear="false"
+      :appear="true"
       @before-enter="beforeEnter"
       @enter="enter"
       @leave="leave">
