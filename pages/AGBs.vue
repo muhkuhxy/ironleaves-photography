@@ -6,7 +6,7 @@
         Die im Folgenden genannten „allgemeinen Geschäftsbedingungen“ bilden die vom Gesetzgeber geforderte rechtliche Grundlage für meine Dienstleistungen und Arbeiten. Transparenz liegt mir am Herzen. Mein „Kleingedrucktes“ dient deshalb hauptsächlich Ihrer Sicherheit. Ich möchte, dass Sie alle Informationen bekommen, die für Sie wichtig sind. Und wenn dennoch Fragen offen bleiben, dann freue ich mich über ein persönliches, klärendes Gespräch. Ich bin erst dann zufrieden, wenn auch Sie zufrieden sind!
       </p>
       <ol class="root mt-8">
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Anwendungsbereich</h2>
           <ol>
             <li>
@@ -26,7 +26,7 @@
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Auftrag (Vertragsschluss)</h2>
           <ol>
             <li>
@@ -49,7 +49,7 @@
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Vertragsgegenstand</h2>
           <p>Soweit zwischen den Parteien nichts Abweichendes vereinbart wurde, gilt für die Art und den Umfang der fotografischen Leistungen von Ironleaves Photography das Folgende:</p>
           <ol>
@@ -79,7 +79,7 @@
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Stornierung von durch den Kunden verbindlich gebuchten Terminen</h2>
           <ol>
             <li>
@@ -117,7 +117,7 @@
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Notwendige Informationen, Einwilligungen und Genehmigungen</h2>
           <ol>
             <li>
@@ -168,7 +168,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Fotoaufnahmen bei Veranstaltungen</h2>
           <ol>
             <li>
@@ -212,7 +212,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Bestimmungen zu den Bildern</h2>
           <ol>
             <li>
@@ -238,7 +238,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Kundenbilder und deren Bearbeitung</h2>
           <ol>
             <li>
@@ -261,7 +261,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Nutzungsrechte und Urheberrecht</h2>
           <ol>
             <li>
@@ -296,7 +296,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Schadensersatz und Vertragsstrafe</h2>
           <ol>
             <li>
@@ -307,7 +307,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Mitwirkungspflichten – Fristen und höhere Gewalt</h2>
           <ol>
             <li>
@@ -321,7 +321,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Vergütung, Eigentumsvorbehalt</h2>
           <ol>
             <li>
@@ -344,7 +344,7 @@ Dritter, die aufgrund der Anfertigung und/oder Verwertung der Fotografien gegen 
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Zusatzkosten</h2>
           <ol>
             <li>
@@ -362,7 +362,7 @@ vereinbarten Stunden- oder Tagessatz.
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Haftung von Ironleaves Photography und Verjährung</h2>
           <ol>
             <li>
@@ -423,7 +423,7 @@ resultierenden Schäden, Verluste oder Folgen übernommen werden. Sollte Ironlea
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Lieferung &amp; Herausgabe von Daten</h2>
           <ol>
             <li>
@@ -443,7 +443,7 @@ resultierenden Schäden, Verluste oder Folgen übernommen werden. Sollte Ironlea
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Personenbezogene Daten &amp; Vertraulichkeit</h2>
           <ol>
             <li>
@@ -458,7 +458,7 @@ Ironleaves Photography geregelt, die auf der Website abgerufen werden kann.
             </li>
           </ol>
         </li>
-        <li class="before:font-playfair">
+        <li class="before:playfair">
           <h2>Schlussbestimmungen</h2>
           <ol>
             <li>

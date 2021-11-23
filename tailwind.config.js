@@ -17,9 +17,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        wavy: ['Melinda', 'ui-serif'],
-        screaming: ['Playfair Display', 'ui-serif'],
-        roofline: ['Nunito', 'ui-sans-serif']
+        playfair: ['Playfair Display', 'ui-serif'],
       },
       lineHeight: {
         '0': '0',
