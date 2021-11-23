@@ -8,7 +8,7 @@
           class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
           alt="Paarshooting im Freien">
       </picture>
-      <IlGradient :half-height="true" />
+      <IlGradient :half-height="true" class="translate-y-px" />
     </IlFigure>
     <SectionLines class="xl:block">
       <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full 2xl:h-[124%] 2xl:top-[-16%] ml-[42%] 2xl:ml-[31%] 2xl:rotate-[24deg]" />
