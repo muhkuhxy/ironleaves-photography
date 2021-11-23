@@ -63,7 +63,7 @@ export default Vue.extend({
             trigger: img,
             scrub: true,
             // markers: true,
-            start: img.dataset.start || 'top bottom'
+            start: () => img.dataset.start || 'top bottom'
           },
           yPercent: 20
         })

@@ -34,21 +34,62 @@
         </div>
       </SectionContent>
     </div>
-    <IlSlider class="pb-8 h-[50vh]" :slides="slides" />
+
+    <div class="h-[50vh]">
+      <LazyIlSlider
+        v-if="trigger"
+        class="pb-8 h-full"
+        :slides="slides" />
+    </div>
   </SectionParent>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
+
+let ScrollTrigger: any
+
+declare global {
+  // eslint-disable-next-line no-var
+  var ScrollTrigger: any
+}
+
 const slides = [
     'old/Valerie-und-Max-701.jpg',
     'old/Valerie-und-Max-712.jpg',
     'old/Valerie-und-Max-713.jpg',
     'old/Valerie-und-Max-730.jpg',
 ]
+
 export default Vue.extend({
+  data: () => ({
+    trigger: false
+  }),
   computed: {
-    slides: () => slides
+    slides: () => slides,
+    ...mapState(['animationReady'])
+  },
+  watch: {
+    animationReady(ready) {
+      if (ready) {
+        ScrollTrigger = globalThis.ScrollTrigger
+        this.scrollTrigger()
+      }
+    }
+  },
+  methods: {
+    scrollTrigger() {
+      ScrollTrigger.create({
+        trigger: this.$el,
+        start: 'top-=100px bottom',
+        end: 'bottom+=100px top',
+        onToggle: (self: any) => {
+          this.trigger = true
+          self.kill()
+        }
+      })
+    },
   }
 })
 </script>
