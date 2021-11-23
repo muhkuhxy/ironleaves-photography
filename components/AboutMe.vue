@@ -21,26 +21,17 @@
         <IlSpacer />
         <div class="lg:pl-8 xl:lp-16 flex flex-col gap-4">
           <p>
-            Ich freue mich, euch kennenzulernen. Mein Name ist Tamara und ich
-            komme aus Bayreuth. Seit ein paar Monaten wohne ich in der
-            wunderschönen Eifel in Nordrhein-Westfalen bei Monschau.
+            Ich heiße Tamara und freue mich jetzt schon sehr darauf, euch kennenzulernen!
+          </p>
+          <p>
+            Aufgewachsen bin ich in Bayreuth, aber inzwischen wohne ich in der wunderschönen Eifel bei Monschau. Ich bin leidenschaftlich gerne mit meiner Kamera unterwegs und liebe die Natur, Sonnenuntergänge, gutes Essen, viel Lachen und warmen Kakao an kalten Herbsttagen.
           </p>
           <IlTextExpander>
             <p>
-              Ich habe den wunderbaren Beruf der Mediengestalterin gelernt und liebe
-              es, mich kreativ auszutoben. Neben dem Marketing habe ich mich daher
-              auch auf <IlLink target="papeterie">Hochzeits-Papeterie</IlLink> spezialisiert. Ich freue mich immer wieder
-              über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen,
-              damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
+              Gelernt habe ich den wunderbaren Job der Mediengestalterin. Wenn ich also gerade keine Fotos mache, gestalte ich als Freelancerin Websites, Logos und sehr gerne auch Eure Hochzeitspapeterie.
             </p>
             <p>
-              Auf Hochzeiten fotografiere ich besonders gerne, weil mich die
-              Emotionen, die Aufregung und die ganz intimen und einzigartigen
-              Momente immer wieder in den Bann ziehen. Ich liebe Bilder, mit denen
-              man einen ganzen Tag in seinen Erinnerungen komplett wieder erleben
-              kann. Und ich bin gerne mit den Menschen zusammen, die zueinander
-              gefunden haben und sich mit ganz viel Liebe und Vertrauen einander
-              zugewendet haben und das feiern möchten.
+              Auf Hochzeiten ziehen mich die Emotionen, die Aufregung und die ganz intimen und einzigartigen Momente besonders in den Bann. Ich denke, dass es im Leben unglaublich wichtig ist, das zu tun, was man liebt und ich kann mir nichts Schöneres vorstellen, als Liebe, Glück und Vertrautheit in meinen Fotos für Euch festzuhalten und euch damit ein Lächeln ins Gesicht zu zaubern. Ich empfinde es immer als eine sehr große Ehre, wenn ich mit Menschen zusammen sein darf, die sich mit ganz viel Liebe und Hingabe einander zugewendet haben und den Anfang ihres gemeinsamen, restlichen Lebens miteinander feiern möchten. Ich würde mich sehr freuen, wenn ich das für Euch als Hochzeitsfotografin machen darf.
             </p>
           </IlTextExpander>
           <IlSpacer />

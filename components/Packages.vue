@@ -21,12 +21,9 @@
           <template #title>Grafik-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
-              Ihr braucht individuelle Papeterie? Na klar! Lasst uns darüber quatschen!
-              Gemeinsam erarbeiten wir uns einen einheitlichen Stil. Ich kümmere mich
-              dann um den Rest und gebe das Ganze in den Druck oder bastel es für
-              euch.
+              Ihr braucht individuelle Papeterie, die perfekt zu Euch passt? Gemeinsam erarbeiten wir uns einen einzigartigen Stil. Ich kümmere mich dann um den Rest und gebe das Ganze in den Druck oder bastel es für euch.
             </p>
-            <p>75 &euro; / Stunde</p>
+            <p>65 &euro; / Stunde</p>
           </template>
         </IlPackage>
 
@@ -39,12 +36,9 @@
           <template #title>Standesamt-Paket</template>
           <template #content>
             <p>
-              Ihr braucht eigentlich nur ganz kurz fotografische Unterstützung für einen
-              ganz besonderen Moment? Kein Ding! In 2 Stunden ist in den meisten
-              Fällen nicht nur die Zeremonie drinnen, sondern auch ein kleines
-              Shooting.
+              Ihr braucht eigentlich nur kurz fotografische Unterstützung für einen ganz besonderen Moment? Kein Ding! In 2 Stunden ist in den meisten Fällen nicht nur die Zeremonie und der Sektempfang drinnen, sondern auch ein kleines Pärchenshooting.
             </p>
-            <p>Ab 600 &euro; / Stunde</p>
+            <p>Ab 600 &euro;</p>
           </template>
         </IlPackage>
 
@@ -57,10 +51,7 @@
           <template #title>Reportage-<br class="hidden lg:inline">Paket</template>
           <template #content>
             <p>
-              Ihr habt das volle Programm und wollt euch später auch an die
-              Vorbereitung erinnern? Bei der Reportage bin ich von Anfang an
-              hautnah dabei und halte eure Aufregung beim Anziehen bis zur
-              großen Party spät in die Nacht fest!
+              Ihr plant das volle Programm und wollt euch später auch an die Vorbereitung erinnern? Bei der Reportage bin ich von Anfang an hautnah dabei und halte eure Aufregung beim Anziehen und Schminken (Getting Ready) bis zur großen Party spät in die Nacht fest!
             </p>
             <p>Preis auf Anfrage</p>
           </template>
@@ -75,10 +66,7 @@
           <template #title>All-inclusive-Paket</template>
           <template #content>
             <p>
-              Es soll alles perfekt sein und zueinander passen? Ihr wollt eure
-              Fotografin schon lange vor der Party kennenlernen, damit ihr euch dann
-              vor der Kamera maximal wohlfühlt? Im All-Inclusive-Paket misch ich
-              mich voll in die Planungen mit ein und stehe euch beratend zur Seite.
+              Es soll alles perfekt sein und zueinander passen? Ihr wollt eure Fotografin schon lange vor der Party kennenlernen, damit ihr euch dann vor der Kamera maximal wohlfühlt? Im All-Inclusive-Paket kümmere ich mich um Eure Papeterie, unterstütze die Planung und bin am Tag Eurer Hochzeit den ganzen Tag dabei!
             </p>
             <p>Preis auf Anfrage</p>
           </template>

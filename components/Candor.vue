@@ -27,26 +27,18 @@
         <SvgSingleGrass class="relative lg:absolute w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0 z-10"/>
         <SectionHeader>
           <template #roofline>Meine Werte</template>
-          Ganz ehrlich
+          Ehrlich authentisch
         </SectionHeader>
         <IlSpacer />
         <p class="max-w-prose mb-4">
-          Ich glaube daran, dass jeder Mensch schön ist. Denn alle scheinbar
-          unperfekten Sachen machen etwas erst zu etwas ganz Besonderem. Ich
-          fotografiere keinen Glanz und Glamour, sondern die pure Wahrheit.
-          Perfekte Unperfektheit. Denn auch das Leben ist einfach nicht perfekt und
-          jede Geschichte ist einzigartig und jeder Moment ist speziell. Und genau
-          so sollten eure Fotos auch sein.
+          Ich glaube ganz fest daran, dass jeder Mensch schön ist.
+        </p>
+        <p class="max-w-prose mb-4">
+          Denn alle scheinbar unperfekten Sachen, machen eine Sache erst zu etwas ganz Besonderem. Jeder Makel erzählt eine persönliche Geschichte. Jede Falte enthält Weisheit. Jedes aufrichtige Lachen zeigt das Kämpferherz dahinter. Deswegen fotografiere ich keinen gestellten Glanz und Glamour. Ich mache keine Hautretuschen, bis man keine Poren mehr sehen kann. Und ich bin auch kein Fan von herausgestreckten Brüsten, eingezogenem Bauch und aufgesetzem Lächeln.
         </p>
         <IlTextExpander class="items-start">
           <p>
-            Hautretuschen, bis man keine Poren mehr sehen kann, gehören einfach
-            nicht in mein Programm. Ebensowenig gestellte Posen mit
-            herausgestreckten Brüsten und aufgesetztem Lächeln. Das seid nicht ihr.
-            Ihr seid authentisch. Liebt euch so wie ihr seid.
-          </p>
-          <p>
-            Und was mir ganz wichtig ist: Habt einfach Spaß vor der Kamera! :)
+            Ich fotografiere die perfekte Unperfektheit. Denn die schönsten Bilder mit Geschichte entstehen nur, wenn man sich nicht verstellt. Wenn man sich so liebt, wie man ist. Wenn man sich nicht zu ernst nimmt. Und selbst, wenn ihr noch nie vor der Kamera wart: Alles was ich brauche, ist gute Laune und Euer Gefühl zueinander. Ich hoffe, wenn ihr eure fertigen Bilder dann seht, geht es Euch so wie mir: Regelrecht platzend vor Freude über so wunderbare, schöne Menschen! :)
           </p>
         </IlTextExpander>
       </div>

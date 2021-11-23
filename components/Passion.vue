@@ -31,8 +31,7 @@
         </SectionHeader>
         <IlSpacer />
         <p class="max-w-xs xl:max-w-sm">
-          Seid ihr schon gespannt auf Eure Hochzeit? Ich halte eure unvergesslichen Momente, die zahlreichen Emotionen, eure ganz besondere
-          intime Bindung zueinander und diesen wichtigen Tag in eurem Leben für euch mit viel Leidenschaft fest!
+          Seid ihr schon gespannt auf Eure Hochzeit? Die schönen, unvergesslichen Momente, die zahlreichen Emotionen und eure ganz besondere intime Bindung zueinander? Als Fotografin verewige ich euren wichtigen Tag in zeitlosen Bildern und zaubere mit ganz viel Leidenschaft Erinnerungen für die Ewigkeit.
         </p>
         <IlSpacer />
         <ButtonEffect class="" @click="scrollTo('stories')">Zu den Bilderstories</ButtonEffect>

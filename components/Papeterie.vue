@@ -25,11 +25,12 @@
             So individuell wie ihr!
           </SectionHeader>
           <IlSpacer />
-          <p class="max-w-prose">Egal was ihr braucht – ich helfe euch, ein Design zu entwickeln, was zu
-    eurer Hochzeit passt. Wir finden gemeinsam heraus, wie euer Stil ist und
-    dann können wir loslegen.</p>
-          <p class="max-w-prose mt-4">Von den Save-the-Date-Karten bis hin zum Dankesgeschenk machen wir
-    alles in eurem Stil.</p>
+          <p class="max-w-prose mb-4">
+            Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach euren Vorstellungen. Garantiert einzigartig und mit Liebe gemacht!
+          </p>
+          <p class="max-w-prose">
+            In der ganzen Zeit kann ich euch bei euren Planungen unterstützen. Das gibt euch die Sicherheit, dass ihr nichts vergesst und ihr könnt eure Papeterie entspannt mir überlassen. Und falls ich euch sogar als Fotografin begleiten darf, können wir uns in Ruhe beschnuppern und kennenlernen.
+          </p>
         </div>
       </SectionContent>
     </div>

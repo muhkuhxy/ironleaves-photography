@@ -23,23 +23,13 @@
 
       <template #content>
         <p>
-          Das Pärchen, das mir wohl das größste Vertrauen entgegen gebracht und
-          mich komplett bei ihrer aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten Papeterie durfte ich auch
-          hautnah bei den Planungen mit dabei sein.
+          Das Pärchen, das mir wohl das größte Vertrauen entgegengebracht hat. So durfte ich zum ersten Mal als Fotografin und Gestalterin ihre aufregende Reise bis zur Hochzeit begleiten. Neben der kompletten Papeterie durfte ich auch hautnah die Planungen unterstützen – und natürlich viel fotografieren.
         </p>
       </template>
 
       <template #moreContent>
         <p>
-          Unvergessen wird für mich immer der Moment sein, als ich mit Valerie und
-          ihrem Vater kurz vor der Zeremonie im Standesamt vor der noch
-          geschlossenen Tür stand. Sekunden, bevor er sie zu Max führen würde.
-        </p>
-        <p>
-          Der unperfekte Wald- und Wiesenstil hat perfekt zu den beiden gepasst
-          und wurde von Anfang an auch in der Papeterie berücksichtigt. Alles wirkt
-          wie aus einem Guss.
+          Durch die enge Zusammenarbeit ab der Verlobung, konnten wir viele Elemente miteinander verbinden. Der Wald- und Wiesenstil hat perfekt zu den beiden gepasst und wurde von Anfang an auch in die Papeterie integriert. Und auch bei den Fotos kann man sehen, wie naturverbunden die beiden sind. Valerie ist eine wahre Frohnatur und ich finde, dass ihre Bilder wirklich ansteckend wirken.
         </p>
       </template>
     </IlStory>
@@ -61,12 +51,13 @@
 
       <template #content>
         <p>
-          Das Pärchen, das mir wohl das größte Vertrauen
-          entgegen gebracht und mich komplett bei ihrer
-          aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten
-          Papeterie durfte ich auch hautnah bei den
-          Planungen mit dabei sein.
+          Für Sandra und Jonas durfte ich auch das volle Programm machen – Beratung bei der Planung und das Design der Papeterie.
+        </p>
+      </template>
+
+      <template #moreContent>
+        <p>
+          Die beiden haben sich für eine entspannte Hochzeit entschieden. Sie haben sich ganz intim und im Beisein der engsten Freunde und Familien im Standesamt das Ja-Wort gegeben und den Tag dann in Ruhe ausklingen lassen. Die große Feier im richtigen Dress sollte dann ein paar Wochen später stattfinden. So konnten sie sich vor dem Standesamt vor der Kamera von ihrer Nervosität ablenken.
         </p>
       </template>
     </IlStory>
@@ -88,12 +79,13 @@
 
       <template #content>
         <p>
-          Das Pärchen, das mir wohl das größte Vertrauen
-          entgegen gebracht und mich komplett bei ihrer
-          aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten
-          Papeterie durfte ich auch hautnah bei den
-          Planungen mit dabei sein.
+          Samira und Kerem wollten eigentlich im August heiraten. Im sehr großen Stil.
+        </p>
+      </template>
+
+      <template #moreContent>
+        <p>
+          Individuell gestaltete Einladungskarten mit Gold-Veredelung inklusive. Doch dann kam Corona und der erste, größere Lockdown in Bayern und die beiden änderten ihre Pläne und heirateten am nächsten freien Termin in ihrem Standesamt. Und da ja nichts groß mit Feierlichkeiten war, fuhr das Brautpaar, nach den Glückwunschen über Zoom zu mir. Wir machten einen schönen langen Spaziergang und genossen den Sonnenuntergang gemeinsam. Samira und Kerem wählten für ihre Bilder passenderweise einen schönen warmen Bildstil.
         </p>
       </template>
     </IlStory>
@@ -115,12 +107,16 @@
 
       <template #content>
         <p>
-          Das Pärchen, das mir wohl das größte Vertrauen
-          entgegen gebracht und mich komplett bei ihrer
-          aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten
-          Papeterie durfte ich auch hautnah bei den
-          Planungen mit dabei sein.
+          Diese Hochzeit war für mich in vielerlei Hinsicht sehr besonders. Julia und Martin kenne ich gefühlt schon seit Ewigkeiten. Für ihre Hochzeit wäre ich 100 Stunden gefahren um dabei sein zu können.
+        </p>
+      </template>
+
+      <template #moreContent>
+        <p>
+          Ich hatte die riesige Ehre, dass ich in diesem kleinen Kreis mit dabei sein durfte – Erst als Fotografin beim Standesamt und für die Pärchenfotos und anschließend auch als Gast bei der Feier.
+        </p>
+        <p>
+          Das Shooting fand am Magedburger Dom und dann im Stadtpark statt und war somit die erste "Urban-Hochzeit" für mich. Sehen die beiden nicht absolut bezaubernd aus?
         </p>
       </template>
     </IlStory>
@@ -138,16 +134,17 @@
         </div>
       </template>
 
-      <template #title>Sandra&nbsp;&amp; Jonas (Kirche)</template>
+      <template #title>Sandra&nbsp;&amp; Jonas (Feier)</template>
 
       <template #content>
         <p>
-          Das Pärchen, das mir wohl das größte Vertrauen
-          entgegen gebracht und mich komplett bei ihrer
-          aufregenden Reise bis zur Hochzeit
-          mitgenommen hat. Neben der kompletten
-          Papeterie durfte ich auch hautnah bei den
-          Planungen mit dabei sein.
+          Am Tag der Hochzeit hat es die ganze Zeit geregnet. Nach der Kirche sogar so schlimm, dass das Shooting nicht stattfinden konnte. Und ganz ehrlich? Das hat den Tag sogar noch besser gemacht, als ursprünglich geplant!
+        </p>
+      </template>
+
+      <template #moreContent>
+        <p>
+          Sandra und Jonas konnten sich ihren Traum erfüllen und im Autokonvoi zur Location fahren – Blechdosen inklusive. In der freien Zeit nach dem Kuchen am Nachmittag ließ sich sogar die Sonne blicken und das Shooting konnte spontan nach den Gruppenfotos nachgeholt werden. Nachdem viele Highlights des Tages schon vorbei waren, waren die beiden beim Shooting viel entspannter.
         </p>
       </template>
     </IlStory>

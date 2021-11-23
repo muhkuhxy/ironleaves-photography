@@ -1,25 +1,31 @@
 <template>
   <SectionParent class="bg-sunset text-white relative">
     <SectionLines class="xl:block">
-      <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-1 fill-none h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-24%]" />
-      <SvgHeroLine2 class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none h-[110%] mt-[-2.5%] scale-x-[-1] right-0" />
-      <SvgHeroFlower class="absolute right-0 top-0 h-[96%] mt-[1%] mr-[6%] fill-current"/>
+      <div class="absolute right-0 w-[70%] h-full">
+        <div class="relative w-full h-full">
+        <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-1 fill-none h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-39%]" />
+        <SvgHeroLine2 class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none h-[110%] mt-[-2.5%] scale-x-[-1] right-0" />
+        <SvgHeroFlower class="absolute right-0 top-0 h-[84%] mt-[1%] mr-[6%] fill-current"/>
+      </div>
+      </div>
     </SectionLines>
     <SectionContent class="relative grid grid-cols-1 xl:grid-cols-2">
-      <div class="">
+      <div class="max-w-prose">
         <SectionHeader>
           <template #roofline><span class="text-white">Kontakt</span></template>
-          Ich freue mich auf eure Nachrichten!
+          Ich freue mich auf Eure Nachrichten!
         </SectionHeader>
         <IlSpacer />
-        <p class="max-w-prose">
-          Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch
-          kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
-          von euch. Ich werde versuchen, euch so schnell wie möglich zu antworten.
+        <p class="mb-4">
+          Super gerne begleite ich Euren besonderen Tag als Hochzeitsfotograf – Egal, ob in Monschau, Aachen, NRW oder irgendwo anders in Deutschland oder der Welt! Gerne gehe ich auch auf eure individuellen Wünsche ein.
+        </p>
+        <p>
+          Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr von euch und Eurer Hochzeit. Wir können uns persönlich auf einen Kaffee treffen, gemeinsam telefonieren oder einen Video-Call machen um uns etwas zu beschnuppern. Ich nehme mir sehr gerne Zeit für alle eure Fragen und Wünsche! Füllt einfach das Kontaktformular aus und ich werde euch innerhalb von 48 Stunden antworten.
         </p>
         <IlSpacer />
         <FormulateForm
-          v-model="form" class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
+          v-model="form"
+          class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
           invalid-message="Leider ist das Formular noch nicht vollständig. Bitte überprüfe deine Angaben."
           @submit="submit">
           <FormulateInput
@@ -198,13 +204,14 @@ export default Vue.extend({
       {
         name: 'acceptedAgbs',
         type: 'checkbox',
-        label: 'AGBs zugestimmt',
+        label: 'Ich habe die Datenschutzerklärung und AGBs zur Kenntnis genommen. Ich stimme zu, dass meine Daten und Angaben zur Bearbeitung meines Anliegens elektronisch verarbeitet werden. Mir ist bewusst, dass ich meine Einwilligung jederzeit mit Wirkung für die Zukunft durch eine einfache Erklärung, zum Beispiel durch eine Erklärung mittels dieses Kontaktformulars oder per E-Mail widerrufen kann.',
         validation: 'required',
+        outerClass: ['col-span-full'],
         extra: {
           'validation-messages': {
-            required: 'Bitte stimm\' den AGBs zu.'
+            required: 'Zustimmung ist erforderlich.'
           },
-          'wrapper-class': ['flex gap-2'],
+          'wrapper-class': ['flex gap-2 items-start'],
           'element-class': ['flex items-center'],
           'decorator-class': ['border-2 border-solid border-white'],
         }
