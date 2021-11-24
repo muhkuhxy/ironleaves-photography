@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden bg-emerald">
     <h2
-      v-show="!gtLg"
+      v-show="!gtMd"
       class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
       @click="$emit('change')">
       <slot name="title"></slot>
@@ -11,15 +11,19 @@
     </h2>
     <TransitionGrow>
       <div
-        v-show="gtLg || open"
-        class="lg:flex lg:flex-col lg:gap-8">
-        <img class="object-cover w-full" :src="imgSrc">
+        v-show="gtMd || open"
+        class="md:flex md:flex-col md:gap-8">
+        <picture>
+          <source media="(max-width: 767px)" :srcset="imgSrc.mobile">
+          <source media="(min-width: 768px)" :srcset="imgSrc.desktop">
+          <img class="object-cover w-full" :src="imgSrc.desktop">
+        </picture>
         <h2
-          v-show="gtLg"
-          class="px-4 xl:px-8 text-3xl font-bold text-center">
+          v-show="gtMd"
+          class="px-4 md:px-8 text-3xl font-bold text-center">
           <slot name="title"></slot>
         </h2>
-        <div class="p-8 lg:pt-0 lg:pb-8 lg:px-4 xl:px-8 flex flex-col gap-6">
+        <div class="p-8 lg:pt-0 lg:pb-8 flex flex-col gap-6">
           <slot name="content"></slot>
         </div>
       </div>
@@ -38,7 +42,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   } as Record<keyof IlInjection, string>,
   props: {
     imgSrc: {
-      type: String,
+      type: Object,
       required: true
     },
     open: {
@@ -47,8 +51,8 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   computed: {
-    gtLg(): boolean {
-      return this.$il.breakpoints.gtlg
+    gtMd(): boolean {
+      return this.$il.breakpoints.gtmd
     }
   }
 })
