@@ -47,11 +47,15 @@ export default Vue.extend({
     }
   },
   watch: {
-    animationReady(ready) {
-      if (ready) {
-        this.$nextTick(this.parallax)
+    animationReady: {
+      immediate: true,
+      handler(ready) {
+        // console.log('animationReady', ready)
+        if (ready) {
+          this.$nextTick(this.parallax)
+        }
+        this.$store.commit('animationReady', ready)
       }
-      this.$store.commit('animationReady', ready)
     }
   },
   methods: {
