@@ -213,6 +213,7 @@ export default Vue.extend({
           },
           'wrapper-class': ['flex gap-2 items-start'],
           'element-class': ['flex items-center'],
+          'label-class': ['text-sm mb-1'],
           'decorator-class': ['border-2 border-solid border-white'],
         }
       },
