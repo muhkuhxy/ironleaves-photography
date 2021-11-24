@@ -10,26 +10,8 @@
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <div class="absolute mb-8 bottom-0 top-0 left-0 flex items-end z-20">
-      <IlGradient direction="right" />
-      <a
-        class="cursor-pointer mb-2 text-white ml-4 md:ml-8 mr-4"
-        @click="swiper.slidePrev()">
-        <IconBase :class="baseStyles.icon" class="rotate-90 w-10 lg:w-16">
-          <IconArrow />
-        </IconBase>
-      </a>
-    </div>
-    <div class="absolute mb-8 bottom-0 top-0 right-0 flex items-end z-20">
-      <IlGradient direction="left" />
-      <a
-        class="cursor-pointer mb-2 text-white mr-4 md:mr-8 ml-4 "
-        @click="swiper.slideNext()">
-        <IconBase :class="baseStyles.icon" class="-rotate-90 w-10 lg:w-16">
-          <IconArrow />
-        </IconBase>
-      </a>
-    </div>
+    <IlSliderNavigation side="left" @click="swiper.slidePrev()" />
+    <IlSliderNavigation side="right" @click="swiper.slideNext()" />
   </div>
 </template>
 
@@ -53,12 +35,6 @@ export default Vue.extend({
       id: id++
     }
   },
-  computed: {
-    baseStyles: () => ({
-      link: '',
-      icon: 'text-white w-10 lg:w-16'
-    })
-  },
   mounted() {
     this.swiper = new Swiper(`.swiper-${this.id}`, {
       loop: true,
@@ -68,16 +44,29 @@ export default Vue.extend({
       centeredSlides: true,
       slideToClickedSlide: true
     })
+    setTimeout(this.fixSlider, 250)
+  },
+  beforeDestroy() {
+    // console.log('slider: destroyed')
+    this.swiper?.destroy()
+  },
+  methods: {
+    fixSlider() {
+      const sliderBroken = this.$el.querySelector('.swiper-slide-active:last-child') != null
+      if (sliderBroken) {
+        console.info('fixing slider')
+        this.swiper?.slideNext(1, false)
+        setTimeout(this.fixSlider, 250)
+      }
+    }
   }
 })
 </script>
 
 <style scoped lang="postcss">
-.swiper {
-  &-slide {
-    /* override default swiper style */
+.swiper-slide {
+  /* override default swiper style */
 
-    width: auto;
-  }
+  width: auto;
 }
 </style>

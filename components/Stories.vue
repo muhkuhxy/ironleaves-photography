@@ -3,10 +3,12 @@
     <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
-    <SectionHeader class="my-8 text-center">
+    <IlSpacer />
+    <SectionHeader class="text-center">
       <template #roofline>Stories</template>
       <span class="text-bluegray">Echte Emotionen</span>
     </SectionHeader>
+    <IlSpacer />
 
     <IlStory :slides="slides[0]">
       <template #image>

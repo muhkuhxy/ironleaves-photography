@@ -41,26 +41,33 @@ export default Vue.extend({
     }
   },
   data: () => ({
+    scrollTrigger: null as typeof ScrollTrigger,
     trigger: false
   }),
   computed: mapState(['animationReady']),
   watch: {
-    animationReady(ready) {
-      if (ready) {
-        ScrollTrigger = globalThis.ScrollTrigger
-        this.scrollTrigger()
+    animationReady: {
+      immediate: true,
+      handler(ready) {
+        if (ready) {
+          this.initScrollTrigger()
+        }
       }
     }
   },
+  beforeDestroy() {
+    this.scrollTrigger?.kill();
+  },
   methods: {
-    scrollTrigger() {
-      ScrollTrigger.create({
+    initScrollTrigger() {
+      this.scrollTrigger = globalThis.ScrollTrigger.create({
         trigger: this.$el,
-        start: 'top-=100px bottom',
-        end: 'bottom+=100px top',
+        start: () => 'top-=50% bottom',
+        end: () =>'bottom+=50% top',
         onToggle: (self: any) => {
           this.trigger = true
           self.kill()
+          this.scrollTrigger = null
         }
       })
     },
