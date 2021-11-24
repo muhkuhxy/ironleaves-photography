@@ -3,10 +3,14 @@
     <div class="bg-bluegray text-white overflow-y-hidden relative">
       <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
         <IlFigure class="lg:w-full lg:h-full">
-          <img
-            class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.3]"
-            src="~/assets/images/old/Valerie-und-Max-712@2x.jpg"
-            alt="Happy guests">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/images/mobile/ironleaves-photography-papeterie-mobile.jpg">
+            <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-papeterie.jpg">
+            <img
+              class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.3]"
+              src="~/assets/images/desktop/ironleaves-photography-papeterie.jpg"
+              alt="Individuelle Papeterie gestaltet mit Liebe zum Detail">
+          </picture>
           <IlGradient direction="top-right" />
         </IlFigure>
         <IlFigureCaption class="lg:text-right lg:top-0 lg:left-0 lg:pt-12 lg:px-0 lg:ml-[-30%] z-10">
@@ -47,6 +51,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex'
+import { papeterie } from './slides'
 
 let ScrollTrigger: any
 
@@ -55,38 +60,38 @@ declare global {
   var ScrollTrigger: any
 }
 
-const slides = [
-    'old/Valerie-und-Max-701.jpg',
-    'old/Valerie-und-Max-712.jpg',
-    'old/Valerie-und-Max-713.jpg',
-    'old/Valerie-und-Max-730.jpg',
-]
-
 export default Vue.extend({
   data: () => ({
-    trigger: false
+    scrollTrigger: null as typeof ScrollTrigger,
+    trigger: false,
   }),
   computed: {
-    slides: () => slides,
+    slides: () => papeterie,
     ...mapState(['animationReady'])
   },
   watch: {
-    animationReady(ready) {
-      if (ready) {
-        ScrollTrigger = globalThis.ScrollTrigger
-        this.scrollTrigger()
+    animationReady: {
+      immediate: true,
+      handler(ready) {
+        if (ready) {
+          this.initScrollTrigger()
+        }
       }
     }
   },
+  beforeDestroy() {
+    this.scrollTrigger?.kill();
+  },
   methods: {
-    scrollTrigger() {
-      ScrollTrigger.create({
+    initScrollTrigger() {
+      this.scrollTrigger = globalThis.ScrollTrigger.create({
         trigger: this.$el,
-        start: 'top-=100px bottom',
-        end: 'bottom+=100px top',
+        start: () => 'top-=50% bottom',
+        end: () =>'bottom+=50% top',
         onToggle: (self: any) => {
           this.trigger = true
           self.kill()
+          this.scrollTrigger = null
         }
       })
     },

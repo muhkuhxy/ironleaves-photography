@@ -48,7 +48,7 @@ export default Vue.extend({
   },
   beforeDestroy() {
     // console.log('slider: destroyed')
-    this.swiper?.destroy()
+    // this.swiper?.destroy()
   },
   methods: {
     fixSlider() {
