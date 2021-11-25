@@ -49,11 +49,13 @@ export default Vue.extend({
           duration: this.duration,
           onComplete: () => {
             el.style.height = 'auto'
+            this.$nuxt.$emit('grow', { expanded: true })
             done()
           }
         })
       } else {
         el.style.height = 'auto'
+        this.$nuxt.$emit('grow', { expanded: true })
       }
     },
     leave(el: HTMLElement, done: () => void) {
@@ -61,10 +63,14 @@ export default Vue.extend({
         gsap.to(el, {
           height: '0px',
           duration: this.duration,
-          onComplete: done,
+          onComplete: () => {
+            done()
+            this.$nuxt.$emit('grow', { expanded: false })
+          },
         })
       } else {
         el.style.height = '0'
+        this.$nuxt.$emit('grow', { expanded: false })
       }
     }
   }

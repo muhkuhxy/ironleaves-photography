@@ -5,7 +5,7 @@
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-bildlooks-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-bildlooks.jpg">
         <img
-          class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.23]"
+          class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
           alt="Paarshooting im Freien">
       </picture>
       <IlGradient :half-height="true" class="translate-y-px" />

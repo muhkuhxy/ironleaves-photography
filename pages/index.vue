@@ -58,6 +58,11 @@ export default Vue.extend({
       }
     }
   },
+  mounted() {
+    this.$nuxt.$on('grow', () => {
+      this.$nextTick(ScrollTrigger.refresh)
+    })
+  },
   methods: {
     parallax() {
       gsap.utils.toArray(".parallax-pic").forEach(img => {
