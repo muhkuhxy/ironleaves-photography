@@ -17,6 +17,9 @@
  */
 
 
+/*! For license information please see index.js.LICENSE.txt */
+
+
 /*!
  * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
  *
@@ -195,6 +198,3 @@
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
-
-
-/*! For license information please see index.js.LICENSE.txt */
