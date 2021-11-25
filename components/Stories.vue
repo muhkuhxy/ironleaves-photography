@@ -162,8 +162,8 @@
 import Vue from 'vue'
 import { stories } from './slides'
 
-const slides = Object.entries(stories)
-  .map(([dir, files]) => files.map(file => `stories/${dir}/${file}`))
+const slides = stories.map(({dir, files}) =>
+  files.map(file => `stories/${dir}/${file}`))
 
 export default Vue.extend({
   computed: {
