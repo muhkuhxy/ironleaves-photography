@@ -12,7 +12,7 @@
     <TransitionGrow>
       <div
         v-show="gtMd || open"
-        class="flex flex-col gap-8">
+        class="flex flex-col gap-8 pb-8">
         <picture>
           <source media="(max-width: 767px)" :srcset="imgSrc.mobile">
           <source media="(min-width: 768px)" :srcset="imgSrc.desktop">
@@ -23,7 +23,7 @@
           class="px-8 text-3xl font-bold text-center">
           <slot name="title"></slot>
         </h2>
-        <div class="px-8 pb-8 flex flex-col gap-6">
+        <div class="px-8 flex flex-col gap-6">
           <slot name="content"></slot>
         </div>
       </div>
