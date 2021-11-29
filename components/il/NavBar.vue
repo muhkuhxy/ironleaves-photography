@@ -1,10 +1,10 @@
 <template>
   <header
     v-click-outside="clickOutside"
-    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 filter opacity-90"
+    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 opacity-90"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
-      'drop-shadow-xl']">
+      'shadow-lg']">
     <nav class="bg-white -mt-px">
       <IlContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
         <button type="button" @click="menuShown = !menuShown">
