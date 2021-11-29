@@ -54,7 +54,7 @@ export default Vue.extend({
     fixSlider() {
       const sliderBroken = this.$el.querySelector('.swiper-slide-active:last-child') != null
       if (sliderBroken) {
-        console.info('fixing slider')
+        // console.info('fixing slider')
         this.swiper?.slideNext(1, false)
         setTimeout(this.fixSlider, 250)
       }
