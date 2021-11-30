@@ -117,19 +117,17 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       ScrollTrigger.create({
         trigger: (this.$refs.content as Vue)?.$el,
         // markers: true,
+        start: () => 'top+=200px bottom',
         onToggle: (self: any) => {
           if (this.$il.breakpoints.gtmd) {
             const packages = Array.from(this.$el.querySelectorAll('.package'))
-            if (self.direction < 1) {
-              packages.reverse()
-            }
             gsap.from(packages, {
-              duration: 1,
+              duration: 1.5,
               opacity: 0,
               y: 60 * self.direction,
-              delay: 0.75,
-              stagger: 0.5,
-              ease: 'power1.inOut'
+              // delay: 0.75,
+              stagger: 0.5 * self.direction,
+              ease: 'expo'
             })
           }
           self.kill()

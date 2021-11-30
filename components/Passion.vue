@@ -13,8 +13,8 @@
           alt="Hochzeitsshooting im Wald">
       </picture>
       <IlGradient class="translate-y-2" :half-height="true" />
-      <IlFigureCaption>
-        Moments for<br>Eternity
+      <IlFigureCaption class="hero">
+        Moments&thinsp;for<br>Eternity
       </IlFigureCaption>
     </IlFigure>
     <div class="relative bg-emerald">

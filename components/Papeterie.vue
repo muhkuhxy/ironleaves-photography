@@ -1,8 +1,8 @@
 <template>
   <SectionParent>
-    <div class="bg-bluegray text-white overflow-y-hidden relative">
+    <div class="slide-up bg-bluegray text-white overflow-y-hidden relative">
       <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
-        <IlFigure class="lg:w-full lg:h-full">
+        <IlFigure class="slide-up lg:w-full lg:h-full" data-delay="0.3">
           <picture>
             <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-papeterie-mobile.jpg">
             <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-papeterie.jpg">
@@ -14,27 +14,33 @@
           <IlGradient direction="top-right" />
         </IlFigure>
         <IlFigureCaption class="lg:text-right lg:top-0 lg:left-0 lg:pt-12 lg:px-0 lg:ml-[-30%] z-10">
-          Handmade<br>with love
+          <div class="slide-up" data-delay="1">
+            Handmade<br>with love
+          </div>
         </IlFigureCaption>
       </div>
-      <SectionLines class="xl:block">
+      <SectionLines class="slide-up xl:block" data-y="0" data-delay="1">
         <SvgHeroLine1 class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+7rem)] mt-[-4rem] ml-[37%] 2xl:ml-[47%]" />
         <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full ml-[48%] xl:ml-[49%] 2xl:ml-[55%]" />
       </SectionLines>
       <SectionContent class="relative">
-        <SvgFlowerWhite class="shape-poly float-right w-[40%] sm:w-[30%] lg:w-auto lg:h-[50%] top-0 lg:top-[unset] lg:left-0 mt-[-40%] sm:mt-[-30%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-4 lg:absolute lg:bottom-0 text-white fill-current"/>
+        <SvgFlowerWhite
+          class="slide-up shape-poly float-right w-[40%] sm:w-[30%] lg:w-auto lg:h-[50%] top-0 lg:top-[unset] lg:left-0 mt-[-40%] sm:mt-[-30%] lg:ml-[45%] 2xl:ml-[55%] lg:pl-4 lg:absolute lg:bottom-0 text-white fill-current"
+          data-y="0" />
         <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
-          <SectionHeader>
-            <template #roofline>Papeterie</template>
-            So individuell wie ihr!
-          </SectionHeader>
-          <IlSpacer />
-          <p class="max-w-prose mb-4">
-            Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach euren Vorstellungen. Garantiert einzigartig und mit Liebe gemacht!
-          </p>
-          <p class="max-w-prose">
-            In der ganzen Zeit kann ich euch bei euren Planungen unterstützen. Das gibt euch die Sicherheit, dass ihr nichts vergesst und ihr könnt eure Papeterie entspannt mir überlassen. Und falls ich euch sogar als Fotografin begleiten darf, können wir uns in Ruhe beschnuppern und kennenlernen.
-          </p>
+          <div class="slide-up">
+            <SectionHeader>
+              <template #roofline>Papeterie</template>
+              So individuell wie ihr!
+            </SectionHeader>
+            <IlSpacer />
+            <p class="max-w-prose mb-4">
+              Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach euren Vorstellungen. Garantiert einzigartig und mit Liebe gemacht!
+            </p>
+            <p class="max-w-prose">
+              In der ganzen Zeit kann ich euch bei euren Planungen unterstützen. Das gibt euch die Sicherheit, dass ihr nichts vergesst und ihr könnt eure Papeterie entspannt mir überlassen. Und falls ich euch sogar als Fotografin begleiten darf, können wir uns in Ruhe beschnuppern und kennenlernen.
+            </p>
+          </div>
         </div>
       </SectionContent>
     </div>
@@ -50,10 +56,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VueConstructor } from 'vue/types/vue'
 import { papeterie } from './slides'
-import { gsapPromise, Gsap } from '@/lib/gsap'
+import { IlInjection } from '@/types/declarations'
+import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+  inject: {
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
   data: () => ({
     scrollTrigger: null as Gsap['ScrollTrigger'],
     trigger: false,
@@ -62,14 +73,22 @@ export default Vue.extend({
     slides: () => papeterie,
   },
   mounted() {
-    gsapPromise.then(this.initScrollTrigger)
+    gsapPromise.then(this.initLoadingAnimation)
   },
   beforeDestroy() {
     this.scrollTrigger?.kill();
   },
   methods: {
-    initScrollTrigger({ScrollTrigger}: Gsap) {
-      this.scrollTrigger = ScrollTrigger.create({
+    initLoadingAnimation(gsap: Gsap) {
+      if (this.$il.breakpoints.gtlg) {
+        slideUp(gsap, { delay: undefined, y: undefined }, this.$el as HTMLElement)
+        Array.from(this.$el.querySelectorAll('.slide-up'))
+          .forEach(el => {
+            const { delay, y } = (el as HTMLElement).dataset
+            slideUp(gsap, { delay, y }, el as HTMLElement)
+          })
+      }
+      this.scrollTrigger = gsap.ScrollTrigger.create({
         trigger: this.$el,
         start: () => 'top-=50% bottom',
         end: () =>'bottom+=50% top',
