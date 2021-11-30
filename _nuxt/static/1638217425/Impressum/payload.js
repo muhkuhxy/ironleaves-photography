@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/Impressum", {data:[{}],fetch:{},mutations:[]});
