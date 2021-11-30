@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden bg-emerald">
+  <div class="package overflow-hidden bg-emerald">
     <h2
       v-show="!gtMd"
       class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"

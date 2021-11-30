@@ -4,7 +4,7 @@
       <IconArrow />
     </IconBase>
 
-    <SectionContent>
+    <SectionContent ref="content">
       <SectionHeader class="text-center text-emerald">
         <template #roofline>Pakete</template>
         Genau, was ihr braucht!
@@ -95,14 +95,47 @@
 
 <script lang="ts">
 import Vue from 'vue'
-export default Vue.extend({
+import { VueConstructor } from 'vue/types/vue'
+import { IlInjection } from '@/types/declarations'
+import { Gsap, gsapPromise } from '@/lib/gsap'
+
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+  inject: {
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
   data: () => ({
-    open: [false, false, false, false]
+    open: [false, false, false, false],
   }),
+  mounted() {
+    gsapPromise.then(this.initLoadingAnimation)
+  },
   methods: {
     toggle(index: number) {
       this.open = this.open.map((open: boolean, i: number) => !open && i === index)
+    },
+    initLoadingAnimation({gsap, ScrollTrigger}: Gsap) {
+      ScrollTrigger.create({
+        trigger: (this.$refs.content as Vue)?.$el,
+        // markers: true,
+        onToggle: (self: any) => {
+          if (this.$il.breakpoints.gtmd) {
+            const packages = Array.from(this.$el.querySelectorAll('.package'))
+            if (self.direction < 1) {
+              packages.reverse()
+            }
+            gsap.from(packages, {
+              duration: 1,
+              opacity: 0,
+              y: 60 * self.direction,
+              delay: 0.75,
+              stagger: 0.5,
+              ease: 'power1.inOut'
+            })
+          }
+          self.kill()
+        }
+      })
     }
-  }
+  },
 })
 </script>
