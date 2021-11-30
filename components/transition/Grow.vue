@@ -13,14 +13,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
+import { gsapPromise } from '@/lib/gsap'
 
-let gsap: any;
-
-declare global {
-  // eslint-disable-next-line no-var
-  var gsap: any
-}
+let gsap: any = null;
 
 export default Vue.extend({
   props: {
@@ -29,13 +24,10 @@ export default Vue.extend({
       default: 0.75
     },
   },
-  computed: mapState(['animationReady']),
-  watch: {
-    animationReady(ready) {
-      if (ready) {
-        gsap = globalThis.gsap;
-      }
-    }
+  mounted() {
+    gsapPromise.then(({gsap: realGsap}) => {
+      gsap = realGsap
+    })
   },
   methods: {
     beforeEnter(el: HTMLElement) {
@@ -43,7 +35,7 @@ export default Vue.extend({
     },
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
-      if (this.animationReady) {
+      if (gsap) {
         gsap.to(el, {
           height,
           duration: this.duration,
@@ -59,7 +51,7 @@ export default Vue.extend({
       }
     },
     leave(el: HTMLElement, done: () => void) {
-      if (this.animationReady) {
+      if (gsap) {
         gsap.to(el, {
           height: '0px',
           duration: this.duration,

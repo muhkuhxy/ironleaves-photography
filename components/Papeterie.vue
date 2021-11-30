@@ -50,41 +50,26 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
 import { papeterie } from './slides'
-
-let ScrollTrigger: any
-
-declare global {
-  // eslint-disable-next-line no-var
-  var ScrollTrigger: any
-}
+import { gsapPromise, Gsap } from '@/lib/gsap'
 
 export default Vue.extend({
   data: () => ({
-    scrollTrigger: null as typeof ScrollTrigger,
+    scrollTrigger: null as Gsap['ScrollTrigger'],
     trigger: false,
   }),
   computed: {
     slides: () => papeterie,
-    ...mapState(['animationReady'])
   },
-  watch: {
-    animationReady: {
-      immediate: true,
-      handler(ready) {
-        if (ready) {
-          this.initScrollTrigger()
-        }
-      }
-    }
+  mounted() {
+    gsapPromise.then(this.initScrollTrigger)
   },
   beforeDestroy() {
     this.scrollTrigger?.kill();
   },
   methods: {
-    initScrollTrigger() {
-      this.scrollTrigger = globalThis.ScrollTrigger.create({
+    initScrollTrigger({ScrollTrigger}: Gsap) {
+      this.scrollTrigger = ScrollTrigger.create({
         trigger: this.$el,
         start: () => 'top-=50% bottom',
         end: () =>'bottom+=50% top',

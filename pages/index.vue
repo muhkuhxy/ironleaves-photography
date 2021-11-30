@@ -16,6 +16,7 @@
 
 <script>
 import Vue from 'vue'
+import { gsapPromise, resolve } from '@/lib/gsap'
 
 export default Vue.extend({
   layout: 'IlLanding',
@@ -49,12 +50,12 @@ export default Vue.extend({
   watch: {
     animationReady: {
       immediate: true,
-      handler(ready) {
+      handler() {
         // console.log('animationReady', ready)
-        if (ready) {
-          this.$nextTick(this.parallax)
-        }
-        this.$store.commit('animationReady', ready)
+        resolve({
+          gsap: globalThis.gsap,
+          ScrollTrigger: globalThis.ScrollTrigger
+        })
       }
     }
   },
@@ -62,9 +63,10 @@ export default Vue.extend({
     this.$nuxt.$on('grow', () => {
       this.$nextTick(ScrollTrigger.refresh)
     })
+    gsapPromise.then(this.parallax)
   },
   methods: {
-    parallax() {
+    parallax({gsap}) {
       gsap.utils.toArray(".parallax-pic").forEach(img => {
         gsap.to(img, {
           ease: "none",
