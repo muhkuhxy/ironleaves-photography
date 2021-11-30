@@ -139,3 +139,5 @@ export const stories = [
     ]
   }
 ]
+
+export default {}

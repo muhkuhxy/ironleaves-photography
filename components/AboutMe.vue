@@ -3,17 +3,18 @@
     <IconBase class="text-sunset w-full h-16 -translate-y-4">
       <IconArrow />
     </IconBase>
-    <SectionContent class="flex flex-col lg:flex-row items-center">
-      <figure class="relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16">
-        <img
-          srcset="~/assets/images/mobile/ironleaves-photography-ueber-mich-tamara-loeffen-SW-mobile.jpg 768w,
-            ~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg 1920w"
-          sizes="(max-width: 768px) 768px,
-            1920px"
-          alt="Tamara Loeffen Portrait">
+    <SectionContent class="slide-up flex flex-col lg:flex-row items-center md:gap-y-8">
+      <figure class="slide-up relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16" data-delay="0.3">
+        <picture>
+          <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-ueber-mich-tamara-loeffen-SW-mobile.jpg">
+          <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg">
+          <img
+            src="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg"
+            alt="Tamara Loeffen Portrait">
+        </picture>
         <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 mr-[max(-2.5rem,-8%)] sm:mr-[-11%] lg:mr-0 -mb-8 md:-mb-12"/>
       </figure>
-      <div class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 md:mt-8 text-center lg:text-left">
+      <div class="slide-up lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left">
         <SectionHeader>
           <template #roofline>Über mich</template>
           Hoch&shy;zeits&shy;foto&shy;grafin&nbsp;&amp; Gestalterin
@@ -42,14 +43,35 @@
       </div>
     </SectionContent>
     <IlSpacer />
+    <IconBase class="text-sunset w-full h-16 absolute bottom-0 -mb-4 z-10">
+      <IconArrow />
+    </IconBase>
   </SectionParent>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { VueConstructor } from 'vue/types/vue'
+import { IlInjection } from '@/types/declarations'
+import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
 
-export default Vue.extend({
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+  inject: {
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
+  mounted() {
+    gsapPromise.then(this.initLoadingAnimation)
+  },
   methods: {
+    initLoadingAnimation(gsap: Gsap) {
+      if (this.$il.breakpoints.gtlg) {
+        Array.from(this.$el.querySelectorAll('.slide-up'))
+          .forEach(el => {
+            const { delay, y } = (el as HTMLElement).dataset
+            slideUp(gsap, { delay, y }, el as HTMLElement)
+          })
+      }
+    },
     scrollTo(target: string) {
       this.$nuxt.$emit('scrollTo', target)
     }

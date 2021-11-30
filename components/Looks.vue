@@ -1,6 +1,6 @@
 <template>
   <SectionParent class="bg-emerald text-white lg:relative overflow-y-hidden">
-    <IlFigure class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0">
+    <IlFigure class="slide-up lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0" data-delay="0.3">
       <picture>
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-bildlooks-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-bildlooks.jpg">
@@ -10,12 +10,12 @@
       </picture>
       <IlGradient :half-height="true" class="translate-y-px" />
     </IlFigure>
-    <SectionLines class="xl:block">
+    <SectionLines class="slide-up xl:block" data-y="0" data-delay="1">
       <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full 2xl:h-[124%] 2xl:top-[-16%] ml-[42%] 2xl:ml-[31%] 2xl:rotate-[24deg]" />
     </SectionLines>
     <SectionContent>
       <SvgThreeStraws class="fill-current float-right lg:float-none w-[28%] md:w-1/4 lg:w-auto lg:h-[60%] relative lg:absolute right-0 lg:bottom-0 lg:right-0 -mt-48 md:-mt-56 lg:mt-0 -mr-6 lg:mr-[45%] 2xl:mr-[55%] mb-8 lg:-mb-4 ml-4 lg:pr-8" />
-      <div class="lg:py-24 lg:ml-[55%] 2xl:ml-[45%]">
+      <div class="slide-up lg:py-24 lg:ml-[55%] 2xl:ml-[45%]">
         <SectionHeader>
           <template #roofline>Bildlooks</template>
           Die Welt ist bunt &ndash; und ihr seid es auch!
@@ -36,3 +36,32 @@
     </SectionContent>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { VueConstructor } from 'vue/types/vue'
+import { IlInjection } from '@/types/declarations'
+import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
+
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+  inject: {
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
+  mounted() {
+    gsapPromise.then(this.initLoadingAnimation)
+  },
+  methods: {
+    initLoadingAnimation(gsap: Gsap) {
+      if (this.$il.breakpoints.gtlg) {
+        slideUp(gsap, { delay: undefined, y: undefined }, this.$el as HTMLElement)
+        Array.from(this.$el.querySelectorAll('.slide-up'))
+          .forEach(el => {
+            const { delay, y } = (el as HTMLElement).dataset
+            slideUp(gsap, { delay, y }, el as HTMLElement)
+          }
+        )
+      }
+    }
+  }
+})
+</script>
