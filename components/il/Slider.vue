@@ -10,8 +10,8 @@
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <IlSliderNavigation side="left" @click="swiper.slidePrev()" />
-    <IlSliderNavigation side="right" @click="swiper.slideNext()" />
+    <IlSliderArrow side="left" @click="swiper.slidePrev()" />
+    <IlSliderArrow side="right" @click="swiper.slideNext()" />
   </div>
 </template>
 

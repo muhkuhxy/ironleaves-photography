@@ -1,5 +1,5 @@
 <template>
-  <IlContainer class="flex flex-col items-center max-w-prose text-bluegray">
+  <LayoutContainer class="flex flex-col items-center max-w-prose text-bluegray">
     <div class="max-w-prose">
       <h1 class="my-12">AGBs</h1>
       <p>
@@ -484,13 +484,12 @@ Ironleaves Photography geregelt, die auf der Website abgerufen werden kann.
       </ol>
       <p class="mt-8 mb-4">Stand: 21.11.2021</p>
     </div>
-  </IlContainer>
+  </LayoutContainer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  scrollToTop: true
 })
 </script>
 

@@ -64,6 +64,7 @@ export default {
         'postcss-calc': {},
         'postcss-custom-properties': {}
       }
-    }
+    },
+    transpile: ['gsap'],
   }
 }

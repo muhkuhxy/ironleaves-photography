@@ -10,7 +10,7 @@
         Genau, was ihr braucht!
       </SectionHeader>
 
-      <IlSpacer />
+      <LayoutSpacer />
 
       <div class="bg-emerald md:bg-transparent text-white md:grid md:gap-2 lg:gap-4 xl:gap-1 md:grid-cols-2 xl:grid-cols-4">
 
@@ -62,7 +62,7 @@
             <p>
               Ihr plant das volle Programm und wollt euch später auch an die Vorbereitung erinnern? Bei der Reportage bin ich von Anfang an hautnah dabei und halte eure Aufregung beim Anziehen und Schminken (Getting Ready) bis zur großen Party spät in die Nacht fest!
             </p>
-            <p>Preis auf Anfrage</p>
+            <p><IlLink target="contact">Preis auf Anfrage</IlLink></p>
           </template>
         </IlPackage>
 
@@ -80,7 +80,7 @@
             <p>
               Es soll alles perfekt sein und zueinander passen? Ihr wollt eure Fotografin schon lange vor der Party kennenlernen, damit ihr euch dann vor der Kamera maximal wohlfühlt? Im All-Inclusive-Paket kümmere ich mich um Eure Papeterie, unterstütze die Planung und bin am Tag Eurer Hochzeit den ganzen Tag dabei!
             </p>
-            <p>Preis auf Anfrage</p>
+            <p><IlLink target="contact">Preis auf Anfrage</IlLink></p>
           </template>
         </IlPackage>
 
@@ -88,7 +88,7 @@
 
     </SectionContent>
 
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
 
   </SectionParent>
 </template>
@@ -97,7 +97,7 @@
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { IlInjection } from '@/types/declarations'
-import { Gsap, gsapPromise } from '@/lib/gsap'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
@@ -106,14 +106,15 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   data: () => ({
     open: [false, false, false, false],
   }),
-  mounted() {
-    gsapPromise.then(this.initLoadingAnimation)
+  async mounted() {
+    await this.$il.breakpointsReady
+    this.initLoadingAnimation()
   },
   methods: {
     toggle(index: number) {
       this.open = this.open.map((open: boolean, i: number) => !open && i === index)
     },
-    initLoadingAnimation({gsap, ScrollTrigger}: Gsap) {
+    initLoadingAnimation() {
       ScrollTrigger.create({
         trigger: (this.$refs.content as Vue)?.$el,
         // markers: true,

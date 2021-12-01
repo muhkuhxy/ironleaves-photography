@@ -29,11 +29,11 @@
           <template #roofline>Leidenschaft</template>
           Eure einzig&shy;artigen<br class="hidden md:block"> Momente
         </SectionHeader>
-        <IlSpacer />
+        <LayoutSpacer />
         <p class="max-w-xs xl:max-w-sm">
           Seid ihr schon gespannt auf Eure Hochzeit? Die schönen, unvergesslichen Momente, die zahlreichen Emotionen und eure ganz besondere intime Bindung zueinander? Als Fotografin verewige ich euren wichtigen Tag in zeitlosen Bildern und zaubere mit ganz viel Leidenschaft Erinnerungen für die Ewigkeit.
         </p>
-        <IlSpacer />
+        <LayoutSpacer />
         <ButtonEffect class="" @click="scrollTo('stories')">Zu den Bilderstories</ButtonEffect>
       </SectionContent>
     </div>

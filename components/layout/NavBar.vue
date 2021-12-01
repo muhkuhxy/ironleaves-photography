@@ -6,7 +6,7 @@
       '-translate-y-full delay-150' :
       'shadow-lg']">
     <nav class="bg-white -mt-px">
-      <IlContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
+      <LayoutContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
           Menü
@@ -16,9 +16,9 @@
           :href="url" target="_blank">
             <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
         </a>
-      </IlContainer>
+      </LayoutContainer>
       <transition name="slide">
-        <IlContainer
+        <LayoutContainer
           v-show="menuShown || gtMd"
           :retractable="true"
           class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3 lg:gap-8 xl:gap-12">
@@ -45,7 +45,7 @@
               </a>
             </li>
           </ul>
-        </IlContainer>
+        </LayoutContainer>
       </transition>
     </nav>
   </header>

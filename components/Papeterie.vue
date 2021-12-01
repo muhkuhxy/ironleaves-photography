@@ -33,7 +33,7 @@
               <template #roofline>Papeterie</template>
               So individuell wie ihr!
             </SectionHeader>
-            <IlSpacer />
+            <LayoutSpacer />
             <p class="max-w-prose mb-4">
               Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach euren Vorstellungen. Garantiert einzigartig und mit Liebe gemacht!
             </p>
@@ -59,36 +59,37 @@ import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { papeterie } from './slides'
 import { IlInjection } from '@/types/declarations'
-import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
+import { ScrollTrigger, slideUp } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
   data: () => ({
-    scrollTrigger: null as Gsap['ScrollTrigger'],
+    scrollTrigger: null as null | ScrollTrigger,
     trigger: false,
   }),
   computed: {
     slides: () => papeterie,
   },
-  mounted() {
-    gsapPromise.then(this.initLoadingAnimation)
+  async mounted() {
+    await this.$il.breakpointsReady
+    this.initLoadingAnimation()
   },
   beforeDestroy() {
     this.scrollTrigger?.kill();
   },
   methods: {
-    initLoadingAnimation(gsap: Gsap) {
+    initLoadingAnimation() {
       if (this.$il.breakpoints.gtlg) {
-        slideUp(gsap, { delay: undefined, y: undefined }, this.$el as HTMLElement)
+        slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp(gsap, { delay, y }, el as HTMLElement)
+            slideUp({ delay, y }, el as HTMLElement)
           })
       }
-      this.scrollTrigger = gsap.ScrollTrigger.create({
+      this.scrollTrigger = ScrollTrigger.create({
         trigger: this.$el,
         start: () => 'top-=50% bottom',
         end: () =>'bottom+=50% top',
