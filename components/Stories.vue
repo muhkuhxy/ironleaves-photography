@@ -3,12 +3,12 @@
     <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
-    <IlSpacer />
+    <LayoutSpacer />
     <SectionHeader class="text-center">
       <template #roofline>Stories</template>
       <span class="text-bluegray">Echte Emotionen</span>
     </SectionHeader>
-    <IlSpacer />
+    <LayoutSpacer />
 
     <IlStory :slides="slides[0]">
       <template #image>
@@ -36,7 +36,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[1]">
       <template #image>
@@ -64,7 +64,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[2]">
       <template #image>
@@ -92,7 +92,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[3]">
       <template #image>
@@ -123,7 +123,7 @@
       </template>
     </IlStory>
 
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
 
     <IlStory :slides="slides[4]">
       <template #image>

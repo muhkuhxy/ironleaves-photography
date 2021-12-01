@@ -13,9 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { gsapPromise } from '@/lib/gsap'
-
-let gsap: any = null;
+import { gsap } from '@/lib/gsap'
 
 export default Vue.extend({
   props: {
@@ -24,46 +22,31 @@ export default Vue.extend({
       default: 0.75
     },
   },
-  mounted() {
-    gsapPromise.then(({gsap: realGsap}) => {
-      gsap = realGsap
-    })
-  },
   methods: {
     beforeEnter(el: HTMLElement) {
       el.style.height = '0'
     },
     enter(el: HTMLElement, done: () => void) {
       const height = el.scrollHeight
-      if (gsap) {
-        gsap.to(el, {
-          height,
-          duration: this.duration,
-          onComplete: () => {
-            el.style.height = 'auto'
-            this.$nuxt.$emit('grow', { expanded: true })
-            done()
-          }
-        })
-      } else {
-        el.style.height = 'auto'
-        this.$nuxt.$emit('grow', { expanded: true })
-      }
+      gsap.to(el, {
+        height,
+        duration: this.duration,
+        onComplete: () => {
+          el.style.height = 'auto'
+          this.$nuxt.$emit('grow', { expanded: true })
+          done()
+        }
+      })
     },
     leave(el: HTMLElement, done: () => void) {
-      if (gsap) {
-        gsap.to(el, {
-          height: '0px',
-          duration: this.duration,
-          onComplete: () => {
-            done()
-            this.$nuxt.$emit('grow', { expanded: false })
-          },
-        })
-      } else {
-        el.style.height = '0'
-        this.$nuxt.$emit('grow', { expanded: false })
-      }
+      gsap.to(el, {
+        height: '0px',
+        duration: this.duration,
+        onComplete: () => {
+          done()
+          this.$nuxt.$emit('grow', { expanded: false })
+        },
+      })
     }
   }
 })

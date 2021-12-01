@@ -19,7 +19,7 @@
           <template #roofline>Über mich</template>
           Hoch&shy;zeits&shy;foto&shy;grafin&nbsp;&amp; Gestalterin
         </SectionHeader>
-        <IlSpacer />
+        <LayoutSpacer />
         <div class="lg:pl-8 xl:lp-16 flex flex-col gap-4">
           <p>
             Ich heiße Tamara und freue mich jetzt schon sehr darauf, euch kennenzulernen!
@@ -35,14 +35,14 @@
               Auf Hochzeiten ziehen mich die Emotionen, die Aufregung und die ganz intimen und einzigartigen Momente besonders in den Bann. Ich denke, dass es im Leben unglaublich wichtig ist, das zu tun, was man liebt und ich kann mir nichts Schöneres vorstellen, als Liebe, Glück und Vertrautheit in meinen Fotos für Euch festzuhalten und euch damit ein Lächeln ins Gesicht zu zaubern. Ich empfinde es immer als eine sehr große Ehre, wenn ich mit Menschen zusammen sein darf, die sich mit ganz viel Liebe und Hingabe einander zugewendet haben und den Anfang ihres gemeinsamen, restlichen Lebens miteinander feiern möchten. Ich würde mich sehr freuen, wenn ich das für Euch als Hochzeitsfotografin machen darf.
             </p>
           </IlTextExpander>
-          <IlSpacer />
+          <LayoutSpacer />
           <ButtonEffect class="text-sunset mx-auto lg:mx-0" @click="scrollTo('contact')">
             Schreibt mich gerne an!
           </ButtonEffect>
         </div>
       </div>
     </SectionContent>
-    <IlSpacer />
+    <LayoutSpacer />
     <IconBase class="text-sunset w-full h-16 absolute bottom-0 -mb-4 z-10">
       <IconArrow />
     </IconBase>
@@ -53,22 +53,23 @@
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { IlInjection } from '@/types/declarations'
-import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
+import { slideUp } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
-  mounted() {
-    gsapPromise.then(this.initLoadingAnimation)
+  async mounted() {
+    await this.$il.breakpointsReady
+    this.initLoadingAnimation()
   },
   methods: {
-    initLoadingAnimation(gsap: Gsap) {
+    initLoadingAnimation() {
       if (this.$il.breakpoints.gtlg) {
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp(gsap, { delay, y }, el as HTMLElement)
+            slideUp({ delay, y }, el as HTMLElement)
           })
       }
     },

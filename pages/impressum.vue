@@ -1,7 +1,7 @@
 <template>
-  <IlContainer class="flex flex-col items-center max-w-prose text-bluegray">
+  <LayoutContainer class="flex flex-col items-center max-w-prose text-bluegray">
     <div class="children-auto-margin max-w-prose">
-      <IlSpacer />
+      <LayoutSpacer />
       <h1>Impressum</h1>
       <address>
         Tamara Loeffen
@@ -11,7 +11,7 @@
         <br />
         <a class="cursor-pointer underline" @click="composeMail">{{ getMail() }}</a>
       </address>
-      <IlSpacer />
+      <LayoutSpacer />
       <h2>Disclaimer &ndash; rechtliche Hinweise</h2>
       <h3 class="text-2xl">Auskunfts- und Widerrufsrecht</h3>
       <p>
@@ -62,7 +62,7 @@
         Falle der unverlangten Zusendung von Werbeinformationen vor. Gleiches gilt f&#252;r die kommerzielle Verwendung und
         Weitergabe der Daten.
       </p>
-      <IlSpacer />
+      <LayoutSpacer />
       <h2>Disclaimer (Haftungsausschluss)</h2>
       <h3 class="text-2xl">1. Haftung f&#252;r Inhalte</h3>
       <p>
@@ -106,14 +106,13 @@
         erstellt.
       </p>
     </div>
-  </IlContainer>
+  </LayoutContainer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import * as mail from '@/lib/mail'
 export default Vue.extend({
-  scrollToTop: true,
   methods: {
     ...mail
   }

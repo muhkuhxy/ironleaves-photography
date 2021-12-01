@@ -5,7 +5,7 @@
     <Passion />
     <AboutMe class="scroll-target" data-section="about-me" />
     <Candor class="scroll-target" data-section="candor" />
-    <IlSpacer :responsive="false" :ms="4" />
+    <LayoutSpacer :responsive="false" :ms="4" />
     <Looks class="scroll-target" data-section="looks" />
     <Stories class="scroll-target" data-section="stories" />
     <Papeterie class="scroll-target" data-section="papeterie" />
@@ -14,71 +14,34 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
-import { gsapPromise, resolve } from '@/lib/gsap'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 export default Vue.extend({
-  layout: 'IlLanding',
-  data: () => ({
-    gsapLoaded: false,
-    gsapScrollTriggerLoaded: false
-  }),
-  head() {
-    return {
-      script: [
-      {
-          hid: 'gsap',
-          src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js',
-          defer: true,
-          callback: () => { this.gsapLoaded = true },
-        },
-        {
-          hid: 'gsap-scrolltrigger',
-          src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js',
-          defer: true,
-          callback: () => { this.gsapScrollTriggerLoaded = true },
-        }
-      ]
-    }
-  },
-  computed: {
-    animationReady() {
-      return this.gsapLoaded && this.gsapScrollTriggerLoaded
-    }
-  },
-  watch: {
-    animationReady: {
-      immediate: true,
-      handler() {
-        // console.log('animationReady', ready)
-        resolve({
-          gsap: globalThis.gsap,
-          ScrollTrigger: globalThis.ScrollTrigger
-        })
-      }
-    }
-  },
+  // @ts-ignore
+  layout: 'landing',
   mounted() {
     this.$nuxt.$on('grow', () => {
       this.$nextTick(ScrollTrigger.refresh)
     })
-    gsapPromise.then(this.parallax)
+    this.parallax()
   },
   methods: {
-    parallax({gsap}) {
-      gsap.utils.toArray(".parallax-pic").forEach(img => {
-        gsap.to(img, {
-          ease: "none",
-          scrollTrigger: {
-            trigger: img,
-            scrub: true,
-            // markers: true,
-            start: () => img.dataset.start || 'top bottom'
-          },
-          yPercent: 20
+    parallax() {
+      (gsap.utils.toArray(".parallax-pic") as Array<HTMLElement>)
+        .forEach(img => {
+          gsap.to(img, {
+            ease: "none",
+            scrollTrigger: {
+              trigger: img,
+              scrub: true,
+              // markers: true,
+              start: () => img.dataset.start || 'top bottom'
+            },
+            yPercent: 20
+          })
         })
-      })
     }
   }
 })

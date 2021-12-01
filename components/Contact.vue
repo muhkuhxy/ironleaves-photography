@@ -15,14 +15,14 @@
           <template #roofline><span class="text-white">Kontakt</span></template>
           Ich freue mich auf Eure Nachrichten!
         </SectionHeader>
-        <IlSpacer />
+        <LayoutSpacer />
         <p class="mb-4">
           Super gerne begleite ich Euren besonderen Tag als Hochzeitsfotograf – Egal, ob in Monschau, Aachen, NRW oder irgendwo anders in Deutschland oder der Welt! Gerne gehe ich auch auf eure individuellen Wünsche ein.
         </p>
         <p>
           Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr von euch und Eurer Hochzeit. Wir können uns persönlich auf einen Kaffee treffen, gemeinsam telefonieren oder einen Video-Call machen um uns etwas zu beschnuppern. Ich nehme mir sehr gerne Zeit für alle eure Fragen und Wünsche! Füllt einfach das Kontaktformular aus und ich werde euch innerhalb von 48 Stunden antworten.
         </p>
-        <IlSpacer />
+        <LayoutSpacer />
         <FormulateForm
           v-model="form"
           class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
@@ -50,7 +50,7 @@
               'errors-class': baseClasses.errors,
               ...extra
             }" />
-          <IlSpacer />
+          <LayoutSpacer />
           <FormulateErrors class="sm:col-span-2" />
           <ButtonEffect class="sm:col-span-2" type="submit">
             {{ transit.sending ? `Wird gesendet ${dots}` :

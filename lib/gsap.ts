@@ -1,20 +1,9 @@
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-export interface Gsap {
-  gsap: any
-  ScrollTrigger: any
-}
+gsap.registerPlugin(ScrollTrigger)
 
-let gsapResolve: (g: Gsap) => void = () => {}
-
-export const gsapPromise: Promise<Gsap> = new Promise(resolve => {
-  gsapResolve = resolve
-})
-
-export function resolve(gsap: Gsap) {
-  gsapResolve(gsap)
-}
-
-export function slideUp({gsap}: Gsap, options: { delay: string | undefined, y: string | undefined }, el: HTMLElement) {
+export function slideUp(options: { delay?: string, y?: string }, el: HTMLElement) {
   gsap.from(el, {
     duration: 1.5,
     opacity: 0,
@@ -29,3 +18,5 @@ export function slideUp({gsap}: Gsap, options: { delay: string | undefined, y: s
     }
   })
 }
+
+export { gsap, ScrollTrigger }

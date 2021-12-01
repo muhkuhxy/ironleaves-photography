@@ -29,7 +29,7 @@
             <template #roofline>Meine Werte</template>
             Ehrlich authentisch
           </SectionHeader>
-          <IlSpacer />
+          <LayoutSpacer />
           <p class="max-w-prose mb-4">
             Ich glaube ganz fest daran, dass jeder Mensch schön ist.
           </p>
@@ -51,23 +51,24 @@
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { IlInjection } from '@/types/declarations'
-import { Gsap, gsapPromise, slideUp } from '@/lib/gsap'
+import { slideUp } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
-  mounted() {
-    gsapPromise.then(this.initLoadingAnimation)
+  async mounted() {
+    await this.$il.breakpointsReady
+    this.initLoadingAnimation()
   },
   methods: {
-    initLoadingAnimation(gsap: Gsap) {
+    initLoadingAnimation() {
       if (this.$il.breakpoints.gtlg) {
-        slideUp(gsap, { delay: undefined, y: undefined }, this.$el as HTMLElement)
+        slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp(gsap, { delay, y }, el as HTMLElement)
+            slideUp({ delay, y }, el as HTMLElement)
           }
         )
       }

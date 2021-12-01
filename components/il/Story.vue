@@ -10,7 +10,7 @@
         <IlTextExpander v-if="$slots.moreContent">
           <slot name="moreContent"></slot>
         </IlTextExpander>
-        <IlSpacer :responsive="false" :ms="1" />
+        <LayoutSpacer :responsive="false" :ms="1" />
       </div>
     </SectionContent>
     <div class="h-[50vh]">
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { gsapPromise, Gsap } from '@/lib/gsap'
+import { ScrollTrigger } from '@/lib/gsap'
 
 export default Vue.extend({
   props: {
@@ -34,17 +34,17 @@ export default Vue.extend({
     }
   },
   data: () => ({
-    scrollTrigger: null as Gsap['ScrollTrigger'],
+    scrollTrigger: null as null | ScrollTrigger,
     trigger: false
   }),
   mounted() {
-    gsapPromise.then(this.initScrollTrigger)
+    this.initScrollTrigger()
   },
   beforeDestroy() {
     this.scrollTrigger?.kill();
   },
   methods: {
-    initScrollTrigger({ScrollTrigger}: Gsap) {
+    initScrollTrigger() {
       this.scrollTrigger = ScrollTrigger.create({
         trigger: this.$el,
         start: () => 'top-=50% bottom',

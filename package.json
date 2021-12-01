@@ -16,6 +16,7 @@
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
     "core-js": "^3.19.1",
+    "gsap": "^3.8.0",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
