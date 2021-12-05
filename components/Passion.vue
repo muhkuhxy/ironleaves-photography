@@ -7,7 +7,7 @@
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg">
         <img
-          class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.23] translate-y-[-9%] sm:translate-y-[-15%] md:translate-y-[-10%] lg:translate-y-0"
+          class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
           data-start="top center"
           src="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
           alt="Hochzeitsshooting im Wald">
@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { parallax } from '@/lib/gsap'
+import { gsap } from '@/lib/gsap'
 
 export default Vue.extend({
   data: () => ({
@@ -64,27 +64,19 @@ export default Vue.extend({
       if (!this.$el.tagName) {
         return
       }
-      // const img = this.$el.querySelector('.parallax-pic') as HTMLElement
-      // console.log('init')
-      // gsap.to(img, {
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: img,
-      //     scrub: true,
-      //     markers: true,
-      //     start: () => {
-      //       const x = document.querySelector('nav')?.getBoundingClientRect()
-      //       if (x) {
-      //         const start = x.y + x.height
-      //         console.log(`top ${start}`)
-      //         return `top+=10% ${start}`
-      //       }
-      //       return 'top bottom'
-      //     }
-      //   },
-      //   yPercent: 20
-      // })
-      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      const img = this.$el.querySelector('.parallax-pic') as HTMLElement
+      gsap.to(img, {
+        ease: "none",
+        scrollTrigger: {
+          trigger: img,
+          scrub: true,
+          // markers: true,
+          start: () => 
+            `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
+        },
+        yPercent: 20
+      })
+      // parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     }
   }
