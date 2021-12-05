@@ -59,7 +59,7 @@ import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { papeterie } from './slides'
 import { IlInjection } from '@/types/declarations'
-import { ScrollTrigger, slideUp } from '@/lib/gsap'
+import { parallax, ScrollTrigger, slideUp } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
@@ -68,19 +68,28 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   data: () => ({
     scrollTrigger: null as null | ScrollTrigger,
     trigger: false,
+    animationInitialized: false,
   }),
   computed: {
     slides: () => papeterie,
   },
   async mounted() {
     await this.$il.breakpointsReady
-    this.initLoadingAnimation()
+    this.initAnimations()
   },
   beforeDestroy() {
     this.scrollTrigger?.kill();
   },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
+  },
   methods: {
-    initLoadingAnimation() {
+    initAnimations() {
+      if (!this.$el.tagName) {
+        return;
+      }
       if (this.$il.breakpoints.gtlg) {
         slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
@@ -99,6 +108,8 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           this.scrollTrigger = null
         }
       })
+      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      this.animationInitialized = true
     },
   }
 })

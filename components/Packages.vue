@@ -105,35 +105,45 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   } as Record<keyof IlInjection, string>,
   data: () => ({
     open: [false, false, false, false],
+    animationInitialized: false
   }),
   async mounted() {
     await this.$il.breakpointsReady
-    this.initLoadingAnimation()
+    this.initAnimations()
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
   },
   methods: {
     toggle(index: number) {
       this.open = this.open.map((open: boolean, i: number) => !open && i === index)
     },
-    initLoadingAnimation() {
-      ScrollTrigger.create({
-        trigger: (this.$refs.content as Vue)?.$el,
-        // markers: true,
-        start: () => 'top+=200px bottom',
-        onToggle: (self: any) => {
-          if (this.$il.breakpoints.gtmd) {
-            const packages = Array.from(this.$el.querySelectorAll('.package'))
-            gsap.from(packages, {
-              duration: 1.5,
-              opacity: 0,
-              y: 60 * self.direction,
-              // delay: 0.75,
-              stagger: 0.5 * self.direction,
-              ease: 'expo'
-            })
+    initAnimations() {
+      if (this.$el.tagName) {
+        ScrollTrigger.create({
+          trigger: (this.$refs.content as Vue)?.$el,
+          // markers: true,
+          start: () => 'top+=200px bottom',
+          end: () => 'bottom-=100px top',
+          onToggle: (self: any) => {
+            if (this.$il.breakpoints.gtmd) {
+              const packages = Array.from(this.$el.querySelectorAll('.package'))
+              gsap.from(packages, {
+                duration: 1.5,
+                opacity: 0,
+                y: 60 * self.direction,
+                delay: 0.25,
+                stagger: 0.5 * self.direction,
+                ease: 'expo'
+              })
+            }
+            self.kill()
           }
-          self.kill()
-        }
-      })
+        })
+        this.animationInitialized = true
+      }
     }
   },
 })
