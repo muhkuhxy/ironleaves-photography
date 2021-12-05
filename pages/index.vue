@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { ScrollTrigger } from '@/lib/gsap'
 
 export default Vue.extend({
   // @ts-ignore
@@ -25,24 +25,6 @@ export default Vue.extend({
     this.$nuxt.$on('grow', () => {
       this.$nextTick(ScrollTrigger.refresh)
     })
-    this.parallax()
   },
-  methods: {
-    parallax() {
-      (gsap.utils.toArray(".parallax-pic") as Array<HTMLElement>)
-        .forEach(img => {
-          gsap.to(img, {
-            ease: "none",
-            scrollTrigger: {
-              trigger: img,
-              scrub: true,
-              // markers: true,
-              start: () => img.dataset.start || 'top bottom'
-            },
-            yPercent: 20
-          })
-        })
-    }
-  }
 })
 </script>

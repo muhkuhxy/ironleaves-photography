@@ -42,10 +42,50 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { parallax } from '@/lib/gsap'
+
 export default Vue.extend({
+  data: () => ({
+    animationInitialized: false
+  }),
+  mounted() {
+      this.initAnimations()
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
+  },
   methods: {
     scrollTo(target: string) {
       this.$nuxt.$emit('scrollTo', target)
+    },
+    initAnimations() {
+      if (!this.$el.tagName) {
+        return
+      }
+      // const img = this.$el.querySelector('.parallax-pic') as HTMLElement
+      // console.log('init')
+      // gsap.to(img, {
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: img,
+      //     scrub: true,
+      //     markers: true,
+      //     start: () => {
+      //       const x = document.querySelector('nav')?.getBoundingClientRect()
+      //       if (x) {
+      //         const start = x.y + x.height
+      //         console.log(`top ${start}`)
+      //         return `top+=10% ${start}`
+      //       }
+      //       return 'top bottom'
+      //     }
+      //   },
+      //   yPercent: 20
+      // })
+      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      this.animationInitialized = true
     }
   }
 })

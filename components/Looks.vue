@@ -41,18 +41,29 @@
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { IlInjection } from '@/types/declarations'
-import { slideUp } from '@/lib/gsap'
+import { parallax, slideUp } from '@/lib/gsap'
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
+  data: () => ({
+    animationInitialized: false
+  }),
   async mounted() {
     await this.$il.breakpointsReady
-    this.initLoadingAnimation()
+    this.initAnimations()
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
   },
   methods: {
-    initLoadingAnimation() {
+    initAnimations() {
+      if (!this.$el.tagName) {
+        return
+      }
       if (this.$il.breakpoints.gtlg) {
         slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
@@ -62,6 +73,8 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           }
         )
       }
+      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      this.animationInitialized = true
     }
   }
 })

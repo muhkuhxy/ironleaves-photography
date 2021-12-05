@@ -59,18 +59,27 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
+  data: () => ({
+    animationInitialized: false
+  }),
   async mounted() {
     await this.$il.breakpointsReady
-    this.initLoadingAnimation()
+    this.initAnimations()
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
   },
   methods: {
-    initLoadingAnimation() {
-      if (this.$il.breakpoints.gtlg) {
+    initAnimations() {
+      if (this.$el.tagName && this.$il.breakpoints.gtlg) {
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp({ delay, y }, el as HTMLElement)
+            slideUp({ delay, y, killDelay: 250 }, el as HTMLElement)
           })
+        this.animationInitialized = true
       }
     },
     scrollTo(target: string) {
