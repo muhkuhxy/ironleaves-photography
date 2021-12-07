@@ -4,11 +4,42 @@
       <IconArrow />
     </IconBase>
     <LayoutSpacer />
-    <SectionHeader class="text-center">
-      <template #roofline>Stories</template>
-      <span class="text-bluegray">Echte Emotionen</span>
-    </SectionHeader>
-    <LayoutSpacer />
+
+    <SectionContent class="slide-up text-bluegray">
+      <div class="flex flex-col lg:flex-row items-center md:gap-8">
+        <figure class="slide-up lg:order-2 relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16" data-delay="0.3">
+          <picture>
+            <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-ueber-mich-tamara-loeffen-SW-mobile.jpg">
+            <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg">
+            <img
+              src="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg"
+              alt="Tamara Loeffen Portrait">
+          </picture>
+          <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 mr-[max(-2.5rem,-8%)] sm:mr-[-11%] lg:mr-0 -mb-8 md:-mb-12"/>
+        </figure>
+        <div class="slide-up lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left">
+          <SectionHeader>
+            <template #roofline>Stories</template>
+            Echte Emotionen
+          </SectionHeader>
+          <LayoutSpacer />
+          <p>
+            Hier gebe ich Euch einen Einblick in die wunderschönen Hochzeiten, die ich schon begleiten durfte. Außerdem spreche ich ein bisschen aus dem Nähkästchen und gebe Euch Tipps &amp; Tricks, wie ihr Eure Hochzeit am besten gestalten könnt, wie ich drauf bin und was hinter der Kamera so abläuft.
+          </p>
+          <LayoutSpacer />
+          <NuxtLink to="/stories">
+            <ButtonEffect class="text-sunset w-[fit-content] mx-auto lg:mx-0">
+              Hier gibt's alle Beiträge
+            </ButtonEffect>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <LayoutSpacer :ms="5" />
+      <SectionHeader class="text-center">
+        Aktuellste Hochzeiten
+      </SectionHeader>
+    </SectionContent>
 
     <IlStory :slides="slides[0]">
       <template #image>
@@ -169,6 +200,11 @@ export default Vue.extend({
   computed: {
     slides: () => slides
   },
+  methods: {
+    goToStories() {
+      this.$router.push({ path: '/stories' })
+    }
+  }
 })
 </script>
 
