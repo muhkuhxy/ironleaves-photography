@@ -14,7 +14,7 @@
         </div>
         <ul class="md:text-center">
           <li>Leistungen</li>
-          <li>Blog</li>
+          <li><NuxtLink to="/stories">Blog</NuxtLink></li>
           <li>Bildlooks</li>
         </ul>
         <ul class="text-right">
