@@ -14,72 +14,111 @@
       <LayoutSpacer />
       <ul class="flex justify-between">
         <li>Filter nach:</li>
-        <li role="link" class="text-sunset uppercase underline font-bold">Stories</li>
-        <li role="link" class="text-sunset uppercase">Informationen</li>
-        <li role="link" class="text-sunset uppercase">Tipps &amp; Tricks</li>
-        <li role="link" class="text-sunset uppercase">Lorem</li>
-        <li role="link" class="text-sunset uppercase">Ipsum</li>
+        <template v-for="tag in tags">
+          <ButtonCategory
+            :key="`story-filter-${tag}`"
+            :query="query"
+            :tag="tag"
+            :label="labels[tag]"
+            @click="filter($event)" />
+        </template>
       </ul>
     </SectionContent>
 
     <div class="bg-dust">
-      <transition-group
-        tag="SectionContent"
-        :css="false"
-        class="grid grid-cols-2 place-content-center gap-x-12 gap-y-12">
-        <div
-          v-for="(item, index) in list"
-          :key="item.value"
-          class="story-card flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow transition-all duration-700"
-          :class="{ 'fade-out': item.removing }"
-          @click="remove(index)">
-          <h3 class="text-sunset uppercase -mb-2">Stories</h3>
-          <img
-              src="~/assets/images/stories/samira_kerem/ironleaves-photography-stories-samira-kerem.jpg"
-              alt="">
-            <h2 class="font-bold">Dings &amp; Bums</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, dolor sunt porro aliquam distinctio explicabo dignissimos amet excepturi. Amet animi culpa facere minima voluptatum, tempore totam dolorem aperiam aspernatur in!</p>
-            <NuxtLink class="text-sunset mx-auto" :to="`stories/${item.value}`">
-              <ButtonEffect>Hier geht's zur Story</ButtonEffect>
-            </NuxtLink>
-        </div>
-      </transition-group>
-
-</div>
+      <SectionContent>
+        <div v-if="!articles.length">Bisher noch keine Stories dieser Art</div>
+        <transition-group
+          tag="div"
+          :css="false"
+          class="grid grid-cols-2 place-content-center gap-x-12 gap-y-12">
+          <div
+            v-for="(article) in articles"
+            :key="article.path"
+            :data-path="article.path"
+            class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow transition-all duration-700">
+            <h3 class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</h3>
+            <img
+                :src="require(`~/assets/images/${article.imgSrc}`)"
+                :alt="article.imgAlt">
+              <h2 class="font-bold">{{ article.title }}</h2>
+              <NuxtContent class="flex-grow" :document="{ body: article.excerpt }" />
+              <NuxtLink class="text-sunset mx-auto" :to="article.path">
+                <ButtonEffect>Hier geht's zur Story</ButtonEffect>
+              </NuxtLink>
+          </div>
+        </transition-group>
+      </SectionContent>
+    </div>
   </SectionParent>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { gsap } from '@/lib/gsap'
 
+const tags = [
+  { label: 'Stories', tag: 'stories', },
+  { label: 'Informationen', tag: 'infos', },
+  { label: 'Tipps & Tricks', tag: 'tipps', },
+  { label: 'Lorem', tag: 'lorem', },
+  { label: 'Ipsum', tag: 'ipsum', },
+]
+
+interface Data {
+  query: string
+  labels: Record<string, string>
+  tags: string[]
+  articles: any[]
+}
+
 export default Vue.extend({
+  async asyncData({ $content }): Promise<{ articles: FetchReturn[]}> {
+    const articles = (await $content('stories').sortBy('createdAt', 'desc').fetch())
+      .map( (article: FetchReturn) => ({
+        ...article,
+        removing: false
+      }))
+    return { articles }
+  },
   data: () => ({
-    list: [
-        1,2,3,4,5
-      ].map(value => ({value, removing: false}))
-  }),
+    query: '',
+    labels: tags.reduce( (result, {tag, label}) => {
+      result[tag] = label
+      return result
+    }, {} as Record<string, string>),
+    tags: tags.map(_ => _.tag)
+  } as Data),
   methods: {
-    remove(toRemove: number) {
-      console.log('remove')
-      this.list.forEach((item, index) => {
-        item.removing = (item.value % 2) === 0
-        // item.removing = toRemove === index
-      })
-      console.log('list updated')
-      this.$nextTick(() => {
-        gsap.to('.story-card.fade-out', {
-          opacity: 0,
-          duration: 1,
-          ease: 'expo.out',
-          onComplete: () => {
-            console.log('onComplete')
-            this.list = this.list.filter(x => !x.removing)
-            console.log('done')
-          }
-        })
-      })
-    },
+    async filter(tag: string): Promise<void> {
+      this.query = tag
+      let content = this.$content('stories').sortBy('createdAt', 'desc')
+      if (tag) {
+        content = content.where({tag})
+      }
+      const newArticles = (await content.fetch()) as FetchReturn[]
+      if (tag) {
+        const elements = this.articles
+          .filter(article => article.tag !== tag)
+          .map(article =>
+            this.$el.querySelector(`[data-path="${article.path}"]`))
+        if (elements.length) {
+          gsap.to(elements, {
+            opacity: 0,
+            duration: 1,
+            ease: 'expo.out',
+            onComplete: () => {
+              console.log('onComplete')
+              this.articles = newArticles
+              console.log('done')
+            }
+          })
+          return
+        }
+      }
+      this.articles = newArticles
+    }
   },
 })
 </script>

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
+    "@nuxt/content": "^1.15.1",
     "core-js": "^3.19.3",
     "gsap": "^3.8.0",
     "nuxt": "^2.15.7"
