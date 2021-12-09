@@ -1,7 +1,7 @@
 ---
 title: Welche Deko passt zu euch?
 tag: tipps
-createdAt: 2021-12-04T19:20:22.549Z
+createdAt: 2021-12-06T20:20:22.549Z
 imgSrc: papeterie/ironleaves-photography-individuelle-papeterie-slider-dankeskarte-tamara-timon.jpg
 imgAlt: Deko
 ---

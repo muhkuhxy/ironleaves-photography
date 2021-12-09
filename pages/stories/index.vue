@@ -13,13 +13,14 @@
       </div>
       <LayoutSpacer />
       <ul class="flex justify-between">
-        <li>Filter nach:</li>
+        <li class="py-2">Filter nach:</li>
         <template v-for="tag in tags">
           <ButtonCategory
             :key="`story-filter-${tag}`"
             :query="query"
             :tag="tag"
             :label="labels[tag]"
+            class="py-2 px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
             @click="filter($event)" />
         </template>
       </ul>
@@ -27,20 +28,19 @@
 
     <div class="bg-dust">
       <SectionContent>
-        <div v-if="!articles.length && !loading">Bisher noch keine Stories dieser Art</div>
+        <div v-if="!articles.length && !loading" class="text-center transition-all">
+          Sorry, dazu gibt's bislang noch keine Stories.
+        </div>
         <transition-group
           tag="div"
-          :css="false"
-          class="grid grid-cols-2 place-content-center gap-x-12 gap-y-12"
-          @before-enter="beforeEnter"
-          @enter="enter"
-          @leave="leave"
-          @after-leave="afterLeave">
+          name="fade"
+          class="relative grid grid-cols-2 place-content-center gap-x-12 gap-y-12"
+          @after-leave="loading = false">
           <div
             v-for="(article) in articles"
             :key="article.path"
-            :data-path="article.path"
-            class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow transition-all duration-700">
+            :data-tag="article.tag"
+            class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow">
             <h3 class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</h3>
             <img
                 :src="require(`~/assets/images/${article.imgSrc}`)"
@@ -62,7 +62,6 @@ import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { contentFunc } from '@nuxt/content/types/content'
 import { Context } from '@nuxt/types'
-import { gsap } from '@/lib/gsap'
 
 const tags = [
   { label: 'Stories', tag: 'stories', },
@@ -106,21 +105,31 @@ export default Vue.extend({
     async filter(tag: string): Promise<void> {
       this.query = tag
       this.articles = await fetchContent(this, tag)
-    },
-    beforeEnter(el: HTMLElement) {
-      el.style.opacity = '0'
-    },
-    enter(el: HTMLElement, onComplete: () => void) {
-      gsap.to(el, {opacity: 1, duration: 1, onComplete})
-    },
-    leave(el: HTMLElement, onComplete: () => void) {
       this.loading = true
-      gsap.to(el, {opacity: 0, duration: 1, onComplete})
-    },
-    afterLeave(el: HTMLElement) {
-      el.style.position = 'absolute'
-      this.loading = false
+      const fadingElementSelector = '[data-tag]' + (tag ? `:not([data-tag=${tag}])` : '')
+      this.$el.querySelectorAll(fadingElementSelector).forEach(el=> {
+        if (el instanceof HTMLElement) {
+          el.style.left = `${el.offsetLeft}px`
+          el.style.top = `${el.offsetTop}px`
+          el.style.width = `${el.clientWidth}px`
+          el.style.height = `${el.clientHeight}px`
+        }
+      })
     }
   },
 })
 </script>
+
+<style lang="postcss" scoped>
+.fade-enter-active, .fade-leave-active, .fade-move {
+  transition: all 0.75s ease-out;
+}
+
+.fade-leave-active {
+  position: absolute;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
