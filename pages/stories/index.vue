@@ -27,11 +27,15 @@
 
     <div class="bg-dust">
       <SectionContent>
-        <div v-if="!articles.length">Bisher noch keine Stories dieser Art</div>
+        <div v-if="!articles.length && !loading">Bisher noch keine Stories dieser Art</div>
         <transition-group
           tag="div"
           :css="false"
-          class="grid grid-cols-2 place-content-center gap-x-12 gap-y-12">
+          class="grid grid-cols-2 place-content-center gap-x-12 gap-y-12"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @leave="leave"
+          @after-leave="afterLeave">
           <div
             v-for="(article) in articles"
             :key="article.path"
@@ -56,6 +60,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
+import { contentFunc } from '@nuxt/content/types/content'
+import { Context } from '@nuxt/types'
 import { gsap } from '@/lib/gsap'
 
 const tags = [
@@ -70,16 +76,21 @@ interface Data {
   query: string
   labels: Record<string, string>
   tags: string[]
-  articles: any[]
+  articles: FetchReturn[],
+  loading: boolean
+}
+
+function fetchContent({ $content }: { $content: contentFunc }, tag?: string): Promise<FetchReturn[]> {
+  let content = $content('stories').sortBy('createdAt', 'desc')
+  if (tag) {
+    content = content.where({tag})
+  }
+  return content.fetch() as Promise<FetchReturn[]>
 }
 
 export default Vue.extend({
-  async asyncData({ $content }): Promise<{ articles: FetchReturn[]}> {
-    const articles = (await $content('stories').sortBy('createdAt', 'desc').fetch())
-      .map( (article: FetchReturn) => ({
-        ...article,
-        removing: false
-      }))
+  async asyncData(context: Context): Promise<{ articles: FetchReturn[]}> {
+    const articles = await fetchContent(context)
     return { articles }
   },
   data: () => ({
@@ -88,36 +99,27 @@ export default Vue.extend({
       result[tag] = label
       return result
     }, {} as Record<string, string>),
-    tags: tags.map(_ => _.tag)
+    tags: tags.map(_ => _.tag),
+    loading: false
   } as Data),
   methods: {
     async filter(tag: string): Promise<void> {
       this.query = tag
-      let content = this.$content('stories').sortBy('createdAt', 'desc')
-      if (tag) {
-        content = content.where({tag})
-      }
-      const newArticles = (await content.fetch()) as FetchReturn[]
-      if (tag) {
-        const elements = this.articles
-          .filter(article => article.tag !== tag)
-          .map(article =>
-            this.$el.querySelector(`[data-path="${article.path}"]`))
-        if (elements.length) {
-          gsap.to(elements, {
-            opacity: 0,
-            duration: 1,
-            ease: 'expo.out',
-            onComplete: () => {
-              console.log('onComplete')
-              this.articles = newArticles
-              console.log('done')
-            }
-          })
-          return
-        }
-      }
-      this.articles = newArticles
+      this.articles = await fetchContent(this, tag)
+    },
+    beforeEnter(el: HTMLElement) {
+      el.style.opacity = '0'
+    },
+    enter(el: HTMLElement, onComplete: () => void) {
+      gsap.to(el, {opacity: 1, duration: 1, onComplete})
+    },
+    leave(el: HTMLElement, onComplete: () => void) {
+      this.loading = true
+      gsap.to(el, {opacity: 0, duration: 1, onComplete})
+    },
+    afterLeave(el: HTMLElement) {
+      el.style.position = 'absolute'
+      this.loading = false
     }
   },
 })
