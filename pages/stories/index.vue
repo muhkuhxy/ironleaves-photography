@@ -34,7 +34,7 @@
         <transition-group
           tag="div"
           name="fade"
-          class="relative grid grid-cols-2 place-content-center gap-x-12 gap-y-12"
+          class="relative grid grid-cols-2 auto-rows-[1fr] place-content-center gap-x-12 gap-y-12"
           @after-leave="loading = false">
           <div
             v-for="(article) in articles"
@@ -62,6 +62,7 @@ import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { contentFunc } from '@nuxt/content/types/content'
 import { Context } from '@nuxt/types'
+import { gsap } from '@/lib/gsap'
 
 const tags = [
   { label: 'Stories', tag: 'stories', },
@@ -104,7 +105,9 @@ export default Vue.extend({
   methods: {
     async filter(tag: string): Promise<void> {
       this.query = tag
+      const oldSize = this.articles.length
       this.articles = await fetchContent(this, tag)
+      const shrinking = oldSize > this.articles.length
       this.loading = true
       const fadingElementSelector = '[data-tag]' + (tag ? `:not([data-tag=${tag}])` : '')
       this.$el.querySelectorAll(fadingElementSelector).forEach(el=> {
@@ -115,6 +118,14 @@ export default Vue.extend({
           el.style.height = `${el.clientHeight}px`
         }
       })
+      if (shrinking) {
+        const container = this.$el.querySelector('.grid.relative')
+        if (container instanceof HTMLElement) {
+          container.style.height = `${container.clientHeight}px`
+          gsap.to(container,
+            {height: 'auto', duration: 0.5, delay: 0.25})
+        }
+      }
     }
   },
 })
