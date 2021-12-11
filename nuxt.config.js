@@ -29,6 +29,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/main.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -45,8 +46,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxt/postcss8',
     '@braid/vue-formulate/nuxt',
   ],
 
@@ -64,9 +64,11 @@ export default {
     },
     postcss: {
       plugins: {
-        'postcss-nested': {},
         'postcss-calc': {},
-        'postcss-custom-properties': {}
+        'postcss-custom-properties': {},
+        'tailwindcss/nesting': {},
+        'tailwindcss': {},
+        'autoprefixer': {},
       }
     },
     transpile: ['gsap'],

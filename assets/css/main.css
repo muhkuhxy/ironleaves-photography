@@ -1,5 +1,30 @@
 @tailwind base;
 @tailwind components;
+
+.formulate-input {
+  input[type="checkbox"] {
+    ~ label.formulate-input-element-decorator {
+      /* xx */
+      @apply w-6 h-6 relative leading-0 cursor-pointer;
+
+      &::before {
+        @apply absolute bg-white;
+
+        top: 1px;
+        right: 1px;
+        bottom: 0;
+        left: 1px;
+        clip-path: polygon(19% 49%, 9% 65%, 45% 90%, 94% 19%, 80% 9%, 42% 66%);
+        font-size: 0;
+      }
+    }
+
+    &:checked ~ label.formulate-input-element-decorator::before {
+      content: "";
+    }
+  }
+}
+
 @tailwind utilities;
 
 @layer base {
@@ -65,28 +90,5 @@
 
   h2 {
     @apply playfair;
-  }
-
-  .formulate-input {
-    input[type="checkbox"] {
-      ~ label.formulate-input-element-decorator {
-        @apply w-6 h-6 relative leading-0 cursor-pointer;
-
-        &::before {
-          @apply absolute bg-white;
-
-          top: 1px;
-          right: 1px;
-          bottom: 0;
-          left: 1px;
-          clip-path: polygon(19% 49%, 9% 65%, 45% 90%, 94% 19%, 80% 9%, 42% 66%);
-          font-size: 0;
-        }
-      }
-
-      &:checked ~ label.formulate-input-element-decorator::before {
-        content: "";
-      }
-    }
   }
 }

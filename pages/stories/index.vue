@@ -46,7 +46,7 @@
                 :src="require(`~/assets/images/${article.imgSrc}`)"
                 :alt="article.imgAlt">
               <h2 class="font-bold">{{ article.title }}</h2>
-              <NuxtContent class="flex-grow" :document="{ body: article.excerpt }" />
+              <NuxtContent class="grow" :document="{ body: article.excerpt }" />
               <NuxtLink class="text-sunset mx-auto" :to="article.path">
                 <ButtonEffect>Hier geht's zur Story</ButtonEffect>
               </NuxtLink>

@@ -45,7 +45,7 @@
       <template #image>
         <div class="relative lg:w-1/2 flex-initial">
           <img
-            class="w-7/8 border-8 border-solid border-white filter drop-shadow"
+            class="w-7/8 border-8 border-solid border-white drop-shadow"
             src="~/assets/images/stories/valerie_max/ironleaves-photography-stories-valerie-max.jpg"
             alt="Valerie und Max Hochzeits-Shooting">
           <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
@@ -73,7 +73,7 @@
       <template #image>
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
-            class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
+            class="w-5/6 ml-auto border-8 border-solid border-white drop-shadow"
             src="~/assets/images/stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt.jpg"
             alt="Sandra und Jonas Standesamt Shooting">
           <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
@@ -101,7 +101,7 @@
       <template #image>
         <div class="relative lg:w-1/2 flex-initial">
           <img
-            class="w-5/6 border-8 border-solid border-white filter drop-shadow"
+            class="w-5/6 border-8 border-solid border-white drop-shadow"
             src="~/assets/images/stories/samira_kerem/ironleaves-photography-stories-samira-kerem.jpg"
             alt="Samira und Kerem Hochzeits-Shooting">
           <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-3" />
@@ -129,7 +129,7 @@
       <template #image>
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
-            class="w-5/6 ml-auto border-8 border-solid border-white filter drop-shadow"
+            class="w-5/6 ml-auto border-8 border-solid border-white drop-shadow"
             src="~/assets/images/stories/julia_martin/ironleaves-photography-stories-julia-martin.jpg"
             alt="Julia und Martin Hochzeits-Shooting">
           <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
@@ -160,7 +160,7 @@
       <template #image>
         <div class="relative lg:w-1/2 flex-initial">
           <img
-            class="w-5/6 border-8 border-solid border-white filter drop-shadow"
+            class="w-5/6 border-8 border-solid border-white drop-shadow"
             src="~/assets/images/stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit.jpg"
             alt="Sandra und Jonas Hochzeits-Shooting">
           <SvgBranchSunset class="w-3/10 text-sunset fill-current absolute right-0 bottom-0 scale-x-[-1] -translate-x-2 translate-y-4" />

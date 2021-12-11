@@ -1,19 +1,12 @@
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
-    ],
-    safelist: [
-      'formulate-input',
-      'formulate-input-element-decorator',
-    ],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+  './components/**/*.{vue,js}',
+  './layouts/**/*.vue',
+  './pages/**/*.vue',
+  './plugins/**/*.{js,ts}',
+  './nuxt.config.{js,ts}',
+  './content/**/*.{json,md}'
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -62,9 +55,6 @@ module.exports = {
         '9/10': '90%'
       }
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

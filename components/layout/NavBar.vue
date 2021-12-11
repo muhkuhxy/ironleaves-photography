@@ -1,7 +1,7 @@
 <template>
   <header
     v-click-outside="clickOutside"
-    class="bg-white text-bluegray z-40 sticky top-0 transform-gpu transition-all ease-in-out duration-500 opacity-90"
+    class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90"
     :class="[scrolledDown && (!menuShown || gtMd) ?
       '-translate-y-full delay-150' :
       'shadow-lg']">
