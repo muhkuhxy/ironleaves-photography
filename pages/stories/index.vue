@@ -1,7 +1,8 @@
 <template>
   <SectionParent class="text-bluegray relative">
-    <SectionContent class="slide-up">
-      <div class="slide-up lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2">
+    <SectionContent class="">
+      <div class="relative max-w-prose md:ml-[33%] md:py-16">
+        <SvgPetalFlower class="text-emerald fill-current absolute invisible md:visible h-[90%] mt-[-5%] translate-x-[calc((100%+2rem)*-1)] rotate-[-15deg]" />
         <SectionHeader>
           <template #roofline>Stories</template>
           Immer auf dem Laufenden
@@ -11,19 +12,21 @@
           Erhaltet hier einen exklusiven Einblick in die wunderschönen Hochzeiten, die ich begleiten durfte! Außerdem gebe ich euch hilfreiche Tipps und Tricks, wie ihr Euren wichtigen Tag gestalten könnt und was ihr für Euren Hochzeitsfotografen beachten müsst.
         </p>
       </div>
-      <LayoutSpacer />
-      <ul class="flex justify-between">
-        <li class="py-2">Filter nach:</li>
-        <template v-for="tag in tags">
-          <ButtonCategory
-            :key="`story-filter-${tag}`"
-            :query="query"
-            :tag="tag"
-            :label="labels[tag]"
-            class="py-2 px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
-            @click="filter($event)" />
-        </template>
-      </ul>
+      <div class="col-span-2">
+        <LayoutSpacer />
+        <ul class="flex items-center justify-between">
+          <li>Filter nach:</li>
+          <template v-for="tag in tags">
+            <ButtonCategory
+              :key="`story-filter-${tag}`"
+              :query="query"
+              :tag="tag"
+              :label="labels[tag]"
+              class="py-2 px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
+              @click="filter($event)" />
+          </template>
+        </ul>
+      </div>
     </SectionContent>
 
     <div class="bg-dust">
