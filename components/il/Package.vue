@@ -2,7 +2,7 @@
   <div class="package overflow-hidden bg-emerald">
     <h2
       v-show="!gtMd"
-      class="px-8 py-4 text-xl font-bold flex justify-between cursor-pointer"
+      class="px-8 py-4 flex justify-between cursor-pointer"
       @click="$emit('change')">
       <slot name="title"></slot>
       <span

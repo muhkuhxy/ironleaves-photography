@@ -44,7 +44,7 @@
             :key="article.path"
             :data-tag="article.tag"
             class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow">
-            <h3 class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</h3>
+            <div class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</div>
             <img
                 :src="require(`~/assets/images/${article.imgSrc}`)"
                 :alt="article.imgAlt">
@@ -63,17 +63,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
-import { contentFunc } from '@nuxt/content/types/content'
 import { Context } from '@nuxt/types'
 import { gsap } from '@/lib/gsap'
-
-const tags = [
-  { label: 'Stories', tag: 'stories', },
-  { label: 'Informationen', tag: 'infos', },
-  { label: 'Tipps & Tricks', tag: 'tipps', },
-  { label: 'Lorem', tag: 'lorem', },
-  { label: 'Ipsum', tag: 'ipsum', },
-]
+import { tagIds, labels, fetchStories } from '@/lib/blog'
 
 interface Data {
   query: string
@@ -83,33 +75,22 @@ interface Data {
   loading: boolean
 }
 
-function fetchContent({ $content }: { $content: contentFunc }, tag?: string): Promise<FetchReturn[]> {
-  let content = $content('stories').sortBy('createdAt', 'desc')
-  if (tag) {
-    content = content.where({tag})
-  }
-  return content.fetch() as Promise<FetchReturn[]>
-}
-
 export default Vue.extend({
   async asyncData(context: Context): Promise<{ articles: FetchReturn[]}> {
-    const articles = await fetchContent(context)
+    const articles = await fetchStories(context)
     return { articles }
   },
   data: () => ({
     query: '',
-    labels: tags.reduce( (result, {tag, label}) => {
-      result[tag] = label
-      return result
-    }, {} as Record<string, string>),
-    tags: tags.map(_ => _.tag),
+    labels,
+    tags: tagIds,
     loading: false
   } as Data),
   methods: {
     async filter(tag: string): Promise<void> {
       this.query = tag
       const oldSize = this.articles.length
-      this.articles = await fetchContent(this, tag)
+      this.articles = await fetchStories(this, { tag })
       const shrinking = oldSize > this.articles.length
       this.loading = true
       const fadingElementSelector = '[data-tag]' + (tag ? `:not([data-tag=${tag}])` : '')

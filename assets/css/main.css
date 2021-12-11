@@ -54,7 +54,7 @@
 @layer components {
   h1 {
     @apply font-bold;
-    
+
     font-family: 'Playfair Display', serif;
 
     /* 2rem @ 375px increasing to 4rem @ 1280px */
@@ -71,7 +71,7 @@
 
   h3 {
     @apply playfair font-bold;
-    
+
     /* 1.2rem(19.2px) @ 23.4375rem(375px) increasing to 1.5rem(24px) @ 80rem(1280px) */
     font-size: clamp(1.2rem, calc(1.2rem + ((1vw - 0.234375rem) * 0.5304)), 1.5rem);
 
