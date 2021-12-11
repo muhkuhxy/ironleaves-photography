@@ -7,15 +7,16 @@
 
     <SectionContent class="slide-up text-bluegray">
       <div class="flex flex-col lg:flex-row items-center md:gap-8">
-        <figure class="slide-up lg:order-2 relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16" data-delay="0.3">
-          <picture>
-            <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-ueber-mich-tamara-loeffen-SW-mobile.jpg">
-            <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg">
+        <figure class="slide-up lg:order-2 relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16" data-delay="0.3">
+          <picture class="after:absolute after:inset-0 after:w-1/2 after:bg-gradient-to-r after:from-white">
+            <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-blog-mobile.jpg">
+            <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-blog.jpg">
             <img
-              src="~/assets/images/desktop/ironleaves-photography-ueber-mich-tamara-loeffen-SW.jpg"
+              class="w-full object-cover"
+              src="~/assets/images/desktop/ironleaves-photography-blog.jpg"
               alt="Tamara Loeffen Portrait">
           </picture>
-          <SvgFlowerGrass class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 mr-[max(-2.5rem,-8%)] sm:mr-[-11%] lg:mr-0 -mb-8 md:-mb-12"/>
+          <SvgPetalFlower class="text-emerald fill-current w-[min(30%,7rem)] xl:w-32 absolute bottom-0 left-0 -mb-8 sm:-mb-12 lg:ml-6 rotate-[-20deg]"/>
         </figure>
         <div class="slide-up lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left">
           <SectionHeader>
