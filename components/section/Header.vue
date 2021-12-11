@@ -1,6 +1,6 @@
 <template>
-  <h1>
+  <div>
     <span class="roofline block text-sunset uppercase"><slot name="roofline"/></span>
-    <span class="font-bold"><slot name="default"/></span>
-  </h1>
+    <h1><slot name="default"/></h1>
+  </div>
 </template>

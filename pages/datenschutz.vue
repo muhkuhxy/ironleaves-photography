@@ -1,26 +1,444 @@
 <template>
-  <div class="flex flex-col mx-auto max-w-prose px-8 pt-12 pb-4 gap-8 text-bluegray">
-    <h2 class="text-xl text-center">Datenschutz</h2>
-    <p>
-      While happily ignoring when being called i like to spend my days sleeping and eating fishes that my human fished for me we live on a luxurious yacht, sailing proudly under the sun, i like to walk on the deck, watching the horizon, dreaming of a good bowl of milk get suspicious of own shadow then go play with toilette paper fart in owners food yet love fish. Walk on keyboard hell is other people stretch show belly bury the poop bury it deep give me some of your food give me some of your food give me some of your food meh, i don't want it. Refuse to leave cardboard box tweeting a baseball experiences short bursts of poo-phoria after going to the loo. Swat turds around the house purr when being pet get poop stuck in paws jumping out of litter box and run around the house scream meowing and smearing hot cat mud all over for furrier and even more furrier hairball for stares at human while pushing stuff off a table. Taco cat backwards spells taco cat dont wait for the storm to pass, dance in the rain so demand to be let outside at once, and expect owner to wait for me as i think about it lick the other cats. I'm going to lap some water out of my master's cup meow. Scratch at fleas, meow until belly rubs, hide behind curtain when vacuum cleaner is on scratch strangers and poo on owners food kitty kitty pussy cat doll or kitty power, there's a forty year old lady there let us feast or jump five feet high and sideways when a shadow moves for cat walks in keyboard . Put butt in owner's face.
-    </p>
-    <p>
-      Drink from the toilet lay on arms while you're using the keyboard, and if it smells like fish eat as much as you wish, so intently sniff hand, or white cat sleeps on a black shirt so purr purr purr until owner pets why owner not pet me hiss scratch meow. Pose purrfectly to show my beauty lick the other cats please let me outside pouty face yay! wait, it's cold out please let me inside pouty face oh, thank you rub against mommy's leg oh it looks so nice out, please let me outside again the neighbor cat was mean to me please let me back inside flee in terror at cucumber discovered on floor give me some of your food give me some of your food give me some of your food meh, i don't want it tuxedo cats always looking dapper. Check cat door for ambush 10 times before coming in plan your travel funny little cat chirrup noise shaking upright tail when standing next to you sleep everywhere, but not in my bed sit by the fire. Kitty power eat the fat cats food, or get scared by sudden appearance of cucumber catch mouse and gave it as a present bury the poop bury it deep but adventure always. I am the best waffles. Cuddle no cuddle cuddle love scratch scratch. Jump off balcony, onto stranger's head eat from dog's food. Lie in the sink all day roll on the floor purring your whiskers off, plan your travel and chew the plant, or sleeps on my head. Step on your keyboard while you're gaming and then turn in a circle no, you can't close the door, i haven't decided whether or not i wanna go out so poop in the plant pot. Meeeeouw eat grass, throw it back up. Pee in the shoe hey! you there, with the hands i shall purr myself to sleep yet why must they do that, lick master's hand at first then bite because im moody love you, then bite you hide when guests come over. Climb a tree, wait for a fireman jump to fireman then scratch his face throw down all the stuff in the kitchen for gnaw the corn cob for scratch me there, elevator butt. Good morning sunshine destroy couch, immediately regret falling into bathtub have secret plans. Fall asleep upside-down cereal boxes make for five star accommodation . Take a big fluffing crap ðŸ’© spend all night ensuring people don't sleep sleep all day or jump up to edge of bath, fall in then scramble in a mad panic to get out, but chase ball of string nyan fluffness ahh cucumber!. Plan your travel stare at ceiling chew the plant or toilet paper attack claws fluff everywhere meow miao french ciao litterbox scratch leg; meow for can opener to feed me eat my own ears. Relentlessly pursues moth you are a captive audience while sitting on the toilet, pet me chase ball of string but kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff. Toy mouse squeak roll over ooh, are those your $250 dollar sandals? lemme use that as my litter box for gnaw the corn cob or miaow then turn around and show you my bum lick yarn hanging out of own butt so snuggles up to shoulders or knees and purrs you to sleep. Chill on the couch table jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed, but head nudges and lies down . Really likes hummus purr like an angel dont wait for the storm to pass, dance in the rain but found somthing move i bite it tail for sleep on keyboard, so inspect anything brought into the house paw your face to wake you up in the morning. I shredded your linens for you cats making all the muffins eats owners hair then claws head.
-    </p>
-    <p>
-      Scratch me there, elevator butt nyan nyan goes the cat, scraaaaape scraaaape goes the walls when the cat murders them with its claws pee on walls it smells like breakfast i can haz yet jump off balcony, onto stranger's head stinky cat curl up and sleep on the freshly laundered towels. Meow meow pee in shoe steal mom's crouton while she is in the bathroom naughty running cat, so stick butt in face, but then cats take over the world catto munch salmono so kitten is playing with dead mouse. Climb leg attack the dog then pretend like nothing happened or give me attention or face the wrath of my claws yet cough furball i heard this rumor where the humans are our owners, pfft, what do they know?!. Cats woo favor packaging over toy or cat mojo bleghbleghvomit my furball really tie the room together, roll on the floor purring your whiskers off and love me! toilet paper attack claws fluff everywhere meow miao french ciao litterbox. Cats are fats i like to pets them they like to meow back crusty butthole but cat jumps and falls onto the couch purrs and wakes up in a new dimension filled with kitty litter meow meow yummy there is a bunch of cats hanging around eating catnip . I see a bird i stare at it i meow at it i do a wiggle come here birdy. Cats secretly make all the worlds muffins open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow!, yet head nudges jumps off balcony gives owner dead mouse at present then poops in litter box snatches yarn and fights with dog cat chases laser then plays in grass finds tiny spot in cupboard and sleeps all day jumps in bathtub and meows when owner fills food dish the cat knocks over the food dish cat slides down the water slide and into pool and swims even though it does not like water.
-    </p>
-    <p>
-      Claws in your leg attack like a vicious monster cat dog hate mouse eat string barf pillow no baths hate everything purr. Then cats take over the world love fish. Thug cat you have cat to be kitten me right meow. Have secret plans murder hooman toes for milk the cow head nudges kitty power but fall over dead (not really but gets sypathy) yet prow?? ew dog you drink from the toilet, yum yum warm milk hotter pls, ouch too hot. Taco cat backwards spells taco cat.
-    </p>
-    <p>
-      Meowwww have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat yet stare out the window. Show belly put butt in owner's face yet stare at imaginary bug. Instead of drinking water from the cat bowl, make sure to steal water from the toilet meow meow you are my owner so here is a dead bird eat half my food and ask for more so this cat happen now, it was too purr-fect!!!, decide to want nothing to do with my owner today. Hack. Humans,humans, humans oh how much they love us felines we are the center of attention they feed, they clean pretend not to be evil and chirp at birds. Throw down all the stuff in the kitchen chirp at birds. Paw your face to wake you up in the morning i like frogs and 0 gravity and nya nya nyan or nyaa nyaa so present belly, scratch hand when stroked so licks paws. Lick plastic bags lick butt and make a weird face. Get suspicious of own shadow then go play with toilette paper stinky cat yet cry louder at reflection and sleep on keyboard please stop looking at your phone and pet me or meow meow you are my owner so here is a dead rat make meme, make cute face. Ask to be pet then attack owners hand love blinks and purr purr purr purr yawn or toilet paper attack claws fluff everywhere meow miao french ciao litterbox. Ignore the squirrels, you'll never catch them anyway fall asleep upside-down sleep in the bathroom sink. Chew on cable damn that dog and i will ruin the couch with my claws. I do no work yet get food, shelter, and lots of stuff just like man who lives with us making bread on the bathrobe. Demand to have some of whatever the human is cooking, then sniff the offering and walk away chase red laser dot mmmmmmmmmeeeeeeeeooooooooowwwwwwww. Massacre a bird in the living room and then look like the cutest and most innocent animal on the planet x or sleep everywhere, but not in my bed, and leave fur on owners clothes but chase mice. Pet me pet me pet me pet me, bite, scratch, why are you petting me hell is other people or paw at beetle and eat it before it gets away while happily ignoring when being called scratch my tummy actually i hate you now fight me. Sleeps on my head brown cats with pink ears human is washing you why halp oh the horror flee scratch hiss bite yet lie in the sink all day ooh, are those your $250 dollar sandals? lemme use that as my litter box. Unwrap toilet paper. Bite nose of your human sugar, my siamese, stalks me (in a good way), day and night head nudges for flee in terror at cucumber discovered on floor, or bleghbleghvomit my furball really tie the room together be superior claw drapes. Purr cat walks in keyboard lick plastic bags scratch at fleas, meow until belly rubs, hide behind curtain when vacuum cleaner is on scratch strangers and poo on owners food so stare at wall turn and meow stare at wall some more meow again continue staring or be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day stretch. Hell is other people play riveting piece on synthesizer keyboard and lick yarn hanging out of own butt purr when give birth meow murr i hate humans they are so annoying. Kitty loves pigs jump on counter removed by human jump on counter again removed by human meow before jumping on counter this time to let the human know am coming back. I do no work yet get food, shelter, and lots of stuff just like man who lives with us open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow! and stare out the window yet throw down all the stuff in the kitchen mrow shove bum in owner's face like camera lens. Run around the house at 4 in the morning. Meow loudly just to annoy owners all of a sudden cat goes crazy, for brown cats with pink ears and sniff all the things, sniff other cat's butt and hang jaw half open thereafter for eat plants, meow, and throw up because i ate plants.
-    </p>
-  </div>
+  <LayoutContainer class="flex flex-col items-center max-w-prose text-bluegray">
+    <div class="max-w-prose">
+      <h1 class="my-12">Datenschutzerklärung</h1>
+      <h2>Geltungsbereich und Umgang mit personenbezogenen Daten</h2>
+      <p>
+        Diese Datenschutzerklärung informiert die Nutzer darüber, in welchem
+        Umfang und zu welchem Zwecke die Erhebung und Verarbeitung
+        personenbezogener Daten erfolgt. Verantwortlich für diese Website ist
+        folgender Anbieter:
+      </p>
+      <address>
+        Ironleaves Photography
+        <br />Tamara Loeffen <br />Kluckweg 5a, 52156 Monschau, Deutschland
+        <br />E-Mail:
+        <a class="cursor-pointer underline" @click="composeMail">{{
+          getMail()
+        }}</a>
+        <br />Tel: +49 151 6755 2704 <br />
+        <NuxtLink to="/impressum">Impressum</NuxtLink>
+      </address>
+      <p>
+        Die gesetzlichen Regelungen zum Datenschutz gehen aus der
+        <a target="_blank" class="cursor-pointer underline" href="https://www.bussgeldkatalog.org/eu-datenschutzgrundverordnung/"
+          >europäischen Datenschutzgrundverordnung</a
+        >
+        hervor. Das
+        <a target="_blank" class="cursor-pointer underline" href="https://www.bussgeldkatalog.org/bdsg/"
+          >Bundesdatenschutzgesetz (BDSG)</a
+        >
+        und das Telemediengesetz (TMG) gelten ergänzend.
+      </p>
+      <p>
+        Zu den personenbezogenen Daten gehören beispielsweise der Name, die
+        Anschrift oder das Geburtsdatum des Nutzers (vgl. Art. 4 DSGVO). Diese
+        Informationen werden nur gemäß der gesetzlichen Datenschutzbestimmungen
+        auf der Website erhoben und verarbeitet.
+      </p>
+      <h3>Zugriffsdaten</h3>
+      <p>
+        Der Seitenbetreiber erhebt, auf Grund eines berechtigten Interesses
+        folgende Daten:
+      </p>
+      <ul>
+        <li>Zielwebsite</li>
+        <li>Zeitpunkt des Zugriffs</li>
+        <li>Gesendete Datenmenge</li>
+        <li>Quellseite</li>
+        <li>verwendeter Browser</li>
+        <li>Verwendetes Betriebssystem</li>
+        <li>IP-Adresse</li>
+      </ul>
+      <p>
+        Dass wir personenbezogene Daten nur so lange speichern, wie es für die
+        Bereitstellung unserer Dienstleistungen und Produkte unbedingt notwendig
+        ist, gilt als generelles Kriterium bei uns. Das bedeutet, dass wir
+        personenbezogene Daten löschen, sobald der Grund für die
+        Datenverarbeitung nicht mehr vorhanden ist. In einigen Fällen sind wir
+        gesetzlich dazu verpflichtet, bestimmte Daten auch nach Wegfall des
+        ursprüngliches Zwecks zu speichern, zum Beispiel zu Zwecken der
+        Buchführung.
+      </p>
+
+      <h3>Erfassung und Verarbeitung personenbezogener Daten</h3>
+      <p>
+        Die im Rahmen der Nutzung anfallenden personenbezogenen Daten, die durch
+        den Betreiber erhoben werden, werden nur mit ausdrücklicher
+        Einverständniserklärung oder unter Anwendung gesetzlicher Regeln
+        weitergegeben. Auch hier gelten die Betroffenenrechte auf Löschung,
+        Korrektur etc.
+      </p>
+      <p>
+        Bei einer anonymen Nutzung der Seite werden nur die nicht
+        personenbezogenen Daten gespeichert und dazu verwendet das
+        Online-Angebot zu verbessern. Eine Rückverfolgung über diese Daten ist
+        nicht möglich.
+      </p>
+
+      <h3>Recht auf Auskunft/Löschung/Widerruf</h3>
+      <p>
+        Die Datenschutzgrundverordnung räumt es dem Nutzer ein, sich
+        unentgeltlich bei dem Betreiber der Website darüber zu informieren,
+        welche personenbezogenen Daten gespeichert werden. Darüber hinaus steht
+        es diesem zu, eine Löschung, Sperrung oder Berichtigung falscher Daten
+        zu veranlassen, soweit keine gesetzliche Aufbewahrungspflicht zu
+        beachten ist.
+      </p>
+
+      <h2>Kommunikation</h2>
+
+      <h3>Betroffene Personen</h3>
+      <p>
+        Wenn Sie mit mir Kontakt aufnehmen und per Telefon, E-Mail oder
+        Online-Formular kommunizieren, kann es zur Verarbeitung
+        personenbezogener Daten kommen. Von den genannten Vorgängen sind alle
+        betroffen, die über die von mir bereit gestellten Kommunikationswege den
+        Kontakt zu Ironleaves Photography suchen. Die Daten werden für die
+        Abwicklung und Bearbeitung Ihrer Frage und des damit zusammenhängenden
+        Geschäftsvorgangs verarbeitet. Die Daten während ebensolange gespeichert
+        bzw. so lange es das Gesetz vorschreibt.
+      </p>
+      <h3>Telefon</h3>
+      <p>
+        Wenn Sie mich anrufen, werden die Anrufdaten auf dem jeweiligen Endgerät
+        und beim eingesetzten Telekommunikationsanbieter pseudonymisiert
+        gespeichert. Außerdem können Daten wie Name und Telefonnummer im
+        Anschluss per E-Mail versendet und zur Anfragebeantwortung gespeichert
+        werden. Die Daten werden gelöscht, sobald der Geschäftsfall beendet
+        wurde und es gesetzliche Vorgaben erlauben.
+      </p>
+      <h3>E-Mail</h3>
+      <p>
+        Wenn Sie mit mir per E-Mail kommunizieren, werden Daten gegebenenfalls
+        auf dem jeweiligen Endgerät (Computer, Laptop, Smartphone,…) gespeichert
+        und es kommt zur Speicherung von Daten auf dem E-Mail-Server. Die Daten
+        werden gelöscht, sobald der Geschäftsfall beendet wurde und es
+        gesetzliche Vorgaben erlauben.
+      </p>
+      <h3>Online Formulare</h3>
+      <p>
+        Wenn Sie mit mir mittels Online-Formular kommunizieren, werden Daten auf
+        meinem Webserver gespeichert und gegebenenfalls an eine E-Mail-Adresse
+        von mir weitergeleitet. Die Daten werden gelöscht, sobald der
+        Geschäftsfall beendet wurde und es gesetzliche Vorgaben erlauben.
+      </p>
+      <h3>Rechtsgrundlagen</h3>
+      <p>
+        Die Verarbeitung der Daten basiert auf den folgenden Rechtsgrundlagen:
+      </p>
+      <ul>
+        <li>
+          Art. 6 Abs. 1 lit. a DSGVO (Einwilligung): Sie geben uns die
+          Einwilligung Ihre Daten zu speichern und weiter für den Geschäftsfall
+          betreffende Zwecke zu verwenden;
+        </li>
+        <li>
+          Art. 6 Abs. 1 lit. b DSGVO (Vertrag): Es besteht die Notwendigkeit für
+          die Erfüllung eines Vertrags mit Ihnen oder einem Auftragsverarbeiter
+          wie z. B. dem Telefonanbieter oder wir müssen die Daten für
+          vorvertragliche Tätigkeiten, wie z. B. die Vorbereitung eines
+          Angebots, verarbeiten;
+        </li>
+        <li>
+          Art. 6 Abs. 1 lit. f DSGVO (Berechtigte Interessen): Wir wollen
+          Kundenanfragen und geschäftliche Kommunikation in einem
+          professionellen Rahmen betreiben. Dazu sind gewisse technische
+          Einrichtungen wie z. B. E-Mail-Programme, Exchange-Server und
+          Mobilfunkbetreiber notwendig, um die Kommunikation effizient betreiben
+          zu können.
+        </li>
+      </ul>
+
+      <h2>Webhosting über Ionos</h2>
+      <h3>Mit welchen Technologien ermittelt IONOS die Daten?</h3>
+      <p>
+        Die Daten werden entweder durch einen Pixel oder durch ein Logfile
+        ermittelt. Zum Schutz von personenbezogenen Daten verwendet WebAnalytics
+        keine Cookies.
+      </p>
+      <p>
+        Die IP des Besuchers wird bei der Übermittlung eines Seitenabrufes
+        übertragen, nach der Übermittlung direkt anonymisiert und ohne
+        Personenbezug verarbeitet.
+      </p>
+
+      <h3>Welche Daten speichert IONOS von meinen Websitenbesuchern?</h3>
+      <p>
+        IONOS speichert keine personenbezogenen Daten von Websitenbesuchern,
+        damit keine Rückschlüsse auf die einzelnen Besucher gezogen werden
+        können. Es werden folgende Daten erhoben, die direkt bei der Erhebung
+        anonymisiert werden:
+      </p>
+      <ul>
+        <li>Referrer (zuvor besuchte Webseite)</li>
+        <li>Angeforderte Webseite oder Datei</li>
+        <li>Browsertyp und Browserversion</li>
+        <li>Verwendetes Betriebssystem</li>
+        <li>Verwendeter Gerätetyp</li>
+        <li>Uhrzeit des Zugriffs</li>
+        <li>
+          IP-Adresse in anonymisierter Form (wird nur zur Feststellung des Orts
+          des Zugriffs verwendet)
+        </li>
+      </ul>
+
+      <h3>Zu welchem Zweck werden die Daten erhoben?</h3>
+      <p>
+        In WebAnalytics werden Daten ausschließlich zur statistischen Auswertung
+        und zur technischen Optimierung des Webangebots erhoben. Die Daten
+        werden aus berechtigtem Interesse erhoben, um die Sicherheit und
+        Stabilität des Angebots zu gewährleisten, anonym das Zugriffsverhalten
+        auszuwerten zur Verbesserung des Angebots bzw. ggf. zur
+        Strafverfolgung/Verfolgung von Ansprüchen und den Webseitenbesuchern ein
+        Höchstmaß an Qualität bereitstellen zu können.
+      </p>
+
+      <h3>Werden Daten an Dritte weitergegeben?</h3>
+      <p>Es werden keine Daten an Dritte weitergegeben.</p>
+
+      <h3>Wie lang werden die Besucherdaten von IONOS gespeichert?</h3>
+      <p>Die Daten werden 8 Wochen gespeichert.</p>
+
+      <h2>Social Media</h2>
+      <p>
+        Seit Jahren sind Social-Media-Plattformen der Ort, wo Menschen online
+        kommunizieren und in Kontakt treten. Mit unseren Social-Media-Auftritten
+        können wir unsere Produkte und Dienstleistungen Interessenten
+        näherbringen. Die auf unserer Website eingebundenen
+        Social-Media-Elemente helfen Ihnen, schnell und ohne Komplikationen zu
+        unseren Social-Media-Inhalten wechseln können.
+      </p>
+      <p>
+        Die Daten, die durch Ihre Nutzung eines Social-Media-Kanals gespeichert
+        und verarbeitet werden, haben in erster Linie den Zweck, Webanalysen
+        durchführen zu können. Ziel dieser Analysen ist es, genauere und
+        personenbezogene Marketing- und Werbestrategien entwickeln zu können.
+        Abhängig von Ihrem Verhalten auf einer Social-Media-Plattform, können
+        mit Hilfe der ausgewerteten Daten, passende Rückschlüsse auf Ihre
+        Interessen getroffen werden und sogenannte Userprofile erstellt werden.
+        So ist es den Plattformen auch möglich, Ihnen maßgeschneiderte
+        Werbeanzeigen zu präsentieren. Meistens werden für diesen Zweck Cookies
+        in Ihrem Browser gesetzt, die Daten zu Ihrem Nutzungsverhalten
+        speichern.
+      </p>
+      <p>
+        Bitte beachten Sie, dass bei der Nutzung der Social-Media-Plattformen
+        oder unserer eingebauten Elemente auch Daten von Ihnen außerhalb der
+        Europäischen Union verarbeitet werden können, da viele
+        Social-Media-Kanäle, beispielsweise Facebook oder Twitter, amerikanische
+        Unternehmen sind. Dadurch können Sie möglicherweise Ihre Rechte in Bezug
+        auf Ihre personenbezogenen Daten nicht mehr so leicht einfordern bzw.
+        durchsetzen.
+      </p>
+
+      <h2>Instagram</h2>
+      <p>
+        Wir haben auf unserer Webseite Funktionen von Instagram eingebaut.
+        Instagram ist eine Social Media Plattform des Unternehmens Instagram
+        LLC, 1601 Willow Rd, Menlo Park CA 94025, USA. Instagram ist seit 2012
+        ein Tochterunternehmen von Facebook Inc. und gehört zu den
+        Facebook-Produkten. Das Einbetten von Instagram-Inhalten auf unserer
+        Webseite nennt man Embedding. Dadurch können wir Ihnen Inhalte wie
+        Buttons, Fotos oder Videos von Instagram direkt auf unserer Webseite
+        zeigen. Wenn Sie Webseiten unserer Webpräsenz aufrufen, die eine
+        Instagram-Funktion integriert haben, werden Daten an Instagram
+        übermittelt, gespeichert und verarbeitet. Instagram verwendet dieselben
+        Systeme und Technologien wie Facebook. Ihre Daten werden somit über alle
+        Facebook-Firmen hinweg verarbeitet.
+      </p>
+
+      <h3>Welche Daten werden von Instagram gespeichert?</h3>
+      <p>
+        Wenn Sie auf eine unserer Seiten stoßen, die Instagram-Funktionen (wie
+        Instagrambilder oder Plug-ins) eingebaut haben, setzt sich Ihr Browser
+        automatisch mit den Servern von Instagram in Verbindung. Dabei werden
+        Daten, wie Cookies, an Instagram versandt, gespeichert und verarbeitet.
+        Und zwar unabhängig, ob Sie ein Instagram-Konto haben oder nicht. Dazu
+        zählen Informationen über unserer Webseite, über Ihren Computer, über
+        getätigte Käufe, über Werbeanzeigen, die Sie sehen und wie Sie unser
+        Angebot nutzen. Weiters werden auch Datum und Uhrzeit Ihrer Interaktion
+        mit Instagram gespeichert. Wenn Sie ein Instagram-Konto haben bzw.
+        eingeloggt sind, speichert Instagram deutlich mehr Daten über Sie.
+      </p>
+
+      <h3>Wie lange und wo werden die Daten gespeichert?</h3>
+      <p>
+        Instagram teilt die erhaltenen Informationen zwischen den
+        Facebook-Unternehmen mit externen Partnern und mit Personen, mit denen
+        Sie sich weltweit verbinden. Die Datenverarbeitung erfolgt unter
+        Einhaltung der eigenen Datenrichtlinie. Ihre Daten sind, unter anderem
+        aus Sicherheitsgründen, auf den Facebook-Servern auf der ganzen Welt
+        verteilt. Die meisten dieser Server stehen in den USA.
+      </p>
+
+      <h3>
+        Wie kann ich meine Daten löschen bzw. die Datenspeicherung verhindern?
+      </h3>
+      <p>
+        Dank der Datenschutz Grundverordnung haben Sie das Recht auf Auskunft,
+        Übertragbarkeit, Berichtigung und Löschung Ihrer Daten. In den
+        Instagram-Einstellungen können Sie Ihre Daten verwalten. Wenn Sie Ihre
+        Daten auf Instagram völlig löschen wollen, müssen Sie Ihr
+        Instagram-Konto dauerhaft löschen.
+      </p>
+
+      <h2>Google Fonts</h2>
+      <p>
+        Auf unserer Website verwenden wir Google Fonts. Das sind die
+        “Google-Schriften” der Firma Google Inc. Für den europäischen Raum ist
+        das Unternehmen Google Ireland Limited (Gordon House, Barrow Street
+        Dublin 4, Irland) für alle Google-Dienste verantwortlich.
+      </p>
+      <p>
+        Für die Verwendung von Google-Schriftarten müssen Sie sich nicht
+        anmelden bzw. ein Passwort hinterlegen. Weiters werden auch keine
+        Cookies in Ihrem Browser gespeichert. Die Dateien (CSS,
+        Schriftarten/Fonts) werden über die Google-Domains fonts.googleapis.com
+        und fonts.gstatic.com angefordert. Laut Google sind die Anfragen nach
+        CSS und Schriften vollkommen getrennt von allen anderen Google-Diensten.
+        Wenn Sie ein Google-Konto haben, brauchen Sie keine Sorge haben, dass
+        Ihre Google-Kontodaten, während der Verwendung von Google Fonts, an
+        Google übermittelt werden. Google erfasst die Nutzung von CSS (Cascading
+        Style Sheets) und der verwendeten Schriftarten und speichert diese Daten
+        sicher. Wie die Datenspeicherung genau aussieht, werden wir uns noch im
+        Detail ansehen.
+      </p>
+      <p>
+        Google Fonts (früher Google Web Fonts) ist ein Verzeichnis mit über 800
+        Schriftarten, die Google Ihren Nutzern kostenlos zu Verfügung stellen.
+      </p>
+      <p>
+        Viele dieser Schriftarten sind unter der SIL Open Font License
+        veröffentlicht, während andere unter der Apache-Lizenz veröffentlicht
+        wurden. Beides sind freie Software-Lizenzen.
+      </p>
+
+      <h3>Warum verwenden wir Google Fonts auf unserer Website?</h3>
+      <p>
+        Mit Google Fonts können wir auf der eigenen Webseite Schriften nutzen,
+        und müssen sie nicht auf unserem eigenen Server hochladen. Google Fonts
+        ist ein wichtiger Baustein, um die Qualität unserer Webseite hoch zu
+        halten. Alle Google-Schriften sind automatisch für das Web optimiert und
+        dies spart Datenvolumen und ist speziell für die Verwendung bei mobilen
+        Endgeräten ein großer Vorteil. Wenn Sie unsere Seite besuchen, sorgt die
+        niedrige Dateigröße für eine schnelle Ladezeit. Des Weiteren sind Google
+        Fonts sichere Web Fonts. Unterschiedliche Bildsynthese-Systeme
+        (Rendering) in verschiedenen Browsern, Betriebssystemen und mobilen
+        Endgeräten können zu Fehlern führen. Solche Fehler können teilweise
+        Texte bzw. ganze Webseiten optisch verzerren. Dank des schnellen Content
+        Delivery Network (CDN) gibt es mit Google Fonts keine
+        plattformübergreifenden Probleme. Google Fonts unterstützt alle gängigen
+        Browser (Google Chrome, Mozilla Firefox, Apple Safari, Opera) und
+        funktioniert zuverlässig auf den meisten modernen mobilen
+        Betriebssystemen, einschließlich Android 2.2+ und iOS 4.2+ (iPhone,
+        iPad, iPod). Wir verwenden die Google Fonts also, damit wir unser
+        gesamtes Online-Service so schön und einheitlich wie möglich darstellen
+        können.
+      </p>
+
+      <h3>Welche Daten werden von Google gespeichert?</h3>
+      <p>
+        Wenn Sie unsere Webseite besuchen, werden die Schriften über einen
+        Google-Server nachgeladen. Durch diesen externen Aufruf werden Daten an
+        die Google-Server übermittelt. So erkennt Google auch, dass Sie bzw.
+        Ihre IP-Adresse unsere Webseite besucht. Die Google Fonts API wurde
+        entwickelt, um Verwendung, Speicherung und Erfassung von Endnutzerdaten
+        auf das zu reduzieren, was für eine ordentliche Bereitstellung von
+        Schriften nötig ist. API steht übrigens für „Application Programming
+        Interface“ und dient unter anderem als Datenübermittler im
+        Softwarebereich.
+      </p>
+      <p>
+        Google Fonts speichert CSS- und Schrift-Anfragen sicher bei Google und
+        ist somit geschützt. Durch die gesammelten Nutzungszahlen kann Google
+        feststellen, wie gut die einzelnen Schriften ankommen. Die Ergebnisse
+        veröffentlicht Google auf internen Analyseseiten, wie beispielsweise
+        Google Analytics. Zudem verwendet Google auch Daten des eigenen
+        Web-Crawlers, um festzustellen, welche Webseiten Google-Schriften
+        verwenden. Diese Daten werden in der BigQuery-Datenbank von Google Fonts
+        veröffentlicht. Unternehmer und Entwickler nützen das Google-Webservice
+        BigQuery, um große Datenmengen untersuchen und bewegen zu können.
+      </p>
+      <p>
+        Zu bedenken gilt allerdings noch, dass durch jede Google Font Anfrage
+        auch Informationen wie Spracheinstellungen, IP-Adresse, Version des
+        Browsers, Bildschirmauflösung des Browsers und Name des Browsers
+        automatisch an die Google-Server übertragen werden. Ob diese Daten auch
+        gespeichert werden, ist nicht klar feststellbar bzw. wird von Google
+        nicht eindeutig kommuniziert.
+      </p>
+
+      <h3>Wie lange und wo werden die Daten gespeichert?</h3>
+      <p>
+        Anfragen für CSS-Assets speichert Google einen Tag lang auf seinen
+        Servern, die hauptsächlich außerhalb der EU angesiedelt sind. Das
+        ermöglicht uns, mithilfe eines Google-Stylesheets die Schriftarten zu
+        nutzen. Ein Stylesheet ist eine Formatvorlage, über die man einfach und
+        schnell z.B. das Design bzw. die Schriftart einer Webseite ändern kann.
+      </p>
+      <p>
+        Die Font-Dateien werden bei Google ein Jahr gespeichert. Google verfolgt
+        damit das Ziel, die Ladezeit von Webseiten grundsätzlich zu verbessern.
+        Wenn Millionen von Webseiten auf die gleichen Schriften verweisen,
+        werden sie nach dem ersten Besuch zwischengespeichert und erscheinen
+        sofort auf allen anderen später besuchten Webseiten wieder. Manchmal
+        aktualisiert Google Schriftdateien, um die Dateigröße zu reduzieren, die
+        Abdeckung von Sprache zu erhöhen und das Design zu verbessern.
+      </p>
+
+      <h3>
+        Wie kann ich meine Daten löschen bzw. die Datenspeicherung verhindern?
+      </h3>
+      <p>
+        Jene Daten, die Google für einen Tag bzw. ein Jahr speichert können
+        nicht einfach gelöscht werden. Die Daten werden beim Seitenaufruf
+        automatisch an Google übermittelt. Um diese Daten vorzeitig löschen zu
+        können, müssen Sie den Google-Support auf
+        <a target="_blank" class="cursor-pointer underline" href="https://support.google.com/?hl=de&amp;tid=311892194">https://support.google.com/?hl=de&amp;tid=311892194</a> kontaktieren.
+        Datenspeicherung verhindern Sie in diesem Fall nur, wenn Sie unsere
+        Seite nicht besuchen.
+      </p>
+      <p>
+        Anders als andere Web-Schriften erlaubt uns Google uneingeschränkten
+        Zugriff auf alle Schriftarten. Wir können also unlimitiert auf ein Meer
+        an Schriftarten zugreifen und so das Optimum für unsere Webseite
+        rausholen. Mehr zu Google Fonts und weiteren Fragen finden Sie auf
+        <a target="_blank" class="cursor-pointer underline" href="https://developers.google.com/fonts/faq?tid=311892194">https://developers.google.com/fonts/faq?tid=311892194</a>. Dort geht zwar
+        Google auf datenschutzrelevante Angelegenheiten ein, doch wirklich
+        detaillierte Informationen über Datenspeicherung sind nicht enthalten.
+        Es ist relativ schwierig, von Google wirklich präzise Informationen über
+        gespeicherten Daten zu bekommen.
+      </p>
+      <p>
+        Welche Daten grundsätzlich von Google erfasst werden und wofür diese
+        Daten verwendet werden, können Sie auch auf
+        <a target="_blank" class="cursor-pointer underline" href="https://www.google.com/intl/de/policies/privacy/">https://www.google.com/intl/de/policies/privacy/</a> nachlesen.
+      </p>
+    </div>
+  </LayoutContainer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import * as mail from '@/lib/mail'
 export default Vue.extend({
+  methods: {
+    ...mail,
+  },
 })
 </script>
+
+<style lang="postcss" scoped>
+h2 {
+  @apply leading-tight;
+}
+
+.max-w-prose > * + * {
+  margin-top: 1em;
+}
+
+ul {
+  @apply list-disc ml-4;
+}
+</style>
