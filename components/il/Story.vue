@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-dust text-bluegray pb-6 story">
-    <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
+  <div class="text-bluegray pb-6 story">
+    <SectionContent class="bg-dust flex flex-col lg:flex-row items-center gap-8">
       <slot name="image"></slot>
       <div class="lg:w-1/2 flex-initial text-center lg:text-left flex flex-col gap-4 max-w-prose mx-auto lg:mx-0">
         <slot name="title"></slot>
@@ -14,7 +14,7 @@
     <div class="h-[50vh]">
       <LazyIlSlider
         v-if="trigger"
-        class="bg-dust pb-8 h-full"
+        class="pb-8 h-full"
         :slides="slides" />
     </div>
   </div>

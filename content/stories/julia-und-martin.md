@@ -4,6 +4,10 @@ tag: stories
 createdAt: 2021-12-07T19:30:22.549Z
 imgSrc: stories/julia_martin/ironleaves-photography-stories-julia-martin.jpg
 imgAlt: Julia und Martin Hochzeits-Shooting
+storyTellingImgs:
+  - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg
+  - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-dom-magdeburg.jpg
+  - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg
 slides:
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-braeutigam-blauer-anzug.jpg
@@ -28,6 +32,18 @@ slides:
 ---
 Diese Hochzeit war für mich in vielerlei Hinsicht sehr besonders. Julia und Martin kenne ich gefühlt schon seit Ewigkeiten. Für ihre Hochzeit wäre ich 100 Stunden gefahren um dabei sein zu können.
 <!--more-->
-Ich hatte die riesige Ehre, dass ich in diesem kleinen Kreis mit dabei sein durfte – Erst als Fotografin beim Standesamt und für die Pärchenfotos und anschließend auch als Gast bei der Feier.
+## Getting Ready
 
 Das Shooting fand am Magedburger Dom und dann im Stadtpark statt und war somit die erste "Urban-Hochzeit" für mich. Sehen die beiden nicht absolut bezaubernd aus?
+
+## Fotoshooting
+
+Ich hatte die riesige Ehre, dass ich in diesem kleinen Kreis mit dabei sein durfte – Erst als Fotografin beim Standesamt und für die Pärchenfotos und anschließend auch als Gast bei der Feier.
+
+## Penis Penis
+
+Annoy owner until he gives you food say meow repeatedly until belly
+rubs, feels good haha you hold me hooman i scratch but my water
+bowl is clean and freshly replenished, so i’ll drink from the toilet
+chew foot, for behind the couch, yet car rides are evil. Fish i must find
+my red catnip fishy fish.

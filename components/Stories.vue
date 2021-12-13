@@ -42,7 +42,7 @@
       </SectionHeader>
     </SectionContent>
 
-    <IlStory :slides="stories[0].slides">
+    <IlStory class="bg-dust" :slides="stories[0].slides">
       <template #image>
         <div class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial">
           <img
@@ -70,7 +70,7 @@
 
     <LayoutSpacer :responsive="false" :ms="4" />
 
-    <IlStory :slides="stories[1].slides">
+    <IlStory class="bg-dust" :slides="stories[1].slides">
       <template #image>
         <div class="relative lg:w-1/2 flex-initial lg:order-2">
           <img
@@ -99,7 +99,7 @@
 
     <LayoutSpacer :responsive="false" :ms="4" />
 
-    <IlStory :slides="stories[2].slides">
+    <IlStory class="bg-dust" :slides="stories[2].slides">
       <template #image>
         <div class="relative lg:w-1/2 flex-initial">
           <img
