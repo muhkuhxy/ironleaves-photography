@@ -64,7 +64,7 @@
     <LayoutSpacer />
 
     <div class="bg-dust relative">
-      <SectionContent class="relative grid grid-cols-2 auto-rows-[1fr] place-content-center gap-12">
+      <SectionContent class="relative grid grid-cols-1 md:grid-cols-2 auto-rows-[1fr] place-content-center gap-12">
         <div
           v-for="(article) in articles"
           :key="article.path"
