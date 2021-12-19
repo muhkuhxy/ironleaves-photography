@@ -1,10 +1,13 @@
 <template>
   <li
     role="link"
-    class="text-sunset uppercase cursor-pointer"
-    :class="{ 'underline font-bold': query === tag }"
-    @click="$emit('click', tag === query ? '' : tag)">
-    {{ label }}
+    class="text-sunset uppercase cursor-pointer flex justify-between"
+    @click="$emit('click', active ? '' : tag)">
+    <span :class="{ 'underline font-bold': query === tag }">{{ label }}</span>
+    <span
+      v-if="active"
+      :class="{ 'font-bold': query === tag }"
+      class="md:hidden">x</span>
   </li>
 </template>
 
@@ -24,6 +27,11 @@ export default Vue.extend({
       type: String,
       required: true
     },
+  },
+  computed: {
+    active() {
+      return this.tag === this.query
+    }
   }
 })
 </script>

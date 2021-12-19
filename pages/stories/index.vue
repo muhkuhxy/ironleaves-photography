@@ -14,7 +14,7 @@
       </div>
       <div class="col-span-2">
         <LayoutSpacer />
-        <ul class="flex items-center justify-between">
+        <ul class="hidden md:flex items-center justify-between">
           <li>Filter nach:</li>
           <template v-for="tag in tags">
             <ButtonCategory
@@ -22,14 +22,37 @@
               :query="query"
               :tag="tag"
               :label="labels[tag]"
-              class="py-2 px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
+              class="py-2 md:px-2 lg:px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
               @click="filter($event)" />
           </template>
         </ul>
+        <div v-click-outside="() => showingFilters = false" class="md:hidden">
+          <button
+            class="w-full flex justify-between cursor-pointer"
+            @click="showingFilters = !showingFilters">
+            <span>Filter {{ showingFilters ? 'einklappen' : 'ausklappen' }}</span>
+            <span
+              class="transition-all duration-300 ease-linear"
+              :class="[showingFilters ? '-rotate-90 -translate-x-1' : 'rotate-90']">&#10095;</span>
+          </button>
+          <TransitionGrow>
+            <ul v-show="showingFilters" class="divide-y">
+              <ButtonCategory
+                v-for="tag in tags"
+                :key="`story-filter-${tag}-md`"
+                :query="query"
+                :tag="tag"
+                :label="labels[tag]"
+                class="py-2 cursor-pointer first:mt-2"
+                @click="filter($event)" />
+            </ul>
+          </TransitionGrow>
+        </div>
+
       </div>
     </SectionContent>
 
-    <div class="bg-dust">
+    <div class="bg-dust relative">
       <SectionContent>
         <div v-if="!articles.length && !loading" class="text-center transition-all">
           Sorry, dazu gibt's bislang noch keine Stories.
@@ -37,7 +60,7 @@
         <transition-group
           tag="div"
           name="fade"
-          class="relative grid grid-cols-2 auto-rows-[1fr] place-content-center gap-x-12 gap-y-12"
+          class="relative grid grid-cols-1 md:grid-cols-2 md:auto-rows-[1fr] place-content-center gap-12"
           @after-leave="loading = false">
           <div
             v-for="(article) in articles"
@@ -73,6 +96,7 @@ interface Data {
   tags: string[]
   articles: FetchReturn[],
   loading: boolean
+  showingFilters: boolean
 }
 
 export default Vue.extend({
@@ -84,7 +108,8 @@ export default Vue.extend({
     query: '',
     labels,
     tags: tagIds,
-    loading: false
+    loading: false,
+    showingFilters: false
   } as Data),
   methods: {
     async filter(tag: string): Promise<void> {
