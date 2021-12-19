@@ -238,6 +238,8 @@ export default Vue.extend({
         return;
       }
 
+      transit.error = false
+
       const interval = setInterval(() => {
           this.dots += '.'
         }, 750 )

@@ -63,7 +63,7 @@
 
     <LayoutSpacer />
 
-    <div class="bg-dust">
+    <div class="bg-dust relative">
       <SectionContent class="relative grid grid-cols-2 auto-rows-[1fr] place-content-center gap-12">
         <div
           v-for="(article) in articles"
@@ -80,8 +80,23 @@
           </NuxtLink>
         </div>
       </SectionContent>
+
+      <LayoutSpacer />
+
+      <NuxtLink to="/stories">
+        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+          Hier gibt's alle Beiträge
+        </ButtonEffect>
+      </NuxtLink>
+
+      <LayoutSpacer :ms="4" />
+
+      <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+        <IconArrow />
+      </IconBase>
     </div>
 
+    <Contact class="mt-20" />
   </SectionParent>
 </template>
 
