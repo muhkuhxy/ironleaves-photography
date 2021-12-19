@@ -22,9 +22,6 @@ export default {
     link: [
       { rel: 'icon', type: 'image/png', href: `${base}favicon.png` }
     ],
-    script: [
-      { hid: 'curator', src: 'https://cdn.curator.io/published/5142edb4-f9c1-4286-8e46-9682b7e80431.js', defer: true }
-    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

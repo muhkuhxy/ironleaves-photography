@@ -15,6 +15,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
+import { loadCurator } from '@/lib/curator'
 
 let ready: (_: null) => void
 const breakpointsReady = new Promise(resolve => {
@@ -48,6 +49,7 @@ export default Vue.extend({
     if (typeof this.$route.query.go === 'string') {
       this.scrollTo(this.$route.query.go)
     }
+    loadCurator()
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateBreakpoints)
