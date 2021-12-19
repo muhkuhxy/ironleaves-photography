@@ -18,10 +18,13 @@ export const tagIds = tags.map(_ => _.tag)
 
 export function fetchStories(
   { $content }: { $content: contentFunc },
-  { tag, limit, only }: { tag?: string, limit?: number, only?: string[] } = {}): Promise<FetchReturn[]> {
+  { tag, limit, only, where }: { tag?: string, limit?: number, only?: string[], where?: Object } = {}): Promise<FetchReturn[]> {
   let content = $content('stories').sortBy('createdAt', 'desc')
   if (tag) {
     content = content.where({tag})
+  }
+  if (where) {
+    content = content.where(where)
   }
   if (limit != null) {
     content = content.limit(limit)

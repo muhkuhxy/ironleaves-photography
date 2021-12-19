@@ -49,6 +49,39 @@
         </SectionContent>
       </template>
     </IlStory>
+
+    <IconBase class="text-sunset w-full h-16 mt-8">
+      <IconArrow />
+    </IconBase>
+
+    <LayoutSpacer />
+
+    <SectionHeader class="mx-auto text-center">
+      <template #roofline>Stories</template>
+      Neueste Beiträge
+    </SectionHeader>
+
+    <LayoutSpacer />
+
+    <div class="bg-dust">
+      <SectionContent class="relative grid grid-cols-2 auto-rows-[1fr] place-content-center gap-12">
+        <div
+          v-for="(article) in articles"
+          :key="article.path"
+          class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow">
+        <div class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</div>
+        <img
+            :src="require(`~/assets/images/${article.imgSrc}`)"
+            :alt="article.imgAlt">
+          <h2 class="font-bold">{{ article.title }}</h2>
+          <NuxtContent class="grow" :document="{ body: article.excerpt }" />
+          <NuxtLink class="text-sunset mx-auto" :to="article.path">
+            <ButtonEffect>Hier geht's zur Story</ButtonEffect>
+          </NuxtLink>
+        </div>
+      </SectionContent>
+    </div>
+
   </SectionParent>
 </template>
 
@@ -57,15 +90,16 @@ import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
 import { VueConstructor } from 'vue/types/vue'
-import { labels } from '@/lib/blog'
+import { labels, fetchStories } from '@/lib/blog'
 import { ScrollTrigger } from '@/lib/gsap'
 import { IlInjection } from '@/types/declarations'
-import { dropWhile, splitAt } from '~/lib/collections'
+import { dropWhile, splitAt } from '@/lib/collections'
 
 interface Data {
   document?: FetchReturn
   animationInitialized: boolean
   chaptersActive: boolean[]
+  articles: FetchReturn[]
 }
 
 interface Node {
@@ -79,15 +113,16 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
-  async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn}> {
+  async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[]}> {
       const slug = params.slug
       const document = await $content(`stories/${slug}`).fetch() as FetchReturn
-      return { document }
+      const articles = await fetchStories({ $content }, { limit: 2, where: { slug: { $ne: slug } } })
+      return { document, articles }
   },
   data: () => ({
     animationInitialized: false,
-    chaptersActive: []
-  } as Data),
+    chaptersActive: [],
+  } as unknown as Data),
   computed: {
     labels() {
       return labels
