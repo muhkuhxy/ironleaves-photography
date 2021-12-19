@@ -39,7 +39,7 @@
                   v-show="chaptersActive[index]"
                   :key="img"
                   :src="require(`~/assets/images/${img}`)"
-                  class="absolute left-[50%] top-[50%] translate-x-[calc(-50%+1rem)] translate-y-[-50%]"/>
+                  class="absolute w-[calc(100%-1rem)] max-h-[90%] left-[50%] top-[50%] translate-x-[calc(-50%+1.5rem)] translate-y-[-50%]"/>
               </template>
             </transition-group>
           </div>
