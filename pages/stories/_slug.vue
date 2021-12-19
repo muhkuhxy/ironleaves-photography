@@ -23,8 +23,8 @@
       </template>
 
       <template #telling>
-        <SectionContent v-if="$il.breakpoints.gtlg" class="flex flex-row gap-12">
-          <div class="h-[100vh] w-[50%] sticky top-0 flex gap-2">
+        <SectionContent class="flex flex-row gap-x-12 gap-y-32 py-32">
+          <div v-if="$il.breakpoints.gtlg" class="h-[100vh] w-[50%] sticky top-0 flex gap-2">
             <div class="self-center flex flex-col gap-1">
               <div
                 v-for="(dot,index) in document.storyTellingImgs"
@@ -43,7 +43,7 @@
               </template>
             </transition-group>
           </div>
-          <div class="w-[40%] story-telling">
+          <div class="max-w-prose lg:max-w-auto lg:w-[40%] story-telling mx-auto lg:mx-0 text-center lg:text-left">
             <NuxtContent :document="tellingDocument"></NuxtContent>
           </div>
         </SectionContent>
@@ -68,13 +68,11 @@ interface Data {
   chaptersActive: boolean[]
 }
 
-interface Child {
+interface Node {
   tag?: string
   type?: string
-}
-
-interface Body {
-  children: Child[]
+  props?: Record<string, string>
+  children: Node[]
 }
 
 export default (Vue as VueConstructor<Vue & IlInjection>).extend({
@@ -96,24 +94,48 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     },
     tellingDocument() {
       if (this.document) {
+        const chapters = dropWhile(
+          splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
+          el => el[0].tag !== 'h2')
         if (this.$il.breakpoints.gtlg) {
           // 2 columns -> wrap h2 and their paragraphs into 100vh containers
-          const [, ...children] = (this.document.body as Body).children
-          const splittedChildren = splitAt(children, el => el.tag === 'h2')
-          // console.log({splittedChildren})
-          const containerChildren = dropWhile(splittedChildren, el => el[0].tag !== 'h2')
-            .map(children => ({
-              tag: 'div',
-              type: 'element',
-              props: {
-                class: 'chapter h-[100vh] flex flex-col justify-center'
-              },
-              children
-            }))
-          // console.log({containerChildren})
-          return { body: { children: containerChildren } }
+          return {
+            body: {
+              children: chapters.map(children => ({
+                tag: 'div',
+                type: 'element',
+                props: {
+                  class: 'chapter h-[100vh] flex flex-col justify-center'
+                },
+                children
+              }))
+            }
+          }
         } else {
-          // put storyTellingImgs before/after h2s
+          // put storyTellingImgs before h2s
+          return {
+            body: {
+              children: chapters.map((children, index) => {
+                children.splice(0, 0, {
+                  tag: 'img',
+                  type: 'element',
+                  props: {
+                    src: require(`~/assets/images/${this.document?.storyTellingImgs[index]}`),
+                    class: 'max-w-[75%] max-h-[50vh]'
+                  },
+                  children: []
+                })
+                return {
+                  tag: 'div',
+                  type: 'element',
+                  props: {
+                    class: 'chapter flex flex-col items-center gap-4'
+                  },
+                  children
+                }
+              })
+            }
+          }
         }
       }
       return { body: { children: [] } }
@@ -130,9 +152,8 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   },
   methods: {
     initAnimations() {
-      // rerun this when viewport becomes bigger? or degrade gracefully
-      if (this.$el.tagName && this.$il.breakpoints.gtlg) {
-        this.$el.querySelectorAll('.story-telling .chapter').forEach((prose, index, array) => {
+      if (this.$el.tagName) {
+        this.$el.querySelectorAll('.story-telling .chapter').forEach((chapter, index, array) => {
           const activate: ScrollTrigger.Callback = self => {
             this.$set(this.chaptersActive, index, self.isActive)
           }
@@ -140,7 +161,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           const onLeaveBack = index === 0 ? undefined : activate
           ScrollTrigger.create({
             // markers: true,
-            trigger: prose,
+            trigger: chapter,
             start: index === 0 ? 'top bottom' : 'center bottom',
             end: 'center top',
             onEnter: activate,
@@ -175,8 +196,14 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   transition-timing-function: ease-in-out;
 }
 
-.story-telling .chapter h2 {
-  @apply mb-4
+.nuxt-content {
+  @apply flex flex-col gap-32
+}
+
+.story-telling .chapter {
+  h2 {
+    @apply mt-4
+  }
 }
 
 </style>
