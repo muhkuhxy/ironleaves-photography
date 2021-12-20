@@ -22,7 +22,7 @@
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
+    "@babel/eslint-parser": "^7.16.5",
     "@braid/vue-formulate": "^2.5.2",
     "@braid/vue-formulate-i18n": "^1.16.0",
     "@nuxt/types": "^2.15.7",
