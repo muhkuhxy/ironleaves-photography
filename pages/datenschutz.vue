@@ -1,7 +1,7 @@
 <template>
   <LayoutContainer class="flex flex-col items-center max-w-prose text-bluegray">
     <div class="max-w-prose">
-      <h1 class="my-12">Datenschutzerklärung</h1>
+      <h1 class="my-12">Datenschutz&shy;erklärung</h1>
       <h2>Geltungsbereich und Umgang mit personenbezogenen Daten</h2>
       <p>
         Diese Datenschutzerklärung informiert die Nutzer darüber, in welchem
@@ -22,7 +22,7 @@
       <p>
         Die gesetzlichen Regelungen zum Datenschutz gehen aus der
         <a target="_blank" class="cursor-pointer underline" href="https://www.bussgeldkatalog.org/eu-datenschutzgrundverordnung/"
-          >europäischen Datenschutzgrundverordnung</a
+          >europäischen Datenschutz&shy;grundverordnung</a
         >
         hervor. Das
         <a target="_blank" class="cursor-pointer underline" href="https://www.bussgeldkatalog.org/bdsg/"
@@ -403,8 +403,8 @@
         Anders als andere Web-Schriften erlaubt uns Google uneingeschränkten
         Zugriff auf alle Schriftarten. Wir können also unlimitiert auf ein Meer
         an Schriftarten zugreifen und so das Optimum für unsere Webseite
-        rausholen. Mehr zu Google Fonts und weiteren Fragen finden Sie auf
-        <a target="_blank" class="cursor-pointer underline" href="https://developers.google.com/fonts/faq?tid=311892194">https://developers.google.com/fonts/faq?tid=311892194</a>. Dort geht zwar
+        rausholen. Mehr zu Google Fonts und weiteren Fragen finden Sie
+        <a target="_blank" class="cursor-pointer underline" href="https://developers.google.com/fonts/faq?tid=311892194">hier</a>. Dort geht zwar
         Google auf datenschutzrelevante Angelegenheiten ein, doch wirklich
         detaillierte Informationen über Datenspeicherung sind nicht enthalten.
         Es ist relativ schwierig, von Google wirklich präzise Informationen über
@@ -412,8 +412,8 @@
       </p>
       <p>
         Welche Daten grundsätzlich von Google erfasst werden und wofür diese
-        Daten verwendet werden, können Sie auch auf
-        <a target="_blank" class="cursor-pointer underline" href="https://www.google.com/intl/de/policies/privacy/">https://www.google.com/intl/de/policies/privacy/</a> nachlesen.
+        Daten verwendet werden, können Sie auch
+        <a target="_blank" class="cursor-pointer underline" href="https://www.google.com/intl/de/policies/privacy/">hier</a> nachlesen.
       </p>
     </div>
   </LayoutContainer>
