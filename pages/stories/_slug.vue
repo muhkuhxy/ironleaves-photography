@@ -171,7 +171,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
                   type: 'element',
                   props: {
                     src: require(`~/assets/images/${this.document?.storyTellingImgs[index]}`),
-                    class: 'max-w-[75%] max-h-[50vh]'
+                    class: 'max-w-[100%] max-h-[50vh]'
                   },
                   children: []
                 })
