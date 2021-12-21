@@ -24,7 +24,7 @@
 
       <template #telling>
         <SectionContent class="flex flex-row gap-x-12 gap-y-32 py-32">
-          <div v-if="$il.breakpoints.gtlg" class="h-[100vh] w-[50%] sticky top-0 flex gap-2">
+          <div class="hidden lg:flex h-[100vh] w-[50%] sticky top-0 gap-2">
             <div class="self-center flex flex-col gap-1">
               <div
                 v-for="(dot,index) in document.storyTellingImgs"
@@ -34,13 +34,12 @@
                 @click="scrollToChapter(index)"></div>
             </div>
             <transition-group name="fade">
-              <template v-for="(img, index) in document.storyTellingImgs">
-                <img
-                  v-show="chaptersActive[index]"
-                  :key="img"
-                  :src="require(`~/assets/images/${img}`)"
-                  class="absolute w-[calc(100%-1rem)] max-h-[90%] left-[50%] top-[50%] translate-x-[calc(-50%+1.5rem)] translate-y-[-50%]"/>
-              </template>
+              <img
+                v-for="(img, index) in document.storyTellingImgs"
+                v-show="chaptersActive[index]"
+                :key="img"
+                :src="require(`~/assets/images/${img}`)"
+                class="absolute w-[calc(100%-1rem)] max-h-[75%] object-contain left-[50%] top-[50%] translate-x-[calc(-50%+1.5rem)] translate-y-[-50%]"/>
             </transition-group>
           </div>
           <div class="max-w-prose lg:max-w-auto lg:w-[40%] story-telling mx-auto lg:mx-0 text-center lg:text-left">
@@ -136,59 +135,44 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   },
   data: () => ({
     animationInitialized: false,
-    chaptersActive: [],
+    chaptersActive: [true],
   } as unknown as Data),
   computed: {
     labels() {
       return labels
     },
-    tellingDocument() {
-      if (this.document) {
-        const chapters = dropWhile(
-          splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
-          el => el[0].tag !== 'h2')
-        if (this.$il.breakpoints.gtlg) {
-          // 2 columns -> wrap h2 and their paragraphs into 100vh containers
-          return {
-            body: {
-              children: chapters.map(children => ({
-                tag: 'div',
-                type: 'element',
-                props: {
-                  class: 'chapter h-[100vh] flex flex-col justify-center'
-                },
-                children
-              }))
-            }
-          }
-        } else {
-          // put storyTellingImgs before h2s
-          return {
-            body: {
-              children: chapters.map((children, index) => {
-                children.splice(0, 0, {
-                  tag: 'img',
-                  type: 'element',
-                  props: {
-                    src: require(`~/assets/images/${this.document?.storyTellingImgs[index]}`),
-                    class: 'max-w-[100%] max-h-[50vh]'
-                  },
-                  children: []
-                })
-                return {
-                  tag: 'div',
-                  type: 'element',
-                  props: {
-                    class: 'chapter flex flex-col items-center gap-4'
-                  },
-                  children
-                }
-              })
-            }
-          }
-        }
+    chapters(): Node[][] {
+      if (!this.document) {
+        return []
       }
-      return { body: { children: [] } }
+      return dropWhile(
+        splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
+          el => el[0].tag !== 'h2')
+    },
+    tellingDocument() {
+      let children: Node[] = []
+      if (this.document) {
+        children = this.chapters.map((chapter, index) => {
+          chapter.splice(0, 0, {
+            tag: 'img',
+            type: 'element',
+            props: {
+              src: require(`~/assets/images/${this.document?.storyTellingImgs[index]}`),
+              class: 'lg:hidden max-w-[100%] max-h-[50vh] object-contain'
+            },
+            children: []
+          })
+          return {
+            tag: 'div',
+            type: 'element',
+            props: {
+              class: 'chapter lg:h-[100vh] flex flex-col justify-center items-center gap-4'
+            },
+            children: chapter
+          }
+        })
+      }
+      return { body: { children } }
     },
   },
   async mounted() {
@@ -247,13 +231,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 }
 
 .nuxt-content {
-  @apply flex flex-col gap-32
-}
-
-.story-telling .chapter {
-  h2 {
-    @apply mt-4
-  }
+  @apply flex flex-col gap-32 lg:gap-0
 }
 
 </style>

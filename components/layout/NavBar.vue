@@ -6,7 +6,9 @@
       '-translate-y-full delay-150' :
       'shadow-lg']">
     <nav class="bg-white -mt-px">
-      <LayoutContainer v-if="ltMd" class="relative z-20 bg-white flex justify-between py-4">
+      <LayoutContainer
+        class="flex relative z-20 bg-white justify-between py-4"
+        :class="{ hidden: gtMd }">
         <button type="button" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
           Menü
@@ -21,7 +23,7 @@
         <LayoutContainer
           v-show="menuShown || gtMd"
           :retractable="true"
-          class="bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3 lg:gap-8 xl:gap-12">
+          class="hidden bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3 lg:gap-8 xl:gap-12">
           <hr class="mb-4 col-span-full md:hidden">
           <ul
             class="md:col-span-1 md:col-start-2 grid grid-cols-2 md:grid-cols-[repeat(8,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12">
