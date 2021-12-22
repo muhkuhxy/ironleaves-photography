@@ -44,6 +44,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { gsap } from '@/lib/gsap'
+import { retry } from '~/lib/functions'
 
 export default Vue.extend({
   data: () => ({
@@ -62,17 +63,23 @@ export default Vue.extend({
       if (!this.$el.tagName) {
         return
       }
-      const img = this.$el.querySelector('.parallax-pic') as HTMLElement
-      gsap.to(img, {
-        ease: "none",
-        scrollTrigger: {
-          trigger: img,
-          scrub: true,
-          // markers: true,
-          start: () =>
-            `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
-        },
-        yPercent: 20
+      retry('passion: parallax', 3, 250, () => {
+        const img = this.$el.querySelector('.parallax-pic') as HTMLElement
+        if (!img) {
+          return false
+        }
+        gsap.to(img, {
+          ease: "none",
+          scrollTrigger: {
+            trigger: img,
+            scrub: true,
+            // markers: true,
+            start: () =>
+              `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
+          },
+          yPercent: 20
+        })
+        return true
       })
       // parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true

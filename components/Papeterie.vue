@@ -108,7 +108,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           this.scrollTrigger = null
         }
       })
-      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      parallax('papeterie', this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     },
   }

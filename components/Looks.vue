@@ -73,7 +73,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           }
         )
       }
-      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      parallax('looks', this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     }
   }

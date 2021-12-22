@@ -15,7 +15,7 @@
 import Vue from 'vue'
 import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
 import { loadCurator } from '@/lib/curator'
-import { ScrollTrigger } from '@/lib/gsap'
+import { retry } from '~/lib/functions'
 
 let ready: (_: null) => void
 const breakpointsReady = new Promise(resolve => {
@@ -65,18 +65,18 @@ export default Vue.extend({
         }, this.breakpoints)
       ready(null)
     },
-    initialScroll(offset: number | null = null) {
-      const target = document.querySelector(this.$route.hash)
-      const newOffset = target?.getBoundingClientRect()?.y
-      if (target && offset === newOffset) {
-        // done
-        target.scrollIntoView()
-        // console.log('done after ', retries)
-        retries = 0
-      } else if (retries < 10) {
-        window.setTimeout(() => this.initialScroll(newOffset), 250)
-        retries++
-      }
+    initialScroll() {
+      let offset: number | undefined
+      retry('landing: initial scroll', 10, 250, () => {
+        const target = document.querySelector(this.$route.hash)
+        const newOffset = target?.getBoundingClientRect()?.y
+        if (target && offset === newOffset) {
+          target.scrollIntoView()
+          return true
+        }
+        offset = newOffset
+        return false
+      })
     }
   }
 })

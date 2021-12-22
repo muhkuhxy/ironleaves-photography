@@ -33,17 +33,21 @@ export function slideUp(options: { delay?: string, y?: string, killDelay?: numbe
   })
 }
 
-export function parallax(img: HTMLElement) {
-  gsap.to(img, {
-    ease: "none",
-    scrollTrigger: {
-      trigger: img,
-      scrub: true,
-      // markers: true,
-      start: () => img.dataset.start || 'top bottom'
-    },
-    yPercent: 20
-  })
+export function parallax(caller: string, img?: HTMLElement) {
+  if (img) {
+    gsap.to(img, {
+      ease: "none",
+      scrollTrigger: {
+        trigger: img,
+        scrub: true,
+        // markers: true,
+        start: () => img.dataset.start || 'top bottom'
+      },
+      yPercent: 20
+    })
+  } else {
+    console.warn(`no img ref for ${caller}`)
+  }
 }
 
 export { gsap, ScrollTrigger }
