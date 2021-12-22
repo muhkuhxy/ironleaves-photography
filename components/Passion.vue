@@ -1,8 +1,7 @@
 <template>
   <SectionParent
     id="passion"
-    class="scroll-target bg-emerald text-white relative"
-    data-section="passion">
+    class="scroll-target bg-emerald text-white relative">
     <IlFigure class="shadow-lg">
       <picture>
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg">
