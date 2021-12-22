@@ -63,7 +63,7 @@
               Die Auftraggeber erhalten ausschließlich digitales Bildmaterial im Format JPG. Ironleaves Photography optimiert/entwickelt die Fotografien zur allgemeinen Verbesserung der Bildqualität im üblichen Ausmaß, wenn die digitalen Rohdaten in das JPG-Format konvertiert werden („Bearbeitung“). Unbearbeitete digitalen Rohdaten (RAW) oder Rohdatenvideoclips werden nicht herausgegeben. Soweit eine bestimmte Anzahl von Fotografien nicht vereinbart ist, liefert Ironleaves Photography eine dem Vertragszweck angemessene Anzahl von Fotografien.
             </li>
             <li>
-              Ironleaves Photography räumt dem Auftraggeber an den Fotografien Nutzungsrechte im Umfang der Ziffer 4.1 ein.
+              Ironleaves Photography räumt dem Auftraggeber an den Fotografien Nutzungsrechte im Umfang der Ziffer 9 ein.
             </li>
             <li>
               Die Aufbewahrung der digitalen Bilddaten/Videomaterial ist nicht Teil des Auftrages.
@@ -462,7 +462,7 @@ Ironleaves Photography geregelt, die auf der Website abgerufen werden kann.
           <h2>Schlussbestimmungen</h2>
           <ol>
             <li>
-              Erfüllungsort ist der Sitz der Fotografin. Bei Versand geht die Gefahr auf den Kunden über, sobald die Fotografin die Ware mit dem von ihr gewählten Beförderungsunternehmen übergeben hat.
+              Erfüllungsort ist der Sitz der Fotografin.
             </li>
             <li>
               Als Gerichtsstand für alle sich zwischen der Fotografin und dem Kunden ergebenden Rechtsstreitigkeiten im Zusammenhang mit diesem Vertragsverhältnis wird das für den Sitz der Fotografin sachlich zuständige Gericht vereinbart. Ungeachtet dessen ist die Fotografin berechtigt, den Kunden an seinem allgemeinen Gerichtsstand zu klagen.
