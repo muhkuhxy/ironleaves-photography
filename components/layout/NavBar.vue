@@ -33,8 +33,9 @@
               class="cursor-pointer nav-link relative after:h-0 md:after:h-px after:bg-bluegray"
               :class="{
                 'font-bold underline': target === maxSection
-              }">
-              <NuxtLink :to="`/#${target}`" @click="menuShown && (menuShown = false)">{{ title }}</NuxtLink>
+              }"
+              @click="menuShown && (menuShown = false)">
+              <NuxtLink :to="`/#${target}`">{{ title }}</NuxtLink>
             </li>
           </ul>
           <ul class="col-start-3 justify-self-end">
