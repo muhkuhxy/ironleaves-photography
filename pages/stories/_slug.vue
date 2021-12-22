@@ -23,27 +23,44 @@
       </template>
 
       <template #telling>
-        <SectionContent class="flex flex-row gap-x-12 gap-y-32 py-32">
-          <div class="hidden lg:flex h-[100vh] w-[50%] sticky top-0 gap-2">
-            <div class="self-center flex flex-col gap-1">
-              <div
-                v-for="(dot,index) in document.storyTellingImgs"
-                :key="`${dot}-dot`"
-                class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer"
-                :class="{ 'scale-[0.65]': !chaptersActive[index]}"
-                @click="scrollToChapter(index)"></div>
-            </div>
-            <transition-group name="fade">
-              <img
-                v-for="(img, index) in document.storyTellingImgs"
-                v-show="chaptersActive[index]"
-                :key="img"
-                :src="require(`~/assets/images/${img}`)"
-                class="absolute w-[calc(100%-1rem)] max-h-[75%] object-contain left-[50%] top-[50%] translate-x-[calc(-50%+1.5rem)] translate-y-[-50%]"/>
-            </transition-group>
+        <SectionContent class="flex gap-x-8 relative py-32 story-telling">
+          <div
+            v-show="$il.breakpoints.gtlg"
+            class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center">
+            <div
+              v-for="(dot,index) in chapters"
+              :key="`dot-${index}`"
+              class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
+              :class="chaptersActive[index] ? 'scale-[1.2] my-1' : 'scale-[0.65]'"
+              @click="scrollToChapter(index)"></div>
           </div>
-          <div class="max-w-prose lg:max-w-auto lg:w-[40%] story-telling mx-auto lg:mx-0 text-center lg:text-left">
-            <NuxtContent :document="tellingDocument"></NuxtContent>
+          <transition-group
+            v-show="$il.breakpoints.gtlg"
+            name="fade"
+            class="sticky w-[60%] mr-8 h-[100vh] top-0"
+            tag="div">
+            <img
+              v-for="(chapter,index) in chapters"
+              v-show="chaptersActive[index]"
+              :key="`sticky-chapter-img-${index}`"
+              :src="require(`~/assets/images/${chapter.img}`)"
+              class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+          </transition-group>
+          <div class="grow flex flex-col gap-y-32 lg:gap-y-0">
+            <div
+              v-for="(chapter, chapterIndex) in chapters"
+              :key="`chapter-${chapterIndex}`"
+              class="chapter flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]">
+              <div
+                v-show="!$il.breakpoints.gtlg"
+                class="lg:w-[60%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center">
+                <img
+                  :src="require(`~/assets/images/${chapter.img}`)"
+                  class="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain">
+              </div>
+              <NuxtContent
+                :document="{ body: chapter }"></NuxtContent>
+            </div>
           </div>
         </SectionContent>
       </template>
@@ -62,38 +79,23 @@
 
     <LayoutSpacer />
 
-    <div class="bg-dust relative">
-      <SectionContent class="relative grid grid-cols-1 md:grid-cols-2 auto-rows-[1fr] place-content-center gap-12">
-        <div
-          v-for="(article) in articles"
-          :key="article.path"
-          class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow">
-        <div class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</div>
-        <img
-            :src="require(`~/assets/images/${article.imgSrc}`)"
-            :alt="article.imgAlt">
-          <h2 class="font-bold">{{ article.title }}</h2>
-          <NuxtContent class="grow" :document="{ body: article.excerpt }" />
-          <NuxtLink class="text-sunset mx-auto" :to="article.path">
-            <ButtonEffect>Hier geht's zur Story</ButtonEffect>
-          </NuxtLink>
-        </div>
-      </SectionContent>
+    <BlogStories :articles="articles">
+      <template #tail>
+        <LayoutSpacer />
 
-      <LayoutSpacer />
+        <NuxtLink to="/stories">
+          <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+            Hier gibt's alle Beiträge
+          </ButtonEffect>
+        </NuxtLink>
 
-      <NuxtLink to="/stories">
-        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
-          Hier gibt's alle Beiträge
-        </ButtonEffect>
-      </NuxtLink>
+        <LayoutSpacer :ms="4" />
 
-      <LayoutSpacer :ms="4" />
-
-      <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
-        <IconArrow />
-      </IconBase>
-    </div>
+        <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+          <IconArrow />
+        </IconBase>
+      </template>
+    </BlogStories>
 
     <Contact class="mt-20" />
   </SectionParent>
@@ -127,6 +129,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   inject: {
     $il: '$il'
   } as Record<keyof IlInjection, string>,
+  scrollToTop: true,
   async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[]}> {
       const slug = params.slug
       const document = await $content(`stories/${slug}`).fetch() as FetchReturn
@@ -141,38 +144,16 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     labels() {
       return labels
     },
-    chapters(): Node[][] {
+    chapters(): { children: Node[], img: string }[] {
       if (!this.document) {
         return []
       }
       return dropWhile(
         splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
-          el => el[0].tag !== 'h2')
-    },
-    tellingDocument() {
-      let children: Node[] = []
-      if (this.document) {
-        children = this.chapters.map((chapter, index) => {
-          chapter.splice(0, 0, {
-            tag: 'img',
-            type: 'element',
-            props: {
-              src: require(`~/assets/images/${this.document?.storyTellingImgs[index]}`),
-              class: 'lg:hidden max-w-[100%] max-h-[50vh] object-contain'
-            },
-            children: []
-          })
-          return {
-            tag: 'div',
-            type: 'element',
-            props: {
-              class: 'chapter lg:min-h-[100vh] flex flex-col justify-center items-center lg:items-stretch gap-4 lg:pb-4'
-            },
-            children: chapter
-          }
-        })
-      }
-      return { body: { children } }
+          el => el[0].tag !== 'h2').map((children, index) => ({
+            children,
+            img: this.document?.storyTellingImgs[index]
+          }))
     },
   },
   async mounted() {
@@ -231,10 +212,14 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 }
 
 .nuxt-content {
-  @apply flex flex-col gap-32 lg:gap-0;
+  @apply flex flex-col gap-4 items-center lg:items-start text-center lg:text-left;
+
+  & > * {
+    @apply max-w-prose;
+  }
 
   h2 {
-    @apply leading-none mt-4
+    @apply leading-none mt-4;
   }
 }
 
