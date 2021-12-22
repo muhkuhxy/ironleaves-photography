@@ -82,7 +82,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
             slideUp({ delay, y }, el as HTMLElement)
           })
       }
-      parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      parallax('candor', this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     }
   }

@@ -109,12 +109,14 @@ import { labels, fetchStories } from '@/lib/blog'
 import { ScrollTrigger } from '@/lib/gsap'
 import { IlInjection } from '@/types/declarations'
 import { dropWhile, splitAt } from '@/lib/collections'
+import { retry } from '~/lib/functions'
 
 interface Data {
   document?: FetchReturn
   animationInitialized: boolean
   chaptersActive: boolean[]
   articles: FetchReturn[]
+  slug?: string
 }
 
 interface Node {
@@ -129,11 +131,11 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     $il: '$il'
   } as Record<keyof IlInjection, string>,
   scrollToTop: true,
-  async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[]}> {
+  async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[], slug: string }> {
       const slug = params.slug
       const document = await $content(`stories/${slug}`).fetch() as FetchReturn
       const articles = await fetchStories({ $content }, { limit: 2, where: { slug: { $ne: slug } } })
-      return { document, articles }
+      return { document, articles, slug }
   },
   data: () => ({
     animationInitialized: false,
@@ -167,22 +169,29 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   methods: {
     initAnimations() {
       if (this.$el.tagName) {
-        this.$el.querySelectorAll('.story-telling .chapter').forEach((chapter, index, array) => {
-          const activate: ScrollTrigger.Callback = self => {
-            this.$set(this.chaptersActive, index, self.isActive)
+        retry(`${this.slug} chapter scrolltrigger`, 10, 500, () => {
+          const chapters = this.$el.querySelectorAll('.story-telling .chapter')
+          if (!chapters.length) {
+            return false
           }
-          const onLeave = index === array.length - 1 ? undefined : activate
-          const onLeaveBack = index === 0 ? undefined : activate
-          ScrollTrigger.create({
-            // markers: true,
-            trigger: chapter,
-            start: index === 0 ? 'top bottom' : 'center bottom',
-            end: 'center top',
-            onEnter: activate,
-            onLeave,
-            onEnterBack: activate,
-            onLeaveBack,
+          chapters.forEach((chapter, index, array) => {
+            const activate: ScrollTrigger.Callback = self => {
+              this.$set(this.chaptersActive, index, self.isActive)
+            }
+            const onLeave = index === array.length - 1 ? undefined : activate
+            const onLeaveBack = index === 0 ? undefined : activate
+            ScrollTrigger.create({
+              // markers: true,
+              trigger: chapter,
+              start: index === 0 ? 'top bottom' : 'center bottom',
+              end: 'center top',
+              onEnter: activate,
+              onLeave,
+              onEnterBack: activate,
+              onLeaveBack,
+            })
           })
+          return true
         })
         this.animationInitialized = true
       }
