@@ -52,7 +52,7 @@ Hochzeitsshooting sollten nicht auf die leichte Schulter genommen werden. Wenn V
 
 Dass die beiden total naturverbunden sind, fiel schon bei der Einladung aus Kraftpapier, dem Brautstrauß aus Wildblumen und der Fotolocation im Wald auf. Klar, dass das auch auf den Bildern sichtbar sein sollte. Also wurden kurzerhand die Wanderschuhe angezogen und unkonventionelle Hochzeitsfotos geschossen.
 
-##Rustikale Scheunen-Hochzeit im Wald- und Wiesenstil
+## Rustikale Scheunen-Hochzeit im Wald- und Wiesenstil
 
 Die Feierlichkeiten fanden in der modifizierten Scheune des dortigen Gutshauses statt. Der rustikale Stil, zusammen mit der nachhaltigen Deko im Natur-Thema ergaben ein schönes Geamtbild und eine natürliche Atmosphäre. Die Wildblumen aus dem Brautstrauß waren überall zu finden.
 
