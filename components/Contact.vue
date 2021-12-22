@@ -61,7 +61,7 @@
           <div class="max-w-prose sm:col-span-2">
             <p v-if="transit.error">
               Leider gab es ein technisches Problem, bitte versuch es später nochmal,
-              oder schreib mir eine <IlLink @click="composeMail">E-Mail</IlLink>.
+              oder schreib mir eine <span class="underline cursor-pointer" @click="composeMail">E-Mail</span>.
             </p>
             <p v-if="transit.success">
               Ich melde mich so bald wie möglich.

@@ -36,7 +36,7 @@
             </p>
           </IlTextExpander>
           <LayoutSpacer />
-          <ButtonEffect class="text-sunset mx-auto lg:mx-0" @click="scrollTo('contact')">
+          <ButtonEffect class="text-sunset mx-auto lg:mx-0" to="/#contact">
             Schreibt mich gerne an!
           </ButtonEffect>
         </div>
@@ -82,9 +82,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         this.animationInitialized = true
       }
     },
-    scrollTo(target: string) {
-      this.$nuxt.$emit('scrollTo', target)
-    }
   }
 })
 </script>

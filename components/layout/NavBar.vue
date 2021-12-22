@@ -33,9 +33,8 @@
               class="cursor-pointer nav-link relative after:h-0 md:after:h-px after:bg-bluegray"
               :class="{
                 'font-bold underline': target === maxSection
-              }"
-              @click="scrollTo(target)">
-              {{ title }}
+              }">
+              <NuxtLink :to="`/#${target}`" @click="menuShown && (menuShown = false)">{{ title }}</NuxtLink>
             </li>
           </ul>
           <ul class="col-start-3 justify-self-end">
@@ -124,7 +123,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     if (this.highlightCurrentSection) {
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          const section = (entry.target as HTMLElement).dataset.section
+          const section = (entry.target as HTMLElement).id
           this.sectionRatios[section!!] = entry.intersectionRatio
         })
       }, {
@@ -132,7 +131,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       })
 
       const observeSections = () => {
-        const sections = document.querySelectorAll('.scroll-target[data-section]')
+        const sections = document.querySelectorAll('.scroll-target[id]')
         if (sections.length) {
           sections.forEach(section => this.observer?.observe(section))
         } else {
@@ -150,12 +149,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     this.observer?.disconnect()
   },
   methods: {
-    scrollTo(clazz: string) {
-      if (this.menuShown) {
-        this.menuShown = false
-      }
-      this.$emit('scrollTo', clazz)
-    },
     onScroll() {
       this.scrolledDown = window.scrollY > 600 && window.scrollY > lastScrollY
       lastScrollY = window.scrollY

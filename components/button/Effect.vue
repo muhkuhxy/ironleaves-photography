@@ -1,13 +1,14 @@
 <template>
-  <div class="btn-effect__parent">
-    <button
+  <div class="btn-effect__parent w-fit">
+    <component
+      :is="element"
       class="btn-effect block relative py-3 px-8 min-w-1/2 md:min-w-0 appearance-none font-playfair tracking-wide"
-      :type="type"
+      v-bind="bindings"
       @click="$emit('click', $event)">
       <slot/>
       <div class="btn-effect__horizontal"></div>
       <div class="btn-effect__vertical"></div>
-    </button>
+    </component>
   </div>
 </template>
 
@@ -18,6 +19,25 @@ export default Vue.extend({
     type: {
       type: String,
       default: 'button'
+    },
+    to: {
+      type: [Object, String],
+      default: null
+    }
+  },
+  computed: {
+    isLink(): boolean {
+      return this.to != null
+    },
+    element(): string {
+      return this.isLink ? 'NuxtLink' : 'button'
+    },
+    bindings(): { to: any } | { type: string } {
+      return this.isLink ? {
+        to: this.to
+      } : {
+        type: this.type
+      }
     }
   }
 })
