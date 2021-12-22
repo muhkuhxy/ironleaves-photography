@@ -3,8 +3,7 @@
     <LayoutLogo />
     <LayoutNavBar
       :retractable="false"
-      :highlight-current-section="false"
-      @scrollTo="scrollTo" />
+      :highlight-current-section="false" />
     <main class="flex-1">
       <Nuxt />
     </main>
@@ -42,7 +41,6 @@ export default Vue.extend({
   }),
   mounted() {
     this.$nextTick(() => this.updateBreakpoints())
-    this.$nuxt.$on('scrollTo', this.scrollTo)
     window.addEventListener('resize', this.updateBreakpoints)
     loadCurator()
   },
@@ -58,9 +56,6 @@ export default Vue.extend({
       }, this.breakpoints)
       ready(null)
     },
-    scrollTo(clazz: string) {
-      this.$router.push({ path: '/', query: { go: clazz } })
-    }
   }
 })
 </script>

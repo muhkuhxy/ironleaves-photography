@@ -27,6 +27,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* stylelint-disable-next-line no-invalid-position-at-import-rule */
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
 

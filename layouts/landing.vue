@@ -3,10 +3,9 @@
     <LayoutLogo />
     <LayoutNavBar
       :retractable="true"
-      :highlight-current-section="true"
-      @scrollTo="scrollTo" />
+      :highlight-current-section="true" />
     <main class="flex-1">
-      <Nuxt @scrollTo="scrollTo" />
+      <Nuxt />
     </main>
     <LayoutFooter />
   </div>
@@ -16,6 +15,7 @@
 import Vue from 'vue'
 import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
 import { loadCurator } from '@/lib/curator'
+import { ScrollTrigger } from '@/lib/gsap'
 
 let ready: (_: null) => void
 const breakpointsReady = new Promise(resolve => {
@@ -33,6 +33,7 @@ export default Vue.extend({
       }
     }
   },
+  scrollToTop: false,
   data: (): { breakpoints: Breakpoints } => ({
     breakpoints: {
       gtsm: false,
@@ -44,12 +45,13 @@ export default Vue.extend({
   }),
   mounted() {
     this.$nextTick(() => this.updateBreakpoints())
-    this.$nuxt.$on('scrollTo', this.scrollTo)
     window.addEventListener('resize', this.updateBreakpoints)
-    if (typeof this.$route.query.go === 'string') {
-      this.scrollTo(this.$route.query.go)
-    }
     loadCurator()
+    if (this.$route.hash) {
+      this.initialScroll()
+    } else {
+      window.scrollTo(0, 0)
+    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateBreakpoints)
@@ -63,21 +65,17 @@ export default Vue.extend({
         }, this.breakpoints)
       ready(null)
     },
-    scrollTo(clazz: string, offset: number | null = null) {
-      const target = document.querySelector(`.scroll-target[data-section=${clazz}]`)
+    initialScroll(offset: number | null = null) {
+      const target = document.querySelector(this.$route.hash)
       const newOffset = target?.getBoundingClientRect()?.y
-      if (this.$route.query.go) {
-        if (target && offset === newOffset) {
-          // done
-          target.scrollIntoView({ behavior: 'smooth' })
-          this.$router.push({ path: '/' })
-          retries = 0
-        } else if (retries < 10) {
-          window.setTimeout(() => this.scrollTo(clazz, newOffset), 300)
-          retries++
-        }
-      } else {
-        target?.scrollIntoView({ behavior: 'smooth' })
+      if (target && offset === newOffset) {
+        // done
+        target.scrollIntoView()
+        // console.log('done after ', retries)
+        retries = 0
+      } else if (retries < 10) {
+        window.setTimeout(() => this.initialScroll(newOffset), 250)
+        retries++
       }
     }
   }

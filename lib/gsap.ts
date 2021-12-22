@@ -16,7 +16,7 @@ export function slideUp(options: { delay?: string, y?: string, killDelay?: numbe
       if (self.isActive) {
         entered = Date.now()
       } else if ((Date.now() - entered) > options.killDelay!) {
-        self.kill()
+        self.kill(true, true)
       }
     }
   } else {

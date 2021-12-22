@@ -31,8 +31,7 @@
               v-for="(dot,index) in chapters"
               :key="`dot-${index}`"
               class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
-              :class="chaptersActive[index] ? 'scale-[1.2] my-1' : 'scale-[0.65]'"
-              @click="scrollToChapter(index)"></div>
+              :class="chaptersActive[index] ? 'scale-[1.2] my-1' : 'scale-[0.65]'"/>
           </div>
           <transition-group
             v-show="$il.breakpoints.gtlg"
@@ -187,15 +186,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         })
         this.animationInitialized = true
       }
-    },
-    scrollToChapter(index: number) {
-      const chapter = this.$el.querySelector(`.story-telling .chapter:nth-child(${index+1})`)
-      const coords = chapter?.getBoundingClientRect()
-      coords && window.scrollTo({
-        top: coords.top + window.scrollY,
-        left: coords.left,
-        behavior: 'smooth'
-      })
     },
   },
 })

@@ -1,5 +1,6 @@
 <template>
   <SectionParent
+    id="passion"
     class="scroll-target bg-emerald text-white relative"
     data-section="passion">
     <IlFigure class="shadow-lg">
@@ -34,7 +35,7 @@
           Seid ihr schon gespannt auf Eure Hochzeit? Die schönen, unvergesslichen Momente, die zahlreichen Emotionen und eure ganz besondere intime Bindung zueinander? Als Fotografin verewige ich euren wichtigen Tag in zeitlosen Bildern und zaubere mit ganz viel Leidenschaft Erinnerungen für die Ewigkeit.
         </p>
         <LayoutSpacer />
-        <ButtonEffect class="" @click="scrollTo('stories')">Zu den Bilderstories</ButtonEffect>
+        <ButtonEffect to="/#stories">Zu den Bilderstories</ButtonEffect>
       </SectionContent>
     </div>
   </SectionParent>
@@ -57,9 +58,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    scrollTo(target: string) {
-      this.$nuxt.$emit('scrollTo', target)
-    },
     initAnimations() {
       if (!this.$el.tagName) {
         return
@@ -71,7 +69,7 @@ export default Vue.extend({
           trigger: img,
           scrub: true,
           // markers: true,
-          start: () => 
+          start: () =>
             `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
         },
         yPercent: 20

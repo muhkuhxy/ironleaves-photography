@@ -3,14 +3,14 @@
     <!-- scroll-target + data-section have to be inside the component,
     nuxt strips them for some reason -->
     <Passion />
-    <AboutMe class="scroll-target" data-section="about-me" />
-    <Candor class="scroll-target" data-section="candor" />
+    <AboutMe id="about-me" class="scroll-target" />
+    <Candor id="candor" class="scroll-target" />
     <LayoutSpacer :responsive="false" :ms="4" />
-    <Looks class="scroll-target" data-section="looks" />
-    <Stories class="scroll-target" data-section="stories" :stories="stories" />
-    <Papeterie class="scroll-target" data-section="papeterie" />
-    <Packages class="scroll-target" data-section="packages" />
-    <Contact class="scroll-target" data-section="contact" />
+    <Looks id="looks" class="scroll-target" />
+    <Stories id="stories" class="scroll-target" :stories="stories" />
+    <Papeterie id="papeterie" class="scroll-target" />
+    <Packages id="packages" class="scroll-target" />
+    <Contact id="contact" class="scroll-target" />
   </div>
 </template>
 
