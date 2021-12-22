@@ -166,7 +166,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
             tag: 'div',
             type: 'element',
             props: {
-              class: 'chapter lg:h-[100vh] flex flex-col justify-center items-center gap-4'
+              class: 'chapter lg:min-h-[100vh] flex flex-col justify-center items-center lg:items-stretch gap-4 lg:pb-4'
             },
             children: chapter
           }
@@ -231,7 +231,11 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 }
 
 .nuxt-content {
-  @apply flex flex-col gap-32 lg:gap-0
+  @apply flex flex-col gap-32 lg:gap-0;
+
+  h2 {
+    @apply leading-none mt-4
+  }
 }
 
 </style>
