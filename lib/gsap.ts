@@ -3,34 +3,25 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export function slideUp(options: { delay?: string, y?: string, killDelay?: number }, el: HTMLElement) {
-  const scrollTrigger: ScrollTrigger.Vars = {
-    start: () => 'top+=200px bottom',
-    // markers: true,
-    trigger: el,
-  }
+export function slideUp(options: { delay?: string, y?: string }, el: HTMLElement) {
+  el.style.opacity = '0'
+  el.style.transform = `translateY(${options.y ?? 60}px)`
 
-  if (options.killDelay) {
-    let entered = 0
-    scrollTrigger.onToggle = self => {
-      if (self.isActive) {
-        entered = Date.now()
-      } else if ((Date.now() - entered) > options.killDelay!) {
-        self.kill(true, true)
-      }
-    }
-  } else {
-    scrollTrigger.once = true
-  }
-
-  gsap.from(el, {
-    duration: 1.5,
-    opacity: 0,
-    y: options.y ?? 60,
-    delay: options.delay,
-    ease: 'expo',
-    scrollTrigger
-  })
+  ScrollTrigger.create({
+      // markers: true,
+      trigger: el,
+      start: () => 'top+=200px bottom',
+      onToggle: self => {
+        // console.log('toggle, active: ', self.isActive, el)
+        if (!self.isActive) {
+          self.kill(false, true)
+          // console.log('killed')
+        } else {
+          // console.log('playing')
+          gsap.to(el, { opacity: 1, y: 0, ease: 'expo', duration: 1.5 })
+        }
+      },
+    })
 }
 
 export function parallax(caller: string, img?: HTMLElement) {

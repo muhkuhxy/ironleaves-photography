@@ -8,6 +8,8 @@
         <a href="https://curator.io" target="_blank" class="text-bluegray text-sm crt-logo crt-tag">Powered by Curator.io</a>
       </div>
       <LayoutSpacer />
+      <hr class="md:hidden mb-8" />
+      <!-- <LayoutSpacer class="md:hidden" /> -->
       <div class="grid grid-cols-2 md:grid-cols-3 items-end gap-x-6">
         <div class="mt-4 md:mt-0 text-center md:text-left row-start-2 row-end-2 md:row-start-1 md:row-end-1 col-span-2 md:col-span-1">
           &copy; Tamara Loeffen &ndash; Ironleaves Photography {{ year }}
