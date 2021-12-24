@@ -22,8 +22,6 @@ const breakpointsReady = new Promise(resolve => {
   ready = resolve
 })
 
-let retries = 0
-
 export default Vue.extend({
   provide(): IlInjection {
     return {

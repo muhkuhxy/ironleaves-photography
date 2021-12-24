@@ -77,7 +77,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp({ delay, y, killDelay: 250 }, el as HTMLElement)
+            slideUp({ delay, y }, el as HTMLElement)
           })
         this.animationInitialized = true
       }
