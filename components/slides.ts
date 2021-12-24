@@ -1,6 +1,7 @@
 export const papeterie = [
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-goldveredelung-samira-kerem.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-dankeskarte-timon-tamara.jpg",
+  "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-modern-frisch-individuell-tamara-timon.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-sitzplan-leiter-scheune-wildblumen.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-dankeskarte-tamara-timon.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-fotobox.jpg",
@@ -9,6 +10,7 @@ export const papeterie = [
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-dankesgeschenk-label-kerze.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-dankeskarte-samira-kerem.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-sitzplan-leiter-waescheklammer.jpg",
+  "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-blau-quadratisch-blumen-tamara-timon.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-jessi-michael.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-sara-patrick-typographie.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-umschlag.jpg",
@@ -20,6 +22,8 @@ export const papeterie = [
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-sitzplan-rahmen.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-sitzplan-tischaufteilung.jpg",
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-sara-patrick-faecher.jpg",
+  "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-save-the-date-elegant-minimalistisch-tamara-timon.jpg",
+  "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-gold-natur-blaetter-tamara-timon.jpg",
 ]
 
 export default {}
