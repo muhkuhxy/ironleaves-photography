@@ -5,8 +5,6 @@ export const tags = [
   { label: 'Stories', tag: 'stories', },
   { label: 'Informationen', tag: 'infos', },
   { label: 'Tipps & Tricks', tag: 'tipps', },
-  { label: 'Lorem', tag: 'lorem', },
-  { label: 'Ipsum', tag: 'ipsum', },
 ]
 
 export const labels = tags.reduce((result, { tag, label }) => {
