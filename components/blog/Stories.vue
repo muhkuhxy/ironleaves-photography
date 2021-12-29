@@ -13,7 +13,8 @@
           v-for="(article) in articles"
           :key="article.path"
           :data-tag="article.tag"
-          class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow">
+          class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow cursor-pointer"
+          @click="$router.push(article.path)">
           <div class="text-sunset uppercase -mb-2">{{ labels[article.tag] }}</div>
           <img
               :src="require(`~/assets/images/${article.imgSrc}`)"
