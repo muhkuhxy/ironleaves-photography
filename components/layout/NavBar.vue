@@ -15,7 +15,8 @@
         </button>
         <a
           v-for="{ name, url } in social" :key="`social-link-${name}-md`"
-          :href="url" target="_blank">
+          :href="url" target="_blank"
+          :title="name">
             <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
         </a>
       </LayoutContainer>
@@ -42,8 +43,8 @@
             <li
               v-for="{ name, url } in social" :key="`social-link-${name}`"
               class="justify-self-end hidden md:block">
-              <a :href="url" target="_blank">
-                <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
+              <a :href="url" target="_blank" :title="name">
+                <component :is="`Svg${name}`" class="fill-current w-6" />
               </a>
             </li>
           </ul>
@@ -57,6 +58,7 @@
 import Vue from 'vue'
 import { VueConstructor } from 'vue/types/vue'
 import { IlInjection } from '@/types/declarations'
+import { retry } from '~/lib/functions'
 
 let lastScrollY = 0
 const links = [
@@ -131,16 +133,15 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         threshold: Array(10).fill(undefined).map((_, index) => (index+1)/10)
       })
 
-      const observeSections = () => {
+      retry('observeSection', 5, 500, () => {
         const sections = document.querySelectorAll('.scroll-target[id]')
         if (sections.length) {
           sections.forEach(section => this.observer?.observe(section))
+          return true
         } else {
-          setTimeout(observeSections, 500)
+          return false
         }
-      }
-
-      observeSections()
+      })
     }
   },
   beforeDestroy() {
