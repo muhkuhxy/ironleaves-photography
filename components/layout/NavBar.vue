@@ -118,11 +118,22 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         }, ['', 0])[0]
     }
   },
-  mounted() {
-    if (this.retractable) {
-      document.addEventListener('scroll', this.onScroll)
+  watch: {
+    retractable: {
+      immediate: true,
+      handler(retractable): void {
+        if (!process.client) {
+          return
+        }
+        if (retractable) {
+          document.addEventListener('scroll', this.onScroll)
+        } else {
+          document.removeEventListener('scroll', this.onScroll)
+        }
+      }
     }
-
+  },
+  mounted() {
     if (this.highlightCurrentSection) {
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
