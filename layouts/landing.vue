@@ -2,7 +2,7 @@
   <div class="min-h-screen flex flex-col">
     <LayoutLogo />
     <LayoutNavBar
-      :retractable="true"
+      :retractable="breakpoints.gtlg"
       :highlight-current-section="true" />
     <main class="flex-1">
       <Nuxt />
