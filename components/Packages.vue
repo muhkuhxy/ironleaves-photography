@@ -42,7 +42,7 @@
           <template #title>Standesamt-Paket</template>
           <template #content>
             <p>
-              Ihr braucht eigentlich nur kurz fotografische Unterstützung für einen ganz besonderen Moment? Kein Ding! In 2 Stunden ist in den meisten Fällen nicht nur die Zeremonie und der Sektempfang drinnen, sondern auch ein kleines Pärchenshooting.
+              Ihr braucht eigentlich nur kurz fotografische Unterstützung für einen ganz besonderen Moment? Kein Ding! 2 Stunden reichen in den meisten Fällen nicht nur für die Zeremonie und den Sektempfang aus, sondern auch für ein kleines Pärchenshooting.
             </p>
             <p>Ab 600 &euro;</p>
           </template>
