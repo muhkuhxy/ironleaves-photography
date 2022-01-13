@@ -73,7 +73,7 @@ const links = [
 ]
 const social = [
   // { name: 'Facebook', url: 'https://facebook.com' },
-  { name: 'Instagram', url: 'https://instagram.com/_ironleaves_' },
+  { name: 'Instagram', url: 'https://instagram.com/ironleaves_photography/' },
   // { name: 'Pinterest', url: 'https://pinterest.com' },
   // { name: 'Whatsapp', url: '' },
   // { name: 'Behance', url: 'https://behance.net/ironleaves' },
