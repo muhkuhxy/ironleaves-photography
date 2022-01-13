@@ -23,8 +23,8 @@
         <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
         <SvgHeroLine3 class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
       </SectionLines>
-      <SectionContent class="relative">
-        <SvgHeroFlower class="hero-flower w-[37%] lg:w-[30%] xl:w-[27%] relative mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%] float-right fill-current "/>
+      <SectionContent class="content relative">
+        <SvgHeroFlower id="heroFlower" class="hero-flower w-[37%] lg:w-[30%] xl:w-[27%] relative mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%] float-right fill-current "/>
         <SectionHeader>
           <template #roofline>Leidenschaft</template>
           Eure einzig&shy;artigen<br class="hidden md:block"> Momente
@@ -44,6 +44,7 @@
 import Vue from 'vue'
 import { gsap } from '@/lib/gsap'
 import { retry } from '~/lib/functions'
+import { animateHeroFlower } from '~/lib/lottie'
 
 export default Vue.extend({
   data: () => ({
@@ -80,7 +81,18 @@ export default Vue.extend({
         })
         return true
       })
-      // parallax(this.$el.querySelector('.parallax-pic') as HTMLElement)
+      retry('animateHeroFlower', 3, 500, () => {
+        const element = document.getElementById('heroFlower')
+        if (!element) return false
+        const replacement = document.createElement('div')
+        replacement.className = `hero-flower relative float-right
+          w-[50%] md:w-[min(53%,25rem)] lg:w-[40%]
+          mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%]
+          mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]`
+        element.replaceWith(replacement)
+        animateHeroFlower(replacement).setSpeed(0.7)
+        return true
+      })
       this.animationInitialized = true
     }
   }
@@ -88,7 +100,7 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss" scoped>
-.hero-flower {
+.content >>> .hero-flower {
   shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35.00%, 21.59% 65.9%, 87.94% 101.47%);
 }
 </style>
