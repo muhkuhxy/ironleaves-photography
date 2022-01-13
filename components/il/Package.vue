@@ -2,12 +2,14 @@
   <div class="package overflow-hidden bg-emerald">
     <h2
       v-show="!gtMd"
-      class="px-8 py-4 flex justify-between cursor-pointer"
+      class="px-8 py-4 flex justify-between cursor-pointer items-center"
       @click="$emit('change')">
-      <slot name="title"></slot>
+      <div class="w-fit mr-2">
+        <slot name="title"></slot>
+      </div>
       <span
-        class="lg:hidden transition-all duration-300 ease-linear"
-        :class="[open ? '-rotate-90 -translate-x-1' : 'rotate-90']">&#10095;</span>
+        class="lg:hidden transition-all duration-300 ease-linear border-white border-t-4 border-r-4 h-3 w-3 mr-1 leading-none origin-center"
+        :class="[open ? 'rotate-[-45deg] translate-y-1' : 'rotate-[135deg]']"></span>
     </h2>
     <TransitionGrow>
       <div
