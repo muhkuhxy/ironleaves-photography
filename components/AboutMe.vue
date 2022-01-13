@@ -36,7 +36,7 @@
             </p>
           </IlTextExpander>
           <LayoutSpacer />
-          <ButtonEffect class="text-sunset mx-auto lg:mx-0" to="/#contact">
+          <ButtonEffect class="text-sunset mx-auto lg:mx-0" to="#contact">
             Schreibt mich gerne an!
           </ButtonEffect>
         </div>

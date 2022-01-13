@@ -62,7 +62,7 @@
             <p>
               Ihr plant das volle Programm und wollt euch später auch an die Vorbereitung erinnern? Bei der Reportage bin ich von Anfang an hautnah dabei und halte eure Aufregung beim Anziehen und Schminken (Getting Ready) bis zur großen Party spät in die Nacht fest!
             </p>
-            <p><NuxtLink class="cursor-pointer underline" to="/#contact">Preis auf Anfrage</NuxtLink></p>
+            <p><a class="cursor-pointer underline" href="#contact">Preis auf Anfrage</a></p>
           </template>
         </IlPackage>
 
@@ -80,7 +80,7 @@
             <p>
               Es soll alles perfekt sein und zueinander passen? Ihr wollt eure Fotografin schon lange vor der Party kennenlernen, damit ihr euch dann vor der Kamera maximal wohlfühlt? Im All-Inclusive-Paket kümmere ich mich um Eure Papeterie, unterstütze die Planung und bin am Tag Eurer Hochzeit den ganzen Tag dabei!
             </p>
-            <p><NuxtLink class="cursor-pointer underline" to="/#contact">Preis auf Anfrage</NuxtLink></p>
+            <p><a class="cursor-pointer underline" href="#contact">Preis auf Anfrage</a></p>
           </template>
         </IlPackage>
 

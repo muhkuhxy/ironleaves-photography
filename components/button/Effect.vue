@@ -30,11 +30,11 @@ export default Vue.extend({
       return this.to != null
     },
     element(): string {
-      return this.isLink ? 'NuxtLink' : 'button'
+      return this.isLink ? 'a' : 'button'
     },
-    bindings(): { to: any } | { type: string } {
+    bindings(): { href: string } | { type: string } {
       return this.isLink ? {
-        to: this.to
+        href: this.to
       } : {
         type: this.type
       }
