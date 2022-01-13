@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- scroll-target + data-section have to be inside the component,
+    <!-- scroll-target + id have to be inside the component,
     nuxt strips them for some reason -->
     <Passion />
     <AboutMe id="about-me" class="scroll-target" />

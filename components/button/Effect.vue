@@ -49,8 +49,7 @@ export default Vue.extend({
     --offset: 10px;
     --border-size: 1px;
 
-    padding-left: var(--offset);
-    padding-top: var(--offset);
+    padding: var(--offset);
   }
 
 	box-shadow: inset 0 0 0 var(--border-size) currentColor;
