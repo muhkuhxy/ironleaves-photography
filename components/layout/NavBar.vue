@@ -36,7 +36,7 @@
                 'font-bold underline': target === maxSection
               }"
               @click="menuShown && (menuShown = false)">
-              <NuxtLink :to="`/#${target}`">{{ title }}</NuxtLink>
+              <a :href="`#${target}`">{{ title }}</a>
             </li>
           </ul>
           <ul class="col-start-3 justify-self-end">
