@@ -10,26 +10,17 @@
       <LayoutSpacer />
       <hr class="md:hidden mb-8" />
       <!-- <LayoutSpacer class="md:hidden" /> -->
-      <div class="grid grid-cols-2 md:grid-cols-3 items-end gap-x-6">
-        <div class="mt-4 md:mt-0 text-center md:text-left row-start-2 row-end-2 md:row-start-1 md:row-end-1 col-span-2 md:col-span-1">
-          &copy; Tamara Loeffen &ndash; Ironleaves Photography {{ year }}
-        </div>
-        <ul class="md:text-center">
-          <li>Leistungen</li>
-          <li><NuxtLink to="/stories">Blog</NuxtLink></li>
-          <li>Bildlooks</li>
-        </ul>
-        <ul class="md:text-right">
-          <li>
-            <NuxtLink to="/agbs">AGBs</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/datenschutz">Datenschutz</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink to="/impressum">Impressum</NuxtLink>
-          </li>
-        </ul>
+      <div class="grid grid-cols-3 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:grid-rows-[(repeat(3,auto))] gap-x-4 gap-y-1 auto-rows-auto grid-flow-col text-center">
+        <div class="row-start-4 lg:row-start-1 lg:row-span-3 col-start-1 col-span-3 lg:col-span-1 self-end text-center mt-2 lg:mt-0 lg:text-left">&copy; Tamara Loeffen &ndash; Ironleaves Photography {{ year }}</div>
+        <div title="Coming soon">Leistungen</div>
+        <NuxtLink to="/stories">Blog</NuxtLink>
+        <div title="Coming soon">Bildlooks</div>
+        <a target="_blank" href="https://instagram.com/ironleaves_photography/">Instagram</a>
+        <a target="_blank" href="https://www.facebook.com/Ironleaves-Photography-110234704840320">Facebook</a>
+        <a target="_blank" href="https://www.pinterest.de/ironleaves_photography">Pinterest</a>
+        <NuxtLink to="/agbs">AGBs</NuxtLink>
+        <NuxtLink to="/datenschutz">Datenschutz</NuxtLink>
+        <NuxtLink to="/impressum">Impressum</NuxtLink>
       </div>
     </LayoutContainer>
     <a href="https://ironleaves-design.com" target="_blank" class="mt-4 py-2 block underline text-center bg-bluegray text-white">Designed by Ironleaves Design</a>

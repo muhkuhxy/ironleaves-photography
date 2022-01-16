@@ -44,7 +44,7 @@
             <p>
               Ihr braucht eigentlich nur kurz fotografische Unterstützung für einen ganz besonderen Moment? Kein Ding! 2 Stunden reichen in den meisten Fällen nicht nur für die Zeremonie und den Sektempfang aus, sondern auch für ein kleines Pärchenshooting.
             </p>
-            <p>Ab 600 &euro;</p>
+            <p><a class="cursor-pointer underline" href="#contact">Preis auf Anfrage</a></p>
           </template>
         </IlPackage>
 
