@@ -9,3 +9,7 @@ export function retry(what: string, times: number, wait: number, block: () => bo
   //   console.log(`${what} done with ${times} tries left`)
   }
 }
+
+export function scrollToTop() {
+  window.scrollTo({top: 0})
+}

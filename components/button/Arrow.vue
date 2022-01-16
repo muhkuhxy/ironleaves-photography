@@ -1,6 +1,5 @@
 <template>
-  <button class="text-sunset flex items-center gap-2" @click="$emit('click')">
-    <IconBase class="-rotate-90 w-8"><IconArrow/></IconBase>
-    <slot>Weiterlesen &mldr;</slot>
+  <button class="text-sunset" @click="$emit('click')">
+    <IconBase class="rotate-180 w-8"><IconArrow/></IconBase>
   </button>
 </template>

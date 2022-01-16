@@ -8,6 +8,9 @@
       <Nuxt />
     </main>
     <LayoutFooter />
+    <ButtonArrow
+      class="fixed bottom-[1rem] right-[1rem] bg-white opacity-90 px-[.6rem] py-2 shadow-lg border border-sunset border-opacity-50 z-50"
+      @click="scrollToTop" />
   </div>
 </template>
 
@@ -15,7 +18,7 @@
 import Vue from 'vue'
 import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
 import { loadCurator } from '@/lib/curator'
-import { retry } from '~/lib/functions'
+import { retry, scrollToTop } from '~/lib/functions'
 
 let ready: (_: null) => void
 const breakpointsReady = new Promise(resolve => {
@@ -75,7 +78,8 @@ export default Vue.extend({
         offset = newOffset
         return false
       })
-    }
+    },
+    scrollToTop
   }
 })
 </script>
