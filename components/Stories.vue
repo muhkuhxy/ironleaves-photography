@@ -104,7 +104,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
         start: () => 'top-=50% bottom',
         end: () =>'bottom+=50% top',
         onToggle: (self: any) => {
-          this.trigger = true
+          setTimeout(() => { this.trigger = true }, 500)
           self.kill()
           this.scrollTrigger = null
         }
