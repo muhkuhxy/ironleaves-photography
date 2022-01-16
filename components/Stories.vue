@@ -27,102 +27,29 @@
           <p>
             Hier gebe ich Euch einen Einblick in die wunderschönen Hochzeiten, die ich schon begleiten durfte. Außerdem spreche ich ein bisschen aus dem Nähkästchen und gebe Euch Tipps &amp; Tricks, wie ihr Eure Hochzeit am besten gestalten könnt, wie ich drauf bin und was hinter der Kamera so abläuft.
           </p>
-          <LayoutSpacer />
-          <NuxtLink to="/stories">
-            <ButtonEffect class="text-sunset w-[fit-content] mx-auto lg:mx-0">
-              Hier gibt's alle Beiträge
-            </ButtonEffect>
-          </NuxtLink>
         </div>
       </div>
-
-      <LayoutSpacer :ms="5" />
-      <SectionHeader class="text-center">
-        Aktuellste Hochzeiten
-      </SectionHeader>
     </SectionContent>
 
-    <IlStory class="bg-dust" :slides="stories[0].slides">
-      <template #image>
-        <div class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial">
-          <img
-            class="w-7/8 border-8 border-solid border-white drop-shadow"
-            :src="require(`~/assets/images/${stories[0].imgSrc}`)"
-            :alt="stories[0].imgAlt">
-          <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
+    <div class="bg-emerald text-white">
+      <SectionContent>
+        <div class="mx-auto max-w-[40ch] sm:max-w-[50ch] lg:max-w-[54ch] text-center">
+          <h2>Hochzeitsstories, Tipps und Tricks und viel mehr!</h2>
         </div>
-      </template>
-
-      <template #title>
-        <h2>{{ stories[0].title }}</h2>
-      </template>
-
-      <template #content>
-        <NuxtContent :document="{ body: stories[0].excerpt }"></NuxtContent>
-
-        <LayoutSpacer :ms="1" />
-
-        <NuxtLink class="text-sunset mx-auto lg:mx-[unset]" :to="stories[0].path">
-          <ButtonEffect>Hier geht's zur Story</ButtonEffect>
+        <LayoutSpacer />
+        <p class="mx-auto max-w-prose text-center">
+          Erhaltet hier einen exklusiven Einblick in die wunderschönen Hochzeiten, die ich begleiten durfte! Außerdem gebe ich euch hilfreiche Tipps und Tricks, wie ihr Euren wichtigen Tag gestalten könnt und was ihr für Euren Hochzeitsfotografen beachten müsst.
+        </p>
+        <LayoutSpacer />
+        <NuxtLink to="/stories" class="block w-fit mx-auto">
+          <ButtonEffect>
+            Alle Beiträge sehen
+          </ButtonEffect>
         </NuxtLink>
-      </template>
-    </IlStory>
+      </SectionContent>
+    </div>
 
-    <LayoutSpacer :responsive="false" :ms="4" />
-
-    <IlStory class="bg-dust" :slides="stories[1].slides">
-      <template #image>
-        <div class="relative lg:w-1/2 flex-initial lg:order-2">
-          <img
-            class="w-5/6 ml-auto border-8 border-solid border-white drop-shadow"
-            :src="require(`~/assets/images/${stories[1].imgSrc}`)"
-            :alt="stories[1].imgAlt">
-          <SvgSingleFlower class="w-1/4 text-bluegray fill-current absolute left-0 bottom-0 translate-y-6 translate-x-4" />
-        </div>
-      </template>
-
-      <template #title>
-        <h2>{{ stories[1].title }}</h2>
-      </template>
-
-      <template #content>
-        <NuxtContent :document="{ body: stories[1].excerpt }"></NuxtContent>
-
-        <LayoutSpacer :ms="1" />
-
-        <NuxtLink class="text-sunset mx-auto lg:mx-[unset]" :to="stories[1].path">
-          <ButtonEffect>Hier geht's zur Story</ButtonEffect>
-        </NuxtLink>
-      </template>
-    </IlStory>
-
-    <LayoutSpacer :responsive="false" :ms="4" />
-
-    <IlStory class="bg-dust" :slides="stories[2].slides">
-      <template #image>
-        <div class="relative lg:w-1/2 flex-initial">
-          <img
-            class="w-5/6 border-8 border-solid border-white drop-shadow"
-            :src="require(`~/assets/images/${stories[2].imgSrc}`)"
-            :alt="stories[2].imgAlt">
-          <SvgFlowerSunset class="w-1/4 text-sunset fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-3" />
-        </div>
-      </template>
-
-      <template #title>
-        <h2>{{ stories[2].title }}</h2>
-      </template>
-
-      <template #content>
-        <NuxtContent :document="{ body: stories[2].excerpt }"></NuxtContent>
-
-        <LayoutSpacer :ms="1" />
-
-        <NuxtLink class="text-sunset mx-auto lg:mx-[unset]" :to="stories[2].path">
-          <ButtonEffect>Hier geht's zur Story</ButtonEffect>
-        </NuxtLink>
-      </template>
-    </IlStory>
+    <!-- <IlSlider> -->
 
     <LayoutSpacer :responsive="false" :ms="4" />
 
