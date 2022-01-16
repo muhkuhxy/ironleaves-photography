@@ -10,6 +10,7 @@
     <LayoutFooter />
     <ButtonArrow
       class="fixed bottom-[1rem] right-[1rem] bg-white opacity-90 px-[.6rem] py-2 shadow-lg border border-sunset border-opacity-50 z-50"
+      title="Back to top"
       @click="scrollToTop" />
   </div>
 </template>

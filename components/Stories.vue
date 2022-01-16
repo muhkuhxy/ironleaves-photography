@@ -49,9 +49,12 @@
       </SectionContent>
     </div>
 
-    <!-- <IlSlider> -->
-
-    <LayoutSpacer :responsive="false" :ms="4" />
+    <div class="h-[50vh]">
+      <LazyIlSlider
+        v-if="trigger"
+        class="pb-8 h-full"
+        :slides="slides" />
+    </div>
 
     <IconBase class="text-sunset w-full h-16 mt-8 mb-12">
       <IconArrow />
@@ -62,13 +65,52 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { VueConstructor } from 'vue/types/vue'
+import { stories } from './slides'
+import { IlInjection } from '@/types/declarations'
+import { ScrollTrigger } from '@/lib/gsap'
 
-export default Vue.extend({
-  props: {
-    stories: {
-      type: Array,
-      required: true
+export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+  inject: {
+    $il: '$il'
+  } as Record<keyof IlInjection, string>,
+  data: () => ({
+    scrollTrigger: null as null | ScrollTrigger,
+    trigger: false,
+    animationInitialized: false,
+  }),
+  computed: {
+    slides: () => stories,
+  },
+  async mounted() {
+    await this.$il.breakpointsReady
+    this.initAnimations()
+  },
+  beforeDestroy() {
+    this.scrollTrigger?.kill();
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
     }
   },
+  methods: {
+    initAnimations() {
+      if (!this.$el.tagName) {
+        return;
+      }
+      this.scrollTrigger = ScrollTrigger.create({
+        trigger: this.$el,
+        start: () => 'top-=50% bottom',
+        end: () =>'bottom+=50% top',
+        onToggle: (self: any) => {
+          this.trigger = true
+          self.kill()
+          this.scrollTrigger = null
+        }
+      })
+      this.animationInitialized = true
+    },
+  }
 })
 </script>
