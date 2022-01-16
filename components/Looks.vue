@@ -22,14 +22,11 @@
         </SectionHeader>
         <LayoutSpacer />
         <p class="max-w-prose mb-4">
-          Optional könnt ihr den Bildlook und die Anmutung Eurer Fotos mitbestimmen.
+          Optional könnt ihr die Bildbearbeitung und die Anmutung Eurer Fotos mitbestimmen.
         </p>
         <IlTextExpander class="items-start">
           <p>
-            Eure Fotos sollen Euch widerspiegeln und den Tag genau so wiedergeben, wie ihr ihn in  Erinnerung habt. Mögt ihr rustikale, dunkle und warme Bilder? Oder doch reduziert, hell und clean? Moody oder leuchtend? Zeitlos oder modern? Sucht Euch unter unterschiedlichen Atmosphären genau den Look aus, der am besten zu Euch passt!
-          </p>
-          <p>
-            Natürlich stehe ich euch dabei tatkräftig beratend zur Seite und erkläre auch, worauf es ankommt, damit die Qual der Wahl etwas leichter fällt.
+            Eure Fotos sollen Euch und Euren Charakter widerspiegeln und Eure Hochzeit genau so wiedergeben, wie ihr sie in Erinnerung habt. Mögt ihr rustikale, dunkle und warme Bilder? Oder doch reduziert, hell und clean? Moody oder leuchtend? Zeitlos oder modern? Sucht Euch unter unterschiedlichen Atmosphären genau den Look aus, der am besten zu Euch passt!
           </p>
         </IlTextExpander>
       </div>

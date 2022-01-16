@@ -62,7 +62,7 @@ import { retry } from '~/lib/functions'
 
 let lastScrollY = 0
 const links = [
-  { title: 'Leidenschaft', target: 'passion' },
+  // { title: 'Leidenschaft', target: 'passion' },
   { title: 'Über mich', target: 'about-me' },
   { title: 'Werte', target: 'candor' },
   { title: 'Bildlooks', target: 'looks' },

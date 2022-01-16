@@ -35,10 +35,10 @@
             </SectionHeader>
             <LayoutSpacer />
             <p class="max-w-prose mb-4">
-              Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach euren Vorstellungen. Garantiert einzigartig und mit Liebe gemacht!
+              Wenn ich nicht gerade als Fotografin fleißig Pärchenfotos schieße, bin ich freiberufliche Grafikdesignerin für <a class="underline" href="ironleaves-design.com">Ironleaves Design</a>. Egal was ihr braucht – ich helfe euch, ein individuelles Design zu entwickeln, was zu eurer Hochzeit passt. Dabei können wir eure Farben, Blumen und Deko einbeziehen. Wir finden gemeinsam euren Stil und ich gestalte die Save-the-Date-Karten, Einladungen, Menükarten und Sitzpläne nach Euren Vorstellungen. Garantiert einzigartig und mit viel Liebe gemacht!
             </p>
             <p class="max-w-prose">
-              In der ganzen Zeit kann ich euch bei euren Planungen unterstützen. Das gibt euch die Sicherheit, dass ihr nichts vergesst und ihr könnt eure Papeterie entspannt mir überlassen. Und falls ich euch sogar als Fotografin begleiten darf, können wir uns in Ruhe beschnuppern und kennenlernen.
+              In der ganzen Zeit kann ich euch bei euren Planungen unterstützen. Das gibt euch die Sicherheit, dass ihr nichts vergesst und ihr könnt eure Papeterie entspannt mir überlassen. Und falls ich Euch sogar als Hochzeitsfotografin begleiten darf, können wir uns in Ruhe im Vorfeld beschnuppern und vielleicht schon schöne Fotos von einem Kennenlern-Shooting in die Gestaltung einbeziehen. ;)
             </p>
           </div>
         </div>
