@@ -26,4 +26,35 @@ export const papeterie = [
   "papeterie/ironleaves-photography-individuelle-papeterie-slider-einladungskarte-gold-natur-blaetter-tamara-timon.jpg",
 ]
 
+export const stories = [
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-tanz-ungestellt.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg',
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-wald-verliebt.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-bruecke-urban.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-kuss-park-hofgarten-bayreuth.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-schnappschuss.jpg',
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-wald-panorama.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-naehe-natuerlichkeit.jpg',
+  'stories/valerie_max/ironleaves-photography-stories-valerie-max-hochzeitskleid.jpg',
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-kuss-wiese-sonnenuntergang.jpg',
+  'stories/valerie_max/ironleaves-photography-stories-valerie-max-laecheln.jpg',
+  'stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-kuss-verheiratet.jpg',
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-lensflare.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-stadtpark.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-probe-tanz-parkplatz.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-sonnenuntergang-shooting.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-verliebt-vertraulichkeit.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-seifenblasen-einmarsch.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg',
+  'stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-tanzend-ungestellt.jpg',
+  'stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-brautpaar-laufend.jpg',
+  'stories/valerie_max/ironleaves-photography-stories-valerie-max-eskimo.jpg',
+  'stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-spontaner-kuss.jpg',
+  'stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-lens-flare.jpg',
+  'stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-schlossgarten-eckersdorf.jpg',
+  'stories/valerie_max/ironleaves-photography-stories-valerie-max-wald-rueckenansicht.jpg',
+  'stories/valerie_max/ironleaves-photography-stories-valerie-max-ehrlich-ungestellt.jpg',
+  'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-shooting-pfuetze-spiegelung-abends.jpg',
+]
+
 export default {}

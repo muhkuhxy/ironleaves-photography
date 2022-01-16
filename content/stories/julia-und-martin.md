@@ -32,7 +32,6 @@ slides:
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-stadtpark.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg
-  - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-tradition-standesamt-herz-ausschneiden.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-ungestellt-ehrlich.jpg
 ---
 Julia und Martins Hochzeit war für mich etwas ganz Besonderes – nicht zuletzt, weil die beiden schon lange sehr wichtige Menschen in meinem Leben sind. Was für eine Ehre, dass ich für ihre wunderschöne, kleine Hochzeit als Hochzeitsfotografin und Gast da sein durfte!
