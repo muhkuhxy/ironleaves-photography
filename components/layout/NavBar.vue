@@ -9,10 +9,10 @@
       <LayoutContainer
         class="flex relative z-20 bg-white justify-between py-4"
         :class="{ hidden: gtMd }">
-        <button type="button" @click="menuShown = !menuShown">
+        <label class="cursor-pointer" @click="menuShown = !menuShown">
           <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
           Menü
-        </button>
+        </label>
         <a
           v-for="{ name, url } in social" :key="`social-link-${name}-md`"
           :href="url" target="_blank"
@@ -24,14 +24,14 @@
         <LayoutContainer
           v-show="menuShown || gtMd"
           :retractable="true"
-          class="absolute md:static bg-white pb-4 md:pt-4 md:grid grid-cols-[1fr,auto,1fr] gap-3 lg:gap-8 xl:gap-12">
+          class="absolute md:static bg-white pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12">
           <hr class="mb-4 col-span-full md:hidden">
           <ul
-            class="md:col-span-1 md:col-start-2 grid grid-cols-2 md:grid-cols-[repeat(8,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12">
+            class="grid grid-cols-2 md:grid-cols-[repeat(7,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12">
             <li
               v-for="{title, target} in links"
               :key="title"
-              class="cursor-pointer nav-link relative after:h-0 md:after:h-px after:bg-bluegray"
+              class="nav-link relative w-fit cursor-pointer after:h-0 md:after:h-px after:bg-bluegray"
               :class="{
                 'font-bold underline': target === maxSection
               }"
@@ -39,7 +39,7 @@
               <a :href="`#${target}`">{{ title }}</a>
             </li>
           </ul>
-          <ul class="col-start-3 justify-self-end">
+          <ul class="justify-self-end">
             <li
               v-for="{ name, url } in social" :key="`social-link-${name}`"
               class="justify-self-end hidden md:block">
