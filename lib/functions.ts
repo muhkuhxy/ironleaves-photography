@@ -12,4 +12,5 @@ export function retry(what: string, times: number, wait: number, block: () => bo
 
 export function scrollToTop() {
   window.scrollTo({top: 0})
+  document.location.hash = ''
 }
