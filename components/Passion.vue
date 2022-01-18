@@ -14,7 +14,7 @@
       </picture>
       <IlGradient class="translate-y-2" :half-height="true" />
       <IlFigureCaption class="hero">
-        Moments&thinsp;for<br>Eternity
+        Moments<br>for Eternity
       </IlFigureCaption>
     </IlFigure>
     <div class="relative bg-emerald">
