@@ -17,7 +17,7 @@
         Moments<br>for Eternity
       </IlFigureCaption>
     </IlFigure>
-    <div class="relative bg-emerald">
+    <div class="relative">
       <SectionLines class="sm:block">
         <SvgHeroLine2 class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0" />
         <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
