@@ -9,7 +9,7 @@
     </main>
     <LayoutFooter />
     <ButtonArrow
-      class="fixed bottom-[1rem] right-[1rem] bg-white opacity-90 px-[.6rem] py-2 shadow-lg border border-sunset border-opacity-50 z-50"
+      class="fixed bottom-[1rem] right-[1rem] bg-white opacity-90 w-10 md:w-12 h-10 md:h-12 p-[0.35rem] shadow-lg border border-sunset border-opacity-50 z-50"
       title="Back to top"
       @click="scrollToTop" />
   </div>
