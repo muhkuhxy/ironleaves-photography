@@ -7,9 +7,7 @@
       <div class="w-fit mr-2">
         <slot name="title"></slot>
       </div>
-      <span
-        class="lg:hidden transition-all duration-300 ease-linear border-white border-t-4 border-r-4 h-3 w-3 mr-1 leading-none origin-center"
-        :class="[open ? 'rotate-[-45deg] translate-y-1' : 'rotate-[135deg]']"></span>
+      <IlToggleArrow class="lg:hidden" :open="open" />
     </h2>
     <TransitionGrow>
       <div

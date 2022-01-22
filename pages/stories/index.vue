@@ -28,12 +28,10 @@
         </ul>
         <div v-click-outside="() => showingFilters = false" class="md:hidden">
           <button
-            class="w-full flex justify-between cursor-pointer"
+            class="w-full flex justify-between items-center cursor-pointer"
             @click="showingFilters = !showingFilters">
             <span>Filter {{ showingFilters ? 'einklappen' : 'ausklappen' }}</span>
-            <span
-              class="transition-all duration-300 ease-linear"
-              :class="[showingFilters ? '-rotate-90 -translate-x-1' : 'rotate-90']">&#10095;</span>
+            <IlToggleArrow :open="showingFilters" shadow-class="[--shadow-size:2px]" />
           </button>
           <TransitionGrow>
             <ul v-show="showingFilters" class="divide-y">
