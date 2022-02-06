@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-bluegray pt-8 relative bg-white">
+  <footer class="text-bluegray pt-8 relative bg-dust">
     <LayoutContainer>
       <LayoutSpacer />
       <h2 class="font-bold">Folgt mir auf Instagram!</h2>

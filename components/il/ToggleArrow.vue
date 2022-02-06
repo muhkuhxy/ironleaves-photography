@@ -1,7 +1,9 @@
 <template>
-  <div
-    class="transition-all duration-300 ease-linear h-[.5em] w-[.5em] [border-top-width:var(--shadow-size)] [border-right-width:var(--shadow-size)] border-current origin-[75%_25%] translate-y-[25%] translate-x-[-25%]"
-    :class="[open ? 'rotate-[-45deg]' : 'rotate-[135deg]', shadowClass]"></div>
+  <div>
+    <div
+      class="transition-all duration-300 ease-linear h-[.5em] w-[.5em] [border-top-width:var(--shadow-size)] [border-right-width:var(--shadow-size)] border-current origin-[75%_25%] translate-y-[25%] translate-x-[-25%]"
+      :class="[open ? 'rotate-[-45deg]' : 'rotate-[135deg]', shadowClass]"></div>
+  </div>
 </template>
 
 <script lang="ts">
