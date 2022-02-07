@@ -32,7 +32,7 @@
   }
 
   /* stylelint-disable-next-line no-invalid-position-at-import-rule */
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&family=Playfair+Display:wght@400;700&display=swap');
 
   @font-face {
     font-family: Notes;
