@@ -1,8 +1,7 @@
 <template>
   <component
     :is="tag"
-    class="xl:mx-auto xl:px-16 px-8 md:px-16"
-    :class="retractable ? 'w-full md:w-auto md:max-w-screen-xl' : 'max-w-screen-xl'">
+    :class="classes">
     <slot />
   </component>
 </template>
@@ -18,7 +17,26 @@ export default Vue.extend({
     tag: {
       type: String,
       default: 'div'
+    },
+    fluid: {
+      type: Boolean,
+      default: false
     }
   },
+  computed: {
+    classes() {
+      const classes = ['xl:mx-auto xl:px-16 px-8 md:px-16']
+      // fluid has no max-width
+      if (this.fluid) {
+        return classes
+      }
+      if (this.retractable) {
+        classes.push('w-full md:w-auto md:max-w-screen-xl' )
+      } else {
+        classes.push('max-w-screen-xl')
+      }
+      return classes
+    }
+  }
 })
 </script>
