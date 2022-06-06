@@ -65,6 +65,10 @@
       </template>
     </IlStory>
 
+    <IlTestimonial
+      v-if="document.testimonial"
+      :testimonial="document.testimonial" />
+
     <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
@@ -151,10 +155,10 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
       }
       return dropWhile(
         splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
-          el => el[0].tag !== 'h2').map((children, index) => ({
-            children,
-            img: this.document?.storyTellingImgs[index]
-          }))
+        el => el[0].tag !== 'h2').map((children, index) => ({
+          children,
+          img: this.document?.storyTellingImgs[index]
+        }))
     },
   },
   async mounted() {

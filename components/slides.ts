@@ -57,4 +57,5 @@ export const stories = [
   'stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-shooting-pfuetze-spiegelung-abends.jpg',
 ]
 
+// ts complains unless this is here
 export default {}
