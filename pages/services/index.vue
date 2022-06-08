@@ -1,7 +1,7 @@
 <template>
   <div>
     <ServicesIntro />
-    
+
     <ServicesList />
     
     <ServicesInvestment />
@@ -39,7 +39,7 @@ interface Data {
 }
 
 export default Vue.extend({
-  async asyncData({ $content }: Context): Promise<{ packagesDocument: FetchReturn, pointersDocument: FetchReturn }> {
+  async asyncData({ $content }: Context): Promise<Data> {
     const packagesDocument = await $content('services/packages').fetch() as FetchReturn
     const pointersDocument = await $content('services/pointers').fetch() as FetchReturn
     return { packagesDocument, pointersDocument }

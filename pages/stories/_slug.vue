@@ -76,7 +76,7 @@ interface Data {
 
 export default Vue.extend({
   scrollToTop: true,
-  async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[], slug: string }> {
+  async asyncData({ params, $content }: Context): Promise<Data> {
       const slug = params.slug
       const document = await $content(`stories/${slug}`).fetch() as FetchReturn
       const articles = await fetchStories({ $content }, { limit: 2, where: { slug: { $ne: slug } } })
