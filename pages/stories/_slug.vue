@@ -66,7 +66,7 @@ import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
 import { labels, fetchStories } from '@/lib/blog'
-import { splitChapters, Node } from '@/lib/content'
+import { splitChapters, Node, ElementNode } from '@/lib/content'
 
 interface Data {
   document?: FetchReturn
@@ -86,7 +86,7 @@ export default Vue.extend({
   computed: {
     labels: () => labels,
     chapters(): { children: Node[], img: string }[] {
-      return splitChapters(this.document?.body as Node)
+      return splitChapters(this.document?.body as ElementNode)
         .map((children, index) => ({
           children,
           img: this.document?.storyTellingImgs[index]

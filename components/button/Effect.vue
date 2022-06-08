@@ -52,7 +52,7 @@ export default Vue.extend({
     padding: var(--offset);
   }
 
-	box-shadow: inset 0 0 0 var(--border-size) currentColor;
+	box-shadow: inset 0 0 0 var(--border-size) currentcolor;
 
 	&__horizontal,
 	&__vertical {
@@ -69,8 +69,8 @@ export default Vue.extend({
 		--vertical-offset: calc(var(--offset) * -1);
 
 		/* bottom: calc(var(--border-size) * -1); */
-		border-top: var(--border-size) solid currentColor;
-		border-bottom: var(--border-size) solid currentColor;
+		border-top: var(--border-size) solid currentcolor;
+		border-bottom: var(--border-size) solid currentcolor;
 
 		&::before {
 			content: '';
@@ -90,8 +90,8 @@ export default Vue.extend({
 	&__vertical {
 		--horizontal-offset: calc(var(--offset) * -1);
 
-		border-left: var(--border-size) solid currentColor;
-		border-right: var(--border-size) solid currentColor;
+		border-left: var(--border-size) solid currentcolor;
+		border-right: var(--border-size) solid currentcolor;
 
 		&::before {
 			content: '';

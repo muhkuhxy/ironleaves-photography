@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { splitChapters, Node } from '@/lib/content'
+import { splitChapters, Node, ElementNode } from '@/lib/content'
 
 export default Vue.extend({
   props: {
@@ -31,7 +31,7 @@ export default Vue.extend({
   },
   computed: {
     chapters(): { children: Node[], img: string }[] {
-      return splitChapters(this.document?.body as Node)
+      return splitChapters(this.document?.body as ElementNode)
         .map((children, index) => ({
           children,
           img: this.document?.packageImgs[index]
