@@ -12,7 +12,7 @@
       <!-- <LayoutSpacer class="md:hidden" /> -->
       <div class="grid grid-cols-3 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:grid-rows-[(repeat(3,auto))] gap-x-4 gap-y-1 auto-rows-auto grid-flow-col text-center">
         <div class="row-start-4 lg:row-start-1 lg:row-span-3 col-start-1 col-span-3 lg:col-span-1 self-end text-center mt-2 lg:mt-0 lg:text-left">&copy; Tamara Loeffen &ndash; Ironleaves Photography {{ year }}</div>
-        <div title="Coming soon">Leistungen</div>
+        <NuxtLink to="/services">Leistungen</NuxtLink>
         <NuxtLink to="/stories">Blog</NuxtLink>
         <div title="Coming soon">Bildlooks</div>
         <a target="_blank" href="https://instagram.com/ironleaves_photography/">Instagram</a>
