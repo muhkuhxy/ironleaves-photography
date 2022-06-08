@@ -10,15 +10,14 @@
         </div>
       </SectionContent>
     </div>
-    <div class="bg-white">
-      <slot name="telling"></slot>
-    </div>
-    <div class="h-[50vh]">
-      <LazyIlSlider
-        v-if="trigger"
-        class="pb-8 h-full"
-        :slides="slides" />
-    </div>
+    <IlStoryTelling
+      class="bg-white"
+      :chapters="chapters"
+    ></IlStoryTelling>
+    <LazyIlSlider
+      v-if="trigger"
+      class="h-[50vh] pb-8"
+      :slides="slides" />
   </div>
 </template>
 
@@ -29,6 +28,10 @@ import { ScrollTrigger } from '@/lib/gsap'
 export default Vue.extend({
   props: {
     slides: {
+      type: Array,
+      required: true
+    },
+    chapters: {
       type: Array,
       required: true
     }
