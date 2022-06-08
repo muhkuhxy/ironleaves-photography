@@ -34,6 +34,7 @@
             class="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain">
         </div>
         <NuxtContent
+          class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left"
           :document="{ body: chapter }"></NuxtContent>
       </div>
     </div>
@@ -78,7 +79,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   methods: {
     initAnimations() {
       if (this.$el.tagName) {
-        retry(`StoryTelling`, 10, 500, () => {
+        retry(`StoryTelling chapter init`, 10, 500, () => {
           const chapters = this.$el.querySelectorAll('.story-telling .chapter')
           if (!chapters.length) {
             return false
@@ -120,8 +121,6 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
 }
 
 .nuxt-content {
-  @apply flex flex-col gap-4 items-center lg:items-start text-center lg:text-left;
-
   & > * {
     @apply max-w-prose;
   }

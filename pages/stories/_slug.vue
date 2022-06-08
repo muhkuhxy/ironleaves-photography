@@ -65,11 +65,8 @@
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
-import { VueConstructor } from 'vue/types/vue'
 import { labels, fetchStories } from '@/lib/blog'
-import { IlInjection } from '@/types/declarations'
-import { dropWhile, splitAt } from '@/lib/collections'
-import { Node } from '~/types/telling'
+import { splitChapters, Node } from '@/lib/content'
 
 interface Data {
   document?: FetchReturn
@@ -77,10 +74,7 @@ interface Data {
   slug?: string
 }
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   scrollToTop: true,
   async asyncData({ params, $content }: Context): Promise<{ document: FetchReturn, articles: FetchReturn[], slug: string }> {
       const slug = params.slug
@@ -90,19 +84,13 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
   },
   data: () => ({} as Data),
   computed: {
-    labels() {
-      return labels
-    },
+    labels: () => labels,
     chapters(): { children: Node[], img: string }[] {
-      if (!this.document) {
-        return []
-      }
-      return dropWhile(
-        splitAt((this.document.body as Node).children, el => el.tag === 'h2'),
-          el => el[0].tag !== 'h2').map((children, index) => ({
-            children,
-            img: this.document?.storyTellingImgs[index]
-          }))
+      return splitChapters(this.document?.body as Node)
+        .map((children, index) => ({
+          children,
+          img: this.document?.storyTellingImgs[index]
+        }))
     },
   },
 })
