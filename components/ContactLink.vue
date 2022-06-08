@@ -1,7 +1,7 @@
 <template>
   <SectionParent class="bg-sunset text-white">
     <SectionContent class="flex flex-col items-center text-center">
-      <SectionHeader>
+      <SectionHeader class="max-w-xl">
         <template #roofline><span class="text-white">Kontakt</span></template>
         Ich freue mich auf eure Nachrichten!
       </SectionHeader>

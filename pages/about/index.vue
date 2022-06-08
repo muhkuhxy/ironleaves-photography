@@ -1,12 +1,29 @@
 <template>
   <div>
     <AboutIntro />
+
     <AboutCv />
+
     <AboutMe />
+
     <AboutStyle />
+
     <AboutFaq 
       :document="faqDoc" />
+
+    <IconBase class="text-sunset w-full h-16">
+      <IconArrow />
+    </IconBase>
+
+    <LayoutSpacer />
+
     <ContactLink />
+    
+    <LayoutSpacer />
+
+    <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+      <IconArrow />
+    </IconBase>
   </div>
 </template>
 

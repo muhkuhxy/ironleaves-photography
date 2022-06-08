@@ -1,6 +1,6 @@
 <template>
   <SectionParent>
-    <SectionContent>
+    <SectionContent :fluffy="true">
       <SectionHeader class="text-bluegray">
         <template #roofline>Ihr wollt es doch auch wissen!</template>
         Häufige Fragen an mich

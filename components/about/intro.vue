@@ -17,9 +17,9 @@
         <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
         <SvgHeroLine3 class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
       </SectionLines>
-      <SectionContent class="relative">
+      <SectionContent class="relative" :fluffy="true">
         <IlAnimatedHeroFlower
-          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
+          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[53%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-54%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
         <SectionHeader>
           <template #roofline>Über mich</template>
