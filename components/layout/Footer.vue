@@ -14,7 +14,7 @@
         <div class="row-start-4 lg:row-start-1 lg:row-span-3 col-start-1 col-span-3 lg:col-span-1 self-end text-center mt-2 lg:mt-0 lg:text-left">&copy; Tamara Loeffen &ndash; Ironleaves Photography {{ year }}</div>
         <NuxtLink to="/services">Leistungen</NuxtLink>
         <NuxtLink to="/stories">Blog</NuxtLink>
-        <div title="Coming soon">Bildlooks</div>
+        <NuxtLink to="/looks">Bildlooks</NuxtLink>
         <a target="_blank" href="https://instagram.com/ironleaves_photography/">Instagram</a>
         <a target="_blank" href="https://www.facebook.com/Ironleaves-Photography-110234704840320">Facebook</a>
         <a target="_blank" href="https://www.pinterest.de/ironleaves_photography">Pinterest</a>

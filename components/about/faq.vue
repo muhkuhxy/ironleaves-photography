@@ -35,7 +35,7 @@ export default Vue.extend({
   },
   computed: {
     chapters(): { question: string | null, children: Node[] }[] {
-      return splitChapters(this.document?.body as ElementNode).map(([question, ...children], index) => {
+      return splitChapters(this.document?.body as ElementNode).map(([question, ...children]) => {
         return {
           question: question.type === 'element' && question.children[1]?.type === 'text' ? question.children[1].value : null,
           children

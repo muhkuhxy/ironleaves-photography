@@ -12,3 +12,10 @@ export function dropWhile<T>(elements: T[], predicate: (_: T) => boolean): T[] {
   const index = elements.findIndex(predicate)
   return elements.slice(index+1)
 }
+
+export function zipObject<K, V>(keys: K[], values: V[]): Record<K, V> {
+  return keys.reduce((result, key, index) => {
+    result[key] = values[index]
+    return result
+  }, {} as Record<K, V>)
+}
