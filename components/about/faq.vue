@@ -2,8 +2,8 @@
   <SectionParent>
     <SectionContent :fluffy="true">
       <SectionHeader class="text-bluegray">
-        <template #roofline>Ihr wollt es doch auch wissen!</template>
-        Häufige Fragen an mich
+        <template #roofline>{{ document.roofline }}</template>
+        {{ document.title }}
       </SectionHeader>
       <LayoutSpacer />
       <div class="flex flex-col divide-y border-white bg-bluegray text-white">

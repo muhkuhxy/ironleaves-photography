@@ -1,6 +1,7 @@
 <template>
   <div>
-    <AboutIntro />
+    <AboutIntro
+      :document="introDoc" />
 
     <AboutCv />
 
@@ -33,13 +34,16 @@ import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
 
 interface Data {
+  introDoc?: FetchReturn
   faqDoc?: FetchReturn
 }
 
 export default Vue.extend({
   async asyncData({ $content }: Context): Promise<Data> {
-    const faqDoc = await $content('about/faq').fetch() as FetchReturn
-    return { faqDoc }
+    const introPromise = $content('about/1-intro').fetch() as Promise<FetchReturn>
+    const faqPromise = $content('about/5-faq').fetch() as Promise<FetchReturn>
+    const [introDoc, faqDoc] = await Promise.all([introPromise, faqPromise])
+    return { introDoc, faqDoc }
   },
   data: () => ({} as Data),
 })

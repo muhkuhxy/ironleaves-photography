@@ -22,19 +22,24 @@
           animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[53%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-54%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
         <SectionHeader>
-          <template #roofline>Über mich</template>
-          Das geht hinter der Kamera!
+          <template #roofline>{{ document.roofline }}</template>
+          {{ document.title }}
         </SectionHeader>
         <LayoutSpacer />
-        <div class="max-w-xs xl:max-w-sm">
-          <p>
-            Ich mag Eure Neugier! Immerhin wollt ihr ja wissen, wer da als Paparazzi rumspringt und Euch mit der Kamera auf den Leim geht, oder? ;)
-          </p>
-          <p>
-            Ich liebe Bilder, mit denen man einen ganzen Tag in seinen Erinnerungen komplett wieder erleben kann. Und ich bin gerne mit den Menschen zusammen, die zueinander gefunden haben und sich mit ganz viel Liebe und Vertrauen einander zugewendet haben und das feiern möchten. Auf Hochzeiten fotografiere ich besonders gerne, weil mich die Emotionen, die Aufregung und die ganz intimen und einzigartigen Momente immer wieder in den Bann ziehen. Ich freue mich immer wieder über das Vertrauen, das mir wunderbare Hochzeitspaare entgegen bringen, damit ich ihre Hochzeit gestalterisch und fotografisch begleiten darf.
-          </p>
-        </div>
+        <NuxtContent class="flex flex-col gap-4 max-w-xs xl:max-w-sm" :document="document" />
       </SectionContent>
     </div>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  props: {
+    document: {
+      type: Object,
+      required: true
+    }
+  }
+})
+</script>
