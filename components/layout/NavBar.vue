@@ -57,9 +57,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
-import { IlInjection } from '@/types/declarations'
-import { retry } from '~/lib/functions'
+import { mapGetters } from 'vuex'
+import { retry } from '@/lib/functions'
 
 let lastScrollY = 0
 const links = [
@@ -80,10 +79,7 @@ const social = [
   // { name: 'Behance', url: 'https://behance.net/ironleaves' },
 ]
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   props: {
     retractable: {
       type: Boolean,
@@ -104,10 +100,11 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     observer: null as null | IntersectionObserver
   }),
   computed: {
+    ...mapGetters('breakpoints', ['breakpoints']),
     links: () => links,
     social: () => social,
     gtMd(): boolean {
-      return this.$il.breakpoints.gtmd
+      return this.breakpoints.gtmd
     },
     ltMd(): boolean {
       return !this.gtMd

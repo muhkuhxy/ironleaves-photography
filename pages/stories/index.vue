@@ -62,7 +62,7 @@
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
-import { gsap } from '@/lib/gsap'
+import { gsap } from 'gsap'
 import { tagIds, labels, fetchStories } from '@/lib/blog'
 
 interface Data {

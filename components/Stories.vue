@@ -65,25 +65,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
+import { mapActions, mapGetters } from 'vuex'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { stories } from './slides'
-import { IlInjection } from '@/types/declarations'
-import { ScrollTrigger } from '@/lib/gsap'
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   data: () => ({
     scrollTrigger: null as null | ScrollTrigger,
     trigger: false,
     animationInitialized: false,
   }),
   computed: {
+    ...mapGetters('breakpoints', ['breakpoints']),
     slides: () => stories,
   },
   async mounted() {
-    await this.$il.breakpointsReady
+    await this.breakpointsReady()
     this.initAnimations()
   },
   beforeDestroy() {
@@ -95,6 +92,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
     initAnimations() {
       if (!this.$el.tagName) {
         return;

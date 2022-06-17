@@ -1,7 +1,7 @@
 <template>
   <SectionContent class="flex gap-x-8 relative py-32 story-telling">
     <div
-      v-show="$il.breakpoints.gtlg"
+      v-show="breakpoints.gtlg"
       class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center">
       <div
         v-for="(dot,index) in chapters"
@@ -10,7 +10,7 @@
         :class="chaptersActive[index] ? 'scale-[1.2] my-1' : 'scale-[0.65]'"/>
     </div>
     <transition-group
-      v-show="$il.breakpoints.gtlg"
+      v-show="breakpoints.gtlg"
       name="fade"
       class="sticky w-[60%] mr-8 h-[100vh] top-0"
       tag="div">
@@ -27,7 +27,7 @@
         :key="`chapter-${chapterIndex}`"
         class="chapter flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]">
         <div
-          v-show="!$il.breakpoints.gtlg"
+          v-show="!breakpoints.gtlg"
           class="lg:w-[60%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center">
           <img
             :src="require(`~/assets/images/${chapter.img}`)"
@@ -43,9 +43,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
-import { IlInjection } from '@/types/declarations'
-import { ScrollTrigger } from '@/lib/gsap'
+import { mapActions, mapGetters } from 'vuex'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { retry } from '~/lib/functions'
 
 interface Data {
@@ -53,10 +52,7 @@ interface Data {
   chaptersActive: boolean[]
 }
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   props: {
     chapters: {
       type: Array,
@@ -67,8 +63,9 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     animationInitialized: false,
     chaptersActive: [true],
   } as Data),
+  computed: mapGetters('breakpoints', ['breakpoints']),
   async mounted() {
-    await this.$il.breakpointsReady
+    await this.breakpointsReady()
     this.initAnimations()
   },
   updated() {
@@ -77,6 +74,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
     initAnimations() {
       if (this.$el.tagName) {
         retry(`StoryTelling chapter init`, 10, 500, () => {

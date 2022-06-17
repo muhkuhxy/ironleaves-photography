@@ -7,9 +7,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { retry } from '~/lib/functions'
-import { animateHeroFlower } from '~/lib/lottie'
-import { ScrollTrigger } from '~/lib/gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { retry } from '@/lib/functions'
+import { animateHeroFlower } from '@/lib/lottie'
 
 export default Vue.extend({
   props: {

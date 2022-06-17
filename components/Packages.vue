@@ -95,20 +95,18 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
-import { IlInjection } from '@/types/declarations'
-import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { mapActions, mapGetters } from 'vuex'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   data: () => ({
     open: [false, false, false, false],
     animationInitialized: false
   }),
+  computed: mapGetters('breakpoints', ['breakpoints']),
   async mounted() {
-    await this.$il.breakpointsReady
+    await this.breakpointsReady()
     this.initAnimations()
   },
   updated() {
@@ -117,19 +115,20 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
     toggle(index: number) {
       this.open = this.open.map((open: boolean, i: number) => !open && i === index)
     },
     initAnimations() {
-      if (this.$el.tagName) {
+      if (this.$el.tagName && this.$refs.content) {
         ScrollTrigger.create({
-          trigger: (this.$refs.content as Vue)?.$el,
+          trigger: (this.$refs.content as Vue).$el,
           // markers: true,
           start: () => 'top+=200px bottom',
           end: () => 'bottom-=100px top',
           onToggle: (self: any) => {
-            if (this.$il.breakpoints.gtmd) {
-              const packages = Array.from(this.$el.querySelectorAll('.package'))
+            if (this.breakpoints.gtmd) {
+              const packages = this.$el.querySelectorAll('.package')
               gsap.from(packages, {
                 duration: 1.5,
                 opacity: 0,

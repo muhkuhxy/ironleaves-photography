@@ -21,13 +21,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
-import { IlInjection } from '@/types/declarations'
+import { mapGetters } from 'vuex'
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   props: {
     btnClass: {
       type: String,
@@ -38,8 +34,9 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     showMore: false,
   }),
   computed: {
+    ...mapGetters('breakpoints', ['breakpoints']),
     gtSm(): boolean {
-      return this.$il.breakpoints.gtsm
+      return this.breakpoints.gtsm
     },
   },
 })

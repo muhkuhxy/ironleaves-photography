@@ -13,7 +13,7 @@ export function dropWhile<T>(elements: T[], predicate: (_: T) => boolean): T[] {
   return elements.slice(index+1)
 }
 
-export function zipObject<K, V>(keys: K[], values: V[]): Record<K, V> {
+export function zipObject<K extends string | number | symbol, V>(keys: K[], values: V[]): Record<K, V> {
   return keys.reduce((result, key, index) => {
     result[key] = values[index]
     return result

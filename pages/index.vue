@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ScrollTrigger } from '@/lib/gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default Vue.extend({
   // @ts-ignore

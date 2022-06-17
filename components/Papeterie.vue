@@ -56,25 +56,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
+import { mapActions, mapGetters } from 'vuex'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { papeterie } from './slides'
-import { IlInjection } from '@/types/declarations'
-import { parallax, ScrollTrigger, slideUp } from '@/lib/gsap'
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   data: () => ({
     scrollTrigger: null as null | ScrollTrigger,
     trigger: false,
     animationInitialized: false,
   }),
   computed: {
+    ...mapGetters('breakpoints', ['breakpoints']),
     slides: () => papeterie,
   },
   async mounted() {
-    await this.$il.breakpointsReady
+    await this.breakpointsReady()
     this.initAnimations()
   },
   beforeDestroy() {
@@ -86,16 +83,17 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
     initAnimations() {
       if (!this.$el.tagName) {
         return;
       }
-      if (this.$il.breakpoints.gtlg) {
-        slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
+      if (this.breakpoints.gtlg) {
+        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp({ delay, y }, el as HTMLElement)
+            this.$anim.slideUp({ delay, y }, el as HTMLElement)
           })
       }
       this.scrollTrigger = ScrollTrigger.create({
@@ -108,7 +106,7 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
           this.scrollTrigger = null
         }
       })
-      parallax('papeterie', this.$el.querySelector('.parallax-pic') as HTMLElement)
+      this.$anim.parallax('papeterie', this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     },
   }

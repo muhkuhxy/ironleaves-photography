@@ -13,7 +13,7 @@
           </picture>
           <SvgPetalFlower class="text-emerald fill-current w-[min(30%,7rem)] xl:w-32 absolute bottom-0 left-0 -mb-8 sm:-mb-12 lg:ml-6 rotate-[-20deg]"/>
         </figure>
-        
+
         <div class="slide-up lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left">
           <SectionHeader>
             <template #roofline>Aus dem Nähkästchen</template>
@@ -30,3 +30,41 @@
     </SectionContent>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { mapActions, mapGetters } from 'vuex'
+
+export default Vue.extend({
+  data: () => ({
+    animationInitialized: false
+  }),
+  computed: mapGetters('breakpoints', ['breakpoints']),
+  async mounted() {
+    await this.breakpointsReady()
+    this.initAnimations()
+  },
+  updated() {
+    if (!this.animationInitialized) {
+      this.initAnimations()
+    }
+  },
+  methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
+    initAnimations() {
+      if (!this.$el.tagName) {
+        return
+      }
+      if (this.breakpoints.gtlg) {
+        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
+        Array.from(this.$el.querySelectorAll('.slide-up'))
+          .forEach(el => {
+            const { delay, y } = (el as HTMLElement).dataset
+            this.$anim.slideUp({ delay, y }, el as HTMLElement)
+          })
+      }
+      this.animationInitialized = true
+    }
+  }
+})
+</script>

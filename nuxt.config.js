@@ -32,6 +32,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/click-outside.client.js',
+    '~/plugins/animations.client.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

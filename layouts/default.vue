@@ -17,35 +17,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
+import { mapMutations } from 'vuex'
 import { loadCurator } from '@/lib/curator'
-import { scrollToTop } from '~/lib/functions'
-
-let ready: (_: null) => void
-const breakpointsReady = new Promise(resolve => {
-  ready = resolve
-})
+import { scrollToTop } from '@/lib/functions'
 
 export default Vue.extend({
-  provide(): IlInjection {
-    return {
-      '$il': {
-        breakpoints: this.breakpoints,
-        breakpointsReady
-      }
-    }
-  },
-  data: (): { breakpoints: Breakpoints } => ({
-    breakpoints: {
-      gtsm: false,
-      gtmd: false,
-      gtlg: false,
-      gtxl: false,
-      gt2xl: false
-    },
-  }),
   mounted() {
-    this.$nextTick(() => this.updateBreakpoints())
+    this.$nextTick(this.updateBreakpoints)
     window.addEventListener('resize', this.updateBreakpoints)
     loadCurator()
   },
@@ -53,14 +31,7 @@ export default Vue.extend({
     window.removeEventListener('resize', this.updateBreakpoints)
   },
   methods: {
-    updateBreakpoints() {
-      Object.entries(breakpoints)
-      .reduce((result, [breakpoint, value]) => {
-        result[`gt${breakpoint}`] = window.innerWidth >= value
-        return result
-      }, this.breakpoints)
-      ready(null)
-    },
+    ...mapMutations('breakpoints', ['updateBreakpoints']),
     scrollToTop,
   }
 })

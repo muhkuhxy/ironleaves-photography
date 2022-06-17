@@ -17,36 +17,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Breakpoints, breakpoints, IlInjection } from '@/types/declarations'
 import { loadCurator } from '@/lib/curator'
-import { retry, scrollToTop } from '~/lib/functions'
-
-let ready: (_: null) => void
-const breakpointsReady = new Promise(resolve => {
-  ready = resolve
-})
+import { retry, scrollToTop } from '@/lib/functions'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default Vue.extend({
-  provide(): IlInjection {
-    return {
-      '$il': {
-        breakpoints: this.breakpoints,
-        breakpointsReady
-      }
-    }
-  },
   scrollToTop: false,
-  data: (): { breakpoints: Breakpoints } => ({
-    breakpoints: {
-      gtsm: false,
-      gtmd: false,
-      gtlg: false,
-      gtxl: false,
-      gt2xl: false
-    },
-  }),
   mounted() {
-    this.$nextTick(() => this.updateBreakpoints())
+    this.$nextTick(this.updateBreakpoints)
     window.addEventListener('resize', this.updateBreakpoints)
     loadCurator()
     if (this.$route.hash) {
@@ -58,15 +36,9 @@ export default Vue.extend({
   beforeDestroy() {
     window.removeEventListener('resize', this.updateBreakpoints)
   },
+  computed: mapGetters('breakpoints', ['breakpoints']),
   methods: {
-    updateBreakpoints() {
-      Object.entries(breakpoints)
-        .reduce((result, [breakpoint, value]) => {
-          result[`gt${breakpoint}`] = window.innerWidth >= value
-          return result
-        }, this.breakpoints)
-      ready(null)
-    },
+    ...mapMutations('breakpoints', ['updateBreakpoints']),
     initialScroll() {
       let offset: number | undefined
       retry('landing: initial scroll', 10, 250, () => {

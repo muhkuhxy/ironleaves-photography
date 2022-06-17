@@ -49,19 +49,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { VueConstructor } from 'vue/types/vue'
-import { IlInjection } from '@/types/declarations'
-import { slideUp, parallax } from '@/lib/gsap'
+import { mapActions, mapGetters } from 'vuex'
 
-export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-  inject: {
-    $il: '$il'
-  } as Record<keyof IlInjection, string>,
+export default Vue.extend({
   data: () => ({
     animationInitialized: false
   }),
+  computed: mapGetters('breakpoints', ['breakpoints']),
   async mounted() {
-    await this.$il.breakpointsReady
+    await this.breakpointsReady()
     this.initAnimations()
   },
   updated() {
@@ -70,19 +66,20 @@ export default (Vue as VueConstructor<Vue & IlInjection>).extend({
     }
   },
   methods: {
+    ...mapActions('breakpoints', ['breakpointsReady']),
     initAnimations() {
       if (!this.$el.tagName) {
         return
       }
-      if (this.$il.breakpoints.gtlg) {
-        slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
+      if (this.breakpoints.gtlg) {
+        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
         Array.from(this.$el.querySelectorAll('.slide-up'))
           .forEach(el => {
             const { delay, y } = (el as HTMLElement).dataset
-            slideUp({ delay, y }, el as HTMLElement)
+            this.$anim.slideUp({ delay, y }, el as HTMLElement)
           })
       }
-      parallax('candor', this.$el.querySelector('.parallax-pic') as HTMLElement)
+      this.$anim.parallax('candor', this.$el.querySelector('.parallax-pic') as HTMLElement)
       this.animationInitialized = true
     }
   }

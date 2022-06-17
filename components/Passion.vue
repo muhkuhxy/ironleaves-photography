@@ -25,7 +25,7 @@
       </SectionLines>
       <SectionContent class="relative">
         <IlAnimatedHeroFlower
-          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]" 
+          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
         <SectionHeader>
           <template #roofline>Leidenschaft</template>
@@ -44,8 +44,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { gsap } from '@/lib/gsap'
-import { retry } from '~/lib/functions'
+import { gsap } from 'gsap'
+import { retry } from '@/lib/functions'
 
 export default Vue.extend({
   data: () => ({
