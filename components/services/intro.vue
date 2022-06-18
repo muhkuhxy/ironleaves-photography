@@ -21,17 +21,28 @@
         <IlAnimatedHeroFlower
           animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
-        <SectionHeader>
-          <template #roofline>Übersicht</template>
-          Für einen unvergesslichen Tag
+
+        <SectionHeader class="max-w-2xl">
+          <template #roofline>{{ document.roofline }}</template>
+          {{ document.title }}
         </SectionHeader>
+
         <LayoutSpacer />
-        <div class="max-w-xs xl:max-w-sm">
-          <p>
-            Hier könnt ihr euch einen Überblick über meine Leistungen verschaffen.  Für euch ist die Auswahl eines Fotografen für eure Hochzeit eine wichtige Entscheidung, weil nicht nur die Fotos wunderschön sein sollen, sondern auch die Chemie stimmen muss. Die Fotos sollen noch viele Jahre Gänsehaut hervorrufen und euch ein Lächeln auf das Gesicht zaubern.  Deswegen möchte ich nicht nur als Fotograf, sondern als Unterstützer, Berater und Freund Teil eurer Hochzeit sein.
-          </p>
-        </div>
+        <NuxtContent class="max-w-xs xl:max-w-sm" :document="document"></NuxtContent>
       </SectionContent>
     </div>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    document: {
+      type: Object,
+      required: true
+    }
+  },
+})
+</script>

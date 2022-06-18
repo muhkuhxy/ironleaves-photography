@@ -4,13 +4,27 @@
 
     <LooksComparison :document="documents.comparison" />
 
-    <LooksAspects />
+    <IconBase class="text-sunset w-full h-16 translate-y-8">
+      <IconArrow />
+    </IconBase>
 
-    <LooksHowTo />
+    <LooksAspects
+      :document="documents.aspects" />
+
+    <LooksHowTo
+      :document="documents.howto"/>
+
+    <IconBase class="text-sunset w-full h-16 -translate-y-8">
+      <IconArrow />
+    </IconBase>
 
     <LooksTips />
 
+    <LayoutSpacer />
+
     <ContactLink />
+
+    <LayoutSpacer />
   </div>
 </template>
 
@@ -28,8 +42,6 @@ export default Vue.extend({
   async asyncData({ $content }: Context): Promise<Data> {
     const documents = await $content('looks').fetch() as FetchReturn[]
     const keys = documents.map(_ => _.slug.split('-', 2)[1])
-    // console.log({keys, documents})
-    // ['intro', 'comparison']
     return { documents: zipObject(keys, documents) }
   },
   data: () => ({} as Data),

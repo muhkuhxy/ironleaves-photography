@@ -1,31 +1,33 @@
 <template>
-  <SectionContent class="mt-[50vh]">
+  <SectionContent class="text-bluegray mt-[50vh]" :fluffy="true">
     <div
       data-animation="carousel"
-      class="relative h-[50vh] lg:h-[85vh] [perspective:3000px] [transform-style:preserve-3d]"
+      class="grid grid-rows-[4fr,1fr] grid-cols-4 justify-between gap-2 sm:block relative sm:h-[50vh] lg:h-[85vh] [perspective:3000px] [transform-style:preserve-3d]"
       @mouseenter="() => timeline && timeline.pause()"
       @mouseleave="() => timeline && timeline.play()">
       <div
           v-for="(img,index) in document.imgs"
           :key="index"
           data-animation="box"
-          class="absolute inset-0 inline-block [perspective:0] [transform-style:preserve-3d] md:scale-100 md:z-auto w-[50%] md:w-[55%] md:translate-x-0 h-full m-auto"
-          :class="{
-            'z-20': index === 2,
-            'scale-75 z-10': index === 1 || index === 3,
-            'translate-x-[-40%]': index === 1,
-            'translate-x-[40%]': index === 3,
-            'scale-50': index === 0 || index === 4,
-            'translate-x-[-75%]': index === 0,
-            'translate-x-[75%]': index === 4,
-          }"
+          class="sm:absolute inset-0 inline-block [perspective:0] [transform-style:preserve-3d] md:scale-100 md:z-auto w-full sm:w-[50%] md:translate-x-0 h-full m-auto"
+          :class="cssClasses[index]"
           >
           <div class="h-full origin-center">
             <img
-              class="w-full h-full object-cover aspect-[1/3]"
+              class="w-full h-full object-cover aspect-square sm:aspect-[1/3]"
               :src="require(`/assets/images/${img}`)">
           </div>
       </div>
+    </div>
+
+    <div class="max-w-prose mx-auto mt-[6rem] md:mt-[10rem]">
+      <SectionHeader class="text-center">
+        {{ document.title }}
+      </SectionHeader>
+
+      <LayoutSpacer />
+
+      <NuxtContent :document="document" />
     </div>
   </SectionContent>
 </template>
@@ -51,7 +53,21 @@ export default Vue.extend({
     }
   },
   data: () => new Data(),
-  computed: mapGetters('breakpoints', ['breakpoints']),
+  computed: {
+    ...mapGetters('breakpoints', ['breakpoints']),
+    cssClasses() {
+      const front = 'sm:z-20 start-row-1 col-span-4'
+      const middle = 'sm:scale-75 sm:z-10 row-start-2'
+      const back = 'sm:scale-50 row-start-2'
+      return {
+        0: [back, 'sm:translate-x-[-75%]'],
+        1: [middle, 'sm:translate-x-[-40%]'],
+        2: [front],
+        3: [middle, 'sm:translate-x-[40%]'],
+        4: [back, 'sm:translate-x-[75%]'],
+      }
+    }
+  },
   async mounted() {
     await this.breakpointsReady()
     this.initAnimations()
@@ -87,7 +103,7 @@ export default Vue.extend({
       this.timeline?.kill()
       this.timeline = this.$anim.carousel3d(this.$el.querySelector('[data-animation=carousel]') as HTMLElement, this.$el.querySelectorAll('[data-animation=box]'), {
         // paused: true,
-        duration: 20,
+        duration: this.breakpoints.gt2xl ? 30 : 20,
         progress,
       })
     }

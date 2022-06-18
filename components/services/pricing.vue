@@ -15,16 +15,27 @@
         </figure>
         <div class="slide-up lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left">
           <SectionHeader>
-            <template #roofline>Klartext</template>
-            Faire Preise für wertvolle Momente
+            <template #roofline>{{ document.roofline }}</template>
+            {{ document.title }}
           </SectionHeader>
           <LayoutSpacer />
-          <div class="max-w-prose space-y-4">
-            <p>Mir ist Transparenz sehr wichtig. Ich persönlich mag auch keine Dienstleister, die ich erst anschreiben muss, bevor sie mir einen Preis nennen. Viele Fotografen behaaren auch erst auf ein Gespräch, bevor sie einen Preis nennen. Und ganz ehrlich? Das würde ich auch gerne, weil die Sympathie am Ende der entscheidende Faktor sein sollte!</p>
-            <p>Ein gutes Miteinander basiert in erster Linie aber auf Kommunikation und Ehrlichkeit. Du bekommst mich für 260 Euro pro Stunde (zzgl. Reise- bzw.  Übernachtungskosten). Ihr könnt auch am selben tag noch entscheiden, ob ich etwas länger bleiben oder früher gehen soll. Ganz flexibel und ohne Gedöns.</p>
-          </div>
+          <NuxtContent class="max-w-prose space-y-4" :document="document"></NuxtContent>
         </div>
       </div>
     </SectionContent>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    document: {
+      type: Object,
+      required: true
+    }
+  },
+})
+</script>
+

@@ -1,7 +1,7 @@
 <template>
   <div>
     <AboutIntro
-      :document="introDoc" />
+      :document="documents.intro" />
 
     <AboutCv />
 
@@ -9,8 +9,8 @@
 
     <AboutStyle />
 
-    <AboutFaq 
-      :document="faqDoc" />
+    <AboutFaq
+      :document="documents.faq" />
 
     <IconBase class="text-sunset w-full h-16">
       <IconArrow />
@@ -19,7 +19,7 @@
     <LayoutSpacer />
 
     <ContactLink />
-    
+
     <LayoutSpacer />
 
     <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
@@ -32,18 +32,17 @@
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
+import { zipObject } from '@/lib/collections'
 
 interface Data {
-  introDoc?: FetchReturn
-  faqDoc?: FetchReturn
+  documents: Record<string, FetchReturn>
 }
 
 export default Vue.extend({
   async asyncData({ $content }: Context): Promise<Data> {
-    const introPromise = $content('about/1-intro').fetch() as Promise<FetchReturn>
-    const faqPromise = $content('about/5-faq').fetch() as Promise<FetchReturn>
-    const [introDoc, faqDoc] = await Promise.all([introPromise, faqPromise])
-    return { introDoc, faqDoc }
+    const documents = await $content('about').fetch() as FetchReturn[]
+    const keys = documents.map(_ => _.slug.split('-', 2)[1])
+    return { documents: zipObject(keys, documents) }
   },
   data: () => ({} as Data),
 })

@@ -8,10 +8,10 @@
     <LayoutSpacer />
 
     <SectionHeader class="text-center">
-      <template #roofline>Pakete</template>
+      <template #roofline>{{ document.roofline }}</template>
       {{ document.title }}
     </SectionHeader>
-    
+
     <IlStoryTelling
       :chapters="chapters"
     ></IlStoryTelling>
