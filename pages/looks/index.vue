@@ -11,20 +11,27 @@
     <LooksAspects
       :document="documents.aspects" />
 
+    <LayoutSpacer />
+
     <LooksHowTo
       :document="documents.howto"/>
 
-    <IconBase class="text-sunset w-full h-16 -translate-y-8">
+    <IconBase class="text-sunset w-full h-16 -translate-y-6">
       <IconArrow />
     </IconBase>
 
-    <LooksTips />
+    <LooksTips
+      :document="documents.tips" />
 
     <LayoutSpacer />
 
     <ContactLink />
 
     <LayoutSpacer />
+
+    <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+      <IconArrow />
+    </IconBase>
   </div>
 </template>
 
