@@ -10,8 +10,8 @@
           :src="require(`~/assets/images/${url}`)">
       </div>
     </div>
-    <IlSliderArrow side="left" @click="swiper.slidePrev()" />
-    <IlSliderArrow side="right" @click="swiper.slideNext()" />
+    <IlSliderArrow side="left" @click="transitioning || swiper.slidePrev()" />
+    <IlSliderArrow side="right" @click="transitioning || swiper.slideNext()" />
   </div>
 </template>
 
@@ -29,10 +29,15 @@ export default Vue.extend({
       required: true
     }
   },
-  data: (): { swiper: null | Swiper, id: number } => {
+  data: (): {
+      swiper: Swiper | null,
+      id: number,
+      transitioning: boolean
+    } => {
     return {
       swiper: null,
-      id: id++
+      id: id++,
+      transitioning: false
     }
   },
   mounted() {
@@ -42,7 +47,11 @@ export default Vue.extend({
       slidesPerView: 'auto',
       loopedSlides: this.slides.length,
       centeredSlides: true,
-      slideToClickedSlide: true
+      slideToClickedSlide: true,
+      on: {
+        slideChangeTransitionStart: () => { this.transitioning = true; },
+        slideChangeTransitionEnd: () => { this.transitioning = false; }
+      }
     })
     setTimeout(this.fixSlider, 250)
   },
