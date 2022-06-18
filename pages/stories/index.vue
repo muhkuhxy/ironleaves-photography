@@ -64,6 +64,7 @@ import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
 import { gsap } from 'gsap'
 import { tagIds, labels, fetchStories } from '@/lib/blog'
+import { scrollToTop } from '@/lib/functions'
 
 interface Data {
   query: string
@@ -75,7 +76,6 @@ interface Data {
 }
 
 export default Vue.extend({
-  scrollToTop: true,
   async asyncData(context: Context): Promise<{ articles: FetchReturn[]}> {
     const articles = await fetchStories(context)
     return { articles }
@@ -87,6 +87,9 @@ export default Vue.extend({
     loading: false,
     showingFilters: false
   } as Data),
+  mounted() {
+    this.$nextTick(() => scrollToTop(false))
+  },
   methods: {
     async filter(tag: string): Promise<void> {
       this.query = tag

@@ -1,5 +1,6 @@
 <template>
-  <SectionParent class="text-bluegray">
+  <SectionParent
+    class="text-bluegray">
     <IlStory
       :slides="document.slides"
       :chapters="chapters">
@@ -67,20 +68,24 @@ import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
 import { labels, fetchStories } from '@/lib/blog'
 import { splitChapters, Node, ElementNode } from '@/lib/content'
+import { scrollToTop } from '@/lib/functions'
 
 interface Data {
   document?: FetchReturn
   articles: FetchReturn[]
-  slug?: string
 }
 
 export default Vue.extend({
-  scrollToTop: true,
+  beforeRouteUpdate(_to: unknown, _from: unknown, next: () => void) {
+    // console.log('route update')
+    next()
+    this.$nextTick(() => scrollToTop(false))
+  },
   async asyncData({ params, $content }: Context): Promise<Data> {
       const slug = params.slug
       const document = await $content(`stories/${slug}`).fetch() as FetchReturn
       const articles = await fetchStories({ $content }, { limit: 2, where: { slug: { $ne: slug } } })
-      return { document, articles, slug }
+      return { document, articles }
   },
   data: () => ({} as Data),
   computed: {
@@ -93,5 +98,9 @@ export default Vue.extend({
         }))
     },
   },
+  mounted() {
+    // console.log('mounted')
+    this.$nextTick(() => scrollToTop(false))
+  }
 })
 </script>

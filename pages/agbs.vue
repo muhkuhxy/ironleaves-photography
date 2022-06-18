@@ -489,7 +489,12 @@ Ironleaves Photography geregelt, die auf der Website abgerufen werden kann.
 
 <script lang="ts">
 import Vue from 'vue'
+import { scrollToTop } from '@/lib/functions'
+
 export default Vue.extend({
+  mounted() {
+    this.$nextTick(() => scrollToTop(false))
+  },
 })
 </script>
 

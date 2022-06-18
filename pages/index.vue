@@ -19,7 +19,6 @@ import Vue from 'vue'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default Vue.extend({
-  // @ts-ignore
   layout: 'landing',
   mounted() {
     this.$nuxt.$on('grow', () => {

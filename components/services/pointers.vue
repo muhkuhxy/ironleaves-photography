@@ -1,6 +1,7 @@
 <template>
   <SectionParent>
     <SectionContent
+      :fluffy="true"
       class=" text-emerald text-center">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 justify-center max-w-prose lg:max-w-none mx-auto text-center lg:text-left">
         <div class="col-start-1">

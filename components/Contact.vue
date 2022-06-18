@@ -130,6 +130,7 @@ async function sendForm(form: Form, fake: boolean): Promise<Response> {
 }
 
 function fakeSendForm(payload: any): Promise<Response> {
+  // eslint-disable-next-line no-console
   console.log('sending', payload)
   return new Promise((resolve, reject) => {
     if (Date.now() % 2 === 0) {
@@ -249,6 +250,7 @@ export default Vue.extend({
         const response = await sendForm(form, false)
         transit.success = response.ok
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error)
         transit.error = true
       } finally {

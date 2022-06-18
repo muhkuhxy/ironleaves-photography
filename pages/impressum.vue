@@ -112,7 +112,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import * as mail from '@/lib/mail'
+import { scrollToTop } from '@/lib/functions'
+
 export default Vue.extend({
+  mounted() {
+    this.$nextTick(() => scrollToTop(false))
+  },
   methods: {
     ...mail
   }

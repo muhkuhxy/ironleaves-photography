@@ -32,6 +32,7 @@
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
+import { scrollToTop } from '@/lib/functions'
 import { zipObject } from '@/lib/collections'
 
 interface Data {
@@ -45,5 +46,8 @@ export default Vue.extend({
     return { documents: zipObject(keys, documents) }
   },
   data: () => ({} as Data),
+  mounted() {
+    this.$nextTick(() => scrollToTop(false))
+  }
 })
 </script>

@@ -28,7 +28,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* applied by layout - scroll-behavior: smooth; */
   }
 
   /* stylelint-disable-next-line no-invalid-position-at-import-rule */
@@ -37,11 +37,11 @@
   @font-face {
     font-family: Notes;
     font-weight: 400;
-    src: url(~/assets/fonts/Notes.otf)
+    src: url('~/assets/fonts/Notes.otf')
   }
 
   :root {
-    font-family: 'Nunito', sans-serif;
+    font-family: Nunito, sans-serif;
   }
 
   .playfair {

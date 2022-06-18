@@ -11,7 +11,7 @@
     <ButtonArrow
       class="fixed bottom-[1rem] right-[1rem] bg-white opacity-90 w-10 md:w-12 h-10 md:h-12 p-[0.35rem] shadow-lg border border-sunset border-opacity-50 z-50"
       title="Back to top"
-      @click="scrollToTop" />
+      @click="() => scrollToTop(true)" />
   </div>
 </template>
 
@@ -26,6 +26,7 @@ export default Vue.extend({
     this.$nextTick(this.updateBreakpoints)
     window.addEventListener('resize', this.updateBreakpoints)
     loadCurator()
+    document.documentElement.classList.add('scroll-smooth')
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.updateBreakpoints)
@@ -33,6 +34,6 @@ export default Vue.extend({
   methods: {
     ...mapMutations('breakpoints', ['updateBreakpoints']),
     scrollToTop,
-  }
+  },
 })
 </script>
