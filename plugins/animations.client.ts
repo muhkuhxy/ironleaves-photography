@@ -143,11 +143,19 @@ Features:
 // 	return tl;
 // }
 
-function carousel3d(draggable: string | HTMLElement, boxes: string | NodeListOf<HTMLElement>, userConfig: {
+export interface Carousel3dTimeline {
+  kill: () => void
+  play: () => void
+  pause: () => void
+  progress: () => number
+}
+
+function carousel3d(draggableEl: HTMLElement, boxes: NodeListOf<HTMLElement>, userConfig: {
   repeat?: number,
   duration?: number,
-  paused?: boolean
-}) {
+  paused?: boolean,
+  progress?: number,
+}): Carousel3dTimeline {
   const config = {
     repeat: -1,
     duration: 10,
@@ -157,14 +165,19 @@ function carousel3d(draggable: string | HTMLElement, boxes: string | NodeListOf<
 
   const inners: Element[] = []
 
+  // const computedStyle = getComputedStyle(draggable)
+  const transformOriginZ = -draggableEl.clientWidth / 2
+
   gsap.utils.toArray(boxes).forEach((value, index) => {
     const box = value as HTMLElement
     gsap.set(box, {
       rotateY: index * 360 / boxes.length,
+      transformOrigin: `50% 50% ${transformOriginZ}`
     })
     const inner = box.children[0]
     gsap.set(inner, {
       rotateY: index * 360 / (-boxes.length / 2),
+      transformOrigin: undefined
     })
     inners.push(inner)
   })
@@ -182,13 +195,54 @@ function carousel3d(draggable: string | HTMLElement, boxes: string | NodeListOf<
     duration: config.duration,
   }, 0)
 
-	tl.progress(1, true).progress(0, true); // pre-render for performance
+	tl.progress(1, true).progress(config.progress ?? 0, true); // pre-render for performance
 
-  Draggable.create(draggable, {
-    type: 'rotation'
+  const proxy = document.createElement('div')
+  const progressWrap = gsap.utils.wrap(0, 1)
+  const dragDistancePerRotation = 3000
+  let startProgress = 0
+
+  const draggable = Draggable.create(proxy, {
+    trigger: draggableEl,
+    type: 'x',
+    allowNativeTouchScrolling: true,
+    onPress() {
+      startProgress = tl.progress()
+      tl.pause()
+    },
+    onDrag() {
+      const progress = startProgress + (this.startX - this.x) / -dragDistancePerRotation
+      tl.progress(progressWrap(progress))
+    },
   })
 
-  return tl
+  let pauseTween: gsap.core.Tween | null = null
+  let playTween: gsap.core.Tween | null = null
+  return {
+    progress: tl.progress.bind(tl),
+    kill() {
+      tl.kill()
+      draggable[0].kill()
+      pauseTween?.kill()
+      playTween?.kill()
+    },
+    pause() {
+      pauseTween = gsap.to(tl, {
+        timeScale: 0,
+        duration: 0.5,
+        onComplete: () => { tl.pause() },
+        onInterrupt: () => { tl.pause() }
+      })
+    },
+    play() {
+      pauseTween?.kill()
+      tl.play()
+      playTween = gsap.to(tl, {
+        timeScale: 1,
+        duration: 1,
+      })
+    }
+  }
 }
 
 interface AnimationPlugin {

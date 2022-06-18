@@ -45,7 +45,7 @@
 import Vue from 'vue'
 import { mapActions, mapGetters } from 'vuex'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { retry } from '~/lib/functions'
+import { retry } from '@/lib/functions'
 
 interface Data {
   animationInitialized: boolean

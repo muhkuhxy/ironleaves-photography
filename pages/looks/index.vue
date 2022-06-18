@@ -18,7 +18,7 @@
 import Vue from 'vue'
 import { FetchReturn } from '@nuxt/content/types/query-builder'
 import { Context } from '@nuxt/types'
-import { zipObject } from '~/lib/collections'
+import { zipObject } from '@/lib/collections'
 
 interface Data {
   documents: Record<string, FetchReturn>
