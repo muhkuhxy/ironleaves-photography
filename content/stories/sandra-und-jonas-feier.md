@@ -36,7 +36,14 @@ slides:
   - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-liebesbier.jpg
   - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-regen-nass-hochzeitsauto.jpg
   - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-sitzplan-papeterie.jpg
-
+testimonial:
+  name: Sandra & Jonas
+  imgSrc: stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-kundenstimme.jpg
+  imgAlt: Sandra & Jonas Kundenstimme
+  text: >
+    Wir waren super zufrieden und empfehlen Tamara gerne weiter! 
+    Sie hat uns bereits bei den Einladungskarten unterstützt. Wir hatten einige Vorstellungen und sie hat diese für uns perfekt umgesetzt.
+    Bei der Feier war sie die ganze Zeit gut gelaunt, nie aufdringlich und gleichzeitig immer da, um schöne Momente einzufangen.
 ---
 Am Tag der Hochzeit hat es schon morgens ziemlich stark geregnet. Nach der Kirche sogar so schlimm, dass das Shooting erstmal nicht stattfinden konnte. Und ganz ehrlich? Das hat den Tag sogar noch viel besser gemacht, als ursprünglich geplant! Lest hier, wie Sandras und Jonas Hochzeitstag war!
 <!--more-->

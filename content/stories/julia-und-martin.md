@@ -33,6 +33,14 @@ slides:
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg
   - stories/julia_martin/ironleaves-photography-stories-julia-martin-slider-ungestellt-ehrlich.jpg
+testimonial:
+  name: Julia & Martin
+  imgSrc: stories/julia_martin/ironleaves-photography-stories-julia-martin-kundenstimme.jpg
+  imgAlt: Julia & Martin Kundenstimme
+  text: >
+    Wir sind Tamara so dankbar, dass sie unser Brautpaarshooting übernommen hat.
+    Selbst als kamerascheues Pärchen hat sie es mit ihrer lockeren und liebevollen Art geschafft, dass wir uns die gesamte Zeit über wohlgefühlt haben.
+    Sie ist wunderbar auf uns eingegangen und hat tolle Erinnerungen für uns geschaffen. Vielen Dank!
 ---
 Julia und Martins Hochzeit war für mich etwas ganz Besonderes – nicht zuletzt, weil die beiden schon lange sehr wichtige Menschen in meinem Leben sind. Was für eine Ehre, dass ich für ihre wunderschöne, kleine Hochzeit als Hochzeitsfotografin und Gast da sein durfte!
 <!--more-->

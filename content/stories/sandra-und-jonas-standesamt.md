@@ -26,7 +26,14 @@ slides:
   - stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-schlossgarten-eckersdorf.jpg
   - stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-schlossgarten-pflanzenbogen.jpg
   - stories/sandra_jonas_standesamt/ironleaves-photography-stories-sandra-jonas-standesamt-slider-reportage-spontaner-kuss.jpg
-
+testimonial:
+  name: Sandra & Jonas
+  imgSrc: stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-kundenstimme.jpg
+  imgAlt: Sandra & Jonas Kundenstimme
+  text: >
+    Wir waren super zufrieden und empfehlen Tamara gerne weiter! 
+    Sie hat uns bereits bei den Einladungskarten unterstützt. Wir hatten einige Vorstellungen und sie hat diese für uns perfekt umgesetzt.
+    Bei der Feier war sie die ganze Zeit gut gelaunt, nie aufdringlich und gleichzeitig immer da, um schöne Momente einzufangen.
 ---
 Für Sandra und Jonas durfte ich das volle Programm machen – Beratung bei der Planung und das Design der Papeterie. Um Hochzeitsstress zu vermeiden, haben sie alles einfach aufgeteilt. Erst das Standesamt und an einem anderen Tag die kirchliche Trauung. Warum das so gut war?
 <!--more-->

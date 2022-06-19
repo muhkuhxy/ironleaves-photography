@@ -32,7 +32,14 @@ slides:
   - stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-wald-panorama.jpg
   - stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-wald-schnappschuss.jpg
   - stories/samira_kerem/ironleaves-photography-stories-samira-kerem-slider-wald-shooting.jpg
-
+testimonial:
+  name: Samira & Kerem
+  imgSrc: stories/samira_kerem/ironleaves-photography-stories-samira-kerem-beitrag-kundenstimme.jpg
+  imgAlt: Samira & Kerem Kundenstimme
+  text: >
+    Wir sind wirklich begeistert von deiner Arbeit.
+    Das Shooting war total unkompliziert aber trotzdem nicht unstrukturiert und wir haben uns zu jeder Zeit wohl gefühlt.
+    Du hast große Liebe zum Detail und die Bilder sind einfach perfekt geworden!
 ---
 Samira und Kerem wollten eigentlich im August heiraten. Im sehr großen Stil. Individuell gestaltete Einladungskarten mit Gold-Veredelung inklusive. Doch dann kam Corona und änderte, wie bei vielen Hochzeiten, alles. Vor dem ersten großen Lockdown wurden alle Pläne umgeworfen und ein besonderes Hochzeitsshooting geplant.
 <!--more-->
