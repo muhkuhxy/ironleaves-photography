@@ -7,7 +7,7 @@
     <SectionContent
       class="bg-emerald text-white lg:order-1 flex flex-col justify-center"
       :fluid="true">
-      <h3 class="caption">Kundenstimme</h3>
+      <h3 class="caption font-normal">Kundenstimme</h3>
       <LayoutSpacer />
       <div class="relative flex flex-nowrap justify-self-center">
         <div class="relative self-end -ml-4 sm:ml-0 pr-4 sm:pr-6">
