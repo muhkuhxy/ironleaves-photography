@@ -40,10 +40,13 @@ slides:
   - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-wald-stadtpark-brautpaar.jpg
 testimonial:
   name: Svenja & Beni
-  imgSrc: stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-sonne-gegenlicht-brautpaarshooting.jpg
-  imgAlt: Kundenstimme von Svenja und Beni
+  imgSrc: stories/svenja_beni/ironleaves-photography-stories-svenja-beni-kundenstimme.jpg
+  imgAlt: Svenja und Beni Kundenstimme
   text: >
-    Sleep over your phone and make cute snoring noises sleep all day whilst slave is at work, play all night whilst slave is sleeping. Good now the other hand, too always ensure to lay down in such a manner that tail can lightly brush human's nose yet find box a little too small and curl up with fur hanging out .
+    Tamara hat unsere Hochzeit von Anfang bis Ende begleitet - professionell, zuvorkommend, mitdenkend und auf eine total liebe Art.
+    Sie ist auf all unsere Wünsche eingegangen und hat sich wahnsinnige Mühe gemacht. Nicht nur beim Fotografieren selbst, auch bei der Planung und bei der Fotobearbeitung.
+    Wir sind begeistert von den Fotos und auch vom Shooting. Die Fotos sind natürlich und fangen die Freude an diesem Tag ein, ohne dass es irgendwie verkrampft war oder sich der ganze Tag nur um Fotos gedreht hat.
+    Es war eine total angenehme Begleitung. Wir können Tamara zu 100 Prozent weiterempfehlen!
 ---
 Als die Anfrage von Svenja und Beni für ihre Hochzeit kam, war ich sehr überrascht und habe mich umso mehr gefreut! Svenja und Beni waren auf der Hochzeit von Valerie und Max und waren daher schon bekannte Gesichter. Durch Corona mussten sie etwas warten, bis es mit der kirchlichen Traumhochzeit richtig klappen konnte, aber ihre Geduld hat sich wirklich ausgezahlt und sie konnten eine wunderschöne Herbst-Hochzeit in München feiern.
 <!--more-->
