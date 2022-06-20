@@ -1,6 +1,6 @@
 <template>
   <SectionParent>
-    <SectionContent class="slide-up text-bluegray">
+    <SectionContent :fluffy="true" class="slide-up text-bluegray">
       <div class="flex flex-col lg:flex-row items-center md:gap-8">
         <figure class="slide-up lg:order-2 relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16" data-delay="0.3">
           <picture class="after:absolute after:inset-0 after:w-1/2 after:bg-gradient-to-r after:from-white">

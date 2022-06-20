@@ -26,18 +26,27 @@
           data-y="0"/>
         <div class="slide-up">
           <SectionHeader>
-            <template #roofline>Wertvolle Erinnerungen</template>
-            Eine Investition in den Rest Eures Lebens
+            <template #roofline>{{ document.roofline }}</template>
+            {{ document.title }}
           </SectionHeader>
           <LayoutSpacer />
-          <div class="max-w-prose space-y-4">
-            <p class="font-bold">Fotos sind wertvolle Erinnerungen. Ein Fotoshooting ist eine Investition in Erinnerungen für den Rest eures Lebens. All diese Momente verdienen es liebevoll festgehalten und von euch mit Freude und Hingabe angesehen zu werden. Ich möchte Euch etwas geben, was ihr den Rest eures Lebens ehrt und liebt wie ihr es miteinander tut.</p>
-            <p>Bei den Preisen für den Hochzeitsfotografen könnte man im ersten Moment vielleicht zusammenzucken. Doch es steckt viel mehr dahinter als nur die reine Shootings-Dauer.</p>
-            <p>Umfassende Vorbereitungen, Fahrten und Marketing sind Dinge, die nicht explizit im Preis mitberechnet sind. Und nach dem eigentlichen Shooting kommt die Nachbearbeitung. <span class="font-bold">Auf 1 Stunde Shooting kommen rund 2–3 Stunden Bildbearbeitung.</span> Und zu guter letzt hat professionelles Equipment einen stolzen Preis.</p>
-            <p>Fotografen tragen gerade an Hochzeiten auch noch eine riesige Verantwortung. Wer für wichtige Momente schon mal eine Kamera in die Hand gedrückt bekommen hat, weiß, wovon ich rede. Man darf keinen Moment verpassen und muss in jeder Sekunde hochkonzentriert sein. Ihr seht – Fotografen werden bei Shootings nicht wirklich reich, wie es auf den ersten Blick scheinen könnte.</p>
-          </div>
+          <NuxtContent class="max-w-prose space-y-4" :document="document"></NuxtContent>
         </div>
       </div>
     </SectionContent>
   </SectionParent>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  props: {
+    document: {
+      type: Object,
+      required: true
+    }
+  },
+})
+</script>
+

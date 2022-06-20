@@ -3,9 +3,11 @@
     <ServicesIntro
       :document="documents.intro" />
 
-    <ServicesList />
+    <ServicesList
+      :document="documents.list" />
 
-    <ServicesInvestment />
+    <ServicesInvestment
+      :document="documents.investment" />
 
     <ServicesPricing
       :document="documents.pricing" />

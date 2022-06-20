@@ -5,7 +5,7 @@
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg">
         <img
-          class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
+          class="object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
           data-start="top center"
           src="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
           alt="Tamara Loeffen, Hochzeitsfotografin">
@@ -19,16 +19,19 @@
       </SectionLines>
       <SectionContent class="relative">
         <IlAnimatedHeroFlower
-          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
+          animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-43%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
 
-        <SectionHeader class="max-w-2xl">
-          <template #roofline>{{ document.roofline }}</template>
-          {{ document.title }}
-        </SectionHeader>
+        <div class="max-w-sm xl:max-w-[30rem]">
+          <SectionHeader>
+            <template #roofline>{{ document.roofline }}</template>
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <span v-html="document.title"></span>
+          </SectionHeader>
 
-        <LayoutSpacer />
-        <NuxtContent class="max-w-xs xl:max-w-sm" :document="document"></NuxtContent>
+          <LayoutSpacer />
+          <NuxtContent :document="document"></NuxtContent>
+        </div>
       </SectionContent>
     </div>
   </SectionParent>

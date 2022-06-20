@@ -54,6 +54,6 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 .hero-flower {
-  shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35.00%, 21.59% 65.9%, 87.94% 101.47%);
+  shape-outside: polygon(112.95% 2.53%, -6.32% -21.73%, 28.48% 35%, 37.24% 65.90%, 87.94% 101.47%);
 }
 </style>
