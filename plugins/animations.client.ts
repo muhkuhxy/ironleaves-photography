@@ -26,7 +26,7 @@ function slideUp(options: { delay?: string, y?: string }, el: HTMLElement) {
     })
 }
 
-function parallax(caller: string, img?: HTMLElement) {
+function parallax(caller: string, img?: HTMLElement | null) {
   if (img) {
     gsap.to(img, {
       ease: "none",
@@ -246,6 +246,8 @@ function carousel3d(draggableEl: HTMLElement, boxes: NodeListOf<HTMLElement>, us
 }
 
 interface AnimationPlugin {
+  gsap: GSAP
+  ScrollTrigger: typeof ScrollTrigger
   slideUp: typeof slideUp
   parallax: typeof parallax
   carousel3d: typeof carousel3d
@@ -265,6 +267,8 @@ declare module '@nuxt/types' {
 
 export default (_context: unknown, inject: (name: string, value: any) => void) => {
   const injection: AnimationPlugin = {
+    gsap,
+    ScrollTrigger,
     slideUp,
     parallax,
     carousel3d

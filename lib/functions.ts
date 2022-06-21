@@ -1,5 +1,5 @@
-export async function retry(what: string, times: number, wait: number, block: () => boolean | Promise<boolean>): Promise<boolean> {
-  const done = await block()
+export async function retry(what: string, times: number, wait: number, block: (times: number) => boolean | Promise<boolean>): Promise<boolean> {
+  const done = await block(times)
   if (!done) {
     if (times > 0) {
       return new Promise(resolve => {
@@ -24,21 +24,16 @@ export async function scrollToTop(smooth: boolean) {
   const htmlClassList = document.documentElement.classList
   const removeSmooth = !smooth && htmlClassList.contains(smoothClass)
   if (removeSmooth) {
-    // console.log('removing ' + smoothClass)
+    console.log('removing ' + smoothClass)
     htmlClassList.remove(smoothClass)
   }
-  await retry('scrollToTop', 5, 0, () => {
-    return new Promise(resolve => {
-      // console.log('current pos ' + window.scrollY)
-      // console.log('scrolling')
-      window.scrollTo(0, 0)
-      setTimeout(() => {
-        // console.log('new pos ' + window.scrollY)
-        resolve(window.scrollY === 0)
-      }, 500)
-    })
+  await retry('scrollToTop', 5, 20, times => {
+    // console.log('current pos ' + window.scrollY)
+    console.log('scrolling')
+    window.scrollTo(0, 0)
+    return times === 0
   })
-  // console.log('retry done')
+  console.log('scrolling done')
   if (removeSmooth) {
     htmlClassList.add(smoothClass)
   }

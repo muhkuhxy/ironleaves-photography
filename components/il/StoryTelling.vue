@@ -1,5 +1,7 @@
 <template>
-  <SectionContent class="flex gap-x-8 relative py-32 story-telling">
+  <SectionContent
+    ref="root"
+    class="flex gap-x-8 relative py-32 story-telling">
     <div
       v-show="breakpoints.gtlg"
       class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center">
@@ -42,69 +44,56 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { defineComponent, reactive, ref, Ref, set, useContext } from '@nuxtjs/composition-api'
 import { retry } from '@/lib/functions'
+import { useAnimations } from '@/composables/useAnimations'
+import { useBreakpoints } from '@/composables/useBreakpoints'
 
-interface Data {
-  animationInitialized: boolean
-  chaptersActive: boolean[]
-}
-
-export default Vue.extend({
+export default defineComponent({
   props: {
     chapters: {
       type: Array,
       required: true
     }
   },
-  data: () => ({
-    animationInitialized: false,
-    chaptersActive: [true],
-  } as Data),
-  computed: mapGetters('breakpoints', ['breakpoints']),
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (this.$el.tagName) {
-        retry(`StoryTelling chapter init`, 10, 500, () => {
-          const chapters = this.$el.querySelectorAll('.story-telling .chapter')
-          if (!chapters.length) {
-            return false
+  setup() {
+    const root: Ref<Vue | null> = ref(null)
+    const chaptersActive = reactive([true])
+
+    const { $anim } = useContext()
+
+    const { breakpointsReady, breakpoints } = useBreakpoints()
+
+    useAnimations(root, async ({ $el }) => {
+      await breakpointsReady
+      retry(`StoryTelling chapter init`, 10, 500, () => {
+        const chapters = $el.querySelectorAll('.story-telling .chapter')
+        if (!chapters.length) {
+          return false
+        }
+        chapters.forEach((chapter, index, array) => {
+          const activate: ScrollTrigger.Callback = self => {
+            set(chaptersActive, index, self.isActive)
           }
-          chapters.forEach((chapter, index, array) => {
-            const activate: ScrollTrigger.Callback = self => {
-              this.$set(this.chaptersActive, index, self.isActive)
-            }
-            const onLeave = index === array.length - 1 ? undefined : activate
-            const onLeaveBack = index === 0 ? undefined : activate
-            ScrollTrigger.create({
-              // markers: true,
-              trigger: chapter,
-              start: index === 0 ? 'top bottom' : 'center bottom',
-              end: 'center top',
-              onEnter: activate,
-              onLeave,
-              onEnterBack: activate,
-              onLeaveBack,
-            })
+          const onLeave = index === array.length - 1 ? undefined : activate
+          const onLeaveBack = index === 0 ? undefined : activate
+          $anim.ScrollTrigger.create({
+            // markers: true,
+            trigger: chapter,
+            start: index === 0 ? 'top bottom' : 'center bottom',
+            end: 'center top',
+            onEnter: activate,
+            onLeave,
+            onEnterBack: activate,
+            onLeaveBack,
           })
-          return true
         })
-        this.animationInitialized = true
-      }
-    },
-  },
+        return true
+      })
+    })
+
+    return { root, chaptersActive, breakpoints }
+  }
 })
 </script>
 

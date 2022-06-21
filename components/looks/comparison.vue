@@ -1,5 +1,5 @@
 <template>
-  <SectionContent class="text-bluegray mt-[50vh]" :fluffy="true">
+  <SectionContent ref="root" class="text-bluegray mt-[50vh]" :fluffy="true">
     <div
       data-animation="carousel"
       class="grid grid-rows-[4fr,1fr] grid-cols-4 justify-between gap-2 sm:block relative sm:h-[50vh] lg:h-[85vh] [perspective:3000px] [transform-style:preserve-3d]"
@@ -33,28 +33,56 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
-import { Carousel3dTimeline } from '@/plugins/animations.client'
+import { defineComponent, ref, Ref, useContext } from '@nuxtjs/composition-api'
+import { useAnimations } from '~/composables/useAnimations'
+import { useBreakpoints } from '~/composables/useBreakpoints'
+import { Carousel3dTimeline } from '~/plugins/animations.client'
 
-class Data {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(
-    public animationInitialized: boolean = false,
-    public timeline: Carousel3dTimeline | null = null
-  ) {}
-}
-
-export default Vue.extend({
+export default defineComponent({
   props: {
     document: {
       type: Object,
       required: true
     }
   },
-  data: () => new Data(),
+  setup() {
+    const { breakpointsReady, breakpoints } = useBreakpoints()
+    const { $anim } = useContext()
+
+    const timeline = ref<Carousel3dTimeline>()
+    const root: Ref<Vue | null> = ref(null)
+
+    const initAnimations = async () => {
+      await breakpointsReady
+      const $el = root.value?.$el as HTMLElement
+      if (!breakpoints.gtmd) {
+        if (timeline.value) {
+          timeline.value?.kill()
+          timeline.value = undefined
+          $el.querySelectorAll('[data-animation=box]').forEach(box => {
+            (box as HTMLElement).style.transform = '';
+            ((box as HTMLElement).children[0] as HTMLElement).style.transform = ''
+          })
+        }
+        return
+      }
+      const progress = timeline.value?.progress()
+      timeline.value?.kill()
+      timeline.value = $anim.carousel3d(
+        $el.querySelector('[data-animation=carousel]') as HTMLElement,
+        $el.querySelectorAll('[data-animation=box]'),
+        {
+          // paused: true,
+          duration: breakpoints.gt2xl ? 30 : 20,
+          progress,
+        })
+    }
+
+    useAnimations(root, initAnimations)
+
+    return { timeline, root, breakpoints, initAnimations }
+  },
   computed: {
-    ...mapGetters('breakpoints', ['breakpoints']),
     cssClasses() {
       const front = 'sm:z-20 start-row-1 col-span-4'
       const middle = 'sm:scale-75 sm:z-10 row-start-2'
@@ -68,45 +96,11 @@ export default Vue.extend({
       }
     }
   },
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
+  mounted() {
     window.addEventListener('resize', this.initAnimations)
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.initAnimations)
   },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return
-      }
-      if (!this.breakpoints.gtmd) {
-        if (this.timeline) {
-          this.timeline.kill()
-          this.timeline = null
-          this.$el.querySelectorAll('[data-animation=box]').forEach(box => {
-            (box as HTMLElement).style.transform = '';
-            ((box as HTMLElement).children[0] as HTMLElement).style.transform = ''
-          })
-        }
-        return
-      }
-      // console.log('init animation', window.innerWidth)
-      const progress = this.timeline?.progress()
-      this.timeline?.kill()
-      this.timeline = this.$anim.carousel3d(this.$el.querySelector('[data-animation=carousel]') as HTMLElement, this.$el.querySelectorAll('[data-animation=box]'), {
-        // paused: true,
-        duration: this.breakpoints.gt2xl ? 30 : 20,
-        progress,
-      })
-    }
-  }
 })
 </script>

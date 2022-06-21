@@ -93,57 +93,43 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+<script setup lang="ts">
+import { ref, Ref, useContext } from '@nuxtjs/composition-api'
+import { useAnimations } from '@/composables/useAnimations'
+import { useBreakpoints } from '@/composables/useBreakpoints'
 
-export default Vue.extend({
-  data: () => ({
-    open: [false, false, false, false],
-    animationInitialized: false
-  }),
-  computed: mapGetters('breakpoints', ['breakpoints']),
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    toggle(index: number) {
-      this.open = this.open.map((open: boolean, i: number) => !open && i === index)
-    },
-    initAnimations() {
-      if (this.$el.tagName && this.$refs.content) {
-        ScrollTrigger.create({
-          trigger: (this.$refs.content as Vue).$el,
-          // markers: true,
-          start: () => 'top+=200px bottom',
-          end: () => 'bottom-=100px top',
-          onToggle: (self: any) => {
-            if (this.breakpoints.gtmd) {
-              const packages = this.$el.querySelectorAll('.package')
-              gsap.from(packages, {
-                duration: 1.5,
-                opacity: 0,
-                y: 60 * self.direction,
-                delay: 0.25,
-                stagger: 0.5 * self.direction,
-                ease: 'expo'
-              })
-            }
-            self.kill()
-          }
+const open = ref([false, false, false, false])
+function toggle(index: number) {
+  open.value = open.value.map((open: boolean, i: number) => !open && i === index)
+}
+
+const content: Ref<Vue | null> = ref(null)
+
+const { $anim } = useContext()
+
+const { breakpointsReady, breakpoints } = useBreakpoints()
+
+useAnimations(content, async ({ $el }) => {
+  await breakpointsReady
+  $anim.ScrollTrigger.create({
+    trigger: $el,
+    // markers: true,
+    start: () => 'top+=200px bottom',
+    end: () => 'bottom-=100px top',
+    onToggle: (self: any) => {
+      if (breakpoints.gtmd) {
+        const packages = $el.querySelectorAll('.package')
+        $anim.gsap.from(packages, {
+          duration: 1.5,
+          opacity: 0,
+          y: 60 * self.direction,
+          delay: 0.25,
+          stagger: 0.5 * self.direction,
+          ease: 'expo'
         })
-        this.animationInitialized = true
       }
+      self.kill()
     }
-  },
+  })
 })
 </script>

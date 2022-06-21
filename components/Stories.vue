@@ -1,5 +1,5 @@
 <template>
-  <SectionParent>
+  <SectionParent ref="root">
     <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
@@ -63,52 +63,31 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+<script setup lang="ts">
+import { onUnmounted, ref, Ref, useContext } from '@nuxtjs/composition-api'
 import { stories } from './slides'
+import { useAnimations } from '@/composables/useAnimations'
 
-export default Vue.extend({
-  data: () => ({
-    scrollTrigger: null as null | ScrollTrigger,
-    trigger: false,
-    animationInitialized: false,
-  }),
-  computed: {
-    ...mapGetters('breakpoints', ['breakpoints']),
-    slides: () => stories,
-  },
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  beforeDestroy() {
-    this.scrollTrigger?.kill();
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
+export const slides = stories
+
+const root: Ref<Vue | null> = ref(null)
+const scrollTrigger = ref<ScrollTrigger>()
+const trigger = ref(false)
+
+const { $anim } = useContext()
+
+onUnmounted(() => scrollTrigger.value?.kill())
+
+useAnimations(root, ({ $el }) => {
+  scrollTrigger.value = $anim.ScrollTrigger.create({
+    trigger: $el,
+    start: () => 'top-=50% bottom',
+    end: () =>'bottom+=50% top',
+    onToggle: (self: any) => {
+      setTimeout(() => { trigger.value = true }, 500)
+      self.kill()
+      scrollTrigger.value = undefined
     }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return;
-      }
-      this.scrollTrigger = ScrollTrigger.create({
-        trigger: this.$el,
-        start: () => 'top-=50% bottom',
-        end: () =>'bottom+=50% top',
-        onToggle: (self: any) => {
-          setTimeout(() => { this.trigger = true }, 500)
-          self.kill()
-          this.scrollTrigger = null
-        }
-      })
-      this.animationInitialized = true
-    },
-  }
+  })
 })
 </script>

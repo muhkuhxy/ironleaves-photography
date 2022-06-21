@@ -1,17 +1,14 @@
 <template>
-  <div
-    v-if="animationInitialized"
-    class="hero-flower animated" :class="animatedClasses"></div>
-  <SvgHeroFlower v-else class="hero-flower" :class="staticClasses" />
+  <SvgHeroFlower ref="root" class="hero-flower" :class="staticClasses" />
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { defineComponent, ref, Ref, toRefs, useContext } from '@nuxtjs/composition-api'
+import { useAnimations } from '@/composables/useAnimations'
 import { retry } from '@/lib/functions'
 import { animateHeroFlower } from '@/lib/lottie'
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     staticClasses: {
       type: String,
@@ -22,33 +19,25 @@ export default Vue.extend({
       required: true
     },
   },
-  data: () => ({
-    animationInitialized: false,
-  }),
-  mounted() {
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return
-      }
-      this.animationInitialized = true
-      setTimeout(() => retry('animateHeroFlower', 8, 250, this.animate), 0)
-    },
-    animate() {
-      const replaced = this.$el.classList.contains('animated')
-      if (!replaced) return false
-      animateHeroFlower(this.$el).setSpeed(0.7)
-      ScrollTrigger.refresh()
-      return true
-    }
-  },
+  setup(props) {
+    const root: Ref<Vue | null> = ref(null)
+
+    const { animatedClasses } = toRefs(props)
+    const { $anim } = useContext()
+
+    const { animationInitialized } = useAnimations(root, ({ $el }) => {
+      const div = document.createElement('div')
+      div.className = 'hero-flower animated ' + animatedClasses.value
+      $el.replaceWith(div)
+      setTimeout(() => retry('animateHeroFlower', 8, 250, () => {
+        animateHeroFlower(div).setSpeed(0.7)
+        $anim.ScrollTrigger.refresh()
+        return true
+      }), 0)
+    })
+
+    return { animationInitialized, root }
+  }
 })
 </script>
 

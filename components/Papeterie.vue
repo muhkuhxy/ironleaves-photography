@@ -1,5 +1,5 @@
 <template>
-  <SectionParent>
+  <SectionParent ref="root">
     <div class="slide-up bg-bluegray text-white overflow-y-hidden relative">
       <div class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0">
         <IlFigure class="slide-up lg:w-full lg:h-full" data-delay="0.3">
@@ -7,6 +7,7 @@
             <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-papeterie-mobile.jpg">
             <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-papeterie.jpg">
             <img
+              ref="parallax"
               class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full scale-[1.3]"
               src="~/assets/images/desktop/ironleaves-photography-papeterie.jpg"
               alt="Individuelle Papeterie gestaltet mit Liebe zum Detail">
@@ -54,62 +55,43 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+<script setup lang="ts">
+import { ref, Ref, useContext } from '@nuxtjs/composition-api'
 import { papeterie } from './slides'
+import { useAnimations } from '@/composables/useAnimations'
+import { useBreakpoints } from '@/composables/useBreakpoints'
 
-export default Vue.extend({
-  data: () => ({
-    scrollTrigger: null as null | ScrollTrigger,
-    trigger: false,
-    animationInitialized: false,
-  }),
-  computed: {
-    ...mapGetters('breakpoints', ['breakpoints']),
-    slides: () => papeterie,
-  },
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  beforeDestroy() {
-    this.scrollTrigger?.kill();
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return;
-      }
-      if (this.breakpoints.gtlg) {
-        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
-        Array.from(this.$el.querySelectorAll('.slide-up'))
-          .forEach(el => {
-            const { delay, y } = (el as HTMLElement).dataset
-            this.$anim.slideUp({ delay, y }, el as HTMLElement)
-          })
-      }
-      this.scrollTrigger = ScrollTrigger.create({
-        trigger: this.$el,
-        start: () => 'top-=50% bottom',
-        end: () =>'bottom+=50% top',
-        onToggle: (self: any) => {
-          setTimeout(() => { this.trigger = true }, 500)
-          self.kill()
-          this.scrollTrigger = null
-        }
+const root: Ref<Vue | null> = ref(null)
+const parallax: Ref<HTMLElement | null> = ref(null)
+
+const { $anim } = useContext()
+
+const { breakpointsReady, breakpoints } = useBreakpoints()
+
+const trigger = ref(false)
+
+export const slides = papeterie
+
+useAnimations(root, async ({ $el }) => {
+  await breakpointsReady
+  if (breakpoints.gtlg) {
+    $anim.slideUp({ delay: undefined, y: undefined }, $el as HTMLElement)
+    Array.from($el.querySelectorAll('.slide-up'))
+      .forEach(el => {
+        const { delay, y } = (el as HTMLElement).dataset
+        $anim.slideUp({ delay, y }, el as HTMLElement)
       })
-      this.$anim.parallax('papeterie', this.$el.querySelector('.parallax-pic') as HTMLElement)
-      this.animationInitialized = true
-    },
   }
+  $anim.ScrollTrigger.create({
+    trigger: $el,
+    start: () => 'top-=50% bottom',
+    end: () =>'bottom+=50% top',
+    onToggle: (self: any) => {
+      setTimeout(() => { trigger.value = true }, 500)
+      self.kill()
+    }
+  })
+  $anim.parallax('papeterie', parallax.value)
 })
 </script>
 
@@ -121,5 +103,4 @@ export default Vue.extend({
     shape-outside: none;
   }
 }
-
 </style>

@@ -7,6 +7,7 @@
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg">
         <img
+          ref="parallax"
           class="parallax-pic object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
           data-start="top center"
           src="~/assets/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
@@ -23,7 +24,7 @@
         <SvgHeroLine1 class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]" />
         <SvgHeroLine3 class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]" />
       </SectionLines>
-      <SectionContent class="relative">
+      <SectionContent ref="flowerContainer" class="relative">
         <IlAnimatedHeroFlower
           animated-classes="relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
           static-classes="relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]" />
@@ -42,48 +43,28 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+import { ref, Ref } from '@nuxtjs/composition-api'
 import { gsap } from 'gsap'
 import { retry } from '@/lib/functions'
+import { useAnimations } from '@/composables/useAnimations'
 
-export default Vue.extend({
-  data: () => ({
-    animationInitialized: false
-  }),
-  mounted() {
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return
-      }
-      retry('passion: parallax', 3, 250, () => {
-        const img = this.$el.querySelector('.parallax-pic') as HTMLElement
-        if (!img) {
-          return false
-        }
-        gsap.to(img, {
-          ease: "none",
-          scrollTrigger: {
-            trigger: img,
-            scrub: true,
-            // markers: true,
-            start: () =>
-              `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
-          },
-          yPercent: 20
-        })
-        return true
-      })
-      this.animationInitialized = true
-    }
-  }
+const parallax: Ref<HTMLElement | null> = ref(null)
+
+useAnimations(parallax, () => {
+  retry('passion: parallax', 3, 250, () => {
+    gsap.to(parallax.value, {
+      ease: "none",
+      scrollTrigger: {
+        trigger: parallax.value,
+        scrub: true,
+        // markers: true,
+        start: () =>
+          `top+=10% ${document.querySelector('nav')?.getBoundingClientRect()?.bottom || 'bottom'}`
+      },
+      yPercent: 20
+    })
+    return true
+  })
 })
 </script>

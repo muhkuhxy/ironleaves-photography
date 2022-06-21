@@ -1,5 +1,6 @@
 <template>
-  <SectionParent>
+  <SectionParent
+    ref="root">
     <SectionContent class="slide-up text-bluegray" :fluffy="true">
       <div class="flex flex-col lg:flex-row items-center md:gap-8">
         <figure class="slide-up relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16" data-delay="0.3">
@@ -31,40 +32,26 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
+<script setup lang="ts">
+import { ref, Ref, useContext } from '@nuxtjs/composition-api'
+import { useAnimations } from '@/composables/useAnimations'
+import { useBreakpoints } from '@/composables/useBreakpoints'
 
-export default Vue.extend({
-  data: () => ({
-    animationInitialized: false
-  }),
-  computed: mapGetters('breakpoints', ['breakpoints']),
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return
-      }
-      if (this.breakpoints.gtlg) {
-        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
-        Array.from(this.$el.querySelectorAll('.slide-up'))
-          .forEach(el => {
-            const { delay, y } = (el as HTMLElement).dataset
-            this.$anim.slideUp({ delay, y }, el as HTMLElement)
-          })
-      }
-      this.animationInitialized = true
-    }
+const root: Ref<Vue | null> = ref(null)
+
+const { $anim } = useContext()
+
+const { breakpoints, breakpointsReady } = useBreakpoints()
+
+useAnimations(root, async () => {
+  await breakpointsReady
+  if (breakpoints.gtlg) {
+    $anim.slideUp({ delay: undefined, y: undefined }, root.value?.$el as HTMLElement)
+    Array.from(root.value?.$el.querySelectorAll('.slide-up') ?? [])
+      .forEach(el => {
+        const { delay, y } = (el as HTMLElement).dataset
+        $anim.slideUp({ delay, y }, el as HTMLElement)
+      })
   }
 })
 </script>

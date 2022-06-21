@@ -1,10 +1,11 @@
 <template>
-  <SectionParent class="bg-emerald text-white lg:relative overflow-y-hidden">
+  <SectionParent ref="root" class="bg-emerald text-white lg:relative overflow-y-hidden">
     <IlFigure class="slide-up lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0" data-delay="0.3">
       <picture>
         <source media="(max-width: 767px)" srcset="~/assets/images/mobile/ironleaves-photography-bildlooks-mobile.jpg">
         <source media="(min-width: 768px)" srcset="~/assets/images/desktop/ironleaves-photography-bildlooks.jpg">
         <img
+          ref="parallax"
           class="parallax-pic object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
           alt="Paarshooting im Freien">
       </picture>
@@ -34,42 +35,30 @@
   </SectionParent>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
+<script setup lang="ts">
+import { ref, Ref, useContext } from '@nuxtjs/composition-api'
+import { useAnimations } from '@/composables/useAnimations'
+import { useBreakpoints } from '@/composables/useBreakpoints'
 
-export default Vue.extend({
-  data: () => ({
-    animationInitialized: false
-  }),
-  computed: mapGetters('breakpoints', ['breakpoints']),
-  async mounted() {
-    await this.breakpointsReady()
-    this.initAnimations()
-  },
-  updated() {
-    if (!this.animationInitialized) {
-      this.initAnimations()
-    }
-  },
-  methods: {
-    ...mapActions('breakpoints', ['breakpointsReady']),
-    initAnimations() {
-      if (!this.$el.tagName) {
-        return
+const root: Ref<Vue | null> = ref(null)
+const parallax: Ref<HTMLElement | null> = ref(null)
+
+const { $anim } = useContext()
+
+const { breakpoints, breakpointsReady } = useBreakpoints()
+
+useAnimations(root, async () => {
+  await breakpointsReady
+  const $el = root.value?.$el as HTMLElement
+  if (breakpoints.gtlg) {
+    $anim.slideUp({ delay: undefined, y: undefined }, $el)
+    Array.from($el.querySelectorAll('.slide-up'))
+      .forEach(el => {
+        const { delay, y } = (el as HTMLElement).dataset
+        $anim.slideUp({ delay, y }, el as HTMLElement)
       }
-      if (this.breakpoints.gtlg) {
-        this.$anim.slideUp({ delay: undefined, y: undefined }, this.$el as HTMLElement)
-        Array.from(this.$el.querySelectorAll('.slide-up'))
-          .forEach(el => {
-            const { delay, y } = (el as HTMLElement).dataset
-            this.$anim.slideUp({ delay, y }, el as HTMLElement)
-          }
-        )
-      }
-      this.$anim.parallax('looks', this.$el.querySelector('.parallax-pic') as HTMLElement)
-      this.animationInitialized = true
-    }
+    )
   }
+  $anim.parallax('looks', parallax.value)
 })
 </script>
