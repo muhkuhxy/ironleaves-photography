@@ -31,13 +31,21 @@
     scroll-behavior: smooth;
   }
 
-  /* stylelint-disable-next-line no-invalid-position-at-import-rule */
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@400;700&display=swap');
-
   @font-face {
     font-family: Notes;
     font-weight: 400;
     src: url(~/assets/fonts/Notes.otf)
+  }
+
+  @font-face {
+    font-family: Nunito;
+    font-weight: 300;
+    src: url(~/assets/fonts/Nunito-Light.ttf)
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url(~/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf)
   }
 
   :root {
