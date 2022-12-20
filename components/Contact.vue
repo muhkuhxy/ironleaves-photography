@@ -164,8 +164,13 @@ export default Vue.extend({
       {
         name: 'name',
         type: 'text',
-        label: 'Name',
+        label: 'Eure Namen',
         validation: 'required',
+        extra: {
+          'validation-messages': {
+            required: 'Dies ist ein Pflichtfeld.'
+          },
+        }
       },
       {
         name: 'email',
@@ -189,9 +194,15 @@ export default Vue.extend({
         label: 'Wunschdatum',
       },
       {
-        name: 'where',
+        name: 'place',
         type: 'text',
         label: 'Wo wird die Hochzeit stattfinden?',
+        validation: 'required',
+        extra: {
+          'validation-messages': {
+            required: 'Dies ist ein Pflichtfeld.'
+          },
+        }
       },
       {
         name: 'message',
