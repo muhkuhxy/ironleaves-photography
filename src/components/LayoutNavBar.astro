@@ -1,0 +1,237 @@
+---
+import LayoutContainer from "./LayoutContainer.astro";
+---
+
+<header
+  v-click-outside="clickOutside"
+  x-data="navbar"
+  x-refs="header"
+  class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90"
+  x-bind:class="{scrolledDown && (!menuShown || gtMd) ?
+      '-translate-y-full delay-150' :
+      'shadow-lg'}"
+>
+  <nav class="bg-white -mt-px">
+    <!-- <LayoutContainer
+        class:list={["flex relative z-20 bg-white justify-between py-4"]}
+        x-bind:class="{ hidden: gtMd }">
+        <label class="cursor-pointer" @click="menuShown = !menuShown">
+          <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
+          Menü
+        </label>
+        <a
+          v-for="{ name, url } in social" :key="`social-link-${name}-md`"
+          :href="url" target="_blank"
+          :title="name">
+            <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
+        </a>
+      </LayoutContainer> -->
+    <transition name="slide">
+      <LayoutContainer
+        v-show="menuShown || gtMd"
+        retractable={true}
+        class="absolute md:static bg-white pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12"
+      >
+        <hr class="mb-4 col-span-full md:hidden" />
+        <ul
+          class="grid grid-cols-2 md:grid-cols-[repeat(7,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12"
+        >
+          <li
+            v-for="{title, target} in links"
+            :key="title"
+            class="nav-link relative w-fit cursor-pointer after:h-0 md:after:h-px after:bg-bluegray"
+            :class="{
+                'font-bold underline': target === maxSection
+              }"
+            @click="menuShown && (menuShown = false)"
+          >
+            <a :href="`#${target}`">{{ title }}</a>
+          </li>
+        </ul>
+        <ul class="justify-self-end">
+          <li
+            v-for="{ name, url } in social"
+            :key="`social-link-${name}`"
+            class="justify-self-end hidden md:block"
+          >
+            <a :href="url" target="_blank" :title="name">
+              <component :is="`Svg${name}`" class="fill-current w-6"
+              ></component>
+            </a>
+          </li>
+        </ul>
+      </LayoutContainer>
+    </transition>
+  </nav>
+</header>
+
+<script>
+  Alpine.data("navbar", () => ({
+    open: false,
+    init() {
+      document.body.addEventListener("click", (evt) => {
+        if (!evt.composedPath().includes(this.$refs.header)) {
+          // click outside
+          this.open = false;
+        }
+      });
+    },
+  }));
+</script>
+
+<script lang="ts">
+  import Vue from "vue";
+  import { VueConstructor } from "vue/types/vue";
+  import { IlInjection } from "@/types/declarations";
+  import { retry } from "~/lib/functions";
+
+  let lastScrollY = 0;
+  const links = [
+    // { title: 'Leidenschaft', target: 'passion' },
+    { title: "Über mich", target: "about-me" },
+    { title: "Werte", target: "candor" },
+    { title: "Bildlooks", target: "looks" },
+    { title: "Stories", target: "stories" },
+    { title: "Papeterie", target: "papeterie" },
+    { title: "Pakete", target: "packages" },
+    { title: "Kontakt", target: "contact" },
+  ];
+  const social = [
+    // { name: 'Facebook', url: 'https://facebook.com' },
+    { name: "Instagram", url: "https://instagram.com/ironleaves_photography/" },
+    // { name: 'Pinterest', url: 'https://pinterest.com' },
+    // { name: 'Whatsapp', url: '' },
+    // { name: 'Behance', url: 'https://behance.net/ironleaves' },
+  ];
+
+  export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+    inject: {
+      $il: "$il",
+    } as Record<keyof IlInjection, string>,
+    props: {
+      retractable: {
+        type: Boolean,
+        default: false,
+      },
+      highlightCurrentSection: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    data: () => ({
+      scrolledDown: false,
+      menuShown: false,
+      sectionRatios: links.reduce((result, { target }) => {
+        result[target] = 0;
+        return result;
+      }, {} as Record<string, number>),
+      observer: null as null | IntersectionObserver,
+    }),
+    computed: {
+      links: () => links,
+      social: () => social,
+      gtMd(): boolean {
+        return this.$il.breakpoints.gtmd;
+      },
+      ltMd(): boolean {
+        return !this.gtMd;
+      },
+      maxSection(): string {
+        return Object.entries(this.sectionRatios).reduce(
+          (memo, entry) => {
+            return entry[1] > memo[1] ? entry : memo;
+          },
+          ["", 0]
+        )[0];
+      },
+    },
+    watch: {
+      retractable: {
+        immediate: true,
+        handler(retractable): void {
+          if (!process.client) {
+            return;
+          }
+          if (retractable) {
+            document.addEventListener("scroll", this.onScroll);
+          } else {
+            document.removeEventListener("scroll", this.onScroll);
+          }
+        },
+      },
+    },
+    mounted() {
+      if (this.highlightCurrentSection) {
+        this.observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const section = (entry.target as HTMLElement).id;
+              this.sectionRatios[section!!] = entry.intersectionRatio;
+            });
+          },
+          {
+            threshold: Array(10)
+              .fill(undefined)
+              .map((_, index) => (index + 1) / 10),
+          }
+        );
+
+        retry("observeSection", 5, 500, () => {
+          const sections = document.querySelectorAll(".scroll-target[id]");
+          if (sections.length) {
+            sections.forEach((section) => this.observer?.observe(section));
+            return true;
+          } else {
+            return false;
+          }
+        });
+      }
+    },
+    beforeDestroy() {
+      if (this.retractable) {
+        document.removeEventListener("scroll", this.onScroll);
+      }
+      this.observer?.disconnect();
+    },
+    methods: {
+      onScroll() {
+        this.scrolledDown =
+          window.scrollY > 600 && window.scrollY > lastScrollY;
+        lastScrollY = window.scrollY;
+      },
+      clickOutside() {
+        if (this.menuShown) {
+          this.menuShown = false;
+        }
+      },
+    },
+  });
+</script>
+
+<style lang="postcss" scoped>
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .slide-enter,
+  .slide-leave-to {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .nav-link {
+    text-underline-offset: calc(1rem / 8);
+
+    &::after {
+      position: absolute;
+      bottom: 3px;
+      width: 0;
+      left: 0;
+      transition: all 0.3s ease-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+</style>
