@@ -1,172 +1,164 @@
 ---
-import LayoutContainer from "./LayoutContainer.astro";
+import LayoutContainer, { getContainerClasses } from "./LayoutContainer.astro";
+import SvgBurger from "./svg/SvgBurger.astro";
+import SvgInstagram from "./svg/SvgInstagram.astro";
+
+type Props = {
+  highlightCurrentSection?: boolean;
+};
+
+const { highlightCurrentSection = false } = Astro.props;
+
+const links = [
+  // { title: 'Leidenschaft', target: 'passion' },
+  { title: "Über mich", target: "about-me" },
+  { title: "Werte", target: "candor" },
+  { title: "Bildlooks", target: "looks" },
+  { title: "Stories", target: "stories" },
+  { title: "Papeterie", target: "papeterie" },
+  { title: "Pakete", target: "packages" },
+  { title: "Kontakt", target: "contact" },
+];
+const social = [
+  { name: "Instagram", url: "https://instagram.com/ironleaves_photography/" },
+];
+
+const containerClass = getContainerClasses(false, true);
 ---
 
 <header
-  v-click-outside="clickOutside"
-  x-data="navbar"
-  x-refs="header"
+  x-data="header"
   class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90"
-  x-bind:class="{scrolledDown && (!menuShown || gtMd) ?
-      '-translate-y-full delay-150' :
-      'shadow-lg'}"
+  x-bind="binder"
+  data-highlight-current-section={highlightCurrentSection}
 >
   <nav class="bg-white -mt-px">
-    <!-- <LayoutContainer
-        class:list={["flex relative z-20 bg-white justify-between py-4"]}
-        x-bind:class="{ hidden: gtMd }">
-        <label class="cursor-pointer" @click="menuShown = !menuShown">
-          <SvgBurger class="w-6 inline mr-2 fill-current" :open="menuShown" />
+    <LayoutContainer>
+      <div class="flex relative z-20 bg-white justify-between py-4 md:hidden">
+        <label
+          class="cursor-pointer"
+          x-on:click="open = !open"
+          for="nav-menu-open"
+        >
+          <SvgBurger class="w-6 inline mr-2 fill-current" />
           Menü
         </label>
-        <a
-          v-for="{ name, url } in social" :key="`social-link-${name}-md`"
-          :href="url" target="_blank"
-          :title="name">
-            <component :is="`Svg${name}`" :title="name" class="fill-current w-6" />
+        <a href={social[0].url} target="_blank" title={social[0].name}>
+          <SvgInstagram class="fill-current w-6" />
         </a>
-      </LayoutContainer> -->
-    <transition name="slide">
-      <LayoutContainer
-        v-show="menuShown || gtMd"
-        retractable={true}
-        class="absolute md:static bg-white pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12"
+      </div>
+    </LayoutContainer>
+    <input
+      id="nav-menu-open"
+      type="checkbox"
+      x-bind:checked="open"
+      class="sr-only"
+      x-bind:class="'js'"
+    />
+    <div
+      class:list={[
+        containerClass,
+        "absolute md:static bg-white",
+        "pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12",
+      ]}
+      x-show="open || gtMd"
+      x-transition:leave="slide-enter-active"
+      x-transition:leave-end="slide-leave-to"
+      x-transition:enter="slide-enter-active"
+      x-transition:enter-start="slide-enter"
+    >
+      <hr class="mb-4 col-span-full md:hidden" />
+      <ul
+        class="grid grid-cols-2 md:grid-cols-[repeat(7,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12"
       >
-        <hr class="mb-4 col-span-full md:hidden" />
-        <ul
-          class="grid grid-cols-2 md:grid-cols-[repeat(7,auto)] grid-rows-4 md:grid-rows-1 grid-flow-col gap-3 lg:gap-8 xl:gap-12"
-        >
-          <li
-            v-for="{title, target} in links"
-            :key="title"
-            class="nav-link relative w-fit cursor-pointer after:h-0 md:after:h-px after:bg-bluegray"
-            :class="{
-                'font-bold underline': target === maxSection
-              }"
-            @click="menuShown && (menuShown = false)"
-          >
-            <a :href="`#${target}`">{{ title }}</a>
-          </li>
-        </ul>
-        <ul class="justify-self-end">
-          <li
-            v-for="{ name, url } in social"
-            :key="`social-link-${name}`"
-            class="justify-self-end hidden md:block"
-          >
-            <a :href="url" target="_blank" :title="name">
-              <component :is="`Svg${name}`" class="fill-current w-6"
-              ></component>
-            </a>
-          </li>
-        </ul>
-      </LayoutContainer>
-    </transition>
+        {
+          links.map(({ title, target }) => (
+            <li
+              class="nav-link relative w-fit cursor-pointer after:h-0 md:after:h-px after:bg-bluegray"
+              data-section-target={target}
+              x-bind:class={`{ 'font-bold underline': '${target}' === maxSection }`}
+              x-on:click="open && (open = false)"
+            >
+              <a href={`#${target}`}>{title}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="justify-self-end">
+        <li class="justify-self-end hidden md:block">
+          <a href={social[0].url} target="_blank" title={social[0].name}>
+            <SvgInstagram class="fill-current w-6" />
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 
 <script>
-  Alpine.data("navbar", () => ({
+  import Alpine from "alpinejs";
+
+  Alpine.data("header", () => ({
     open: false,
-    init() {
-      document.body.addEventListener("click", (evt) => {
-        if (!evt.composedPath().includes(this.$refs.header)) {
-          // click outside
+    sectionRatios: {},
+    scrolledDown: false,
+    lastScrollY: 0,
+    windowWidth: window.innerWidth,
+
+    binder: {
+      [":class"]:
+        "scrolledDown && (!open || gtMd) ? '-translate-y-full delay-150' : 'shadow-lg'",
+      ["@click.outside"]() {
+        if (this.open) {
           this.open = false;
         }
-      });
-    },
-  }));
-</script>
-
-<script lang="ts">
-  import Vue from "vue";
-  import { VueConstructor } from "vue/types/vue";
-  import { IlInjection } from "@/types/declarations";
-  import { retry } from "~/lib/functions";
-
-  let lastScrollY = 0;
-  const links = [
-    // { title: 'Leidenschaft', target: 'passion' },
-    { title: "Über mich", target: "about-me" },
-    { title: "Werte", target: "candor" },
-    { title: "Bildlooks", target: "looks" },
-    { title: "Stories", target: "stories" },
-    { title: "Papeterie", target: "papeterie" },
-    { title: "Pakete", target: "packages" },
-    { title: "Kontakt", target: "contact" },
-  ];
-  const social = [
-    // { name: 'Facebook', url: 'https://facebook.com' },
-    { name: "Instagram", url: "https://instagram.com/ironleaves_photography/" },
-    // { name: 'Pinterest', url: 'https://pinterest.com' },
-    // { name: 'Whatsapp', url: '' },
-    // { name: 'Behance', url: 'https://behance.net/ironleaves' },
-  ];
-
-  export default (Vue as VueConstructor<Vue & IlInjection>).extend({
-    inject: {
-      $il: "$il",
-    } as Record<keyof IlInjection, string>,
-    props: {
-      retractable: {
-        type: Boolean,
-        default: false,
-      },
-      highlightCurrentSection: {
-        type: Boolean,
-        default: false,
       },
     },
-    data: () => ({
-      scrolledDown: false,
-      menuShown: false,
-      sectionRatios: links.reduce((result, { target }) => {
-        result[target] = 0;
-        return result;
-      }, {} as Record<string, number>),
-      observer: null as null | IntersectionObserver,
-    }),
-    computed: {
-      links: () => links,
-      social: () => social,
-      gtMd(): boolean {
-        return this.$il.breakpoints.gtmd;
-      },
-      ltMd(): boolean {
-        return !this.gtMd;
-      },
-      maxSection(): string {
-        return Object.entries(this.sectionRatios).reduce(
-          (memo, entry) => {
-            return entry[1] > memo[1] ? entry : memo;
-          },
-          ["", 0]
-        )[0];
-      },
+
+    get gtMd() {
+      // TODO: meh, magic number
+      return this.windowWidth >= 768;
     },
-    watch: {
-      retractable: {
-        immediate: true,
-        handler(retractable): void {
-          if (!process.client) {
-            return;
-          }
-          if (retractable) {
-            document.addEventListener("scroll", this.onScroll);
-          } else {
-            document.removeEventListener("scroll", this.onScroll);
-          }
+
+    get maxSection(): string {
+      const ms = Object.entries(
+        this.sectionRatios as Record<string, number>
+      ).reduce(
+        (memo, entry) => {
+          return entry[1] > memo[1] ? entry : memo;
         },
-      },
+        ["", 0]
+      )[0];
+      console.log({ maxSection: ms });
+      return ms;
     },
-    mounted() {
-      if (this.highlightCurrentSection) {
-        this.observer = new IntersectionObserver(
+
+    init() {
+      let timer: number | null = null;
+      window.addEventListener("resize", () => {
+        timer != null && clearTimeout(timer);
+        timer = setTimeout(() => {
+          this.windowWidth = window.innerWidth;
+        }, 250);
+      });
+
+      document.addEventListener("scroll", () => {
+        this.scrolledDown =
+          window.scrollY > 600 && window.scrollY > this.lastScrollY;
+        this.lastScrollY = window.scrollY;
+      });
+
+      if (this.$el.dataset.highlightCurrentSection && IntersectionObserver) {
+        // TODO: needed?
+        // this.$el.querySelectorAll('[data-section-target]').forEach(li => {
+        //   this.sectionRatios[(li as HTMLElement).dataset.sectionTarget!!] = 0
+        // })
+
+        const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               const section = (entry.target as HTMLElement).id;
-              this.sectionRatios[section!!] = entry.intersectionRatio;
+              this.sectionRatios[section] = entry.intersectionRatio;
             });
           },
           {
@@ -176,39 +168,14 @@ import LayoutContainer from "./LayoutContainer.astro";
           }
         );
 
-        retry("observeSection", 5, 500, () => {
-          const sections = document.querySelectorAll(".scroll-target[id]");
-          if (sections.length) {
-            sections.forEach((section) => this.observer?.observe(section));
-            return true;
-          } else {
-            return false;
-          }
-        });
+        const sections = document.querySelectorAll(".scroll-target[id]");
+        sections.forEach((section) => observer.observe(section));
       }
     },
-    beforeDestroy() {
-      if (this.retractable) {
-        document.removeEventListener("scroll", this.onScroll);
-      }
-      this.observer?.disconnect();
-    },
-    methods: {
-      onScroll() {
-        this.scrolledDown =
-          window.scrollY > 600 && window.scrollY > lastScrollY;
-        lastScrollY = window.scrollY;
-      },
-      clickOutside() {
-        if (this.menuShown) {
-          this.menuShown = false;
-        }
-      },
-    },
-  });
+  }));
 </script>
 
-<style lang="postcss" scoped>
+<style>
   .slide-enter-active,
   .slide-leave-active {
     transition: all 0.3s ease-in-out;
@@ -232,6 +199,17 @@ import LayoutContainer from "./LayoutContainer.astro";
 
     &:hover::after {
       width: 100%;
+    }
+  }
+
+  /* TODO: meh, hard coded breakpoint */
+  @media (max-width: 768px) {
+    #nav-menu-open:not(.js) + * {
+      display: none;
+    }
+
+    #nav-menu-open:not(.js):checked + * {
+      display: block;
     }
   }
 </style>

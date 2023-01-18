@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+
+.formulate-input {
+  input[type="checkbox"] {
+    ~label.formulate-input-element-decorator {
+      @apply w-6 h-6 relative leading-0 cursor-pointer;
+
+      &::before {
+        @apply absolute bg-white;
+
+        top: 1px;
+        right: 1px;
+        bottom: 0;
+        left: 1px;
+        clip-path: polygon(19% 49%, 9% 65%, 45% 90%, 94% 19%, 80% 9%, 42% 66%);
+        font-size: 0;
+      }
+    }
+
+    &:checked~label.formulate-input-element-decorator::before {
+      content: "";
+    }
+  }
+}
+
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @font-face {
+    font-family: Notes;
+    font-weight: 400;
+    src: url('/fonts/Notes.otf')
+  }
+
+  @font-face {
+    font-family: Nunito;
+    font-weight: 300;
+    src: url('/fonts/Nunito-Light.ttf')
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf')
+  }
+
+  :root {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .playfair {
+    font-family: 'Playfair Display', serif;
+
+    /* 1.5rem(24px) @ 23.4375rem(375px) increasing to 2rem(32px) @ 80rem(1280px) */
+    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.234375rem) * 0.884)), 2rem);
+
+    /* Safari resize fix */
+    min-height: 0;
+  }
+}
+
+@layer components {
+  h1 {
+    @apply font-bold;
+
+    font-family: 'Playfair Display', serif;
+
+    /* 2rem @ 375px increasing to 4rem @ 1280px */
+    font-size: clamp(2rem, calc(2rem + ((1vw - 0.234375rem) * 3.5359)), 4rem);
+    line-height: 1;
+
+    /* Safari resize fix */
+    min-height: 0;
+  }
+
+  h2 {
+    @apply playfair font-bold;
+  }
+
+  h3 {
+    @apply playfair font-bold;
+
+    /* 1.2rem(19.2px) @ 23.4375rem(375px) increasing to 1.5rem(24px) @ 80rem(1280px) */
+    font-size: clamp(1.2rem, calc(1.2rem + ((1vw - 0.234375rem) * 0.5304)), 1.5rem);
+
+    /* Safari resize fix */
+    min-height: 0;
+  }
+
+  .roofline {
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.663)), 1.375rem);
+    /* stylelint-disable-next-line length-zero-no-unit */
+    min-height: 0vw;
+  }
+
+  .caption {
+    font-family: 'Notes', serif;
+    line-height: 0.9;
+
+    &.hero {
+      /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 8rem(128px) @ 80rem(1280px) */
+      font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 9.7238)), 8rem);
+    }
+
+    /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 5.5rem(88px) @ 80rem(1280px) */
+    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 5.3039)), 5.5rem);
+
+    /* Safari resize fix */
+    /* stylelint-disable-next-line length-zero-no-unit */
+    min-height: 0vw;
+  }
+}

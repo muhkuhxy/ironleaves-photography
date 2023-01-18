@@ -1,0 +1,28 @@
+---
+type Props = {
+  class?: string;
+  iconName?: string;
+  width?: number;
+  height?: number;
+  iconColor?: string;
+};
+const {
+  class: classes,
+  width = 18,
+  height = 18,
+  iconColor = "currentColor",
+  iconName = "box",
+} = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class:list={[classes, "inline align-middle"]}
+  viewBox="0 0 512 512"
+  aria-labelledby={iconName}
+  role="presentation"
+>
+  <g fill={iconColor}>
+    <slot />
+  </g>
+</svg>

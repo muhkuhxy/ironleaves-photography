@@ -1,0 +1,35 @@
+---
+import ButtonArrow from "../components/ButtonArrow.astro";
+import LayoutFooter from "../components/LayoutFooter.astro";
+import LayoutLogo from "../components/LayoutLogo.astro";
+import LayoutNavBar from "../components/LayoutNavBar.astro";
+import "./main.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ironleaves Photography</title>
+  </head>
+  <body>
+    <div class="min-h-screen flex flex-col">
+      <LayoutLogo />
+      <LayoutNavBar
+        retractable="breakpoints.gtlg"
+        highlight-current-section="true"
+      />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <LayoutFooter />
+      <ButtonArrow
+        class="fixed bottom-[1rem] right-[1rem] bg-white text-sunset opacity-90 w-10 md:w-12 h-10 md:h-12 p-[0.35rem] shadow-lg border border-sunset border-opacity-50 z-50"
+        title="Back to top"
+        href="#"
+      />
+    </div>
+  </body>
+</html>
