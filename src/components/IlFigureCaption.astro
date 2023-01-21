@@ -1,0 +1,20 @@
+---
+import LayoutContainer from "./LayoutContainer.astro";
+
+type Props = {
+  class?: string;
+};
+
+const { class: classes } = Astro.props;
+---
+
+<figcaption
+  class:list={[
+    "caption text-white drop-shadow absolute bottom-0 w-max h-[max-content]",
+    classes,
+  ]}
+>
+  <LayoutContainer class="mb-6 sm:mb-12">
+    <slot />
+  </LayoutContainer>
+</figcaption>

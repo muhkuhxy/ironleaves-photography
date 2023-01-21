@@ -1,0 +1,11 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: classes } = Astro.props;
+---
+
+<figure class:list={["relative overflow-hidden", classes]}>
+  <slot />
+</figure>

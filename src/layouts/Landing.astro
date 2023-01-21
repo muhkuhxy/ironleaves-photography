@@ -17,10 +17,7 @@ import "./main.css";
   <body>
     <div class="min-h-screen flex flex-col">
       <LayoutLogo />
-      <LayoutNavBar
-        retractable="breakpoints.gtlg"
-        highlight-current-section="true"
-      />
+      <LayoutNavBar highlightCurrentSection={true} />
       <main class="flex-1">
         <slot />
       </main>

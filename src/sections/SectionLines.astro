@@ -1,0 +1,13 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: classes } = Astro.props;
+---
+
+<div class:list={["absolute inset-0 overflow-hidden", classes]}>
+  <div class="relative max-w-screen-xl mx-auto h-full">
+    <slot />
+  </div>
+</div>

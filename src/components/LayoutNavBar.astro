@@ -10,7 +10,6 @@ type Props = {
 const { highlightCurrentSection = false } = Astro.props;
 
 const links = [
-  // { title: 'Leidenschaft', target: 'passion' },
   { title: "Über mich", target: "about-me" },
   { title: "Werte", target: "candor" },
   { title: "Bildlooks", target: "looks" },
@@ -129,7 +128,7 @@ const containerClass = getContainerClasses(false, true);
         },
         ["", 0]
       )[0];
-      console.log({ maxSection: ms });
+      // console.log({ maxSection: ms });
       return ms;
     },
 
@@ -148,18 +147,17 @@ const containerClass = getContainerClasses(false, true);
         this.lastScrollY = window.scrollY;
       });
 
-      if (this.$el.dataset.highlightCurrentSection && IntersectionObserver) {
-        // TODO: needed?
-        // this.$el.querySelectorAll('[data-section-target]').forEach(li => {
-        //   this.sectionRatios[(li as HTMLElement).dataset.sectionTarget!!] = 0
-        // })
-
+      if (
+        "highlightCurrentSection" in this.$el.dataset &&
+        IntersectionObserver
+      ) {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               const section = (entry.target as HTMLElement).id;
               this.sectionRatios[section] = entry.intersectionRatio;
             });
+            // console.log("updated sect ratio", { sr: this.sectionRatios });
           },
           {
             threshold: Array(10)

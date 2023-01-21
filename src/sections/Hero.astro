@@ -1,0 +1,94 @@
+---
+import IlAnimatedHeroFlower from "../components/IlAnimatedHeroFlower.astro";
+import IlFigure from "../components/IlFigure.astro";
+import IlFigureCaption from "../components/IlFigureCaption.astro";
+import IlGradient from "../components/IlGradient.astro";
+import LayoutSpacer from "../components/LayoutSpacer.astro";
+import SectionLines from "./SectionLines.astro";
+import SvgHeroLine1 from "../components/svg/SvgHeroLine1.astro";
+import SvgHeroLine2 from "../components/svg/SvgHeroLine2.astro";
+import SvgHeroLine3 from "../components/svg/SvgHeroLine3.astro";
+import SectionContent from "./SectionContent.astro";
+import SectionHeader from "./SectionHeader.astro";
+import ButtonEffect from "../components/ButtonEffect.astro";
+---
+
+<section id="passion" class="scroll-target bg-emerald text-white relative">
+  <IlFigure class="shadow-lg">
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
+      />
+      <img
+        x-data="HeroParallax"
+        class="object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
+        data-start="top center"
+        src="/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
+        alt="Hochzeitsshooting im Wald"
+      />
+    </picture>
+    <IlGradient class="translate-y-2" half-height={true} />
+    <IlFigureCaption class="hero">
+      Moments<br />for Eternity
+    </IlFigureCaption>
+  </IlFigure>
+  <div class="relative">
+    <SectionLines class="sm:block">
+      <SvgHeroLine2
+        class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0"
+      />
+      <SvgHeroLine1
+        class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]"
+      />
+      <SvgHeroLine3
+        class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]"
+      />
+    </SectionLines>
+    <SectionContent class="relative">
+      <IlAnimatedHeroFlower />
+      <SectionHeader>
+        <template #roofline>Leidenschaft</template>
+        Eure einzig&shy;artigen<br class="hidden md:block" /> Momente
+      </SectionHeader>
+      <LayoutSpacer />
+      <p class="max-w-xs xl:max-w-sm">
+        Seid ihr schon gespannt auf Eure Hochzeit? Die schönen, unvergesslichen
+        Momente, die zahlreichen Emotionen und eure ganz besondere intime
+        Bindung zueinander? Als Fotografin verewige ich euren wichtigen Tag in
+        zeitlosen Bildern und zaubere mit ganz viel Leidenschaft Erinnerungen
+        für die Ewigkeit.
+      </p>
+      <LayoutSpacer />
+      <ButtonEffect href="/stories">Zu den Bilderstories</ButtonEffect>
+    </SectionContent>
+  </div>
+</section>
+
+<script>
+  import Alpine from "alpinejs";
+  import { gsap } from "../lib/gsap";
+
+  Alpine.data("HeroParallax", () => ({
+    init() {
+      gsap.to(this.$el, {
+        ease: "none",
+        scrollTrigger: {
+          trigger: this.$el,
+          scrub: true,
+          // markers: true,
+          start: () =>
+            `top+=10% ${
+              document.querySelector("nav")?.getBoundingClientRect()?.bottom ||
+              "bottom"
+            }`,
+        },
+        yPercent: 20,
+      });
+    },
+  }));
+</script>

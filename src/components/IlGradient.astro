@@ -1,0 +1,26 @@
+---
+type Props = {
+  class?: string;
+  halfHeight?: boolean;
+  direction?: string;
+};
+
+const { class: classes, halfHeight = false, direction = "top" } = Astro.props;
+---
+
+<div
+  class:list={[
+    classes,
+    "absolute top-0 bottom-0 right-0 left-0 from-black",
+    {
+      "bg-gradient-to-tr": direction === "top-right",
+      "bg-gradient-to-br": direction === "bottom-right",
+      "bg-gradient-to-t": direction === "top",
+      "bg-gradient-to-r": direction === "right",
+      "bg-gradient-to-l": direction === "left",
+      "top-1/2": halfHeight,
+      "top-0": !halfHeight,
+    },
+  ]}
+>
+</div>

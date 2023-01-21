@@ -1,0 +1,40 @@
+---
+import SvgHeroFlower from "./svg/SvgHeroFlower.astro";
+---
+
+<div
+  x-data="FlowerAnimation"
+  x-cloak
+  x-show="true"
+  class="hero-flower relative float-right w-[50%] md:w-[min(53%,25rem)] lg:w-[40%] mt-[-61%] md:mt-[max(-57%,-25rem)] lg:mt-[-41%] mr-[max(-10%,-2rem)] md:mr-[max(-9%,-4rem)] lg:mr-0 xl:mr-[-2%]"
+>
+</div>
+<SvgHeroFlower
+  noJs={true}
+  class="hero-flower relative float-right fill-current w-[37%] lg:w-[30%] xl:w-[27%] mt-[-41%] md:mt-[-33%] lg:mt-[-27%] xl:mt-[-24%] -mr-4 lg:mr-[7%]"
+/>
+
+<script>
+  import { animateHeroFlower } from "../lib/lottie";
+  import Alpine from "alpinejs";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  Alpine.data("FlowerAnimation", () => ({
+    init() {
+      animateHeroFlower(this.$el);
+      Alpine.nextTick(() => ScrollTrigger.refresh());
+    },
+  }));
+</script>
+
+<style>
+  .hero-flower {
+    shape-outside: polygon(
+      112.95% 2.53%,
+      -6.32% -21.73%,
+      28.48% 35%,
+      21.59% 65.9%,
+      87.94% 101.47%
+    );
+  }
+</style>

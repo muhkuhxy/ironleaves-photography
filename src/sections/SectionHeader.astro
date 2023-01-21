@@ -1,0 +1,14 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: classes } = Astro.props;
+---
+
+<div class={classes}>
+  <span class="roofline block text-sunset uppercase">
+    <slot name="roofline" />
+  </span>
+  <h1><slot name="default" /></h1>
+</div>

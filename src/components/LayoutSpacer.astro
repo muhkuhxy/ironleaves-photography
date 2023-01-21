@@ -8,8 +8,8 @@ const { ms = 2, responsive = true } = Astro.props;
 ---
 
 <div
-  class="w-full"
   class:list={[
+    "w-full",
     {
       "h-0": ms === 0,
       "h-4": ms === 1,
