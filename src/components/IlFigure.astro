@@ -1,7 +1,7 @@
 ---
 type Props = {
   class?: string;
-  animation?: string;
+  animation?: { name: "slide-up"; delay?: number };
 };
 
 const { class: classes, animation } = Astro.props;
@@ -9,7 +9,8 @@ const { class: classes, animation } = Astro.props;
 
 <figure
   class:list={["relative overflow-hidden", classes]}
-  data-animation={animation}
+  data-animation={animation?.name}
+  data-delay={animation?.delay}
 >
   <slot />
 </figure>

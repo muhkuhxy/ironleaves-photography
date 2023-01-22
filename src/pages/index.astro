@@ -1,12 +1,16 @@
 ---
+import LayoutSpacer from "../components/LayoutSpacer.astro";
 import Landing from "../layouts/Landing.astro";
 import AboutMe from "../sections/AboutMe.astro";
 import Candor from "../sections/Candor.astro";
 import Hero from "../sections/Hero.astro";
+import Looks from "../sections/Looks.astro";
 ---
 
 <Landing>
 	<Hero />
 	<AboutMe />
 	<Candor />
+	<LayoutSpacer responsive={false} ms={4} />
+	<Looks />
 </Landing>

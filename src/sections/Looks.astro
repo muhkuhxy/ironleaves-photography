@@ -1,0 +1,70 @@
+---
+import IlFigure from "../components/IlFigure.astro";
+import IlGradient from "../components/IlGradient.astro";
+import IlTextExpander from "../components/IlTextExpander.astro";
+import LayoutSpacer from "../components/LayoutSpacer.astro";
+import SectionContent from "../components/SectionContent.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SectionLines from "../components/SectionLines.astro";
+import SvgHeroLine2 from "../components/svg/SvgHeroLine2.astro";
+import SvgThreeStraws from "../components/svg/SvgThreeStraws.astro";
+---
+
+<section
+  id="looks"
+  data-scroll-target
+  class="bg-emerald text-white lg:relative overflow-y-hidden"
+>
+  <IlFigure
+    class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0"
+    animation={{ name: "slide-up", delay: 0.3 }}
+  >
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/images/mobile/ironleaves-photography-bildlooks-mobile.jpg"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="/images/desktop/ironleaves-photography-bildlooks.jpg"
+      />
+      <img
+        data-animation="parallax"
+        class="object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
+        alt="Paarshooting im Freien"
+      />
+    </picture>
+    <IlGradient halfHeight={true} class="translate-y-px" />
+  </IlFigure>
+  <SectionLines animation={{ name: "slide-up", y: 0 }} class="max-xl:hidden">
+    <SvgHeroLine2
+      class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full 2xl:h-[124%] 2xl:top-[-16%] ml-[42%] 2xl:ml-[31%] 2xl:rotate-[24deg]"
+    />
+  </SectionLines>
+  <SectionContent>
+    <SvgThreeStraws
+      class="fill-current float-right lg:float-none w-[28%] md:w-1/4 lg:w-auto lg:h-[60%] relative lg:absolute right-0 lg:bottom-0 lg:right-0 -mt-48 md:-mt-56 lg:mt-0 -mr-6 lg:mr-[45%] 2xl:mr-[55%] mb-8 lg:-mb-4 ml-4 lg:pr-8"
+    />
+    <div data-animation="slide-up" class="lg:py-24 lg:ml-[55%] 2xl:ml-[45%]">
+      <SectionHeader>
+        <template #roofline>Bildlooks</template>
+        Die Welt ist bunt &ndash; und ihr seid es auch!
+      </SectionHeader>
+      <LayoutSpacer />
+      <p class="max-w-prose mb-4">
+        Optional könnt ihr die Bildbearbeitung und die Anmutung Eurer Fotos
+        mitbestimmen.
+      </p>
+      <IlTextExpander class="items-start">
+        <p>
+          Eure Fotos sollen Euch und Euren Charakter widerspiegeln und Eure
+          Hochzeit genau so wiedergeben, wie ihr sie in Erinnerung habt. Mögt
+          ihr rustikale, dunkle und warme Bilder? Oder doch reduziert, hell und
+          clean? Moody oder leuchtend? Zeitlos oder modern? Sucht Euch unter
+          unterschiedlichen Atmosphären genau den Look aus, der am besten zu
+          Euch passt!
+        </p>
+      </IlTextExpander>
+    </div>
+  </SectionContent>
+</section>
