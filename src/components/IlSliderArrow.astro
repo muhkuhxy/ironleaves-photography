@@ -1,0 +1,38 @@
+---
+import IlGradient from "./IlGradient.astro";
+import IconArrow from "./svg/IconArrow.astro";
+import IconBase from "./svg/IconBase.astro";
+
+type Props = {
+  class?: string;
+  side: "left" | "right";
+  onClick: string;
+};
+
+const { class: classes, side, onClick } = Astro.props;
+---
+
+<div
+  class:list={[
+    "absolute mb-8 bottom-0 top-0 flex items-end z-20",
+    classes,
+    side === "left" ? "left-0" : "right-0",
+  ]}
+>
+  <IlGradient direction={side === "left" ? "right" : "left"} />
+  <button
+    class:list={[
+      "cursor-pointer mb-2 text-white",
+      side === "left" ? "ml-4 md:ml-8 mr-4" : "mr-4 md:mr-8 ml-4",
+    ]}
+    x-on:click={onClick}
+  >
+    <IconBase
+      class={`text-white w-10 lg:w-16 ${
+        side === "left" ? "rotate-90" : "-rotate-90"
+      }`}
+    >
+      <IconArrow />
+    </IconBase>
+  </button>
+</div>

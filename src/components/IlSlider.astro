@@ -1,0 +1,57 @@
+---
+import IlSliderArrow from "./IlSliderArrow.astro";
+
+type Props = {
+  class?: string;
+  slides: string[];
+};
+
+const { class: classes, slides } = Astro.props;
+import "swiper/swiper-bundle.css";
+---
+
+<div
+  class:list={["swiper relative overflow-x-hidden w-full", classes]}
+  x-data="Slider"
+  x-ref="slider"
+>
+  <div class="swiper-wrapper">
+    {
+      slides.map((url) => (
+        <div class="swiper-slide !w-auto flex items-center max-w-[90%]">
+          <img
+            class="object-cover h-full"
+            src={`/images/${url}`}
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <IlSliderArrow side="left" onClick="swiper.slidePrev()" />
+  <IlSliderArrow side="right" onClick="swiper.slideNext()" />
+</div>
+
+<script>
+  import Swiper, { Autoplay } from "swiper";
+  import Alpine from "alpinejs";
+
+  Alpine.data("Slider", () => ({
+    swiper: null,
+    init() {
+      this.swiper = new Swiper(this.$refs.slider, {
+        modules: [Autoplay],
+        loop: true,
+        spaceBetween: 2,
+        slidesPerView: "auto",
+        loopedSlides: this.$el.querySelectorAll(".swiper-slide").length,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        speed: 750,
+        autoplay: {
+          delay: 5000,
+        },
+      });
+    },
+  }));
+</script>

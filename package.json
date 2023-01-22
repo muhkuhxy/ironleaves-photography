@@ -21,6 +21,7 @@
     "@types/alpinejs": "^3.7.1",
     "gsap": "^3.11.4",
     "lottie-web": "^5.10.1",
-    "postcss-nested": "^6.0.0"
+    "postcss-nested": "^6.0.0",
+    "swiper": "^8.4.6"
   }
 }
