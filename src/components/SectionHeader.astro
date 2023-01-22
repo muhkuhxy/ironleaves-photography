@@ -7,8 +7,8 @@ const { class: classes } = Astro.props;
 ---
 
 <div class={classes}>
-  <span class="roofline block text-sunset uppercase">
+  <div class="roofline block text-sunset uppercase">
     <slot name="roofline" />
-  </span>
+  </div>
   <h1><slot name="default" /></h1>
 </div>

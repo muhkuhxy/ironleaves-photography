@@ -1,0 +1,174 @@
+---
+import IlPackage from "../components/IlPackage.astro";
+import LayoutSpacer from "../components/LayoutSpacer.astro";
+import SectionContent from "../components/SectionContent.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import IconArrow from "../components/svg/IconArrow.astro";
+import IconBase from "../components/svg/IconBase.astro";
+---
+
+<section
+  id="packages"
+  data-scroll-target
+  x-data="PhotoPackages"
+  x-on:toggle-package="toggle($event.detail)"
+>
+  <IconBase class="text-sunset w-full h-16">
+    <IconArrow />
+  </IconBase>
+
+  <SectionContent ref="trigger">
+    <SectionHeader class="text-center text-emerald">
+      <span slot="roofline">Pakete</span>
+      Genau, was ihr braucht!
+    </SectionHeader>
+
+    <LayoutSpacer />
+
+    <div
+      class="bg-emerald md:bg-transparent text-white md:grid md:gap-2 lg:gap-4 xl:gap-1 md:grid-cols-2 xl:grid-cols-4"
+      x-bind:class="!triggered && breakpoints.md && 'opacity-0'"
+    >
+      <IlPackage
+        index={0}
+        imgSrc={{
+          mobile:
+            "/images/mobile/ironleaves-photography-pakete-papeterie-mobile.jpg",
+          desktop:
+            "/images/desktop/ironleaves-photography-pakete-papeterie.jpg",
+        }}
+      >
+        <div slot="title">
+          Grafik-<br class="max-xl:hidden" />Paket
+        </div>
+        <p>
+          Ihr braucht individuelle Papeterie, die perfekt zu Euch passt?
+          Gemeinsam erarbeiten wir uns einen einzigartigen Stil. Ich kümmere
+          mich dann um den Rest und gebe das Ganze in den Druck oder bastel es
+          für euch.
+        </p>
+        <p>65 &euro; / Stunde</p>
+      </IlPackage>
+
+      <hr class="mx-8 md:hidden" />
+
+      <IlPackage
+        index={1}
+        imgSrc={{
+          mobile:
+            "/images/mobile/ironleaves-photography-pakete-standesamt-mobile.jpg",
+          desktop:
+            "/images/desktop/ironleaves-photography-pakete-standesamt.jpg",
+        }}
+      >
+        <div slot="title">Standesamt-Paket</div>
+        <p>
+          Ihr braucht eigentlich nur kurz fotografische Unterstützung für einen
+          ganz besonderen Moment? Kein Ding! 2 Stunden reichen in den meisten
+          Fällen nicht nur für die Zeremonie und den Sektempfang aus, sondern
+          auch für ein kleines Pärchenshooting.
+        </p>
+        <p>
+          <a class="cursor-pointer underline" href="#contact"
+            >Preis auf Anfrage</a
+          >
+        </p>
+      </IlPackage>
+
+      <hr class="mx-8 md:hidden" />
+
+      <IlPackage
+        index={2}
+        imgSrc={{
+          mobile:
+            "/images/mobile/ironleaves-photography-pakete-reportage-mobile.jpg",
+          desktop:
+            "/images/desktop/ironleaves-photography-pakete-reportage.jpg",
+        }}
+      >
+        <div slot="title">
+          Reportage-<br class="hidden xl:inline" />Paket
+        </div>
+        <p>
+          Ihr plant das volle Programm und wollt euch später auch an die
+          Vorbereitung erinnern? Bei der Reportage bin ich von Anfang an hautnah
+          dabei und halte eure Aufregung beim Anziehen und Schminken (Getting
+          Ready) bis zur großen Party spät in die Nacht fest!
+        </p>
+        <p>
+          <a class="cursor-pointer underline" href="#contact"
+            >Preis auf Anfrage</a
+          >
+        </p>
+      </IlPackage>
+
+      <hr class="mx-8 md:hidden" />
+
+      <IlPackage
+        index={3}
+        imgSrc={{
+          mobile:
+            "/images/mobile/ironleaves-photography-pakete-all-inclusive-mobile.jpg",
+          desktop:
+            "/images/desktop/ironleaves-photography-pakete-all-inclusive.jpg",
+        }}
+      >
+        <div slot="title">All-inclusive-Paket</div>
+        <p>
+          Es soll alles perfekt sein und zueinander passen? Ihr wollt eure
+          Fotografin schon lange vor der Party kennenlernen, damit ihr euch dann
+          vor der Kamera maximal wohlfühlt? Im All-Inclusive-Paket kümmere ich
+          mich um Eure Papeterie, unterstütze die Planung und bin am Tag Eurer
+          Hochzeit den ganzen Tag dabei!
+        </p>
+        <p>
+          <a class="cursor-pointer underline" href="#contact"
+            >Preis auf Anfrage</a
+          >
+        </p>
+      </IlPackage>
+    </div>
+  </SectionContent>
+
+  <LayoutSpacer responsive={false} ms={4} />
+</section>
+
+<script>
+  import Alpine from "alpinejs";
+  import { gsap, ScrollTrigger } from "../lib/gsap";
+  import { reactiveBreakpoints } from "../lib/breakpoints";
+
+  Alpine.data("PhotoPackages", () => ({
+    open: [false, false, false, false],
+    triggered: false,
+    breakpoints: reactiveBreakpoints,
+    init() {
+      ScrollTrigger.create({
+        trigger: this.$refs.trigger,
+        markers: true,
+        start: () => "top+=200px bottom",
+        end: () => "bottom-=100px top",
+        onToggle: (self: ScrollTrigger) => {
+          this.triggered = true;
+          if (reactiveBreakpoints.md) {
+            const packages = this.$el.querySelectorAll("[data-photo-package]");
+            gsap.from(packages, {
+              opacity: 0,
+              y: 60 * self.direction,
+              duration: 1.5,
+              delay: 0.25,
+              stagger: 0.5 * self.direction,
+              ease: "expo",
+            });
+          }
+          self.kill();
+        },
+      });
+    },
+    toggle(index: number) {
+      this.open = this.open.map(
+        (open: boolean, i: number) => !open && i === index
+      );
+    },
+  }));
+</script>

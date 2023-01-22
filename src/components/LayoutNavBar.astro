@@ -51,7 +51,7 @@ const containerClass = getContainerClasses(false, true);
       id="nav-menu-open"
       type="checkbox"
       x-bind:checked="open"
-      class="sr-only"
+      class="sr-only max-md:[&:not(.js)_+_*]:hidden max-md:[&:checked:not(.js)_+_*]:block"
       x-bind:class="'js'"
     />
     <div
@@ -148,8 +148,8 @@ const containerClass = getContainerClasses(false, true);
               const section = (entry.target as HTMLElement).id;
               this.sectionRatios[section] = entry.intersectionRatio;
             });
+            timer != null && clearTimeout(timer);
             timer = setTimeout(() => {
-              timer != null && clearTimeout(timer);
               this.updateMaxSection();
             }, 100);
           },
@@ -191,16 +191,6 @@ const containerClass = getContainerClasses(false, true);
 
     &:hover::after {
       width: 100%;
-    }
-  }
-
-  @media (max-width: theme(screens.md)) {
-    #nav-menu-open:not(.js) + * {
-      display: none;
-    }
-
-    #nav-menu-open:not(.js):checked + * {
-      display: block;
     }
   }
 </style>

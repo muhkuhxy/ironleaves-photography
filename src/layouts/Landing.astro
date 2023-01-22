@@ -41,9 +41,9 @@ import "./main.css";
 
   Alpine.data("App", () => ({
     refresh() {
+      timer != null && clearTimeout(timer);
       timer = setTimeout(() => {
-        timer != null && clearTimeout(timer);
-        // console.log("ScrollTrigger.refresh");
+        console.log("ScrollTrigger.refresh");
         ScrollTrigger.refresh();
       });
     },

@@ -1,0 +1,91 @@
+---
+import IlToggleArrow from "./IlToggleArrow.astro";
+type Props = {
+  class?: string;
+  imgSrc: { mobile: string; desktop: string };
+  index: number;
+};
+
+const { class: classes, imgSrc, index } = Astro.props;
+const id = `il-photo-package-${index}`;
+---
+
+<div
+  x-data="PackageExpander"
+  data-photo-package
+  class:list={["overflow-hidden bg-emerald", classes]}
+>
+  <h2 class="px-8 py-4 md:hidden">
+    <label
+      for={id}
+      x-show="!gtMd"
+      class="flex justify-between items-center cursor-pointer"
+      x-on:click={`$dispatch('toggle-package', ${index})`}
+    >
+      <div class="w-fit mr-2">
+        <slot name="title" />
+      </div>
+      <IlToggleArrow index={index} />
+    </label>
+  </h2>
+  <input
+    id={id}
+    data-toggle
+    type="checkbox"
+    x-bind:checked={`open[${index}]`}
+    class="sr-only max-md:[&:not(.js)_+_*]:hidden max-md:[&:checked:not(.js)_+_*]:flex"
+    x-bind:class="'js'"
+  />
+  <div
+    x-effect={`open[${index}] || gtMd ? show() : hide()`}
+    x-ref="grower"
+    class="flex flex-col gap-8"
+    data-toggle-target
+    x-bind:class="{ 'js': true }"
+  >
+    <picture>
+      <source media="(max-width: 767px)" srcset={imgSrc.mobile} />
+      <source media="(min-width: 768px)" srcset={imgSrc.desktop} />
+      <img class="object-cover w-full" src={imgSrc.desktop} />
+    </picture>
+    <h2 class="max-md:hidden px-8 text-3xl font-bold text-center">
+      <slot name="title" />
+    </h2>
+    <div class="px-8 flex flex-col gap-6 pb-8">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  import Alpine from "alpinejs";
+  import gsap from "gsap";
+  import { reactiveBreakpoints } from "../lib/breakpoints";
+
+  Alpine.data("PackageExpander", () => ({
+    duration: 0.75,
+    get gtMd(): boolean {
+      return reactiveBreakpoints.md;
+    },
+    show() {
+      const growArea = this.$refs.grower;
+      const height = growArea.scrollHeight;
+      gsap.to(growArea, {
+        height,
+        onComplete: () => {
+          growArea.style.height = "auto";
+          this.$dispatch("grown", { expanded: true });
+        },
+      });
+    },
+    hide() {
+      const el = this.$refs.grower;
+      gsap.to(el, {
+        height: "0px",
+        onComplete: () => {
+          this.$dispatch("grown", { expanded: false });
+        },
+      });
+    },
+  }));
+</script>

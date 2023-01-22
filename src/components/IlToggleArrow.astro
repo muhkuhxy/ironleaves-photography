@@ -1,0 +1,19 @@
+---
+type Props = {
+  class?: string;
+  shadowClass?: string;
+  index: number
+};
+
+const { index, class: classes, shadowClass = "[--shadow-size:4px]" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "transition-all duration-300 ease-linear h-[.5em] w-[.5em] [border-top-width:var(--shadow-size)] [border-right-width:var(--shadow-size)] border-current origin-[75%_25%] translate-y-[25%] translate-x-[-25%] rotate-[135deg]",
+    classes,
+    shadowClass,
+  ]}
+  x-bind:class={`open[${index}] && '!rotate-[-45deg]'`}
+>
+</div>

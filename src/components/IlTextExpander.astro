@@ -7,7 +7,7 @@ type Props = {
 const { class: classes, btnClass } = Astro.props;
 ---
 
-<div class:list={[classes, "flex flex-col gap-4"]} x-data="TextExpander">
+<div x-data="TextExpander" class:list={["flex flex-col gap-4", classes]}>
   <div
     x-effect="showMore || gtSm ? show() : hide()"
     class="max-w-prose overflow-y-hidden flex flex-col gap-4"
