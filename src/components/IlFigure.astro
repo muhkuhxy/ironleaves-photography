@@ -1,11 +1,15 @@
 ---
 type Props = {
   class?: string;
+  animation?: string;
 };
 
-const { class: classes } = Astro.props;
+const { class: classes, animation } = Astro.props;
 ---
 
-<figure class:list={["relative overflow-hidden", classes]}>
+<figure
+  class:list={["relative overflow-hidden", classes]}
+  data-animation={animation}
+>
   <slot />
 </figure>

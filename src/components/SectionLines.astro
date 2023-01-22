@@ -1,12 +1,17 @@
 ---
 type Props = {
   class?: string;
+  animation?: { name: "slide-up"; y: number };
 };
 
-const { class: classes } = Astro.props;
+const { class: classes, animation } = Astro.props;
 ---
 
-<div class:list={["absolute inset-0 overflow-hidden", classes]}>
+<div
+  class:list={["absolute inset-0 overflow-hidden", classes]}
+  data-animation={animation?.name}
+  data-y={animation?.y}
+>
   <div class="relative max-w-screen-xl mx-auto h-full">
     <slot />
   </div>

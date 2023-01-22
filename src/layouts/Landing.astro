@@ -35,7 +35,7 @@ import "./main.css";
 <script>
   import Alpine from "alpinejs";
   import ScrollTrigger from "gsap/ScrollTrigger";
-  import { slideUp } from "../lib/gsap";
+  import { parallax, slideUp } from "../lib/gsap";
 
   let timer: null | number = null;
 
@@ -48,11 +48,12 @@ import "./main.css";
       });
     },
     init() {
-      Array.from(
-        this.$el.querySelectorAll("[data-animation=slide-up]")
-      ).forEach((el) => {
-        const { delay, y } = (el as HTMLElement).dataset;
-        slideUp({ delay, y }, el as HTMLElement);
+      this.$el.querySelectorAll("[data-animation=slide-up]").forEach((el) => {
+        const { y } = (el as HTMLElement).dataset;
+        slideUp({ y }, el as HTMLElement);
+      });
+      this.$el.querySelectorAll("[data-animation=parallax]").forEach((el) => {
+        parallax("Landing", el as HTMLElement);
       });
     },
   }));
