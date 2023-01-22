@@ -4,6 +4,7 @@ type Props = {
   tag?: string;
   fluid?: boolean;
   class?: string;
+  animation?: string;
 };
 
 const {
@@ -11,6 +12,7 @@ const {
   Tag = "div",
   fluid = false,
   class: classes,
+  animation,
 } = Astro.props;
 
 const extraClasses = getContainerClasses(fluid, retractable);
@@ -29,6 +31,6 @@ export function getContainerClasses(fluid: boolean, retractable: boolean) {
 }
 ---
 
-<Tag class:list={[classes, extraClasses]}>
+<Tag class:list={[classes, extraClasses]} data-animation={animation}>
   <slot />
 </Tag>

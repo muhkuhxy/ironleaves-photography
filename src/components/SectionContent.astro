@@ -1,0 +1,18 @@
+---
+import LayoutContainer from "../components/LayoutContainer.astro";
+
+type Props = {
+  class?: string;
+  fluid?: boolean;
+  animation?: string;
+};
+
+const { class: classes, fluid = false, animation } = Astro.props;
+---
+
+<LayoutContainer
+  class={`${classes} py-12 lg:py-16 xl:py-20`}
+  {...{animation,fluid}}
+>
+  <slot />
+</LayoutContainer>

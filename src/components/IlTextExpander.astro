@@ -1,0 +1,94 @@
+---
+type Props = {
+  btnClass?: string;
+};
+
+const { btnClass } = Astro.props;
+---
+
+<div class="flex flex-col gap-4" x-data="TextExpander">
+  <div
+    x-effect="showMore || gtSm ? show() : hide()"
+    class="max-w-prose overflow-y-hidden flex flex-col gap-4"
+    x-ref="grower"
+  >
+    <slot />
+  </div>
+  <button
+    x-cloak
+    x-show="!gtSm"
+    class:list={["underline sm:hidden", btnClass]}
+    x-on:click="showMore = !showMore"
+  >
+    <span x-ref="more">Weiterlesen</span>
+    <span x-ref="less" style="display: none">Weniger</span>
+  </button>
+</div>
+
+<script>
+  import Alpine from "alpinejs";
+  import gsap from "gsap";
+  import { reactiveBreakpoints } from "../lib/breakpoints";
+
+  Alpine.data("TextExpander", () => ({
+    showMore: false,
+    duration: 0.75,
+    get gtSm(): boolean {
+      return reactiveBreakpoints.sm;
+    },
+    show() {
+      const growArea = this.$refs.grower;
+      const height = growArea.scrollHeight;
+      const tl = gsap.timeline();
+      tl.to(growArea, {
+        height,
+        onComplete: () => {
+          growArea.style.height = "auto";
+          this.$dispatch("grown", { expanded: true });
+        },
+      });
+      tl.to(
+        this.$refs.more,
+        {
+          opacity: 0,
+          onComplete: () => {
+            this.$refs.more.style.display = "none";
+          },
+        },
+        "<"
+      );
+      tl.to(this.$refs.less, {
+        opacity: 1,
+        onStart: () => {
+          this.$refs.less.style.display = "";
+        },
+      });
+    },
+    hide() {
+      const el = this.$refs.grower;
+      const tl = gsap.timeline();
+      tl.to(el, {
+        height: "0px",
+        onComplete: () => {
+          this.$dispatch("grown", { expanded: false });
+        },
+      });
+      tl.to(
+        this.$refs.less,
+        {
+          opacity: 0,
+          onComplete: () => {
+            this.$refs.less.style.display = "none";
+          },
+        },
+        "<"
+      );
+      tl.to(this.$refs.more, {
+        opacity: 1,
+        onStart: () => {
+          this.$refs.more.style.display = "";
+        },
+      });
+    },
+  }));
+</script>

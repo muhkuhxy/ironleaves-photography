@@ -4,16 +4,16 @@ import IlFigure from "../components/IlFigure.astro";
 import IlFigureCaption from "../components/IlFigureCaption.astro";
 import IlGradient from "../components/IlGradient.astro";
 import LayoutSpacer from "../components/LayoutSpacer.astro";
-import SectionLines from "./SectionLines.astro";
+import SectionLines from "../components/SectionLines.astro";
 import SvgHeroLine1 from "../components/svg/SvgHeroLine1.astro";
 import SvgHeroLine2 from "../components/svg/SvgHeroLine2.astro";
 import SvgHeroLine3 from "../components/svg/SvgHeroLine3.astro";
-import SectionContent from "./SectionContent.astro";
-import SectionHeader from "./SectionHeader.astro";
+import SectionContent from "../components/SectionContent.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 import ButtonEffect from "../components/ButtonEffect.astro";
 ---
 
-<section id="passion" class="scroll-target bg-emerald text-white relative">
+<section id="passion" data-scroll-target class="bg-emerald text-white relative">
   <IlFigure class="shadow-lg">
     <picture>
       <source

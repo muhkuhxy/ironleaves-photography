@@ -74,7 +74,6 @@ const containerClass = getContainerClasses(false, true);
           links.map(({ title, target }) => (
             <li
               class="nav-link relative w-fit cursor-pointer after:h-0 md:after:h-px after:bg-bluegray"
-              data-section-target={target}
               x-bind:class={`{ 'font-bold underline': '${target}' === maxSection }`}
               x-on:click="open && (open = false)"
             >
@@ -96,13 +95,14 @@ const containerClass = getContainerClasses(false, true);
 
 <script>
   import Alpine from "alpinejs";
+  import { reactiveBreakpoints } from "../lib/breakpoints";
 
   Alpine.data("header", () => ({
     open: false,
     sectionRatios: {},
+    maxSection: "",
     scrolledDown: false,
     lastScrollY: 0,
-    windowWidth: window.innerWidth,
 
     binder: {
       [":class"]:
@@ -115,12 +115,11 @@ const containerClass = getContainerClasses(false, true);
     },
 
     get gtMd() {
-      // TODO: meh, magic number
-      return this.windowWidth >= 768;
+      return reactiveBreakpoints.md;
     },
 
-    get maxSection(): string {
-      const ms = Object.entries(
+    updateMaxSection() {
+      this.maxSection = Object.entries(
         this.sectionRatios as Record<string, number>
       ).reduce(
         (memo, entry) => {
@@ -128,19 +127,10 @@ const containerClass = getContainerClasses(false, true);
         },
         ["", 0]
       )[0];
-      // console.log({ maxSection: ms });
-      return ms;
+      // console.log({ maxSection: this.maxSection });
     },
 
     init() {
-      let timer: number | null = null;
-      window.addEventListener("resize", () => {
-        timer != null && clearTimeout(timer);
-        timer = setTimeout(() => {
-          this.windowWidth = window.innerWidth;
-        }, 250);
-      });
-
       document.addEventListener("scroll", () => {
         this.scrolledDown =
           window.scrollY > 600 && window.scrollY > this.lastScrollY;
@@ -151,13 +141,17 @@ const containerClass = getContainerClasses(false, true);
         "highlightCurrentSection" in this.$el.dataset &&
         IntersectionObserver
       ) {
+        let timer: number | null = null;
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               const section = (entry.target as HTMLElement).id;
               this.sectionRatios[section] = entry.intersectionRatio;
             });
-            // console.log("updated sect ratio", { sr: this.sectionRatios });
+            timer = setTimeout(() => {
+              timer != null && clearTimeout(timer);
+              this.updateMaxSection();
+            }, 100);
           },
           {
             threshold: Array(10)
@@ -166,7 +160,7 @@ const containerClass = getContainerClasses(false, true);
           }
         );
 
-        const sections = document.querySelectorAll(".scroll-target[id]");
+        const sections = document.querySelectorAll("[data-scroll-target][id]");
         sections.forEach((section) => observer.observe(section));
       }
     },
@@ -200,8 +194,7 @@ const containerClass = getContainerClasses(false, true);
     }
   }
 
-  /* TODO: meh, hard coded breakpoint */
-  @media (max-width: 768px) {
+  @media (max-width: theme(screens.md)) {
     #nav-menu-open:not(.js) + * {
       display: none;
     }

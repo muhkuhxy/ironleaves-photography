@@ -12,13 +12,14 @@ import "./main.css";
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>Ironleaves Photography</title>
   </head>
   <body>
     <div class="min-h-screen flex flex-col">
       <LayoutLogo />
       <LayoutNavBar highlightCurrentSection={true} />
-      <main class="flex-1">
+      <main class="flex-1" x-data="App" x-on:grown="refresh">
         <slot />
       </main>
       <LayoutFooter />
@@ -30,3 +31,29 @@ import "./main.css";
     </div>
   </body>
 </html>
+
+<script>
+  import Alpine from "alpinejs";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+  import { slideUp } from "../lib/gsap";
+
+  let timer: null | number = null;
+
+  Alpine.data("App", () => ({
+    refresh() {
+      timer = setTimeout(() => {
+        timer != null && clearTimeout(timer);
+        // console.log("ScrollTrigger.refresh");
+        ScrollTrigger.refresh();
+      });
+    },
+    init() {
+      Array.from(
+        this.$el.querySelectorAll("[data-animation=slide-up]")
+      ).forEach((el) => {
+        const { delay, y } = (el as HTMLElement).dataset;
+        slideUp({ delay, y }, el as HTMLElement);
+      });
+    },
+  }));
+</script>
