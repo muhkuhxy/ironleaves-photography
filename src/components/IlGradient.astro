@@ -2,10 +2,16 @@
 type Props = {
   class?: string;
   halfHeight?: boolean;
+  halfOpacity?: boolean;
   direction?: string;
 };
 
-const { class: classes, halfHeight = false, direction = "top" } = Astro.props;
+const {
+  class: classes,
+  halfHeight,
+  direction = "top",
+  halfOpacity,
+} = Astro.props;
 ---
 
 <div
@@ -20,6 +26,8 @@ const { class: classes, halfHeight = false, direction = "top" } = Astro.props;
       "bg-gradient-to-l": direction === "left",
       "top-1/2": halfHeight,
       "top-0": !halfHeight,
+      "opacity-25": halfOpacity,
+      "opacity-50": !halfOpacity,
     },
   ]}
 >

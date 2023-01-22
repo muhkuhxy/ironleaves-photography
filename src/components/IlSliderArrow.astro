@@ -19,7 +19,10 @@ const { class: classes, side, onClick } = Astro.props;
     side === "left" ? "left-0" : "right-0",
   ]}
 >
-  <IlGradient direction={side === "left" ? "right" : "left"} />
+  <IlGradient
+    direction={side === "left" ? "right" : "left"}
+    halfOpacity={true}
+  />
   <button
     class:list={[
       "cursor-pointer mb-2 text-white",
