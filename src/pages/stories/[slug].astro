@@ -132,8 +132,7 @@ function parseChapters(
               >
                 <div
                   x-show="!breakpoints.lg"
-                  x-bind:class="'js'"
-                  class="lg:w-[60%] lg:[&:not(.js)]:w-[250%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+                  class="lg:w-[60%] nojs:lg:w-[250%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
                 >
                   <img
                     src={`/images/${chapter.img}`}

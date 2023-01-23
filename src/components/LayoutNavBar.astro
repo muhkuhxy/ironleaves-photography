@@ -51,13 +51,12 @@ const containerClass = getContainerClasses(false, true);
       id="nav-menu-open"
       type="checkbox"
       x-bind:checked="open"
-      class="sr-only max-md:[&:not(.js)_+_*]:hidden max-md:[&:checked:not(.js)_+_*]:block"
-      x-bind:class="'js'"
+      class="sr-only peer"
     />
     <div
       class:list={[
         containerClass,
-        "absolute md:static bg-white",
+        "absolute md:static bg-white nojs:max-md:hidden nojs:max-md:peer-checked:block",
         "pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12",
       ]}
       x-show="open || gtMd"

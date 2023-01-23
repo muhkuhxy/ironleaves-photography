@@ -16,7 +16,12 @@ import "./main.css";
     <title>Ironleaves Photography</title>
   </head>
   <body>
-    <div class="min-h-screen flex flex-col">
+    <div
+      class="min-h-screen flex flex-col"
+      data-layout
+      x-data
+      x-bind:class="'js'"
+    >
       <LayoutLogo />
       <LayoutNavBar />
       <main class="flex-1">

@@ -33,15 +33,13 @@ const id = `il-photo-package-${index}`;
     data-toggle
     type="checkbox"
     x-bind:checked={`open[${index}]`}
-    class="sr-only max-md:[&:not(.js)_+_*]:hidden max-md:[&:checked:not(.js)_+_*]:flex"
-    x-bind:class="'js'"
+    class="sr-only peer"
   />
   <div
     x-effect={`open[${index}] || gtMd ? show() : hide()`}
     x-ref="grower"
-    class="flex flex-col gap-8"
+    class="flex flex-col gap-8 nojs:max-md:hidden nojs:max-md:peer-checked:flex"
     data-toggle-target
-    x-bind:class="{ 'js': true }"
   >
     <picture>
       <source media="(max-width: 767px)" srcset={imgSrc.mobile} />
