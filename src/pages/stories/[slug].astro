@@ -40,12 +40,15 @@ export async function getStaticPaths() {
 
 const { post: md } = Astro.props;
 const post = md.frontmatter;
-// console.log({ post });
-const { slug } = Astro.params;
+
 const contentHtml = parse(md.compiledContent());
-function parseChapters(): { children: HTMLElement[]; img: string }[] {
+const chapters = parseChapters(contentHtml);
+
+function parseChapters(
+  doc: HTMLElement
+): { children: HTMLElement[]; img: string }[] {
   const preChapters = splitAt(
-    Array.from(contentHtml.childNodes).filter(
+    Array.from(doc.childNodes).filter(
       (n) => n.nodeType === NodeType.ELEMENT_NODE
     ) as HTMLElement[],
     (el) => el.tagName === "H2"
@@ -57,7 +60,6 @@ function parseChapters(): { children: HTMLElement[]; img: string }[] {
     })
   );
 }
-const chapters = parseChapters();
 ---
 
 <Layout>
@@ -89,6 +91,7 @@ const chapters = parseChapters();
         slot="telling"
       >
         <div
+          x-cloak
           x-show="breakpoints.lg"
           class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center"
         >
@@ -102,14 +105,18 @@ const chapters = parseChapters();
           }
         </div>
         <div
+          x-cloak
           x-show="breakpoints.lg"
-          data-animation={"fade" /* TODO: animation */}
           class="sticky w-[60%] mr-8 h-[100vh] top-0"
         >
           {
             chapters.map((chapter, chapterIndex) => (
               <img
                 x-show={`chaptersActive[${chapterIndex}]`}
+                x-transition:leave="fade-enter-active"
+                x-transition:leave-end="fade-leave-to"
+                x-transition:enter="fade-enter-active"
+                x-transition:enter-start="fade-enter"
                 src={`/images/${chapter.img}`}
                 class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
               />
@@ -125,7 +132,8 @@ const chapters = parseChapters();
               >
                 <div
                   x-show="!breakpoints.lg"
-                  class="lg:w-[60%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+                  x-bind:class="'js'"
+                  class="lg:w-[60%] lg:[&:not(.js)]:w-[250%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
                 >
                   <img
                     src={`/images/${chapter.img}`}
@@ -300,6 +308,11 @@ const chapters = parseChapters();
     },
   });
 </script> -->
+<script>
+  import gsap from "gsap";
+  import Flip from "gsap/Flip";
+  gsap.registerPlugin(Flip);
+</script>
 
 <style>
   .fade-enter,
