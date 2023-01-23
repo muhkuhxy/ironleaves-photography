@@ -1,0 +1,105 @@
+---
+import LayoutSpacer from "./LayoutSpacer.astro";
+import SectionContent from "./SectionContent.astro";
+
+type Props = {
+  slides: string[];
+};
+
+const { slides } = Astro.props;
+---
+
+<div class="text-bluegray pb-6 story" x-data="BlogStory">
+  <div class="bg-dust">
+    <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
+      <slot name="image" />
+      <div
+        class="lg:w-1/2 flex-initial text-center lg:text-left flex flex-col gap-4 max-w-prose mx-auto lg:mx-0"
+      >
+        <slot name="title" />
+        <slot name="content" />
+        <LayoutSpacer responsive={false} ms={1} />
+      </div>
+    </SectionContent>
+  </div>
+  <div class="bg-white">
+    <slot name="telling" />
+  </div>
+  <div class="h-[50vh]">
+    TODO: slider
+    <!-- <LazyIlSlider
+        v-if="trigger"
+        class="pb-8 h-full"
+        :slides="slides" /> -->
+  </div>
+</div>
+
+<script>
+  import Alpine from "alpinejs";
+  import { ScrollTrigger } from "../lib/gsap";
+  import { reactiveBreakpoints } from "../lib/breakpoints";
+
+  Alpine.data("BlogStory", () => ({
+    breakpoints: reactiveBreakpoints,
+    chaptersActive: [true],
+    init() {
+      const chapters = Array.from(this.$el.querySelectorAll("[data-chapter]"));
+      this.chaptersActive = chapters.map((chapter) => false);
+      chapters.forEach((chapter, index, array) => {
+        const activate: ScrollTrigger.Callback = (self) => {
+          this.chaptersActive[index] = self.isActive;
+        };
+        const onLeave = index === array.length - 1 ? undefined : activate;
+        const onLeaveBack = index === 0 ? undefined : activate;
+        ScrollTrigger.create({
+          // markers: true,
+          trigger: chapter,
+          start: index === 0 ? "top bottom" : "center bottom",
+          end: "center top",
+          onEnter: activate,
+          onLeave,
+          onEnterBack: activate,
+          onLeaveBack,
+        });
+      });
+    },
+  }));
+</script>
+
+<!-- <script lang="ts">
+  import Vue from "vue";
+  import { ScrollTrigger } from "@/lib/gsap";
+
+  export default Vue.extend({
+    props: {
+      slides: {
+        type: Array,
+        required: true,
+      },
+    },
+    data: () => ({
+      scrollTrigger: null as null | ScrollTrigger,
+      trigger: false,
+    }),
+    mounted() {
+      this.initScrollTrigger();
+    },
+    beforeDestroy() {
+      this.scrollTrigger?.kill();
+    },
+    methods: {
+      initScrollTrigger() {
+        this.scrollTrigger = ScrollTrigger.create({
+          trigger: this.$el,
+          start: () => "top-=50% bottom",
+          end: () => "bottom+=50% top",
+          onToggle: (self: any) => {
+            this.trigger = true;
+            self.kill();
+            this.scrollTrigger = null;
+          },
+        });
+      },
+    },
+  });
+</script> -->

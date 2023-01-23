@@ -1,0 +1,315 @@
+---
+import IlStory from "../../components/IlStory.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro";
+import { labels, slugify } from "../../lib/blog";
+import { Debug } from "astro/components";
+import IlTestimonial from "../../components/IlTestimonial.astro";
+import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import Contact from "../../sections/Contact.astro";
+import { HTMLElement, Node, NodeType, parse } from "node-html-parser";
+import SectionContent from "../../components/SectionContent.astro";
+import { dropWhile, splitAt } from "../../lib/collections";
+
+interface Frontmatter {
+  title: string;
+  slug: string;
+  tag: "stories" | "infos" | "tipps";
+  createdAt?: string;
+  imgSrc: string;
+  imgAlt: string;
+  storyTellingImgs: string[];
+  slides: string[];
+  testimonial?: { name: string; imgSrc: string; imgAlt: string; text: string };
+}
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob<Frontmatter>("../../blog/*.md");
+  return posts.map((post) => ({
+    params: {
+      slug: slugify(post.file),
+    },
+    props: {
+      post,
+    },
+  }));
+}
+
+const { post: md } = Astro.props;
+const post = md.frontmatter;
+// console.log({ post });
+const { slug } = Astro.params;
+const contentHtml = parse(md.compiledContent());
+function parseChapters(): { children: HTMLElement[]; img: string }[] {
+  const preChapters = splitAt(
+    Array.from(contentHtml.childNodes).filter(
+      (n) => n.nodeType === NodeType.ELEMENT_NODE
+    ) as HTMLElement[],
+    (el) => el.tagName === "H2"
+  );
+  return dropWhile(preChapters, (el) => el[0].tagName !== "H2").map(
+    (children, index) => ({
+      children,
+      img: post.storyTellingImgs[index],
+    })
+  );
+}
+const chapters = parseChapters();
+---
+
+<Layout>
+  <section class="text-bluegray">
+    <IlStory slides={post.slides}>
+      <div
+        slot="image"
+        class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
+      >
+        <img
+          class="w-7/8 border-8 border-solid border-white drop-shadow"
+          src={`/images/${post.imgSrc}`}
+          alt={post.imgAlt}
+        />
+        <SvgSingleBranch
+          class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4"
+        />
+      </div>
+
+      <SectionHeader slot="title">
+        <span slot="roofline">{labels[post.tag]}</span>
+        {post.title}
+      </SectionHeader>
+
+      <Fragment slot="content">{contentHtml.firstChild}</Fragment>
+
+      <SectionContent
+        class="flex gap-x-8 relative py-32 story-telling"
+        slot="telling"
+      >
+        <div
+          x-show="breakpoints.lg"
+          class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center"
+        >
+          {
+            chapters.map((chapter, chapterIndex) => (
+              <div
+                class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
+                x-bind:class={`chaptersActive[${chapterIndex}] ? 'scale-[1.2] my-1' : 'scale-[0.65]'`}
+              />
+            ))
+          }
+        </div>
+        <div
+          x-show="breakpoints.lg"
+          data-animation={"fade" /* TODO: animation */}
+          class="sticky w-[60%] mr-8 h-[100vh] top-0"
+        >
+          {
+            chapters.map((chapter, chapterIndex) => (
+              <img
+                x-show={`chaptersActive[${chapterIndex}]`}
+                src={`/images/${chapter.img}`}
+                class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+              />
+            ))
+          }
+        </div>
+        <div class="grow flex flex-col gap-y-32 lg:gap-y-0">
+          {
+            chapters.map((chapter) => (
+              <div
+                class="chapter flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
+                data-chapter
+              >
+                <div
+                  x-show="!breakpoints.lg"
+                  class="lg:w-[60%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+                >
+                  <img
+                    src={`/images/${chapter.img}`}
+                    class="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
+                  />
+                </div>
+                <div class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose">
+                  {chapter.children.map((child) => {
+                    if (child.tagName === "H2") {
+                      child.classList.add("leading-none");
+                      child.classList.add("mt-4");
+                    }
+                    return child;
+                  })}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </SectionContent>
+    </IlStory>
+
+    {post.testimonial && <IlTestimonial testimonial={post.testimonial} />}
+
+    <IconBase class="text-sunset w-full h-16 mt-8">
+      <IconArrow />
+    </IconBase>
+
+    <LayoutSpacer />
+
+    <SectionHeader class="mx-auto text-center">
+      <template #roofline>Stories</template>
+      Neueste Beiträge
+    </SectionHeader>
+
+    <LayoutSpacer />
+
+    <!-- <BlogStories :articles="articles">
+    <template #tail>
+      <LayoutSpacer />
+
+      <NuxtLink to="/stories">
+        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+          Hier gibt's alle Beiträge
+        </ButtonEffect>
+      </NuxtLink>
+
+      <LayoutSpacer :ms="4" />
+
+      <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+        <IconArrow />
+      </IconBase>
+    </template>
+  </BlogStories> -->
+
+    <Contact class="mt-20" />
+  </section>
+</Layout>
+
+<!-- <script lang="ts">
+  import Vue from "vue";
+  import { FetchReturn } from "@nuxt/content/types/query-builder";
+  import { Context } from "@nuxt/types";
+  import { VueConstructor } from "vue/types/vue";
+  import { labels, fetchStories } from "@/lib/blog";
+  import { ScrollTrigger } from "@/lib/gsap";
+  import { IlInjection } from "@/types/declarations";
+  import { dropWhile, splitAt } from "@/lib/collections";
+  import { retry } from "~/lib/functions";
+
+  interface Data {
+    document?: FetchReturn;
+    animationInitialized: boolean;
+    chaptersActive: boolean[];
+    articles: FetchReturn[];
+    slug?: string;
+  }
+
+  interface Node {
+    tag?: string;
+    type?: string;
+    props?: Record<string, string>;
+    children: Node[];
+  }
+
+  export default (Vue as VueConstructor<Vue & IlInjection>).extend({
+    inject: {
+      $il: "$il",
+    } as Record<keyof IlInjection, string>,
+    scrollToTop: true,
+    async asyncData({ params, $content }: Context): Promise<{
+      document: FetchReturn;
+      articles: FetchReturn[];
+      slug: string;
+    }> {
+      const slug = params.slug;
+      const document = (await $content(
+        `stories/${slug}`
+      ).fetch()) as FetchReturn;
+      const articles = await fetchStories(
+        { $content },
+        { limit: 2, where: { slug: { $ne: slug } } }
+      );
+      return { document, articles, slug };
+    },
+    data: () =>
+      ({
+        animationInitialized: false,
+        chaptersActive: [true],
+      } as unknown as Data),
+    computed: {
+      labels() {
+        return labels;
+      },
+      chapters(): { children: Node[]; img: string }[] {
+        if (!this.document) {
+          return [];
+        }
+        return dropWhile(
+          splitAt(
+            (this.document.body as Node).children,
+            (el) => el.tag === "h2"
+          ),
+          (el) => el[0].tag !== "h2"
+        ).map((children, index) => ({
+          children,
+          img: this.document?.storyTellingImgs[index],
+        }));
+      },
+    },
+    async mounted() {
+      await this.$il.breakpointsReady;
+      this.initAnimations();
+    },
+    updated() {
+      if (!this.animationInitialized) {
+        this.initAnimations();
+      }
+    },
+    methods: {
+      initAnimations() {
+        if (this.$el.tagName) {
+          retry(`${this.slug} chapter scrolltrigger`, 10, 500, () => {
+            const chapters = this.$el.querySelectorAll(
+              ".story-telling .chapter"
+            );
+            if (!chapters.length) {
+              return false;
+            }
+            chapters.forEach((chapter, index, array) => {
+              const activate: ScrollTrigger.Callback = (self) => {
+                this.$set(this.chaptersActive, index, self.isActive);
+              };
+              const onLeave = index === array.length - 1 ? undefined : activate;
+              const onLeaveBack = index === 0 ? undefined : activate;
+              ScrollTrigger.create({
+                // markers: true,
+                trigger: chapter,
+                start: index === 0 ? "top bottom" : "center bottom",
+                end: "center top",
+                onEnter: activate,
+                onLeave,
+                onEnterBack: activate,
+                onLeaveBack,
+              });
+            });
+            return true;
+          });
+          this.animationInitialized = true;
+        }
+      },
+    },
+  });
+</script> -->
+
+<style>
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+  }
+</style>
