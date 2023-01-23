@@ -77,7 +77,7 @@ const containerClass = getContainerClasses(false, true);
               x-bind:class={`{ 'font-bold underline': '${target}' === maxSection }`}
               x-on:click="open && (open = false)"
             >
-              <a href={`#${target}`}>{title}</a>
+              <a href={`/#${target}`}>{title}</a>
             </li>
           ))
         }

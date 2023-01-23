@@ -145,7 +145,7 @@ import IconBase from "../components/svg/IconBase.astro";
     init() {
       ScrollTrigger.create({
         trigger: this.$refs.trigger,
-        markers: true,
+        // markers: true,
         start: () => "top+=200px bottom",
         end: () => "bottom-=100px top",
         onToggle: (self: ScrollTrigger) => {

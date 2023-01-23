@@ -1,0 +1,312 @@
+---
+import ButtonEffect from "../components/ButtonEffect.astro";
+import LayoutSpacer from "../components/LayoutSpacer.astro";
+import SectionContent from "../components/SectionContent.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SectionLines from "../components/SectionLines.astro";
+import SvgHeroFlower from "../components/svg/SvgHeroFlower.astro";
+import SvgHeroLine1 from "../components/svg/SvgHeroLine1.astro";
+import SvgHeroLine2 from "../components/svg/SvgHeroLine2.astro";
+
+const inputClasses =
+  "border-2 border-solid border-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1";
+
+const form: {
+  name: string;
+  type: "text" | "email";
+  label: string;
+  required?: boolean;
+}[] = [
+  {
+    name: "name",
+    type: "text",
+    label: "Eure Namen",
+    required: true,
+  },
+  {
+    name: "email",
+    type: "email",
+    label: "E-Mail-Adresse",
+    required: true,
+  },
+  {
+    name: "phone",
+    type: "text",
+    label: "Telefonnummer",
+  },
+  {
+    name: "kind",
+    type: "text",
+    label: "Art der Trauung",
+  },
+  {
+    name: "date",
+    type: "text",
+    label: "Wunschdatum",
+  },
+  {
+    name: "place",
+    type: "text",
+    label: "Wo wird die Hochzeit stattfinden?",
+    required: true,
+  },
+];
+---
+
+<section id="contact" data-scroll-target class="bg-sunset text-white relative">
+  <SectionLines class="max-xl:hidden">
+    <div class="absolute right-0 w-[70%] h-full">
+      <div class="relative w-full h-full">
+        <SvgHeroLine1
+          class="absolute text-white opacity-25 stroke-current stroke-1 fill-none h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-39%]"
+        />
+        <SvgHeroLine2
+          class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none h-[110%] mt-[-2.5%] scale-x-[-1] right-0"
+        />
+        <SvgHeroFlower
+          class="absolute right-0 top-0 h-[84%] mt-[1%] mr-[6%] fill-current"
+        />
+      </div>
+    </div>
+  </SectionLines>
+  <SectionContent class="relative grid grid-cols-1 xl:grid-cols-2">
+    <div class="max-w-prose">
+      <SectionHeader>
+        <span slot="roofline" class="text-white">Kontakt</span>
+        Ich freue mich auf Eure Nachrichten!
+      </SectionHeader>
+      <LayoutSpacer />
+      <p class="mb-4">
+        Super gerne begleite ich Euren besonderen Tag als Hochzeitsfotograf –
+        Egal, ob in Monschau, Aachen, NRW oder irgendwo anders in Deutschland
+        oder der Welt! Gerne gehe ich auch auf eure individuellen Wünsche ein.
+      </p>
+      <p>
+        Ich bin schon ganz gespannt darauf, eure Geschichte zu hören und euch
+        kennenzulernen! Erzählt mir gerne in einer Nachricht ein bisschen mehr
+        von euch und Eurer Hochzeit. Wir können uns persönlich auf einen Kaffee
+        treffen, gemeinsam telefonieren oder einen Video-Call machen um uns
+        etwas zu beschnuppern. Ich nehme mir sehr gerne Zeit für alle eure
+        Fragen und Wünsche! Füllt einfach das Kontaktformular aus und ich werde
+        euch innerhalb von 48 Stunden antworten.
+      </p>
+      <LayoutSpacer />
+      <form
+        action="/thank-you"
+        name="contact"
+        class="grid gap-x-2 gap-y-6 grid-cols-1 sm:grid-cols-2"
+        x-data="ContactForm"
+        x-bind="binder"
+        data-netlify
+        netlify-honeypot="aquarium-candle"
+      >
+        <input
+          type="hidden"
+          name="subject"
+          value="Ironleaves Photography Anfrage"
+        />
+        <input type="hidden" name="aquarium-candle" />
+        {
+          form.map((field) => (
+            <div x-data={`FormField(${field.required ?? ""})`}>
+              <label for={`contact-${field.name}`}>
+                {`${field.label}${field.required ? "*" : ""}`}
+              </label>
+              <input
+                id={`contact-${field.name}`}
+                class={inputClasses}
+                required={field.required}
+                name={field.name}
+                type={field.type}
+                x-bind="inputBinder"
+              />
+              <template x-if="showError && !valid">
+                <div class="text-sm">
+                  {field.type === "email"
+                    ? "Bitte eine gültige E-Mail-Adresse angeben."
+                    : "Dies ist ein Pflichtfeld."}
+                </div>
+              </template>
+            </div>
+          ))
+        }
+        <div x-data="FormField(true)" class="col-span-full">
+          <label for="contact-message">Nachricht*</label>
+          <textarea
+            id="contact-message"
+            class:list={[inputClasses, "min-h-24"]}
+            required
+            name="message"
+            x-bind="inputBinder"></textarea>
+          <template x-if="showError && !valid">
+            <div class="text-sm">Dies ist ein Pflichtfeld.</div>
+          </template>
+        </div>
+        <div class="col-span-full">
+          <div
+            x-data="FormField(true)"
+            class="grid grid-cols-[1em_auto] gap-x-4 text-sm"
+          >
+            <input
+              id="contact-acceptedAgbs"
+              type="checkbox"
+              class:list={[inputClasses, "flex items-center"]}
+              required
+              name="acceptedAgbs"
+              x-bind="inputBinder"
+            />
+            <label for="contact-acceptedAgbs" class="text-sm mb-1">
+              Ich habe die Datenschutzerklärung und AGBs zur Kenntnis genommen.
+              Ich stimme zu, dass meine Daten und Angaben zur Bearbeitung meines
+              Anliegens elektronisch verarbeitet werden. Mir ist bewusst, dass
+              ich meine Einwilligung jederzeit mit Wirkung für die Zukunft durch
+              eine einfache Erklärung, zum Beispiel durch eine Erklärung mittels
+              dieses Kontaktformulars oder per E-Mail widerrufen kann.</label
+            >
+            <template x-if="showError && !valid">
+              <div class="text-sm col-span-full">
+                Zustimmung ist erforderlich.
+              </div>
+            </template>
+          </div>
+        </div>
+        <template x-if="formInvalid">
+          <div class="sm:col-span-2">
+            Das Formular ist leider noch nicht vollständig. Bitte überprüfe
+            deine Angaben.
+          </div>
+        </template>
+        <ButtonEffect
+          class="sm:col-span-2"
+          type="submit"
+          disabled="state === 'submitting' || formInvalid"
+        >
+          <span
+            x-text="{ 'submitting': `Wird gesendet ${dots}`, 'success': 'Vielen Dank :)', 'error': 'Schade :(' }[state] ?? 'Abschicken'"
+            >Abschicken</span
+          >
+        </ButtonEffect>
+        <div class="max-w-prose sm:col-span-2">
+          <template x-if="state === 'success'">
+            <span> Ich melde mich so bald wie möglich.</span>
+          </template>
+          <template x-if="state === 'error'">
+            <div>
+              Leider gab es ein technisches Problem, bitte versuch es später
+              nochmal, oder schreib mir eine
+              <a
+                href="mailto:hello@ironleaves-photography.com"
+                class="underline cursor-pointer"
+              >
+                E-Mail
+              </a>.
+            </div>
+          </template>
+        </div>
+      </form>
+    </div>
+  </SectionContent>
+</section>
+
+<script>
+  import Alpine from "alpinejs";
+
+  Alpine.data("ContactForm", () => ({
+    formInvalid: null,
+    state: "idle",
+    dots: "",
+
+    updateValidity(form: HTMLFormElement) {
+      this.formInvalid = !form.checkValidity();
+    },
+    binder: {
+      [":novalidate"]: true,
+      ["@input"](evt: InputEvent) {
+        if (this.formInvalid != null) {
+          this.updateValidity(evt.currentTarget as HTMLFormElement);
+        }
+      },
+      ["@submit"](evt: SubmitEvent) {
+        evt.preventDefault();
+        const form = evt.target as HTMLFormElement;
+
+        this.updateValidity(form);
+        if (this.formInvalid) {
+          this.state = "idle";
+          return;
+        }
+
+        this.state = "submitting";
+        const formData = new FormData(form);
+
+        const interval = setInterval(() => {
+          this.dots += ".";
+        }, 750);
+
+        fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(
+            Array.from(formData.entries()).reduce((result, [k, v]) => {
+              if (typeof v === "string") {
+                result[k] = v;
+              }
+              return result;
+            }, {} as Record<string, string>)
+          ).toString(),
+        }).then(
+          (response) => {
+            this.state = response.ok ? "success" : "error";
+            clearInterval(interval);
+          },
+          (error) => {
+            console.error(error);
+            this.state = "error";
+            clearInterval(interval);
+          }
+        );
+      },
+    },
+  }));
+
+  Alpine.data("FormField", (required = true) => ({
+    valid: !required,
+    showError: false,
+    inputBinder: {
+      ["@input"](evt: InputEvent) {
+        this.valid = (
+          evt.target as HTMLInputElement | HTMLTextAreaElement
+        ).validity.valid;
+      },
+      ["@blur"](evt: FocusEvent) {
+        this.showError = true;
+        this.valid = (
+          evt.target as HTMLInputElement | HTMLTextAreaElement
+        ).validity.valid;
+      },
+      ["@invalid"]() {
+        this.valid = false;
+        this.showError = true;
+      },
+    },
+  }));
+</script>
+
+<style>
+  input[type="checkbox"] {
+    @apply bg-[inherit] border-2 border-white m-0;
+    @apply appearance-none text-current w-[1.15em] h-[1.15em] translate-y-[3px] grid place-content-center;
+
+    font: inherit;
+
+    &::before {
+      content: "";
+      @apply w-[0.6em] h-[0.6em] transition-all scale-0;
+      box-shadow: inset 1em 1em white;
+    }
+
+    &:checked::before {
+      @apply scale-100;
+    }
+  }
+</style>

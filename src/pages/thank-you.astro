@@ -1,0 +1,42 @@
+---
+import LayoutSpacer from "../components/LayoutSpacer.astro";
+import SectionContent from "../components/SectionContent.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import SectionLines from "../components/SectionLines.astro";
+import SvgHeroFlower from "../components/svg/SvgHeroFlower.astro";
+import SvgHeroLine1 from "../components/svg/SvgHeroLine1.astro";
+import SvgHeroLine2 from "../components/svg/SvgHeroLine2.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section class="bg-sunset text-white relative">
+    <SectionLines class="max-xl:hidden">
+      <div class="absolute right-0 w-[70%] h-full">
+        <div class="relative w-full h-full">
+          <SvgHeroLine1
+            class="absolute text-white opacity-25 stroke-current stroke-1 fill-none h-[106%] right-0 top-0 rotate-[-18deg] mt-[-5%] mr-[-39%]"
+          />
+          <SvgHeroLine2
+            class="absolute text-bluegray opacity-50 stroke-current stroke-1 fill-none h-[110%] mt-[-2.5%] scale-x-[-1] right-0"
+          />
+          <SvgHeroFlower
+            class="absolute right-0 top-0 h-[84%] mt-[1%] mr-[6%] fill-current"
+          />
+        </div>
+      </div>
+    </SectionLines>
+    <SectionContent class="relative grid grid-cols-1 xl:grid-cols-2">
+      <div class="max-w-prose">
+        <SectionHeader>
+          <span slot="roofline" class="text-white">Kontakt</span>
+          Danke :)
+        </SectionHeader>
+        <LayoutSpacer />
+        <p>
+          Vielen Dank für eure Nachricht! Ich melde mich so bald wie möglich.
+        </p>
+      </div>
+    </SectionContent>
+  </section>
+</Layout>
