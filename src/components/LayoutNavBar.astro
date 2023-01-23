@@ -27,7 +27,7 @@ const containerClass = getContainerClasses(false, true);
 
 <header
   x-data="header"
-  class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90"
+  class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90 shadow-lg"
   x-bind="binder"
   data-highlight-current-section={highlightCurrentSection}
 >
@@ -101,12 +101,9 @@ const containerClass = getContainerClasses(false, true);
     open: false,
     sectionRatios: {},
     maxSection: "",
-    scrolledDown: false,
     lastScrollY: 0,
 
     binder: {
-      [":class"]:
-        "scrolledDown && (!open || gtMd) ? '-translate-y-full delay-150' : 'shadow-lg'",
       ["@click.outside"]() {
         if (this.open) {
           this.open = false;
@@ -131,12 +128,6 @@ const containerClass = getContainerClasses(false, true);
     },
 
     init() {
-      document.addEventListener("scroll", () => {
-        this.scrolledDown =
-          window.scrollY > 600 && window.scrollY > this.lastScrollY;
-        this.lastScrollY = window.scrollY;
-      });
-
       if (
         "highlightCurrentSection" in this.$el.dataset &&
         IntersectionObserver

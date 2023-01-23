@@ -7,21 +7,22 @@ const year = new Date().getFullYear();
 
 <footer class="text-bluegray pt-8 relative bg-white">
   <LayoutContainer>
-    <LayoutSpacer />
-    <h2 class="font-bold">Folgt mir auf Instagram!</h2>
-    <LayoutSpacer />
-    <div id="curator-feed-default-feed-layout">
-      <a
-        href="https://curator.io"
-        target="_blank"
-        class="text-bluegray text-sm crt-logo crt-tag"
-      >
-        Powered by Curator.io
-      </a>
+    <div x-cloak x-show="true" x-data="Curator">
+      <LayoutSpacer />
+      <h2 class="font-bold">Folgt mir auf Instagram!</h2>
+      <LayoutSpacer />
+      <div id="curator-feed-default-feed-layout">
+        <a
+          href="https://curator.io"
+          target="_blank"
+          class="text-bluegray text-sm crt-logo crt-tag"
+        >
+          Powered by Curator.io
+        </a>
+      </div>
+      <LayoutSpacer />
+      <hr class="md:hidden mb-8" />
     </div>
-    <LayoutSpacer />
-    <hr class="md:hidden mb-8" />
-    <!-- <LayoutSpacer class="md:hidden" /> -->
     <div
       class="grid grid-cols-3 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:grid-rows-[(repeat(3,auto))] gap-x-4 gap-y-1 auto-rows-auto grid-flow-col text-center"
     >
@@ -58,3 +59,14 @@ const year = new Date().getFullYear();
     Designed by Ironleaves Design
   </a>
 </footer>
+
+<script>
+  import Alpine from "alpinejs";
+  import { loadCurator } from "../lib/curator";
+
+  Alpine.data("Curator", () => ({
+    init() {
+      loadCurator();
+    },
+  }));
+</script>
