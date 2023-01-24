@@ -105,7 +105,8 @@ const stories = await fetchStories(() =>
       }
 
       Flip.from(state, {
-        absoluteOnLeave: true,
+        // absoluteOnLeave: true,
+        absolute: "[data-tag]",
         duration: 0.75,
         ease: "sine.inOut",
         onEnter: (elements) => {
@@ -116,10 +117,10 @@ const stories = await fetchStories(() =>
         },
         onLeave: (elements) =>
           gsap.to(elements, {
-            scale: 0.75,
+            scale: 0.85,
             opacity: 0,
-            duration: 1,
-            ease: "sine.inOut",
+            duration: 0.5,
+            ease: "power1.inOut",
           }),
       });
     },

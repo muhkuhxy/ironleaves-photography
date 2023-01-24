@@ -43,63 +43,29 @@ const { slides } = Astro.props;
     breakpoints: reactiveBreakpoints,
     chaptersActive: [true],
     init() {
-      const chapters = Array.from(this.$el.querySelectorAll("[data-chapter]"));
-      this.chaptersActive = chapters.map((chapter) => false);
-      chapters.forEach((chapter, index, array) => {
-        const activate: ScrollTrigger.Callback = (self) => {
-          this.chaptersActive[index] = self.isActive;
-        };
-        const onLeave = index === array.length - 1 ? undefined : activate;
-        const onLeaveBack = index === 0 ? undefined : activate;
-        ScrollTrigger.create({
-          // markers: true,
-          trigger: chapter,
-          start: index === 0 ? "top bottom" : "center bottom",
-          end: "center top",
-          onEnter: activate,
-          onLeave,
-          onEnterBack: activate,
-          onLeaveBack,
+      this.$nextTick(() => {
+        const chapters = Array.from(
+          this.$el.querySelectorAll("[data-chapter]")
+        );
+        this.chaptersActive = chapters.map((chapter) => false);
+        chapters.forEach((chapter, index, array) => {
+          const activate: ScrollTrigger.Callback = (self) => {
+            this.chaptersActive[index] = self.isActive;
+          };
+          const onLeave = index === array.length - 1 ? undefined : activate;
+          const onLeaveBack = index === 0 ? undefined : activate;
+          ScrollTrigger.create({
+            // markers: true,
+            trigger: chapter,
+            start: index === 0 ? "top bottom" : "center bottom",
+            end: "center top",
+            onEnter: activate,
+            onLeave,
+            onEnterBack: activate,
+            onLeaveBack,
+          });
         });
       });
     },
   }));
 </script>
-
-<!-- <script lang="ts">
-  import Vue from "vue";
-  import { ScrollTrigger } from "@/lib/gsap";
-
-  export default Vue.extend({
-    props: {
-      slides: {
-        type: Array,
-        required: true,
-      },
-    },
-    data: () => ({
-      scrollTrigger: null as null | ScrollTrigger,
-      trigger: false,
-    }),
-    mounted() {
-      this.initScrollTrigger();
-    },
-    beforeDestroy() {
-      this.scrollTrigger?.kill();
-    },
-    methods: {
-      initScrollTrigger() {
-        this.scrollTrigger = ScrollTrigger.create({
-          trigger: this.$el,
-          start: () => "top-=50% bottom",
-          end: () => "bottom+=50% top",
-          onToggle: (self: any) => {
-            this.trigger = true;
-            self.kill();
-            this.scrollTrigger = null;
-          },
-        });
-      },
-    },
-  });
-</script> -->

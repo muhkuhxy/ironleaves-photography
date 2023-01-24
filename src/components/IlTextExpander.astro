@@ -45,7 +45,9 @@ const { class: classes, btnClass } = Astro.props;
         height,
         onComplete: () => {
           growArea.style.height = "auto";
-          this.$dispatch("grown", { expanded: true });
+          this.$el.dispatchEvent(
+            new CustomEvent("domchanged", { bubbles: true })
+          );
         },
       });
       tl.to(
@@ -71,7 +73,9 @@ const { class: classes, btnClass } = Astro.props;
       tl.to(el, {
         height: "0px",
         onComplete: () => {
-          this.$dispatch("grown", { expanded: false });
+          this.$el.dispatchEvent(
+            new CustomEvent("domchanged", { bubbles: true })
+          );
         },
       });
       tl.to(

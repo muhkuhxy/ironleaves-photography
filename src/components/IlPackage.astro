@@ -72,7 +72,9 @@ const id = `il-photo-package-${index}`;
         height,
         onComplete: () => {
           growArea.style.height = "auto";
-          this.$dispatch("grown", { expanded: true });
+          this.$el.dispatchEvent(
+            new CustomEvent("domchanged", { bubbles: true })
+          );
         },
       });
     },
@@ -81,7 +83,9 @@ const id = `il-photo-package-${index}`;
       gsap.to(el, {
         height: "0px",
         onComplete: () => {
-          this.$dispatch("grown", { expanded: false });
+          this.$el.dispatchEvent(
+            new CustomEvent("domchanged", { bubbles: true })
+          );
         },
       });
     },

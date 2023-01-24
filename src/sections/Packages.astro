@@ -69,9 +69,9 @@ import IconBase from "../components/svg/IconBase.astro";
           auch für ein kleines Pärchenshooting.
         </p>
         <p>
-          <a class="cursor-pointer underline" href="#contact"
-            >Preis auf Anfrage</a
-          >
+          <a class="cursor-pointer underline" href="#contact">
+            Preis auf Anfrage
+          </a>
         </p>
       </IlPackage>
 
@@ -96,9 +96,9 @@ import IconBase from "../components/svg/IconBase.astro";
           Ready) bis zur großen Party spät in die Nacht fest!
         </p>
         <p>
-          <a class="cursor-pointer underline" href="#contact"
-            >Preis auf Anfrage</a
-          >
+          <a class="cursor-pointer underline" href="#contact">
+            Preis auf Anfrage
+          </a>
         </p>
       </IlPackage>
 
@@ -122,9 +122,9 @@ import IconBase from "../components/svg/IconBase.astro";
           Hochzeit den ganzen Tag dabei!
         </p>
         <p>
-          <a class="cursor-pointer underline" href="#contact"
-            >Preis auf Anfrage</a
-          >
+          <a class="cursor-pointer underline" href="#contact">
+            Preis auf Anfrage
+          </a>
         </p>
       </IlPackage>
     </div>
@@ -143,27 +143,31 @@ import IconBase from "../components/svg/IconBase.astro";
     triggered: false,
     breakpoints: reactiveBreakpoints,
     init() {
-      ScrollTrigger.create({
-        trigger: this.$refs.trigger,
-        // markers: true,
-        start: () => "top+=200px bottom",
-        end: () => "bottom-=100px top",
-        onToggle: (self: ScrollTrigger) => {
-          this.triggered = true;
-          if (reactiveBreakpoints.md) {
-            const packages = this.$el.querySelectorAll("[data-photo-package]");
-            gsap.from(packages, {
-              opacity: 0,
-              y: 60 * self.direction,
-              duration: 1.5,
-              delay: 0.25,
-              stagger: 0.5 * self.direction,
-              ease: "expo",
-            });
-          }
-          self.kill();
-        },
-      });
+      this.$nextTick(() =>
+        ScrollTrigger.create({
+          trigger: this.$refs.trigger,
+          // markers: true,
+          start: () => "top+=200px bottom",
+          end: () => "bottom-=100px top",
+          onToggle: (self: ScrollTrigger) => {
+            this.triggered = true;
+            if (reactiveBreakpoints.md) {
+              const packages = this.$el.querySelectorAll(
+                "[data-photo-package]"
+              );
+              gsap.from(packages, {
+                opacity: 0,
+                y: 60 * self.direction,
+                duration: 1.5,
+                delay: 0.25,
+                stagger: 0.5 * self.direction,
+                ease: "expo",
+              });
+            }
+            self.kill();
+          },
+        })
+      );
     },
     toggle(index: number) {
       this.open = this.open.map(

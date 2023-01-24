@@ -75,19 +75,21 @@ import ButtonEffect from "../components/ButtonEffect.astro";
 
   Alpine.data("HeroParallax", () => ({
     init() {
-      gsap.to(this.$el, {
-        ease: "none",
-        scrollTrigger: {
-          trigger: this.$el,
-          scrub: true,
-          // markers: true,
-          start: () =>
-            `top+=10% ${
-              document.querySelector("nav")?.getBoundingClientRect()?.bottom ||
-              "bottom"
-            }`,
-        },
-        yPercent: 20,
+      this.$nextTick(() => {
+        gsap.to(this.$el, {
+          ease: "none",
+          scrollTrigger: {
+            trigger: this.$el,
+            scrub: true,
+            // markers: true,
+            start: () =>
+              `top+=10% ${
+                document.querySelector("nav")?.getBoundingClientRect()
+                  ?.bottom || "bottom"
+              }`,
+          },
+          yPercent: 20,
+        });
       });
     },
   }));

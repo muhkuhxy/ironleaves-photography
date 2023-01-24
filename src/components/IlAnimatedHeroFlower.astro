@@ -17,12 +17,11 @@ import SvgHeroFlower from "./svg/SvgHeroFlower.astro";
 <script>
   import { animateHeroFlower } from "../lib/lottie";
   import Alpine from "alpinejs";
-  import ScrollTrigger from "gsap/ScrollTrigger";
 
   Alpine.data("FlowerAnimation", () => ({
     init() {
       animateHeroFlower(this.$el);
-      Alpine.nextTick(() => ScrollTrigger.refresh());
+      this.$el.dispatchEvent(new CustomEvent("domchanged", { bubbles: true }));
     },
   }));
 </script>
