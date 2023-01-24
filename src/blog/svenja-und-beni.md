@@ -1,6 +1,7 @@
----
+﻿---
 title: Svenja & Beni
 tag: stories
+createdAt: 2021-12-08T19:30:22.549Z
 imgSrc: stories/svenja_beni/ironleaves-photography-stories-svenja-beni.jpg
 imgAlt: Svenja und Beni Hochzeits-Shooting
 storyTellingImgs:
@@ -49,7 +50,7 @@ testimonial:
     Es war eine total angenehme Begleitung. Wir können Tamara zu 100 Prozent weiterempfehlen!
 ---
 Als die Anfrage von Svenja und Beni für ihre Hochzeit kam, war ich sehr überrascht und habe mich umso mehr gefreut! Svenja und Beni waren auf der Hochzeit von Valerie und Max und waren daher schon bekannte Gesichter. Durch Corona mussten sie etwas warten, bis es mit der kirchlichen Traumhochzeit richtig klappen konnte, aber ihre Geduld hat sich wirklich ausgezahlt und sie konnten eine wunderschöne Herbst-Hochzeit in München feiern.
-<!--more-->
+
 ## Final Countdown vor dem Hochzeitstag
 
 Für die Hochzeit in München musste ich natürlich etwas früher anreisen. Also verbrachte ich schon den Vortag in München. Das war die perfekte Gelegenheit, um das Brautpaar noch bei den letzten Vorbereitungen in der Kirche, Zuhause und an der Location zu begleiten. Dabei konnte ich auch schon die Familie von Svenja und Beni etwas kennenlernen und noch Einzelheiten für den nächsten Tag besprechen.

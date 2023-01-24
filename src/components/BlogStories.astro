@@ -1,0 +1,46 @@
+---
+import type { MarkdownInstance } from "astro";
+import { parse } from "node-html-parser";
+import { labels, slugify, Story, Tag } from "../lib/blog";
+import ButtonEffect from "./ButtonEffect.astro";
+import SectionContent from "./SectionContent.astro";
+
+type Props = {
+  class?: string;
+  stories: Story[];
+};
+
+const { class: classes, stories } = Astro.props;
+---
+
+<div class:list={["bg-dust relative", classes]}>
+  <SectionContent>
+    <div
+      class="relative grid grid-cols-1 md:grid-cols-2 md:auto-rows-[1fr] place-content-center gap-12"
+      data-stories-parent
+    >
+      {
+        stories.map((story) => {
+          return (
+            <a
+              data-tag={story.tag}
+              class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow cursor-pointer"
+              href={`/stories/${story.slug}`}
+            >
+              <div class="text-sunset uppercase -mb-2">{labels[story.tag]}</div>
+              <img src={`/images/${story.imgSrc}`} alt={story.imgAlt} />
+              <h2 class="font-bold">{story.title}</h2>
+              <div class="grow">{story.excerpt}</div>
+              <div class="text-sunset mx-auto">
+                <ButtonEffect>Hier geht's zur Story</ButtonEffect>
+              </div>
+            </a>
+          );
+        })
+      }
+      <slot />
+    </div>
+  </SectionContent>
+
+  <slot name="tail" />
+</div>

@@ -193,8 +193,9 @@ const form: {
         >
           <span
             x-text="{ 'submitting': `Wird gesendet ${dots}`, 'success': 'Vielen Dank :)', 'error': 'Schade :(' }[state] ?? 'Abschicken'"
-            >Abschicken</span
           >
+            Abschicken
+          </span>
         </ButtonEffect>
         <div class="max-w-prose sm:col-span-2">
           <template x-if="state === 'success'">

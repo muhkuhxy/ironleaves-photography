@@ -3,76 +3,51 @@ import IlStory from "../../components/IlStory.astro";
 import Layout from "../../layouts/Layout.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro";
-import { labels, slugify } from "../../lib/blog";
-import { Debug } from "astro/components";
+import { fetchStories, StoryFrontmatter, labels, Story } from "../../lib/blog";
 import IlTestimonial from "../../components/IlTestimonial.astro";
 import IconBase from "../../components/svg/IconBase.astro";
 import IconArrow from "../../components/svg/IconArrow.astro";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import Contact from "../../sections/Contact.astro";
-import { HTMLElement, Node, NodeType, parse } from "node-html-parser";
 import SectionContent from "../../components/SectionContent.astro";
-import { dropWhile, splitAt } from "../../lib/collections";
-
-interface Frontmatter {
-  title: string;
-  slug: string;
-  tag: "stories" | "infos" | "tipps";
-  createdAt?: string;
-  imgSrc: string;
-  imgAlt: string;
-  storyTellingImgs: string[];
-  slides: string[];
-  testimonial?: { name: string; imgSrc: string; imgAlt: string; text: string };
-}
+import BlogStories from "../../components/BlogStories.astro";
+import ButtonEffect from "../../components/ButtonEffect.astro";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob<Frontmatter>("../../blog/*.md");
-  return posts.map((post) => ({
+  const stories = await fetchStories(() =>
+    Astro.glob<StoryFrontmatter>("../../blog/*.md")
+  );
+  return stories.map((story) => ({
     params: {
-      slug: slugify(post.file),
+      slug: story.slug,
     },
     props: {
-      post,
+      story,
     },
   }));
 }
 
-const { post: md } = Astro.props;
-const post = md.frontmatter;
+type Props = {
+  story: Story;
+};
 
-const contentHtml = parse(md.compiledContent());
-const chapters = parseChapters(contentHtml);
-
-function parseChapters(
-  doc: HTMLElement
-): { children: HTMLElement[]; img: string }[] {
-  const preChapters = splitAt(
-    Array.from(doc.childNodes).filter(
-      (n) => n.nodeType === NodeType.ELEMENT_NODE
-    ) as HTMLElement[],
-    (el) => el.tagName === "H2"
-  );
-  return dropWhile(preChapters, (el) => el[0].tagName !== "H2").map(
-    (children, index) => ({
-      children,
-      img: post.storyTellingImgs[index],
-    })
-  );
-}
+const { story } = Astro.props;
+const newestStories = (
+  await fetchStories(() => Astro.glob<StoryFrontmatter>("../../blog/*.md"))
+).slice(0, 2);
 ---
 
 <Layout>
   <section class="text-bluegray">
-    <IlStory slides={post.slides}>
+    <IlStory slides={story.slides}>
       <div
         slot="image"
         class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
       >
         <img
           class="w-7/8 border-8 border-solid border-white drop-shadow"
-          src={`/images/${post.imgSrc}`}
-          alt={post.imgAlt}
+          src={`/images/${story.imgSrc}`}
+          alt={story.imgAlt}
         />
         <SvgSingleBranch
           class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4"
@@ -80,11 +55,16 @@ function parseChapters(
       </div>
 
       <SectionHeader slot="title">
-        <span slot="roofline">{labels[post.tag]}</span>
-        {post.title}
+        <span slot="roofline">{labels[story.tag]}</span>
+        {story.title}
       </SectionHeader>
 
-      <Fragment slot="content">{contentHtml.firstChild}</Fragment>
+      <div
+        class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
+        slot="content"
+      >
+        {story.excerpt}
+      </div>
 
       <SectionContent
         class="flex gap-x-8 relative py-32 story-telling"
@@ -96,7 +76,7 @@ function parseChapters(
           class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center"
         >
           {
-            chapters.map((chapter, chapterIndex) => (
+            story.chapters.map((chapter, chapterIndex) => (
               <div
                 class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
                 x-bind:class={`chaptersActive[${chapterIndex}] ? 'scale-[1.2] my-1' : 'scale-[0.65]'`}
@@ -110,7 +90,7 @@ function parseChapters(
           class="sticky w-[60%] mr-8 h-[100vh] top-0"
         >
           {
-            chapters.map((chapter, chapterIndex) => (
+            story.chapters.map((chapter, chapterIndex) => (
               <img
                 x-show={`chaptersActive[${chapterIndex}]`}
                 x-transition:leave="fade-enter-active"
@@ -125,7 +105,7 @@ function parseChapters(
         </div>
         <div class="grow flex flex-col gap-y-32 lg:gap-y-0">
           {
-            chapters.map((chapter) => (
+            story.chapters.map((chapter) => (
               <div
                 class="chapter flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
                 data-chapter
@@ -155,7 +135,7 @@ function parseChapters(
       </SectionContent>
     </IlStory>
 
-    {post.testimonial && <IlTestimonial testimonial={post.testimonial} />}
+    {story.testimonial && <IlTestimonial testimonial={story.testimonial} />}
 
     <IconBase class="text-sunset w-full h-16 mt-8">
       <IconArrow />
@@ -164,29 +144,29 @@ function parseChapters(
     <LayoutSpacer />
 
     <SectionHeader class="mx-auto text-center">
-      <template #roofline>Stories</template>
+      <span slot="roofline">Stories</span>
       Neueste Beiträge
     </SectionHeader>
 
     <LayoutSpacer />
 
-    <!-- <BlogStories :articles="articles">
-    <template #tail>
-      <LayoutSpacer />
+    <BlogStories stories={newestStories}>
+      <div slot="tail">
+        <LayoutSpacer />
 
-      <NuxtLink to="/stories">
-        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
-          Hier gibt's alle Beiträge
-        </ButtonEffect>
-      </NuxtLink>
+        <a href="/stories">
+          <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+            Hier gibt's alle Beiträge
+          </ButtonEffect>
+        </a>
 
-      <LayoutSpacer :ms="4" />
+        <LayoutSpacer ms={4} />
 
-      <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
-        <IconArrow />
-      </IconBase>
-    </template>
-  </BlogStories> -->
+        <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+          <IconArrow />
+        </IconBase>
+      </div>
+    </BlogStories>
 
     <Contact class="mt-20" />
   </section>
