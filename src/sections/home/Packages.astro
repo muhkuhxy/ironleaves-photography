@@ -1,10 +1,10 @@
 ---
-import IlPackage from "../components/IlPackage.astro";
-import LayoutSpacer from "../components/LayoutSpacer.astro";
-import SectionContent from "../components/SectionContent.astro";
-import SectionHeader from "../components/SectionHeader.astro";
-import IconArrow from "../components/svg/IconArrow.astro";
-import IconBase from "../components/svg/IconBase.astro";
+import IlPackage from "../../components/IlPackage.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import IconArrow from "../../components/svg/IconArrow.astro";
+import IconBase from "../../components/svg/IconBase.astro";
 ---
 
 <section
@@ -135,8 +135,8 @@ import IconBase from "../components/svg/IconBase.astro";
 
 <script>
   import Alpine from "alpinejs";
-  import { gsap, ScrollTrigger } from "../lib/gsap";
-  import { reactiveBreakpoints } from "../lib/breakpoints";
+  import { gsap, ScrollTrigger } from "../../lib/gsap";
+  import { reactiveBreakpoints } from "../../lib/breakpoints";
 
   Alpine.data("PhotoPackages", () => ({
     open: [false, false, false, false],

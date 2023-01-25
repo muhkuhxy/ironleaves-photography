@@ -19,8 +19,9 @@ import "./main.css";
     <div
       class="min-h-screen flex flex-col"
       data-layout
-      x-data
+      x-data="App"
       x-bind:class="'js'"
+      x-on:domchanged="refresh"
     >
       <LayoutLogo />
       <LayoutNavBar />
@@ -36,3 +37,33 @@ import "./main.css";
     </div>
   </body>
 </html>
+
+<script>
+  import Alpine from "alpinejs";
+  import { parallax, slideUp, ScrollTrigger } from "../lib/gsap";
+
+  let timer: null | number = null;
+
+  Alpine.data("App", () => ({
+    init() {
+      // document.documentElement.classList.remove("scroll-smooth");
+      this.$nextTick(() => {
+        this.$el.querySelectorAll("[data-animation=slide-up]").forEach((el) => {
+          const { y } = (el as HTMLElement).dataset;
+          slideUp({ y }, el as HTMLElement);
+        });
+        this.$el.querySelectorAll("[data-animation=parallax]").forEach((el) => {
+          parallax("Landing", el as HTMLElement);
+        });
+      });
+    },
+    refresh() {
+      // console.log("domChanged");
+      timer != null && clearTimeout(timer);
+      timer = setTimeout(() => {
+        // console.log("ScrollTrigger.refresh");
+        ScrollTrigger.refresh();
+      }, 250);
+    },
+  }));
+</script>

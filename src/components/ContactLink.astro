@@ -1,0 +1,25 @@
+---
+import ButtonEffect from "./ButtonEffect.astro";
+import LayoutSpacer from "./LayoutSpacer.astro";
+import SectionContent from "./SectionContent.astro";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section>
+  <SectionContent
+    class="bg-sunset text-white flex flex-col items-center text-center"
+  >
+    <SectionHeader class="max-w-xl">
+      <span slot="roofline" class="text-white">Kontakt</span>
+      Ich freue mich auf eure Nachrichten!
+    </SectionHeader>
+    <LayoutSpacer />
+    <p class="max-w-prose">
+      Ich wollt mehr über mich erfahren und mich vor einer Buchung besser
+      kennenlernen? Ich freu mich drauf! Lasst mir doch eine Nachricht im
+      Kontaktformular da und dann können wir uns in Ruhe beschnuppern.
+    </p>
+    <LayoutSpacer />
+    <ButtonEffect href="/#contact">Hier geht's zum Formular</ButtonEffect>
+  </SectionContent>
+</section>

@@ -1,0 +1,61 @@
+---
+import { getEntryBySlug } from "astro:content";
+import IlAnimatedHeroFlower from "../../components/IlAnimatedHeroFlower.astro";
+import IlFigure from "../../components/IlFigure.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import SectionLines from "../../components/SectionLines.astro";
+import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro";
+import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro";
+import SvgHeroLine3 from "../../components/svg/SvgHeroLine3.astro";
+
+const document = await getEntryBySlug("about", "1-intro");
+const { Content } = await document.render();
+---
+
+<section class="bg-bluegray text-white">
+  <IlFigure>
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/images/mobile/ironleaves-photography-valerie-max-heroshot-mobile.jpg"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
+      />
+      <img
+        data-animation="parallax"
+        class="object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
+        data-start="top center"
+        src="/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
+        alt="Tamara Loeffen, Hochzeitsfotografin"
+      />
+    </picture>
+  </IlFigure>
+  <div class="relative">
+    <SectionLines class="sm:block">
+      <SvgHeroLine2
+        class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0"
+      />
+      <SvgHeroLine1
+        class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]"
+      />
+      <SvgHeroLine3
+        class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]"
+      />
+    </SectionLines>
+    <SectionContent class="relative" fluffy={true}>
+      <IlAnimatedHeroFlower />
+      <SectionHeader>
+        <span slot="roofline">{document.data.roofline}</span>
+        {document.data.title}
+      </SectionHeader>
+      <LayoutSpacer />
+      <div class="flex flex-col gap-4 max-w-xs xl:max-w-sm">
+        <Content />
+      </div>
+    </SectionContent>
+  </div>
+</section>

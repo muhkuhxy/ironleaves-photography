@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import AboutCv from "../../sections/about/AboutCv.astro";
+import AboutFaq from "../../sections/about/AboutFaq.astro";
+import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import ContactLink from "../../components/ContactLink.astro";
+import AboutIntro from "../../sections/about/AboutIntro.astro";
+import AboutMe from "../../sections/about/AboutMe.astro";
+import AboutStyle from "../../sections/about/AboutStyle.astro";
+---
+
+<Layout>
+  <AboutIntro />
+
+  <AboutCv />
+
+  <AboutMe />
+
+  <AboutStyle />
+
+  <AboutFaq />
+
+  <IconBase class="text-sunset w-full h-16">
+    <IconArrow />
+  </IconBase>
+
+  <LayoutSpacer />
+
+  <ContactLink />
+
+  <LayoutSpacer />
+
+  <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+    <IconArrow />
+  </IconBase>
+</Layout>

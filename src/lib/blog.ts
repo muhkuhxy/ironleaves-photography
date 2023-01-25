@@ -1,10 +1,8 @@
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import type { StoryFrontmatter } from "../content/config";
-import { HTMLElement, NodeType, parse } from "node-html-parser";
+import { HTMLElement, NodeType, } from "node-html-parser";
 import { dropWhile, splitAt } from "./collections";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkHtml from "remark-html";
+import { compileMarkdown, splitChapters } from "./content";
 
 export type Chapter = { children: HTMLElement[], img: string }
 
@@ -34,20 +32,13 @@ export function slugify(file: string) {
 }
 
 function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: HTMLElement[], chapters: Chapter[] } {
-  const preChapters = splitAt(
-    Array.from(doc.childNodes).filter(
-      (n) => n.nodeType === NodeType.ELEMENT_NODE
-    ) as HTMLElement[],
-    (el) => el.tagName === "H2"
-  );
+  const preChapters = splitChapters(doc)
   return {
     excerpt: preChapters[0],
-    chapters: dropWhile(preChapters, (el) => el[0].tagName !== "H2").map(
-      (children, index) => ({
-        children,
-        img: storyTellingImgs[index],
-      })
-    )
+    chapters: preChapters.slice(1).map((children, index) => ({
+      children,
+      img: storyTellingImgs[index],
+    }))
   };
 }
 
@@ -60,7 +51,7 @@ export async function fetchStories(tag?: Tag): Promise<Story[]> {
     );
   const filtered = (tag != null) ? files.filter(x => x.data.tag == tag) : files
   return await Promise.all(filtered.map(async (file) => {
-    const contentHtml = parse(String(await unified().use(remarkParse).use(remarkHtml).process(file.body)));
+    const contentHtml = await compileMarkdown(file.body)
     const chapters = parseContent(contentHtml, file.data.storyTellingImgs);
     return {
       slug: file.slug,
@@ -68,5 +59,4 @@ export async function fetchStories(tag?: Tag): Promise<Story[]> {
       ...chapters
     };
   }))
-
 }

@@ -1,0 +1,53 @@
+---
+import { __astro_tag_component__ } from "astro/dist/runtime/server";
+import { getEntryBySlug } from "astro:content";
+import { NodeType } from "node-html-parser";
+import IlToggleArrow from "../../components/IlToggleArrow.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { compileMarkdown, splitChapters } from "../../lib/content";
+
+const document = await getEntryBySlug("about", "5-faq");
+const faq = splitChapters(await compileMarkdown(document.body)).map(
+  ([question, ...children]) => {
+    return {
+      question:
+        question.nodeType === NodeType.ELEMENT_NODE &&
+        question.childNodes[0]?.nodeType === NodeType.TEXT_NODE
+          ? question.childNodes[0].text
+          : null,
+      children,
+    };
+  }
+);
+---
+
+<section>
+  <SectionContent fluffy={true}>
+    <SectionHeader class="text-bluegray">
+      <span slot="roofline">{document.data.roofline}</span>
+      {document.data.title}
+    </SectionHeader>
+    <LayoutSpacer />
+    <div
+      class="flex flex-col divide-y border-white bg-bluegray text-white"
+      x-data={`{open:[${faq.map(() => "false").join(",")}]}`}
+    >
+      {
+        faq.map((item, index) => (
+          <details class="p-4">
+            <summary
+              class="flex items-center justify-between text-xl font-bold cursor-pointer"
+              x-on:click={`open[${index}] = !open[${index}]`}
+            >
+              {item.question}
+              <IlToggleArrow index={index} />
+            </summary>
+            <div class="mt-4">{item.children}</div>
+          </details>
+        ))
+      }
+    </div>
+  </SectionContent>
+</section>

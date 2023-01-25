@@ -1,0 +1,54 @@
+---
+import { getEntryBySlug } from "astro:content";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro";
+
+const document = await getEntryBySlug("about", "2-cv");
+const { Content } = await document.render();
+---
+
+<section>
+  <SectionContent class="text-bluegray" fluffy={true}>
+    <div class="flex flex-col lg:flex-row items-center md:gap-8">
+      <figure
+        class="slide-up lg:order-2 relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16"
+        data-delay="0.3"
+      >
+        <picture
+          class="after:absolute after:inset-0 after:w-1/2 after:bg-gradient-to-r after:from-white"
+        >
+          <source
+            media="(max-width: 767px)"
+            srcset="/images/mobile/ironleaves-photography-blog-mobile.jpg"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="/images/desktop/ironleaves-photography-blog.jpg"
+          />
+          <img
+            class="w-full object-cover"
+            src="/images/desktop/ironleaves-photography-blog.jpg"
+            alt="Tamara Loeffen Portrait"
+          />
+        </picture>
+        <SvgPetalFlower
+          class="text-emerald fill-current w-[min(30%,7rem)] xl:w-32 absolute bottom-0 left-0 -mb-8 sm:-mb-12 lg:ml-6 rotate-[-20deg]"
+        />
+      </figure>
+      <div
+        class="lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
+      >
+        <SectionHeader>
+          <span slot="roofline">{document.data.roofline}</span>
+          <span set:html={document.data.title} />
+        </SectionHeader>
+        <LayoutSpacer />
+        <div class="max-w-prose mx-auto space-y-4">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </SectionContent>
+</section>

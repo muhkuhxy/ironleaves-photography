@@ -22,6 +22,16 @@ const stories = defineCollection({
   schema: storySchema
 })
 
+const aboutSchema = z.object({
+  title: z.string(),
+  roofline: z.string()
+})
+
+export type AboutFrontmatter = z.infer<typeof aboutSchema>
+
+const about = defineCollection({ schema: aboutSchema })
+
 export const collections = {
-  stories
+  stories,
+  about
 }

@@ -6,14 +6,17 @@ type Props = {
   fluid?: boolean;
   animation?: string;
   ref?: string;
+  fluffy?: boolean;
 };
 
-const { class: classes, fluid = false, animation, ref } = Astro.props;
+const { class: classes, fluffy, fluid, animation, ref } = Astro.props;
 ---
 
 <LayoutContainer
   ref={ref}
-  class={`${classes ?? ""} py-12 lg:py-16 xl:py-20`}
+  class={`${classes ?? ""} ${
+    fluffy ? "2xl:py-[min(15vh,10rem)]" : ""
+  } py-12 lg:py-16 xl:py-20`}
   {...{animation,fluid}}
 >
   <slot />
