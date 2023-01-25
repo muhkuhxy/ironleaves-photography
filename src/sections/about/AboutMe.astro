@@ -39,8 +39,8 @@ const { Content } = await document.render();
         class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
       >
         <SectionHeader>
-          <span slot="roofline">{document.data.roofline}</span>
-          {document.data.title}
+          <span slot="roofline" set:html={document.data.roofline} />
+          <Fragment set:html={document.data.title} />
         </SectionHeader>
         <LayoutSpacer />
         <div class="max-w-prose flex flex-col gap-y-4">

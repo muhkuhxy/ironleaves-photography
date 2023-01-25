@@ -49,8 +49,8 @@ const { Content } = await document.render();
     <SectionContent class="relative" fluffy={true}>
       <IlAnimatedHeroFlower />
       <SectionHeader>
-        <span slot="roofline">{document.data.roofline}</span>
-        {document.data.title}
+        <span slot="roofline" set:html={document.data.roofline} />
+        <Fragment set:html={document.data.title} />
       </SectionHeader>
       <LayoutSpacer />
       <div class="flex flex-col gap-4 max-w-xs xl:max-w-sm">

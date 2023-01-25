@@ -12,11 +12,7 @@ const document = await getEntryBySlug("about", "5-faq");
 const faq = splitChapters(await compileMarkdown(document.body)).map(
   ([question, ...children]) => {
     return {
-      question:
-        question.nodeType === NodeType.ELEMENT_NODE &&
-        question.childNodes[0]?.nodeType === NodeType.TEXT_NODE
-          ? question.childNodes[0].text
-          : null,
+      question: question.text,
       children,
     };
   }
@@ -26,8 +22,8 @@ const faq = splitChapters(await compileMarkdown(document.body)).map(
 <section>
   <SectionContent fluffy={true}>
     <SectionHeader class="text-bluegray">
-      <span slot="roofline">{document.data.roofline}</span>
-      {document.data.title}
+      <span slot="roofline" set:html={document.data.roofline} />
+      <Fragment set:html={document.data.title} />
     </SectionHeader>
     <LayoutSpacer />
     <div
