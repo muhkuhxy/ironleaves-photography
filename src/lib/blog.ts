@@ -1,14 +1,13 @@
 import { getCollection } from "astro:content";
 import type { StoryFrontmatter } from "../content/config";
-import { HTMLElement, NodeType, } from "node-html-parser";
-import { dropWhile, splitAt } from "./collections";
+import type { HTMLElement, Node } from "node-html-parser";
 import { compileMarkdown, splitChapters } from "./content";
 
-export type Chapter = { children: HTMLElement[], img: string }
+export type Chapter = { children: Node[], img: string }
 
 export type Story = StoryFrontmatter & {
   slug: string
-  excerpt: HTMLElement[]
+  excerpt: Node[]
   chapters: Chapter[]
 }
 
@@ -31,7 +30,7 @@ export function slugify(file: string) {
   return file.replace(/\.mdx?$/, "").replace(/.*\//, "")
 }
 
-function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: HTMLElement[], chapters: Chapter[] } {
+function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: Node[], chapters: Chapter[] } {
   const preChapters = splitChapters(doc)
   return {
     excerpt: preChapters[0],

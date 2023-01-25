@@ -1,12 +1,16 @@
 ---
+import type { Chapter } from "../lib/blog";
+import IlSlider from "./IlSlider.astro";
+import IlStoryTelling from "./IlStoryTelling.astro";
 import LayoutSpacer from "./LayoutSpacer.astro";
 import SectionContent from "./SectionContent.astro";
 
 type Props = {
   slides: string[];
+  chapters: Chapter[];
 };
 
-const { slides } = Astro.props;
+const { slides, chapters } = Astro.props;
 ---
 
 <div class="text-bluegray pb-6 story" x-data="BlogStory">
@@ -22,15 +26,9 @@ const { slides } = Astro.props;
       </div>
     </SectionContent>
   </div>
-  <div class="bg-white">
-    <slot name="telling" />
-  </div>
+  <IlStoryTelling class="bg-white" chapters={chapters} />
   <div class="h-[50vh]">
-    TODO: slider
-    <!-- <LazyIlSlider
-        v-if="trigger"
-        class="pb-8 h-full"
-        :slides="slides" /> -->
+    <IlSlider class="!pb-8 h-full" slides={slides} />
   </div>
 </div>
 

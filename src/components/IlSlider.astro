@@ -19,11 +19,7 @@ import "swiper/swiper-bundle.css";
     {
       slides.map((url) => (
         <div class="swiper-slide !w-auto flex items-center max-w-[90%]">
-          <img
-            class="object-cover h-full"
-            src={`/images/${url}`}
-            loading="lazy"
-          />
+          <img class="object-cover h-full" src={`/images/${url}`} />
         </div>
       ))
     }
@@ -39,18 +35,20 @@ import "swiper/swiper-bundle.css";
   Alpine.data("Slider", () => ({
     swiper: null,
     init() {
-      this.swiper = new Swiper(this.$refs.slider, {
-        modules: [Autoplay],
-        loop: true,
-        spaceBetween: 2,
-        slidesPerView: "auto",
-        loopedSlides: this.$el.querySelectorAll(".swiper-slide").length,
-        centeredSlides: true,
-        slideToClickedSlide: true,
-        speed: 750,
-        autoplay: {
-          delay: 5000,
-        },
+      this.$nextTick(() => {
+        this.swiper = new Swiper(this.$refs.slider, {
+          modules: [Autoplay],
+          loop: true,
+          spaceBetween: 2,
+          slidesPerView: "auto",
+          loopedSlides: this.$el.querySelectorAll(".swiper-slide").length,
+          centeredSlides: true,
+          slideToClickedSlide: true,
+          speed: 750,
+          autoplay: {
+            delay: 5000,
+          },
+        });
       });
     },
   }));

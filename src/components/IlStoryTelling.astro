@@ -1,0 +1,78 @@
+---
+import { HTMLElement, NodeType } from "node-html-parser";
+import type { Chapter } from "../lib/blog";
+import SectionContent from "./SectionContent.astro";
+
+type Props = {
+  class?: string;
+  chapters: Chapter[];
+};
+
+const { class: classes, chapters } = Astro.props;
+---
+
+<SectionContent class={`${classes ?? ""} flex gap-x-8 relative py-32`}>
+  <div
+    x-cloak
+    x-show="breakpoints.lg"
+    class="sticky hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center"
+  >
+    {
+      chapters.map((chapter, chapterIndex) => (
+        <div
+          class="rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
+          x-bind:class={`chaptersActive[${chapterIndex}] ? 'scale-[1.2] my-1' : 'scale-[0.65]'`}
+        />
+      ))
+    }
+  </div>
+  <div
+    x-cloak
+    x-show="breakpoints.lg"
+    class="sticky w-[60%] mr-8 h-[100vh] top-0"
+  >
+    {
+      chapters.map((chapter, chapterIndex) => (
+        <img
+          x-show={`chaptersActive[${chapterIndex}]`}
+          x-transition:leave-end="opacity-0"
+          x-transition:enter-start="opacity-0"
+          src={`/images/${chapter.img}`}
+          class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out"
+        />
+      ))
+    }
+  </div>
+  <div class="grow flex flex-col gap-y-32 lg:gap-y-0">
+    {
+      chapters.map((chapter) => (
+        <div
+          class="chapter flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
+          data-chapter
+        >
+          <div
+            x-show="!breakpoints.lg"
+            class="lg:w-[60%] nojs:lg:w-[250%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
+          >
+            <img
+              src={`/images/${chapter.img}`}
+              class="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
+            />
+          </div>
+          <div class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose">
+            {chapter.children.map((child) => {
+              if (child.nodeType === NodeType.ELEMENT_NODE) {
+                const el = child as HTMLElement;
+                if (el.tagName === "H2") {
+                  el.classList.add("leading-none");
+                  el.classList.add("mt-4");
+                }
+              }
+              return child;
+            })}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</SectionContent>

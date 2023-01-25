@@ -2,10 +2,14 @@
 type Props = {
   class?: string;
   shadowClass?: string;
-  index: number
+  index: number;
 };
 
-const { index, class: classes, shadowClass = "[--shadow-size:4px]" } = Astro.props;
+const {
+  index,
+  class: classes,
+  shadowClass = "[--shadow-size:4px]",
+} = Astro.props;
 ---
 
 <div
