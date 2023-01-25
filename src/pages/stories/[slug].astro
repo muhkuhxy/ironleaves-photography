@@ -3,7 +3,7 @@ import IlStory from "../../components/IlStory.astro";
 import Layout from "../../layouts/Layout.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro";
-import { fetchStories, StoryFrontmatter, labels, Story } from "../../lib/blog";
+import { fetchStories, labels, Story } from "../../lib/blog";
 import IlTestimonial from "../../components/IlTestimonial.astro";
 import IconBase from "../../components/svg/IconBase.astro";
 import IconArrow from "../../components/svg/IconArrow.astro";
@@ -14,9 +14,7 @@ import BlogStories from "../../components/BlogStories.astro";
 import ButtonEffect from "../../components/ButtonEffect.astro";
 
 export async function getStaticPaths() {
-  const stories = await fetchStories(() =>
-    Astro.glob<StoryFrontmatter>("../../blog/*.md")
-  );
+  const stories = await fetchStories();
   return stories.map((story) => ({
     params: {
       slug: story.slug,
@@ -32,9 +30,9 @@ type Props = {
 };
 
 const { story } = Astro.props;
-const newestStories = (
-  await fetchStories(() => Astro.glob<StoryFrontmatter>("../../blog/*.md"))
-).slice(0, 2);
+const newestStories = (await fetchStories())
+  .filter((s) => s.slug !== story.slug)
+  .slice(0, 2);
 ---
 
 <Layout>
@@ -93,12 +91,10 @@ const newestStories = (
             story.chapters.map((chapter, chapterIndex) => (
               <img
                 x-show={`chaptersActive[${chapterIndex}]`}
-                x-transition:leave="fade-enter-active"
-                x-transition:leave-end="fade-leave-to"
-                x-transition:enter="fade-enter-active"
-                x-transition:enter-start="fade-enter"
+                x-transition:leave-end="opacity-0"
+                x-transition:enter-start="opacity-0"
                 src={`/images/${chapter.img}`}
-                class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+                class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out"
               />
             ))
           }

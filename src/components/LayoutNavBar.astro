@@ -26,8 +26,8 @@ const containerClass = getContainerClasses(false, true);
 ---
 
 <header
-  x-data="header"
-  class="bg-white text-bluegray z-40 sticky top-0 transition-all ease-in-out duration-500 opacity-90 shadow-lg"
+  x-data="Header"
+  class="bg-white text-bluegray z-40 sticky top-0 opacity-90 shadow-lg"
   x-bind="binder"
   data-highlight-current-section={highlightCurrentSection}
 >
@@ -58,12 +58,11 @@ const containerClass = getContainerClasses(false, true);
         containerClass,
         "absolute md:static bg-white nojs:max-md:hidden nojs:max-md:peer-checked:block",
         "pb-4 md:pt-4 md:grid grid-cols-[12fr,1fr] gap-3 lg:gap-8 xl:gap-12",
+        "duration-500 ease-in-out",
       ]}
       x-show="open || gtMd"
-      x-transition:leave="slide-enter-active"
-      x-transition:leave-end="slide-leave-to"
-      x-transition:enter="slide-enter-active"
-      x-transition:enter-start="slide-enter"
+      x-transition:leave-end="-translate-y-full"
+      x-transition:enter-start="-translate-y-full"
     >
       <hr class="mb-4 col-span-full md:hidden" />
       <ul
@@ -96,7 +95,7 @@ const containerClass = getContainerClasses(false, true);
   import Alpine from "alpinejs";
   import { reactiveBreakpoints } from "../lib/breakpoints";
 
-  Alpine.data("header", () => ({
+  Alpine.data("Header", () => ({
     open: false,
     sectionRatios: {},
     maxSection: "",
@@ -158,16 +157,6 @@ const containerClass = getContainerClasses(false, true);
 </script>
 
 <style>
-  .slide-enter-active,
-  .slide-leave-active {
-    transition: all 0.3s ease-in-out;
-  }
-
-  .slide-enter,
-  .slide-leave-to {
-    transform: translate3d(0, -100%, 0);
-  }
-
   .nav-link {
     text-underline-offset: calc(1rem / 8);
 

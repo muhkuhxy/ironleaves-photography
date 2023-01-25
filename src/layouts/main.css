@@ -79,17 +79,17 @@
     font-family: 'Notes', serif;
     line-height: 0.9;
 
-    &.hero {
-      /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 8rem(128px) @ 80rem(1280px) */
-      font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 9.7238)), 8rem);
-    }
-
     /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 5.5rem(88px) @ 80rem(1280px) */
     font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 5.3039)), 5.5rem);
 
     /* Safari resize fix */
     /* stylelint-disable-next-line length-zero-no-unit */
     min-height: 0vw;
+  }
+
+  .caption.hero {
+    /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 8rem(128px) @ 80rem(1280px) */
+    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 9.7238)), 8rem);
   }
 }
 

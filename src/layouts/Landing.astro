@@ -57,10 +57,10 @@ import "./main.css";
       });
     },
     refresh() {
-      console.log("domChanged");
+      // console.log("domChanged");
       timer != null && clearTimeout(timer);
       timer = setTimeout(() => {
-        console.log("ScrollTrigger.refresh");
+        // console.log("ScrollTrigger.refresh");
         ScrollTrigger.refresh();
       }, 250);
     },

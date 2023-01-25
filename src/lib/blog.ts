@@ -1,17 +1,10 @@
-import type { MarkdownInstance } from "astro";
+import { getCollection, CollectionEntry } from "astro:content";
+import type { StoryFrontmatter } from "../content/config";
 import { HTMLElement, NodeType, parse } from "node-html-parser";
 import { dropWhile, splitAt } from "./collections";
-
-export type StoryFrontmatter = {
-  title: string;
-  tag: Tag;
-  createdAt: string;
-  imgSrc: string;
-  imgAlt: string;
-  storyTellingImgs: string[];
-  slides: string[];
-  testimonial?: { name: string; imgSrc: string; imgAlt: string; text: string };
-}
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkHtml from "remark-html";
 
 export type Chapter = { children: HTMLElement[], img: string }
 
@@ -58,23 +51,22 @@ function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: 
   };
 }
 
-export async function fetchStories(glob: () => Promise<MarkdownInstance<StoryFrontmatter>[]>, tag?: Tag): Promise<Story[]> {
-  const files = Array.from(await glob())
+export async function fetchStories(tag?: Tag): Promise<Story[]> {
+  const files = (await getCollection("stories", tag && (story => story.data.tag === tag)))
     .sort(
       (a, b) =>
-        new Date(b.frontmatter.createdAt).getTime() -
-        new Date(a.frontmatter.createdAt).getTime()
+        new Date(b.data.createdAt).getTime() -
+        new Date(a.data.createdAt).getTime()
     );
-  const filtered = (tag != null) ? files.filter(x => x.frontmatter.tag == tag) : files
-  return filtered.map(file => {
-    const contentHtml = parse(file.compiledContent());
-    const chapters = parseContent(contentHtml, file.frontmatter.storyTellingImgs);
+  const filtered = (tag != null) ? files.filter(x => x.data.tag == tag) : files
+  return await Promise.all(filtered.map(async (file) => {
+    const contentHtml = parse(String(await unified().use(remarkParse).use(remarkHtml).process(file.body)));
+    const chapters = parseContent(contentHtml, file.data.storyTellingImgs);
     return {
-      ...file.frontmatter,
-      slug: slugify(file.file),
+      slug: file.slug,
+      ...file.data,
       ...chapters
-
-    }
-  })
+    };
+  }))
 
 }

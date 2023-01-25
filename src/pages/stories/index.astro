@@ -5,11 +5,9 @@ import BlogStories from "../../components/BlogStories.astro";
 import SectionContent from "../../components/SectionContent.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro";
-import { fetchStories, StoryFrontmatter, tags } from "../../lib/blog";
+import { tags, fetchStories } from "../../lib/blog";
 
-const stories = await fetchStories(() =>
-  Astro.glob<StoryFrontmatter>("../../blog/*.md")
-);
+const stories = await fetchStories();
 ---
 
 <Layout>

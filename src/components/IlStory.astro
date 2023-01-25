@@ -47,6 +47,7 @@ const { slides } = Astro.props;
         const chapters = Array.from(
           this.$el.querySelectorAll("[data-chapter]")
         );
+        console.log({ chapters });
         this.chaptersActive = chapters.map((chapter) => false);
         chapters.forEach((chapter, index, array) => {
           const activate: ScrollTrigger.Callback = (self) => {
