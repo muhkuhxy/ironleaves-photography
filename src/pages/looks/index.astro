@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import ContactLink from "../../components/ContactLink.astro";
+import LooksIntro from "../../sections/looks/LooksIntro.astro";
+---
+
+<Layout>
+  <LooksIntro />
+
+  <!-- <LooksComparison /> -->
+
+  <IconBase class="text-sunset w-full h-16 translate-y-8">
+    <IconArrow />
+  </IconBase>
+
+  <!-- <LooksAspects /> -->
+
+  <LayoutSpacer />
+
+  <!-- <LooksHowTo /> -->
+
+  <IconBase class="text-sunset w-full h-16 -translate-y-6">
+    <IconArrow />
+  </IconBase>
+
+  <!-- <LooksTips /> -->
+
+  <LayoutSpacer />
+
+  <ContactLink />
+
+  <LayoutSpacer />
+
+  <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+    <IconArrow />
+  </IconBase>
+</Layout>
