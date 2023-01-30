@@ -130,7 +130,7 @@ const containerClass = getContainerClasses(false, true);
         "highlightCurrentSection" in this.$el.dataset &&
         IntersectionObserver
       ) {
-        let timer: number | null = null;
+        let timer: NodeJS.Timeout | null = null;
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {

@@ -30,7 +30,7 @@ export function slugify(file: string) {
   return file.replace(/\.mdx?$/, "").replace(/.*\//, "")
 }
 
-function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: Node[], chapters: Chapter[] } {
+export function parseContent(doc: HTMLElement, storyTellingImgs: string[]): { excerpt: Node[], chapters: Chapter[] } {
   const preChapters = splitChapters(doc)
   return {
     excerpt: preChapters[0],

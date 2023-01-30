@@ -8,7 +8,7 @@ const breakpoints = {
   '2xl': 1536
 }
 
-const queries = Object.entries(breakpoints).reduce((result, [key, value]) => {
+export const queries = Object.entries(breakpoints).reduce((result, [key, value]) => {
   result[key] = window.matchMedia(`(min-width: ${value}px)`)
   return result
 }, {} as Record<string, MediaQueryList>)

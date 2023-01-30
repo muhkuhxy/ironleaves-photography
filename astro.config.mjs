@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
-import path from 'path'
+import path from 'path';
 import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
@@ -12,8 +11,11 @@ import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
+import react from "@astrojs/react";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), alpinejs()],
+  integrations: [tailwind(), alpinejs(), react()],
   vite: {
     resolve: {
       alias: {

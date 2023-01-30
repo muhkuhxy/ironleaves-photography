@@ -1,0 +1,55 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: astro-main # Branch to update (optional; defaults to master)
+  publish_mode: editorial_workflow
+media_folder: public/images/stories
+public_folder: /images/stories/
+collections:
+  - name: stories
+    label: Stories
+    label_singular: Story
+    folder: src/content/stories
+    format: yaml-frontmatter
+    summary: "{{title}}"
+    sortable_fields: ['title', 'createdAt']
+    view_groups: 
+      - label: Tag
+        field: tag
+    create: true
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Tag", name: "tag", widget: "select", options: ["stories", "tipps", "infos"], default: "stories"}
+      - {label: "Datum", name: "createdAt", widget: "datetime"}
+      - {label: "Bild", name: "imgSrc", widget: "image"}
+      - {label: "Bild-Alt", name: "imgAlt", widget: "string"}
+      - label: "Story Bilder"
+        label_singular: "Story Bild"
+        name: "storyTellingImgs"
+        widget: "list"
+        minimize_collapsed: true
+        hint: "Ein Bild pro Kapitel-Überschrift"
+        summary: "{{fields.img}}"
+        field: {label: "Bild", name: "img", widget: "image"}
+      - label: "Kapitel"
+        name: "body"
+        widget: "markdown"
+        hint: "Absatz bis zur ersten Überschrift ist Vorschau/Introtext"
+        buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"]
+      - label: "Slider Bilder"
+        label_singular: "Slider Bild"
+        name: "slides"
+        widget: "list"
+        minimize_collapsed: true
+        summary: "{{fields.img}}"
+        field: {label: "Bild", name: "img", widget: "image"}
+      - label: "Kundenstimme"
+        name: "testimonial"
+        required: false
+        summary: "{{fields.name}}"
+        widget: "object"
+        fields:
+          - {label: "Name", name: "name", widget: "string", required: false}
+          - {label: "Bild", name: "imgSrc", widget: "image", required: false}
+          - {label: "Bild-Alt", name: "imgAlt", widget: "string", required: false}
+          - {label: "Text", name: "text", widget: "markdown", required: false}
