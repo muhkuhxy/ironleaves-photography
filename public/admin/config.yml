@@ -1,7 +1,7 @@
 local_backend: true
 backend:
   name: git-gateway
-  branch: astro-main # Branch to update (optional; defaults to master)
+  branch: astro/main # Branch to update (optional; defaults to master)
   publish_mode: editorial_workflow
 media_folder: public/images/stories
 public_folder: /images/stories/
