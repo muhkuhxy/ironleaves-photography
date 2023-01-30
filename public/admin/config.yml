@@ -12,7 +12,11 @@ collections:
     folder: src/content/stories
     format: yaml-frontmatter
     summary: "{{title}}"
-    sortable_fields: ['title', 'createdAt']
+    sortable_fields:
+      fields: ['title', 'createdAt']
+      default:
+        field: createdAt
+        direction: Descending
     view_groups: 
       - label: Tag
         field: tag
@@ -30,19 +34,19 @@ collections:
         minimize_collapsed: true
         hint: "Ein Bild pro Kapitel-Überschrift"
         summary: "{{fields.img}}"
-        field: {label: "Bild", name: "img", widget: "image"}
+        fields: [{label: "Bild", name: "img", widget: "image"}]
       - label: "Kapitel"
         name: "body"
-        widget: "markdown"
+        widget: "text"
         hint: "Absatz bis zur ersten Überschrift ist Vorschau/Introtext"
-        buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"]
+        # buttons: ["bold", "italic", "link", "heading-two", "quote", "bulleted-list", "numbered-list"]
       - label: "Slider Bilder"
         label_singular: "Slider Bild"
         name: "slides"
         widget: "list"
         minimize_collapsed: true
         summary: "{{fields.img}}"
-        field: {label: "Bild", name: "img", widget: "image"}
+        fields: [{label: "Bild", name: "img", widget: "image"}]
       - label: "Kundenstimme"
         name: "testimonial"
         required: false
@@ -52,4 +56,4 @@ collections:
           - {label: "Name", name: "name", widget: "string", required: false}
           - {label: "Bild", name: "imgSrc", widget: "image", required: false}
           - {label: "Bild-Alt", name: "imgAlt", widget: "string", required: false}
-          - {label: "Text", name: "text", widget: "markdown", required: false}
+          - {label: "Text", name: "text", widget: "text", required: false}

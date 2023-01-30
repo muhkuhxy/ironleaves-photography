@@ -26,7 +26,7 @@ const { class: classes, stories } = Astro.props;
               href={`/stories/${story.slug}`}
             >
               <div class="text-sunset uppercase -mb-2">{labels[story.tag]}</div>
-              <img src={`/images/${story.imgSrc}`} alt={story.imgAlt} />
+              <img src={story.imgSrc} alt={story.imgAlt} />
               <h2 class="font-bold">{story.title}</h2>
               <div class="grow">{story.excerpt}</div>
               <div class="text-sunset mx-auto">

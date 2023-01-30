@@ -2,43 +2,43 @@
 title: Sandra & Jonas (Feier)
 tag: stories
 createdAt: 2021-12-04T19:30:22.549Z
-imgSrc: stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit.jpg
+imgSrc: /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit.jpg
 imgAlt: Sandra und Jonas Hochzeits-Shooting
 storyTellingImgs:
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-getting-ready-braut.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-regen-auto-braut.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-regen-hochzeitstag.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-kirche-bad-berneck.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-hochzeitstraditionen-herz-leinwand.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-liebesbier-hochzeitslocation.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-programm-planen-kuchen-anschneiden.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-brautpaarshooting-hochzeitsshooting.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-seifenblasen-spalier.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-party-erster-tanz.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-getting-ready-braut.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-regen-auto-braut.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-regen-hochzeitstag.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-kirche-bad-berneck.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-hochzeitstraditionen-herz-leinwand.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-liebesbier-hochzeitslocation.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-programm-planen-kuchen-anschneiden.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-brautpaarshooting-hochzeitsshooting.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-seifenblasen-spalier.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-ablauf-party-erster-tanz.jpg
 slides:
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-shooting-pfuetze-spiegelung-abends.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-seifenblasen-einmarsch.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-verliebt-vertraulichkeit.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-schnappschuss.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-auf-haenden-tragend-spass.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-blumen-fruehling.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-hofgarten-bayreuth.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-kuss-park-hofgarten-bayreuth.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-momentaufnahme-braut.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-probe-tanz-parkplatz.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-anschnitt-kuchen.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-brautstrass-kuchen.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-deko.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-erster-tanz.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-location-eckersdorf.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-segen.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-gluehbirnen-detail.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-liebesbier.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-regen-nass-hochzeitsauto.jpg
-  - stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-sitzplan-papeterie.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-shooting-pfuetze-spiegelung-abends.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-seifenblasen-einmarsch.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-verliebt-vertraulichkeit.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-schnappschuss.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-auf-haenden-tragend-spass.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-blumen-fruehling.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-hofgarten-bayreuth.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-kuss-park-hofgarten-bayreuth.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-momentaufnahme-braut.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-shooting-probe-tanz-parkplatz.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-anschnitt-kuchen.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-brautstrass-kuchen.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-deko.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-erster-tanz.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-location-eckersdorf.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-kirche-segen.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-gluehbirnen-detail.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-location-liebesbier.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-regen-nass-hochzeitsauto.jpg
+  - /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-slider-reportage-sitzplan-papeterie.jpg
 testimonial:
   name: Sandra & Jonas
-  imgSrc: stories/sandra_jonas_hochzeit/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-kundenstimme.jpg
+  imgSrc: /images/stories/ironleaves-photography-stories-sandra-jonas-hochzeit-beitrag-kundenstimme.jpg
   imgAlt: Sandra & Jonas Kundenstimme
   text: >
     Wir waren super zufrieden und empfehlen Tamara gerne weiter! 
@@ -46,7 +46,7 @@ testimonial:
     Bei der Feier war sie die ganze Zeit gut gelaunt, nie aufdringlich und gleichzeitig immer da, um schöne Momente einzufangen.
 ---
 Am Tag der Hochzeit hat es schon morgens ziemlich stark geregnet. Nach der Kirche sogar so schlimm, dass das Shooting erstmal nicht stattfinden konnte. Und ganz ehrlich? Das hat den Tag sogar noch viel besser gemacht, als ursprünglich geplant! Lest hier, wie Sandras und Jonas Hochzeitstag war!
-<!--more-->
+
 ## Getting Ready zu Hause
 
 Mädels, mal ehrlich: Ihr wollt am Tag Eurer Hochzeit einfach nur entspannt eine schöne Brautfrisur gesteckt bekommen und in Euer Kleid schlüpfen? Dann macht’s doch so wie Sandra! Die hat ihren Bräutigam, Jonas, einfach Erledigungen machen geschickt. So konnte sie die Vorbereitungen zur Hochzeit mit ihrem Bruder, ihrer Trauzeugin und ihrer Mutter genießen. 

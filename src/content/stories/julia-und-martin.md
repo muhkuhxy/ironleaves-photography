@@ -2,40 +2,40 @@
 title: Julia & Martin
 tag: stories
 createdAt: 2021-12-07T19:30:22.549Z
-imgSrc: stories/ironleaves-photography-stories-julia-martin.jpg
+imgSrc: /images/stories/ironleaves-photography-stories-julia-martin.jpg
 imgAlt: Julia und Martin Hochzeits-Shooting
 storyTellingImgs:
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-dom-magdeburg.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-getting-ready-braut.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-braeutigam-getting-ready.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-first-look.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-standesamt.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-dom-urban-brautpaarshooting.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-stadtpark-brautpaarshooting.jpg
-  - stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-sonnenuntergang-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-dom-magdeburg.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-getting-ready-braut.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-braeutigam-getting-ready.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-first-look.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-standesamt.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-dom-urban-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-stadtpark-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-beitrag-ablauf-sonnenuntergang-brautpaarshooting.jpg
 slides:
-  - stories/ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-braeutigam-blauer-anzug.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-braut-brautkleid-boho.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-braut-dom-magdeburg.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-brautpaar-laufend.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-bruecke-stadt.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-bruecke-urban.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-detail-ringe.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-dom-magdeburg.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-erster-tanz-abends.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-first-look.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-haendchen-halten.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-naehe-natuerlichkeit.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-natuerliche-braut-boho.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-sonnenuntergang-shooting.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-stadtpark.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg
-  - stories/ironleaves-photography-stories-julia-martin-slider-ungestellt-ehrlich.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-blick-in-die-augen.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-braeutigam-blauer-anzug.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-braut-brautkleid-boho.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-braut-dom-magdeburg.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-brautpaar-laufend.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-bruecke-stadt.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-bruecke-urban.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-detail-ringe.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-dom-magdeburg.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-erster-tanz-abends.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-first-look.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-haendchen-halten.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-naehe-natuerlichkeit.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-natuerliche-braut-boho.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-sonnenuntergang-shooting.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-stadtpark.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-standesamt-magdeburg.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-tanzend-in-der-stadt.jpg
+  - /images/stories/ironleaves-photography-stories-julia-martin-slider-ungestellt-ehrlich.jpg
 testimonial:
   name: Julia & Martin
-  imgSrc: stories/ironleaves-photography-stories-julia-martin-kundenstimme.jpg
+  imgSrc: /images/stories/ironleaves-photography-stories-julia-martin-kundenstimme.jpg
   imgAlt: Julia & Martin Kundenstimme
   text: >
     Wir sind Tamara so dankbar, dass sie unser Brautpaarshooting übernommen hat.

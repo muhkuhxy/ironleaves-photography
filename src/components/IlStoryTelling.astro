@@ -37,7 +37,7 @@ const { class: classes, chapters } = Astro.props;
           x-show={`chaptersActive[${chapterIndex}]`}
           x-transition:leave-end="opacity-0"
           x-transition:enter-start="opacity-0"
-          src={`/images/${chapter.img}`}
+          src={chapter.img}
           class="absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out"
         />
       ))
@@ -55,7 +55,7 @@ const { class: classes, chapters } = Astro.props;
             class="lg:w-[60%] nojs:lg:w-[250%] lg:min-h-[100vh] lg:flex lg:items-center lg:justify-center"
           >
             <img
-              src={`/images/${chapter.img}`}
+              src={chapter.img}
               class="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
             />
           </div>

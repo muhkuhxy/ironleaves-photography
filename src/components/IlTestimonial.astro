@@ -14,7 +14,7 @@ const { testimonial } = Astro.props;
 >
   <img
     class="object-cover w-full h-full lg:order-2"
-    src={`/images/${testimonial.imgSrc}`}
+    src={testimonial.imgSrc}
     alt={testimonial.imgAlt}
   />
   <SectionContent

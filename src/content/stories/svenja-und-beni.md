@@ -2,46 +2,46 @@
 title: Svenja & Beni
 tag: stories
 createdAt: 2021-12-08T19:30:22.549Z
-imgSrc: stories/svenja_beni/ironleaves-photography-stories-svenja-beni.jpg
+imgSrc: /images/stories/ironleaves-photography-stories-svenja-beni.jpg
 imgAlt: Svenja und Beni Hochzeits-Shooting
 storyTellingImgs:
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-vorbereitungen-vortag-hochzeitsplanung.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-getting-ready.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-kirche-emotionen-umarmung.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-kuchen-anschnitt-lachen.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-shooting-natur-stadtpark-muenchen.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-beitrag-erster-tanz-party-hochzeitslocation.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-vorbereitungen-vortag-hochzeitsplanung.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-getting-ready.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-kirche-emotionen-umarmung.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-kuchen-anschnitt-lachen.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-shooting-natur-stadtpark-muenchen.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-beitrag-erster-tanz-party-hochzeitslocation.jpg
 slides:
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-schwarz-weiss-shooting-sonne-portrait.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-corgi-hochzeit-spaetsommer.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-detail-gefuehle-emotionen.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-detail-lachen-momentaufnahme-brautpaarshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-erster-tanz-location-spaetsommer-herbst-hopfen-muenchen.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-getting-ready-makeup-braut-schminken.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-glueckwuensche-braut.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-sonne-gegenlicht-brautpaarshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-hochzeitskleid-anziehen-getting-ready-brautkleid.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-hochzeitsreportage-kirche-schnappschuss.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-hund-kirche-hochzeit.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-kirche-brautvater-einmarsch.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-kuchen-anschneiden-anschnitt-torte.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-kuchen-muffins-hochzeitstorte-lecker.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-ring-detail-brautpaar-hochzeit.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-rose-details-blumenschmuck.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-schnappschuss-momentaufnahme-kirche.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-schnappschuss-tanz-brautpaarshooting-paerchenshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-shooting-sonne-schnappschuss-momentaufnahme.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-sketch-schnappschuss-programmpunkt-hochzeit.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-sonne-park-gegenlicht-brautpaarshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-sonne-spaetsommer-muenchen-hochzeit.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-spalier-seifenblasen-sektempfang-sommer-herbst.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-stadtpark-muenchen-hochzeitsshooting-brautpaarshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-ringe-detail-brautstrauss-hochzeitsringe.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-tanz-lensflare-brautpaarshooting.jpg
-  - stories/svenja_beni/ironleaves-photography-stories-svenja-beni-slider-wald-stadtpark-brautpaar.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-schwarz-weiss-shooting-sonne-portrait.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-corgi-hochzeit-spaetsommer.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-detail-gefuehle-emotionen.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-detail-lachen-momentaufnahme-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-erster-tanz-location-spaetsommer-herbst-hopfen-muenchen.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-getting-ready-makeup-braut-schminken.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-glueckwuensche-braut.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-sonne-gegenlicht-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-hochzeitskleid-anziehen-getting-ready-brautkleid.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-hochzeitsreportage-kirche-schnappschuss.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-hund-kirche-hochzeit.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-kirche-brautvater-einmarsch.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-kuchen-anschneiden-anschnitt-torte.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-kuchen-muffins-hochzeitstorte-lecker.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-ring-detail-brautpaar-hochzeit.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-rose-details-blumenschmuck.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-schnappschuss-momentaufnahme-kirche.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-schnappschuss-tanz-brautpaarshooting-paerchenshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-shooting-sonne-schnappschuss-momentaufnahme.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-sketch-schnappschuss-programmpunkt-hochzeit.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-sonne-park-gegenlicht-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-sonne-spaetsommer-muenchen-hochzeit.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-spalier-seifenblasen-sektempfang-sommer-herbst.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-stadtpark-muenchen-hochzeitsshooting-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-ringe-detail-brautstrauss-hochzeitsringe.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-tanz-lensflare-brautpaarshooting.jpg
+  - /images/stories/ironleaves-photography-stories-svenja-beni-slider-wald-stadtpark-brautpaar.jpg
 testimonial:
   name: Svenja & Beni
-  imgSrc: stories/svenja_beni/ironleaves-photography-stories-svenja-beni-kundenstimme.jpg
+  imgSrc: /images/stories/ironleaves-photography-stories-svenja-beni-kundenstimme.jpg
   imgAlt: Svenja und Beni Kundenstimme
   text: >
     Tamara hat unsere Hochzeit von Anfang bis Ende begleitet - professionell, zuvorkommend, mitdenkend und auf eine total liebe Art.

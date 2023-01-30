@@ -2,35 +2,34 @@
 title: Valerie & Max
 tag: stories
 createdAt: 2021-12-01T19:30:22.549Z
-imgSrc: stories/valerie_max/ironleaves-photography-stories-valerie-max.jpg
+imgSrc: /images/stories/ironleaves-photography-stories-valerie-max.jpg
 imgAlt: Valerie und Max Hochzeits-Shooting
 storyTellingImgs:
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-getting-ready-schminken-braut.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-standesamt-burg.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-hautnah-dabei-rueckspiegel-hochzeitsauto.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-lachkrampf-shooting-frohnatur.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-wanderschuhe-unkonventionelle-natuerliche-hochzeitsfotos.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-kuchen-anschneiden.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-erster-tanz-party.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-getting-ready-schminken-braut.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-standesamt-burg.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-hautnah-dabei-rueckspiegel-hochzeitsauto.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-lachkrampf-shooting-frohnatur.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-wanderschuhe-unkonventionelle-natuerliche-hochzeitsfotos.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-kuchen-anschneiden.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-erster-tanz-party.jpg
 slides:
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-laecheln.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-bank-waldrand.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-blumenstrauss-wildblumen.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-ehrlich-ungestellt.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-eskimo.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-wald-rueckenansicht.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-hochformat.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-hochzeitskleid.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-wald.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-tanzend.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-standesamt.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-frisur.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-location-scheune.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-blumenvasen-deko.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-sitzplan.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-laecheln.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-bank-waldrand.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-blumenstrauss-wildblumen.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-ehrlich-ungestellt.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-eskimo.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-wald-rueckenansicht.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-hochformat.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-hochzeitskleid.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-wald.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-tanzend.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-standesamt.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-frisur.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-location-scheune.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-blumenvasen-deko.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-sitzplan.jpg
 ---
 Valerie und Max haben mir das größte Vertrauen überhaupt entgegen gebracht. So durfte ich zum für mich ersten Mal als Hochzeitsfotografin und Gestalterin ihre aufregende Reise bis zur Hochzeit begleiten. Neben der kompletten Papeterie durfte ich auch hautnah die Planungen unterstützen – und natürlich viel fotografieren.
-<!--more-->
 
 ## Vorfreude beim Getting Ready
 

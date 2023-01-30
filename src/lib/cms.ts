@@ -1,4 +1,4 @@
-import CMS from "netlify-cms-app";
+import CMS from "@staticcms/core";
 import StoryPreview from "../components/admin/StoryPreview";
 
 CMS.init();
