@@ -1,11 +1,12 @@
 ---
 title: Worauf ihr achten müsst
 imgs:
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-getting-ready-schminken-braut.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-standesamt-burg.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-hautnah-dabei-rueckspiegel-hochzeitsauto.jpg
-  - stories/valerie_max/ironleaves-photography-stories-valerie-max-beitrag-ablauf-lachkrampf-shooting-frohnatur.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-getting-ready-schminken-braut.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-standesamt-burg.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-hautnah-dabei-rueckspiegel-hochzeitsauto.jpg
+  - /images/stories/ironleaves-photography-stories-valerie-max-beitrag-ablauf-lachkrampf-shooting-frohnatur.jpg
 ---
+
 ## Wärme
 
 Annoy owner until he gives you food say meow repeatedly until belly

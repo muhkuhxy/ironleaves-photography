@@ -1,10 +1,11 @@
 ---
 title: Tipps bei der Wahl Eures individuellen Bildlooks
 ---
+
 Was gibt es zu beachten? Warum sollte man sich überhaupt für
 einen Fotografen entscheiden? Hier gibt es 9 wichtige Faktoren, die
 euch (hoffentlich) bei der Wahl des richtigen Fotografen helfen!
-<!--more-->
+
 ## Monitore & Displays
 
 Klar hat jeder eine Kamera bei sich. Seitdem es Smartphones gibt, war es noch nie

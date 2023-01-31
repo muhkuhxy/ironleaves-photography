@@ -8,10 +8,7 @@ import "swiper/css";
 import { ChapterPreview } from "./ChapterPreview";
 import { SliderPreview } from "./SliderPreview";
 import { TestimonialPreview } from "./TestimonialPreview";
-
-function nonNull<T>(s: T | null | undefined): s is T {
-  return s != null;
-}
+import { nonNull } from "../../lib/util";
 
 export type StoryPreviewProps = {
   title?: string;

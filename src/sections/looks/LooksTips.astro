@@ -1,0 +1,39 @@
+---
+import { getEntryBySlug } from "astro:content";
+import SectionContent from "../../components/SectionContent.astro";
+import {
+  compileAndSplitChapters,
+  compileMarkdown,
+  splitChapters,
+} from "../../lib/content";
+
+const document = await getEntryBySlug("looks", "5-tips");
+const [excerpt, ...chapters] = await compileAndSplitChapters(document.body);
+---
+
+<section>
+  <SectionContent fluffy={true} class="text-emerald text-center">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-16 justify-center max-w-prose lg:max-w-none mx-auto text-center lg:text-left"
+    >
+      <div class="col-start-1">
+        <h2 class="mb-8 leading-[1.1]" set:html={document.data.title} />
+        {excerpt}
+      </div>
+
+      <div class="lg:col-start-2">
+        <ol class="list-decimal list-inside flex flex-col gap-12">
+          {
+            chapters.map(([title, ...chapter]) => (
+              <li class="marker:text-sunset marker:playfair marker:font-bold">
+                <span class="text-sunset playfair font-bold" set:html={title} />
+                <br />
+                <div class="mt-4 pl-12">{chapter}</div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
+  </SectionContent>
+</section>

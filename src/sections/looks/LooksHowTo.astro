@@ -1,0 +1,28 @@
+---
+import { getEntryBySlug } from "astro:content";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+
+const document = await getEntryBySlug("looks", "4-howto");
+const { Content } = await document.render();
+---
+
+<section>
+  <SectionContent class="bg-bluegray text-white">
+    <div class="max-w-prose mx-auto text-center">
+      <SectionHeader>
+        <span slot="roofline">
+          <span class="text-white" set:html={document.data.roofline} /></span
+        >
+        <Fragment set:html={document.data.title} />
+      </SectionHeader>
+
+      <LayoutSpacer />
+
+      <div class="space-y-4">
+        <Content />
+      </div>
+    </div>
+  </SectionContent>
+</section>

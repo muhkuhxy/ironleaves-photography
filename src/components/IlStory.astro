@@ -13,7 +13,7 @@ type Props = {
 const { slides, chapters } = Astro.props;
 ---
 
-<div class="text-bluegray pb-6" x-data="BlogStory">
+<div class="text-bluegray pb-6" x-data="StoryTelling">
   <div class="bg-dust">
     <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
       <slot name="image" />
@@ -31,3 +31,7 @@ const { slides, chapters } = Astro.props;
     <IlSlider class="!pb-8 h-full" slides={slides} />
   </div>
 </div>
+
+<script>
+  import "./alpine/StoryTelling";
+</script>
