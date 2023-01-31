@@ -23,7 +23,8 @@ export const config: Config = {
           "createdAt"
         ],
         "default": {
-          "field": "createdAt"
+          "field": "createdAt",
+          direction: "Descending"
         }
       },
       "view_groups": [
