@@ -42,7 +42,7 @@ import "./main.css";
   import Alpine from "alpinejs";
   import { parallax, slideUp, ScrollTrigger } from "../lib/gsap";
 
-  let timer: null | number = null;
+  let timer: null | NodeJS.Timeout = null;
 
   Alpine.data("App", () => ({
     init() {

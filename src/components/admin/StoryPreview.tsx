@@ -64,7 +64,8 @@ const ChapterPreview: FC<{ storyImgs: string[], chapters: Chapter[], gtLg: boole
               </div>
             }
             <div
-              dangerouslySetInnerHTML={{__html: '<div className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose">' + chapter.children.map((child) => {
+            className="max-w-[min(65ch,40%)]"
+              dangerouslySetInnerHTML={{__html: '<div class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left">' + chapter.children.map((child) => {
                 if (child.nodeType === NodeType.ELEMENT_NODE) {
                   const el = child as HTMLElement;
                   if (el.tagName === "H2") {
