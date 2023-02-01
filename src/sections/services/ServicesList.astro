@@ -1,0 +1,24 @@
+---
+import { getEntryBySlug } from "astro:content";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import SectionContent from "../../components/SectionContent.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import { compileAndSplitChapters } from "../../lib/content";
+
+const document = await getEntryBySlug("services", "2-list");
+const chapters = await compileAndSplitChapters(document.body);
+---
+
+<section class="text-bluegray">
+  <SectionContent fluffy={true}>
+    <SectionHeader>
+      <span slot="roofline" set:html={document.data.roofline} />
+      <Fragment set:html={document.data.title} />
+    </SectionHeader>
+    <LayoutSpacer />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-20">
+      {chapters.map((chapter) => <div class="space-y-4">{chapter}</div>)}
+    </div>
+  </SectionContent>
+</section>

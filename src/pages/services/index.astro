@@ -1,0 +1,41 @@
+---
+import ContactLink from "../../components/ContactLink.astro";
+import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import IconArrow from "../../components/svg/IconArrow.astro";
+import IconBase from "../../components/svg/IconBase.astro";
+import Layout from "../../layouts/Layout.astro";
+import ServicesIntro from "../../sections/services/ServicesIntro.astro";
+import ServicesInvestment from "../../sections/services/ServicesInvestment.astro";
+import ServicesList from "../../sections/services/ServicesList.astro";
+import ServicesPackages from "../../sections/services/ServicesPackages.astro";
+import ServicesPointers from "../../sections/services/ServicesPointers.astro";
+import ServicesPricing from "../../sections/services/ServicesPricing.astro";
+---
+
+<Layout>
+  <ServicesIntro />
+
+  <ServicesList />
+
+  <ServicesInvestment />
+
+  <ServicesPricing />
+
+  <ServicesPackages />
+
+  <LayoutSpacer />
+
+  <ContactLink />
+
+  <LayoutSpacer />
+
+  <IconBase class="text-sunset w-full h-16 -translate-y-4">
+    <IconArrow />
+  </IconBase>
+
+  <ServicesPointers />
+
+  <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+    <IconArrow />
+  </IconBase>
+</Layout>

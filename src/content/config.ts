@@ -33,18 +33,19 @@ export type AboutFrontmatter = z.infer<typeof aboutSchema>;
 
 const about = defineCollection({ schema: aboutSchema });
 
-const looksSchema = z.object({
+const infoSchema = z.object({
   title: z.string(),
   roofline: z.optional(z.string()),
   imgs: z.optional(z.array(z.string())),
 });
 
-export type LooksFrontmatter = z.infer<typeof looksSchema>;
+export type InfoFrontmatter = z.infer<typeof infoSchema>;
 
-const looks = defineCollection({ schema: looksSchema });
+const infos = defineCollection({ schema: infoSchema });
 
 export const collections = {
   stories,
   about,
-  looks,
+  looks: infos,
+  services: infos,
 };

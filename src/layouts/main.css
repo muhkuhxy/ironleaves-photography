@@ -10,28 +10,41 @@
   @font-face {
     font-family: Notes;
     font-weight: 400;
-    src: url('/fonts/Notes.otf')
+    src: url("/fonts/Notes.otf");
   }
 
   @font-face {
     font-family: Nunito;
-    src: url('/fonts/Nunito-Light.ttf')
+    src: url("/fonts/Nunito-VariableFont_wght.ttf")
+      format("truetype-variations");
+    font-weight: 200 1000;
   }
 
   @font-face {
-    font-family: 'Playfair Display';
-    src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf')
+    font-family: "Playfair Display";
+    src: url("/fonts/PlayfairDisplay-VariableFont_wght.ttf")
+      format("truetype-variations");
+    font-weight: 400 900;
   }
 
   :root {
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+  }
+
+  strong {
+    @apply font-bold;
   }
 
   .playfair {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
 
     /* 1.5rem(24px) @ 23.4375rem(375px) increasing to 2rem(32px) @ 80rem(1280px) */
-    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.234375rem) * 0.884)), 2rem);
+    font-size: clamp(
+      1.5rem,
+      calc(1.5rem + ((1vw - 0.234375rem) * 0.884)),
+      2rem
+    );
 
     /* Safari resize fix */
     min-height: 0;
@@ -40,9 +53,7 @@
 
 @layer components {
   h1 {
-    @apply font-bold;
-
-    font-family: 'Playfair Display', serif;
+    @apply playfair font-bold;
 
     /* 2rem @ 375px increasing to 4rem @ 1280px */
     font-size: clamp(2rem, calc(2rem + ((1vw - 0.234375rem) * 3.5359)), 4rem);
@@ -60,26 +71,38 @@
     @apply playfair font-bold;
 
     /* 1.2rem(19.2px) @ 23.4375rem(375px) increasing to 1.5rem(24px) @ 80rem(1280px) */
-    font-size: clamp(1.2rem, calc(1.2rem + ((1vw - 0.234375rem) * 0.5304)), 1.5rem);
+    font-size: clamp(
+      1.2rem,
+      calc(1.2rem + ((1vw - 0.234375rem) * 0.5304)),
+      1.5rem
+    );
 
     /* Safari resize fix */
     min-height: 0;
   }
 
   .roofline {
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     letter-spacing: 0.15em;
-    font-size: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.663)), 1.375rem);
+    font-size: clamp(
+      1rem,
+      calc(1rem + ((1vw - 0.234375rem) * 0.663)),
+      1.375rem
+    );
     /* stylelint-disable-next-line length-zero-no-unit */
     min-height: 0vw;
   }
 
   .caption {
-    font-family: 'Notes', serif;
+    font-family: "Notes", serif;
     line-height: 0.9;
 
     /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 5.5rem(88px) @ 80rem(1280px) */
-    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 5.3039)), 5.5rem);
+    font-size: clamp(
+      2.5rem,
+      calc(2.5rem + ((1vw - 0.234375rem) * 5.3039)),
+      5.5rem
+    );
 
     /* Safari resize fix */
     /* stylelint-disable-next-line length-zero-no-unit */
@@ -88,12 +111,16 @@
 
   .caption.hero {
     /* 2.5rem(40px) @ 23.4375rem(375px) increasing to 8rem(128px) @ 80rem(1280px) */
-    font-size: clamp(2.5rem, calc(2.5rem + ((1vw - 0.234375rem) * 9.7238)), 8rem);
+    font-size: clamp(
+      2.5rem,
+      calc(2.5rem + ((1vw - 0.234375rem) * 9.7238)),
+      8rem
+    );
   }
 }
 
 @layer utilities {
   [x-cloak] {
-    display: none !important;
+    @apply !hidden;
   }
 }

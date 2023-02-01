@@ -1,13 +1,9 @@
 ---
 import { getEntryBySlug } from "astro:content";
 import SectionContent from "../../components/SectionContent.astro";
-import {
-  compileAndSplitChapters,
-  compileMarkdown,
-  splitChapters,
-} from "../../lib/content";
+import { compileAndSplitChapters } from "../../lib/content";
 
-const document = await getEntryBySlug("looks", "5-tips");
+const document = await getEntryBySlug("services", "6-pointers");
 const [excerpt, ...chapters] = await compileAndSplitChapters(document.body);
 ---
 
