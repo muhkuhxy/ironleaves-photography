@@ -11,6 +11,8 @@ import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import Contact from "../../sections/home/Contact.astro";
 import BlogStories from "../../components/BlogStories.astro";
 import ButtonEffect from "../../components/ButtonEffect.astro";
+import { getEntryBySlug } from "astro:content";
+import { splitAt } from "../../lib/collections";
 
 export async function getStaticPaths() {
   const stories = await fetchStories();
@@ -18,85 +20,94 @@ export async function getStaticPaths() {
     params: {
       slug: story.slug,
     },
-    props: {
-      story,
-    },
   }));
 }
 
-type Props = {
-  story: Story;
-};
-
-const { story } = Astro.props;
+const { slug } = Astro.params;
 const newestStories = (await fetchStories())
-  .filter((s) => s.slug !== story.slug)
+  .filter((s) => s.slug !== slug)
   .slice(0, 2);
+const story = await getEntryBySlug("stories", slug!!);
+const storyImgs = story?.data.storyTellingImgs ?? [];
+const [excerpt, ...chapters] = splitAt(story?.body.split("\n") ?? [], (s) =>
+  s.startsWith("##")
+).map((lines) => lines.join("\n"));
+// console.log({ excerpt, chapters });
 ---
 
 <Layout>
-  <section class="text-bluegray">
-    <IlStory slides={story.slides} chapters={story.chapters}>
-      <div
-        slot="image"
-        class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
-      >
-        <img
-          class="w-7/8 border-8 border-solid border-white drop-shadow"
-          src={story.imgSrc}
-          alt={story.imgAlt}
-        />
-        <SvgSingleBranch
-          class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4"
-        />
-      </div>
+  {
+    story ? (
+      <section class="text-bluegray">
+        <IlStory
+          slides={story.data.slides}
+          chapters={chapters}
+          imgs={storyImgs}
+        >
+          <div
+            slot="image"
+            class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
+          >
+            <img
+              class="w-7/8 border-8 border-solid border-white drop-shadow"
+              src={story.data.imgSrc}
+              alt={story.data.imgAlt}
+            />
+            <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
+          </div>
 
-      <SectionHeader slot="title">
-        <span slot="roofline">{labels[story.tag]}</span>
-        {story.title}
-      </SectionHeader>
+          <SectionHeader slot="title">
+            <span slot="roofline">{labels[story.data.tag]}</span>
+            {story.data.title}
+          </SectionHeader>
 
-      <div
-        class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
-        slot="content"
-      >
-        {story.excerpt}
-      </div>
-    </IlStory>
+          <div
+            class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
+            slot="content"
+          >
+            {excerpt}
+          </div>
+        </IlStory>
 
-    {story.testimonial && <IlTestimonial testimonial={story.testimonial} />}
+        {story.data.testimonial && (
+          <IlTestimonial testimonial={story.data.testimonial} />
+        )}
 
-    <IconBase class="text-sunset w-full h-16 mt-8">
-      <IconArrow />
-    </IconBase>
-
-    <LayoutSpacer />
-
-    <SectionHeader class="mx-auto text-center">
-      <span slot="roofline">Stories</span>
-      Neueste Beiträge
-    </SectionHeader>
-
-    <LayoutSpacer />
-
-    <BlogStories stories={newestStories}>
-      <div slot="tail">
-        <LayoutSpacer />
-
-        <a href="/stories">
-          <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
-            Hier gibt's alle Beiträge
-          </ButtonEffect>
-        </a>
-
-        <LayoutSpacer ms={4} />
-
-        <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+        <IconBase class="text-sunset w-full h-16 mt-8">
           <IconArrow />
         </IconBase>
-      </div>
-    </BlogStories>
 
-    <Contact class="mt-20" />
-  </section>
+        <LayoutSpacer />
+
+        <SectionHeader class="mx-auto text-center">
+          <span slot="roofline">Stories</span>
+          Neueste Beiträge
+        </SectionHeader>
+
+        <LayoutSpacer />
+
+        <BlogStories stories={newestStories}>
+          <div slot="tail">
+            <LayoutSpacer />
+
+            <a href="/stories">
+              <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+                Hier gibt's alle Beiträge
+              </ButtonEffect>
+            </a>
+
+            <LayoutSpacer ms={4} />
+
+            <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+              <IconArrow />
+            </IconBase>
+          </div>
+        </BlogStories>
+
+        <Contact class="mt-20" />
+      </section>
+    ) : (
+      "Nix gefunden"
+    )
+  }
 </Layout>

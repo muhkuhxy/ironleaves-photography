@@ -28,7 +28,7 @@ const { class: classes, btnClass } = Astro.props;
 
 <script>
   import Alpine from "alpinejs";
-  import gsap from "gsap";
+  import { gsap } from "../lib/gsap";
   import { reactiveBreakpoints } from "../lib/breakpoints";
 
   Alpine.data("TextExpander", () => ({

@@ -35,19 +35,17 @@ const stories = await fetchStories();
           <li class="max-md:mb-2">Filter nach:</li>
           {
             tags.map(({ tag, label }) => (
-              <>
-                <li
-                  role="button"
-                  class="text-sunset uppercase cursor-pointer flex justify-between py-2 px-2 lg:px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
-                  x-on:click={`filter(query === '${tag}' ? null : '${tag}')`}
+              <li
+                role="button"
+                class="text-sunset uppercase cursor-pointer flex justify-between py-2 px-2 lg:px-4 transition-all hover:-translate-y-0.5 hover:shadow-md active:hover:translate-y-0"
+                x-on:click={`filter(query === '${tag}' ? null : '${tag}')`}
+              >
+                <span
+                  x-bind:class={`{ 'underline font-bold': query === '${tag}' }`}
                 >
-                  <span
-                    x-bind:class={`{ 'underline font-bold': query === '${tag}' }`}
-                  >
-                    {label}
-                  </span>
-                </li>
-              </>
+                  {label}
+                </span>
+              </li>
             ))
           }
         </ul>
@@ -64,9 +62,7 @@ const stories = await fetchStories();
 
 <script>
   import Alpine from "alpinejs";
-  import gsap from "gsap";
-  import Flip from "gsap/Flip";
-  gsap.registerPlugin(Flip);
+  import { gsap, Flip } from "../../lib/gsap";
 
   Alpine.data("StoryFilter", () => ({
     query: null,

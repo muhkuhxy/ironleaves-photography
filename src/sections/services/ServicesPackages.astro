@@ -1,20 +1,18 @@
 ---
 import { getEntryBySlug } from "astro:content";
-import IlStoryTelling from "../../components/IlStoryTelling.astro";
+import IlStoryTelling from "../../components/ReactStoryTelling";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import IconArrow from "../../components/svg/IconArrow.astro";
 import IconBase from "../../components/svg/IconBase.astro";
 import type { Chapter } from "../../lib/blog";
+import { splitAt } from "../../lib/collections";
 import { compileAndSplitChapters } from "../../lib/content";
 
 const document = await getEntryBySlug("services", "5-packages");
-const chapters: Chapter[] = (await compileAndSplitChapters(document.body)).map(
-  (children, index) => ({
-    children,
-    img: document.data.imgs!![index],
-  })
-);
+const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
+  s.startsWith("##")
+).map((lines) => lines.join("\n"));
 ---
 
 <div class="bg-dust text-bluegray" x-data="StoryTelling">
@@ -29,9 +27,5 @@ const chapters: Chapter[] = (await compileAndSplitChapters(document.body)).map(
     {document.data.title}
   </SectionHeader>
 
-  <IlStoryTelling chapters={chapters} />
+  <IlStoryTelling imgs={document.data.imgs!!} chapters={chapters} />
 </div>
-
-<script>
-  import "../../components/alpine/StoryTelling";
-</script>

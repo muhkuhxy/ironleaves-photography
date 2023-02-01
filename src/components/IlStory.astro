@@ -1,19 +1,19 @@
 ---
-import type { Chapter } from "../lib/blog";
 import IlSlider from "./IlSlider.astro";
-import IlStoryTelling from "./IlStoryTelling.astro";
+import ReactStoryTelling from "./ReactStoryTelling";
 import LayoutSpacer from "./LayoutSpacer.astro";
 import SectionContent from "./SectionContent.astro";
 
 type Props = {
   slides: string[];
-  chapters: Chapter[];
+  chapters: string[];
+  imgs: string[];
 };
 
-const { slides, chapters } = Astro.props;
+const { slides, chapters, imgs } = Astro.props;
 ---
 
-<div class="text-bluegray pb-6" x-data="StoryTelling">
+<div class="text-bluegray pb-6">
   <div class="bg-dust">
     <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
       <slot name="image" />
@@ -26,12 +26,13 @@ const { slides, chapters } = Astro.props;
       </div>
     </SectionContent>
   </div>
-  <IlStoryTelling class="bg-white" chapters={chapters} />
+  <ReactStoryTelling
+    client:load
+    className="bg-white"
+    chapters={chapters}
+    imgs={imgs}
+  />
   <div class="h-[50vh]">
     <IlSlider class="!pb-8 h-full" slides={slides} />
   </div>
 </div>
-
-<script>
-  import "./alpine/StoryTelling";
-</script>

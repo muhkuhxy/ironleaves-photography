@@ -1,14 +1,14 @@
 import type { TemplatePreviewProps } from "@staticcms/core";
-import { queries as mediaQueries } from "../../lib/breakpoints";
 import { useEffect, useMemo, useState } from "react";
-import { Chapter, labels, parseContent, Tag } from "../../lib/blog";
-import { compileMarkdown } from "../../lib/content";
-import type { Node } from "node-html-parser";
-import "swiper/css";
-import { ChapterPreview } from "./ChapterPreview";
+import { labels, Tag } from "../../lib/blog";
+import { compileMarkdownSync } from "../../lib/content";
 import { SliderPreview } from "./SliderPreview";
 import { TestimonialPreview } from "./TestimonialPreview";
 import { nonNull } from "../../lib/util";
+import ReactStoryTelling from "../ReactStoryTelling";
+import { splitAt } from "../../lib/collections";
+import "swiper/css";
+import ReactSectionContent from "../ReactSectionContent";
 
 export type StoryPreviewProps = {
   title?: string;
@@ -44,12 +44,14 @@ export default function ({
     [entry.data?.slides]
   );
   // slides = slides == null ? [] : Array.from(slides)
-  const md = entry.data?.body;
+  const [excerpt, ...chapters] = useMemo(() => {
+    return splitAt(entry.data?.body.split("\n") ?? [], (s) =>
+      s.startsWith("##")
+    ).map((lines) => lines.join("\n"));
+  }, [entry.data?.body]);
   const testimonial = entry.data?.testimonial;
   // console.log({testimonial, name: testimonial.getIn(['name'])})
 
-  const [chapters, setChapters] = useState([] as Chapter[]);
-  const [excerpt, setExcerpt] = useState([] as Node[] | undefined);
   const [slideImages, setSlideImages] = useState([] as string[]);
   const [storyImages, setStoryImages] = useState([] as string[]);
 
@@ -89,40 +91,10 @@ export default function ({
     };
   }, [slides]);
 
-  useEffect(() => {
-    let alive = true;
-    timer != null && clearTimeout(timer);
-    timer = setTimeout(() => {
-      if (!alive) {
-        return;
-      }
-      // const started = new Date()
-      md &&
-        compileMarkdown(md)
-          .then((contentHtml) => parseContent(contentHtml, []))
-          .then(({ excerpt, chapters }) => {
-            if (!alive) {
-              return;
-            }
-            setChapters(chapters ?? []);
-            setExcerpt(excerpt);
-          });
-    }, 750);
-    return () => {
-      alive = false;
-    };
-  }, [md]);
-
-  const [gtLg, setGtLg] = useState(false);
-  useEffect(() => {
-    mediaQueries["lg"].addEventListener("change", (ev) => setGtLg(ev.matches));
-  }, []);
-
   return (
     <div className="text-bluegray pb-6">
       <div className="bg-dust">
-        {/* SectionContent */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 xl:mx-auto xl:px-16 px-8 md:px-16 py-12 lg:py-16 xl:py-20">
+        <ReactSectionContent className="flex flex-col lg:flex-row items-center gap-8">
           <div className="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial">
             {imgSrc ? (
               <img
@@ -133,27 +105,36 @@ export default function ({
               "KEIN BILD"
             )}
           </div>
+
           <div className="lg:w-1/2 flex-initial text-center lg:text-left flex flex-col gap-4 max-w-prose mx-auto lg:mx-0">
+            {/* <slot name="title" /> */}
             <div>
               <div className="roofline block text-sunset uppercase">
                 <span>{tag ? labels[tag] : "KEIN TAG"}</span>
               </div>
               <h1> {title || "KEIN TITEL"} </h1>
             </div>
+
+            {/* <slot name="content" /> */}
             <div
               className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
               dangerouslySetInnerHTML={{
-                __html: excerpt?.join("") ?? "KEIN INTRO",
+                __html: excerpt
+                  ? compileMarkdownSync(excerpt).toString()
+                  : "KEIN INTRO",
               }}
             ></div>
+
             {/* LayoutSpacer */}
             <div className="w-full h-4" />
           </div>
-        </div>
+        </ReactSectionContent>
       </div>
-      <ChapterPreview
-        {...{ chapters, gtLg, storyImgs: storyImages }}
-      ></ChapterPreview>
+      <ReactStoryTelling
+        chapters={chapters}
+        imgs={storyImages}
+        scroller="#preview-pane"
+      />
       <SliderPreview slides={slideImages}></SliderPreview>
       {testimonial && (
         <TestimonialPreview testimonial={testimonial}></TestimonialPreview>

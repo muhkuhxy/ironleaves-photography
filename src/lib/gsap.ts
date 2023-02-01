@@ -1,27 +1,29 @@
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import GT from "gsap";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Flip } from "gsap/dist/Flip";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, Flip);
 
 export function slideUp(options: { y?: string }, el: HTMLElement) {
-  el.style.opacity = '0'
-  el.style.transform = `translateY(${options.y ?? 60}px)`
+  el.style.opacity = "0";
+  el.style.transform = `translateY(${options.y ?? 60}px)`;
 
   ScrollTrigger.create({
     // markers: true,
     trigger: el,
-    start: () => 'top+=200px bottom',
-    onToggle: self => {
+    start: () => "top+=200px bottom",
+    onToggle: (self) => {
       // console.log('toggle, active: ', self.isActive, el)
       if (!self.isActive) {
-        self.kill(false, true)
+        self.kill(false, true);
         // console.log('killed')
       } else {
         // console.log('playing')
-        gsap.to(el, { opacity: 1, y: 0, ease: 'expo', duration: 1.5 })
+        gsap.to(el, { opacity: 1, y: 0, ease: "expo", duration: 1.5 });
       }
     },
-  })
+  });
 }
 
 export function parallax(caller: string, img: HTMLElement) {
@@ -32,13 +34,13 @@ export function parallax(caller: string, img: HTMLElement) {
         trigger: img,
         scrub: true,
         // markers: true,
-        start: () => img.dataset.start || 'top bottom'
+        start: () => img.dataset.start || "top bottom",
       },
-      yPercent: 20
-    })
+      yPercent: 20,
+    });
   } else {
-    console.warn(`no img ref for ${caller}`)
+    console.warn(`no img ref for ${caller}`);
   }
 }
 
-export { gsap, ScrollTrigger }
+export { gsap, ScrollTrigger, Flip };
