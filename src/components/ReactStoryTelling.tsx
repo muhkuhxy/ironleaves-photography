@@ -10,11 +10,6 @@ import { compileMarkdownSync } from "../lib/content";
 import { cls } from "../lib/util";
 import SectionContent from "./ReactSectionContent";
 
-export type ReactChapter = {
-  img: string;
-  children: string;
-};
-
 type Props = {
   className?: string;
   chapters: string[];
@@ -42,9 +37,7 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
           // console.log({ chapterImgEls, chapterTriggers });
           const activate: ScrollTrigger.Callback = (self) => {
             setChaptersActive(chaptersActive.map((_, i) => i === index));
-            // console.log(
-            //   `${self.isActive ? "" : "de"}activating chapter ${index}`
-            // );
+            // console.log( `activating chapter ${index}`);
           };
           sts.push(
             ScrollTrigger.create({
@@ -113,7 +106,7 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
               />
             </div>
             <MarkdownRenderer
-              className="grow-0 flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose nojs:lg:max-w-[39%] [&>h2]:leading-none [&>h2]:mt-4"
+              className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose nojs:lg:max-w-[39%] [&>h2]:leading-none [&>h2]:mt-4"
               content={chapter}
             />
           </div>

@@ -8,13 +8,19 @@ import { splitAt } from "../../lib/collections";
 const document = await getEntryBySlug("looks", "3-aspects");
 const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
   s.startsWith("##")
-).map((lines) => lines.join("\n"));
+)
+  .filter((lines) => !lines.every((line) => line === ""))
+  .map((lines) => lines.join("\n"));
 ---
 
-<section class="bg-dust text-bluegray" x-data="StoryTelling">
+<section class="bg-dust text-bluegray">
   <SectionContent>
     <SectionHeader class="text-center" set:html={document.data.title} />
 
-    <IlStoryTelling imgs={document.data.imgs!!} chapters={chapters} />
+    <IlStoryTelling
+      client:load
+      imgs={document.data.imgs!!}
+      chapters={chapters}
+    />
   </SectionContent>
 </section>

@@ -1,21 +1,21 @@
 ---
 import { getEntryBySlug } from "astro:content";
-import IlStoryTelling from "../../components/ReactStoryTelling";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import IlStoryTelling from "../../components/ReactStoryTelling";
 import SectionHeader from "../../components/SectionHeader.astro";
 import IconArrow from "../../components/svg/IconArrow.astro";
 import IconBase from "../../components/svg/IconBase.astro";
-import type { Chapter } from "../../lib/blog";
 import { splitAt } from "../../lib/collections";
-import { compileAndSplitChapters } from "../../lib/content";
 
 const document = await getEntryBySlug("services", "5-packages");
 const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
   s.startsWith("##")
-).map((lines) => lines.join("\n"));
+)
+  .filter((lines) => !lines.every((line) => line === ""))
+  .map((lines) => lines.join("\n"));
 ---
 
-<div class="bg-dust text-bluegray" x-data="StoryTelling">
+<div class="bg-dust text-bluegray">
   <IconBase class="text-sunset w-full h-16 -translate-y-4">
     <IconArrow />
   </IconBase>
@@ -27,5 +27,5 @@ const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
     {document.data.title}
   </SectionHeader>
 
-  <IlStoryTelling imgs={document.data.imgs!!} chapters={chapters} />
+  <IlStoryTelling client:load imgs={document.data.imgs!!} chapters={chapters} />
 </div>
