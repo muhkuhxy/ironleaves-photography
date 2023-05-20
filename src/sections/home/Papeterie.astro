@@ -4,6 +4,7 @@ import IlFigureCaption from "../../components/IlFigureCaption.astro";
 import IlGradient from "../../components/IlGradient.astro";
 import IlSlider from "../../components/IlSlider.astro";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
+import ReactLightbox from "../../components/ReactLightbox";
 import SectionContent from "../../components/SectionContent.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
 import SectionLines from "../../components/SectionLines.astro";
@@ -104,6 +105,7 @@ const { class: classes } = Astro.props;
 
   <div class="h-[50vh]">
     <IlSlider id="papeterie" class="!pb-8 h-full" slides={papeterie} />
+    <ReactLightbox id="papeterie" client:only />
   </div>
 </section>
 
