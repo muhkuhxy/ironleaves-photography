@@ -4,12 +4,12 @@ import IconArrow from "./svg/IconArrow.astro";
 import IconBase from "./svg/IconBase.astro";
 
 type Props = {
+  id: string;
   class?: string;
   side: "left" | "right";
-  onClick: string;
 };
 
-const { class: classes, side, onClick } = Astro.props;
+const { id, class: classes, side } = Astro.props;
 ---
 
 <div
@@ -24,11 +24,11 @@ const { class: classes, side, onClick } = Astro.props;
     halfOpacity={true}
   />
   <button
+    id={id}
     class:list={[
-      "cursor-pointer mb-2 text-white",
+      `cursor-pointer mb-2 text-white`,
       side === "left" ? "ml-4 md:ml-8 mr-4" : "mr-4 md:mr-8 ml-4",
     ]}
-    x-on:click={onClick}
   >
     <IconBase
       class={`text-white w-10 lg:w-16 ${

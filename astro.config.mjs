@@ -1,6 +1,6 @@
-import { defineConfig } from 'astro/config';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { defineConfig } from "astro/config";
+import path from "path";
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -15,12 +15,20 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), alpinejs(), react()],
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    alpinejs(),
+    react(),
+  ],
   vite: {
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, './src')
-      }
-    }
-  }
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  },
 });

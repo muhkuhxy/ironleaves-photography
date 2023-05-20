@@ -34,6 +34,6 @@
     "lottie-web": "^5.10.1",
     "node-html-parser": "^6.1.4",
     "postcss-nested": "^6.0.0",
-    "swiper": "^8.4.6"
+    "swiper": "^9.3.2"
   }
 }
