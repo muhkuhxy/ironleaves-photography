@@ -5,8 +5,8 @@ import SectionHeader from "../../components/SectionHeader.astro";
 import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro";
 import { fetchStories, labels, Story } from "../../lib/blog";
 import IlTestimonial from "../../components/IlTestimonial.astro";
-import IconBase from "../../components/svg/IconBase.astro";
-import IconArrow from "../../components/svg/IconArrow.astro";
+import IconBase from "../../components/svg/IconBase";
+import IconArrow from "../../components/svg/IconArrow";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import Contact from "../../sections/home/Contact.astro";
 import BlogStories from "../../components/BlogStories.astro";
@@ -73,7 +73,7 @@ const [excerpt, ...chapters] = splitAt(story?.body.split("\n") ?? [], (s) =>
           <IlTestimonial testimonial={story.data.testimonial} />
         )}
 
-        <IconBase class="text-sunset w-full h-16 mt-8">
+        <IconBase className="text-sunset w-full h-16 mt-8">
           <IconArrow />
         </IconBase>
 
@@ -98,7 +98,7 @@ const [excerpt, ...chapters] = splitAt(story?.body.split("\n") ?? [], (s) =>
 
             <LayoutSpacer ms={4} />
 
-            <IconBase class="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
+            <IconBase className="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
               <IconArrow />
             </IconBase>
           </div>

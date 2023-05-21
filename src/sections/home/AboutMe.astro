@@ -4,13 +4,13 @@ import IlTextExpander from "../../components/IlTextExpander.astro";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import SectionContent from "../../components/SectionContent.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import IconArrow from "../../components/svg/IconArrow.astro";
-import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow";
+import IconBase from "../../components/svg/IconBase";
 import SvgFlowerGrass from "../../components/svg/SvgFlowerGrass.astro";
 ---
 
 <section id="about-me" class="text-bluegray relative" data-scroll-target>
-  <IconBase class="text-sunset w-full h-16 -translate-y-4">
+  <IconBase className="text-sunset w-full h-16 -translate-y-4">
     <IconArrow />
   </IconBase>
   <SectionContent
@@ -87,7 +87,7 @@ import SvgFlowerGrass from "../../components/svg/SvgFlowerGrass.astro";
     </div>
   </SectionContent>
   <LayoutSpacer />
-  <IconBase class="text-sunset w-full h-16 absolute bottom-0 -mb-4 z-10">
+  <IconBase className="text-sunset w-full h-16 absolute bottom-0 -mb-4 z-10">
     <IconArrow />
   </IconBase>
 </section>

@@ -1,6 +1,6 @@
 ---
-import IconBase from "./svg/IconBase.astro";
-import IconArrow from "./svg/IconArrow.astro";
+import IconBase from "./svg/IconBase";
+import IconArrow from "./svg/IconArrow";
 
 type Props = {
   title?: string;
@@ -12,5 +12,5 @@ const { title, class: classes, href } = Astro.props;
 ---
 
 <a class:list={[classes]} href={href} title={title}>
-  <IconBase class="rotate-180"><IconArrow /></IconBase>
+  <IconBase className="rotate-180"><IconArrow /></IconBase>
 </a>

@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import AboutCv from "../../sections/about/AboutCv.astro";
 import AboutFaq from "../../sections/about/AboutFaq.astro";
-import IconBase from "../../components/svg/IconBase.astro";
-import IconArrow from "../../components/svg/IconArrow.astro";
+import IconBase from "../../components/svg/IconBase";
+import IconArrow from "../../components/svg/IconArrow";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import ContactLink from "../../components/ContactLink.astro";
 import AboutIntro from "../../sections/about/AboutIntro.astro";
@@ -22,7 +22,7 @@ import AboutStyle from "../../sections/about/AboutStyle.astro";
 
   <AboutFaq />
 
-  <IconBase class="text-sunset w-full h-16">
+  <IconBase className="text-sunset w-full h-16">
     <IconArrow />
   </IconBase>
 
@@ -32,7 +32,7 @@ import AboutStyle from "../../sections/about/AboutStyle.astro";
 
   <LayoutSpacer />
 
-  <IconBase class="text-sunset w-full h-16 translate-y-12 relative z-10">
+  <IconBase className="text-sunset w-full h-16 translate-y-12 relative z-10">
     <IconArrow />
   </IconBase>
 </Layout>

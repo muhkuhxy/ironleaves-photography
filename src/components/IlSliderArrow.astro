@@ -1,7 +1,7 @@
 ---
 import IlGradient from "./IlGradient.astro";
-import IconArrow from "./svg/IconArrow.astro";
-import IconBase from "./svg/IconBase.astro";
+import IconArrow from "./svg/IconArrow";
+import IconBase from "./svg/IconBase";
 
 type Props = {
   id: string;
@@ -31,7 +31,7 @@ const { id, class: classes, side } = Astro.props;
     ]}
   >
     <IconBase
-      class={`text-white w-10 lg:w-16 ${
+      className={`text-white w-10 lg:w-16 ${
         side === "left" ? "rotate-90" : "-rotate-90"
       }`}
     >

@@ -5,14 +5,14 @@ import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import ReactLightbox from "../../components/ReactLightbox";
 import SectionContent from "../../components/SectionContent.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import IconArrow from "../../components/svg/IconArrow.astro";
-import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow";
+import IconBase from "../../components/svg/IconBase";
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro";
 import { stories } from "../../lib/slides";
 ---
 
 <section id="stories" data-scroll-target>
-  <IconBase class="text-sunset w-full h-16 mt-8">
+  <IconBase className="text-sunset w-full h-16 mt-8">
     <IconArrow />
   </IconBase>
   <LayoutSpacer />
@@ -83,10 +83,10 @@ import { stories } from "../../lib/slides";
 
   <div class="h-[50vh]">
     <IlSlider id="stories" class="!pb-8 h-full" slides={stories} />
-    <ReactLightbox client:only id="stories" />
+    <ReactLightbox client:only="react" id="stories" slides={stories} />
   </div>
 
-  <IconBase class="text-sunset w-full h-16 mt-8 mb-12">
+  <IconBase className="text-sunset w-full h-16 mt-8 mb-12">
     <IconArrow />
   </IconBase>
 </section>

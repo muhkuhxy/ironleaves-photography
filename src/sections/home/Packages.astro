@@ -3,8 +3,8 @@ import IlPackage from "../../components/IlPackage.astro";
 import LayoutSpacer from "../../components/LayoutSpacer.astro";
 import SectionContent from "../../components/SectionContent.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import IconArrow from "../../components/svg/IconArrow.astro";
-import IconBase from "../../components/svg/IconBase.astro";
+import IconArrow from "../../components/svg/IconArrow";
+import IconBase from "../../components/svg/IconBase";
 ---
 
 <section
@@ -13,7 +13,7 @@ import IconBase from "../../components/svg/IconBase.astro";
   x-data="PhotoPackages"
   x-on:toggle-package="toggle($event.detail)"
 >
-  <IconBase class="text-sunset w-full h-16">
+  <IconBase className="text-sunset w-full h-16">
     <IconArrow />
   </IconBase>
 
