@@ -61,15 +61,18 @@ function Lightbox({
       className="z-50 fixed inset-0 grid place-content-center backdrop-opacity-10 bg-black/50 grid-cols-[fit-content(90%)] transition-all"
       style={{ opacity }}
     >
-      <div ref={ref} className="p-4 lg:p-8 mx-auto bg-gray-100 relative h-full">
-        <img className="object-contain max-h-[calc(100vh-8rem)]" src={img} />
+      <div
+        ref={ref}
+        className="p-4 md:p-8 mx-auto bg-gray-100 relative h-full flex flex-col gap-2"
+      >
         <div
-          className="absolute top-2 right-2 cursor-pointer p-0.5 border-2 border-sunset text-sunset transition-colors"
+          className="self-end cursor-pointer p-0.5 border-2 border-sunset text-sunset hover:bg-sunset hover:text-white transition-all"
           onClick={hide}
         >
-          <SvgClose className="w-6" />
+          <SvgClose className="w-4" />
         </div>
-        <div className="flex justify-between gap-2">
+        <img className="object-contain max-h-[calc(100vh-12rem)]" src={img} />
+        <div className="self-center flex gap-12">
           <div onClick={() => navigate(-1)}>
             <IconBase className="text-sunset w-8 rotate-90 cursor-pointer">
               <IconArrow></IconArrow>
