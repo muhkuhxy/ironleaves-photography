@@ -7,7 +7,6 @@ import { TestimonialPreview } from "./TestimonialPreview";
 import { nonNull } from "../../lib/util";
 import ReactStoryTelling from "../ReactStoryTelling";
 import { splitAt } from "../../lib/collections";
-import "swiper/css";
 import ReactSectionContent from "../ReactSectionContent";
 
 export type StoryPreviewProps = {
