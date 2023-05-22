@@ -4,8 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import IlStory from "../components/cms/IlStory.astro";
 import SvgSingleBranch from "../components/svg/SvgSingleBranch.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import IconBase from "../components/svg/IconBase.astro";
-import IconArrow from "../components/svg/IconArrow.astro";
+import IconBase from "../components/svg/IconBase";
+import IconArrow from "../components/svg/IconArrow";
 import LayoutSpacer from "../components/LayoutSpacer.astro";
 
 const storyblokApi = useStoryblokApi();
@@ -49,7 +49,7 @@ const { teaser, chapters, slides, title, image } = data.story.content;
       </div>
     </IlStory>
 
-    <IconBase class="text-sunset w-full h-16 mt-8">
+    <IconBase className="text-sunset w-full h-16 mt-8">
       <IconArrow />
     </IconBase>
 
