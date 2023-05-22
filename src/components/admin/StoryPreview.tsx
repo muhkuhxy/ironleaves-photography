@@ -42,14 +42,12 @@ export default function ({
     () => entry.data?.slides?.filter(nonNull) ?? [],
     [entry.data?.slides]
   );
-  // slides = slides == null ? [] : Array.from(slides)
   const [excerpt, ...chapters] = useMemo(() => {
     return splitAt(entry.data?.body.split("\n") ?? [], (s) =>
       s.startsWith("##")
     ).map((lines) => lines.join("\n"));
   }, [entry.data?.body]);
   const testimonial = entry.data?.testimonial;
-  // console.log({testimonial, name: testimonial.getIn(['name'])})
 
   const [slideImages, setSlideImages] = useState([] as string[]);
   const [storyImages, setStoryImages] = useState([] as string[]);
