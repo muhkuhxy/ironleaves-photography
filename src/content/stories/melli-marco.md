@@ -17,10 +17,10 @@ storyTellingImgs:
 slides:
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-wald-ungestellte-paerchenfotos-hochzeitsbilder.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-brautpaar-weg-monschau-hochzeitsfotos.jpg
-  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braeutigam-hochzeitsanzug.jpg
-  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braeutigam-hochzeitsauto-reportage.jpg
-  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braut-emotionen-schnappschuss.jpg
+  - /images/stories/ironleaves-photography-stories-melli-marco-slider-hochzeitsfotos-brautpaar-momentaufnahme-sonnenuntergang.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-braut-hochzeitskleid-wald-brautshooting.jpg
+  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braeutigam-hochzeitsanzug.jpg
+  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braut-emotionen-schnappschuss.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-brautpaar-haendchen-halten.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-brautpaar-natur-rohren-eifel-roetgen-simmerath.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-brautpaar-schnappschuss-intim-momentaufnahme.jpg
@@ -29,8 +29,8 @@ slides:
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-brautstrauss-tischdeko-rurberg-eifel-hochzeitsfotografin.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-fruehlingshochzeit-bilder-monschau-rohren.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-gruppenfotos-hochzeitsfotos-rursee.jpg
+  - /images/stories/ironleaves-photography-stories-melli-marco-slider-braeutigam-hochzeitsauto-reportage.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-haende-detailaufnahme-braut.jpg
-  - /images/stories/ironleaves-photography-stories-melli-marco-slider-hochzeitsfotos-brautpaar-momentaufnahme-sonnenuntergang.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-hochzeitsfotos-wald-fruehling.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-hochzeitstanz-wiese-brautpaarshooting-eifel-monschau.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-lichtung-sonne-wiese-brautpaar-tanz.jpg
