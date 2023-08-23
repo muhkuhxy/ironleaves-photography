@@ -3,6 +3,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { loadEnv } from "vite";
 import storyblok from "@storyblok/astro";
+import basicSsl from '@vitejs/plugin-basic-ssl'
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -36,10 +38,14 @@ export default defineConfig({
     }),
   ],
   vite: {
+    plugins: [basicSsl()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
     },
+    server: {
+      https: true
+    }
   },
 });

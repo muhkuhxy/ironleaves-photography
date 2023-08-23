@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@types/alpinejs": "^3.7.1",
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "gsap": "^3.11.4",
     "lottie-web": "^5.10.1",
     "node-html-parser": "^6.1.4",
