@@ -12,7 +12,7 @@ const storySchema = z.object({
     z.object({
       name: z.string(),
       imgSrc: z.string(),
-      imgAlt: z.string(),
+      imgAlt: z.optional(z.string()),
       text: z.string(),
     })
   ),
