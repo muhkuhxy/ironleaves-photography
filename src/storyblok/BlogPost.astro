@@ -28,7 +28,10 @@ const storyblokApi = useStoryblokApi()
 const newestStories = await Promise.all(
   (
     await storyblokApi.getStories({
-      version: import.meta.env.DEV ? "draft" : "published",
+      version:
+        import.meta.env.DEV || import.meta.env.SB_PREVIEW
+          ? "draft"
+          : "published",
       sort_by: "content.createdAt:desc",
       per_page: 2,
       excluding_ids: id,
