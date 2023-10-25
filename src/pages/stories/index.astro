@@ -5,9 +5,18 @@ import BlogStories from "../../components/BlogStories.astro"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
-import { tags, fetchStories } from "../../lib/blog"
+import { tags } from "../../lib/blog"
+import { useStoryblokApi } from "@storyblok/astro"
 
-const stories = await fetchStories()
+const storyblokApi = useStoryblokApi()
+const stories = (
+  await storyblokApi.getStories({
+    version:
+      import.meta.env.DEV || import.meta.env.SB_PREVIEW ? "draft" : "published",
+    sort_by: "content.createdAt:desc",
+  })
+).data.stories
+// console.log({ stories })
 ---
 
 <Layout>

@@ -15,21 +15,27 @@ import BlogStories from "../components/BlogStories.astro"
 import ButtonEffect from "../components/ButtonEffect.astro"
 import Contact from "../sections/home/Contact.astro"
 
+type Props = {
+  id: string
+  blok: any
+}
+
 const { id, blok } = Astro.props
 
 const { teaser, chapters, slides, title, image, testimonial } = blok
 
 const storyblokApi = useStoryblokApi()
-const newestStories = (
-  await storyblokApi.getStories({
-    version: import.meta.env.DEV ? "draft" : "published",
-    sort_by: "content.createdAt:desc",
-    per_page: 3,
-  })
-).data.stories
-  .filter((s) => s.id !== id)
-  .slice(0, 2)
-console.log({ stories: newestStories })
+const newestStories = await Promise.all(
+  (
+    await storyblokApi.getStories({
+      version: import.meta.env.DEV ? "draft" : "published",
+      sort_by: "content.createdAt:desc",
+      per_page: 2,
+      excluding_ids: id,
+    })
+  ).data.stories,
+)
+console.log({ newestStories })
 ---
 
 <section class="text-bluegray" {...storyblokEditable(blok)}>

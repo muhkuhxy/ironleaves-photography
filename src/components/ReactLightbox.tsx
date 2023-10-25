@@ -1,6 +1,5 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react"
+import { type RefObject, useCallback, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
-import { cls } from "../lib/util"
 import SvgClose from "./svg/SvgClose"
 import IconArrow from "./svg/IconArrow"
 import IconBase from "./svg/IconBase"
