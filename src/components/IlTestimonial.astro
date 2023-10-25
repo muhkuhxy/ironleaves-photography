@@ -2,13 +2,10 @@
 import { renderRichText } from "@storyblok/astro"
 import LayoutSpacer from "./LayoutSpacer.astro"
 import SectionContent from "./SectionContent.astro"
+import type { SBTestimonial } from "../lib/blog"
 
 type Props = {
-  testimonial: {
-    name: string
-    image: { filename: string; alt: string }
-    text: any
-  }
+  testimonial: SBTestimonial
 }
 
 const { testimonial } = Astro.props

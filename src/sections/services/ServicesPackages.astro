@@ -1,18 +1,14 @@
 ---
 import { getEntryBySlug } from "astro:content"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
-import IlStoryTelling from "../../components/ReactStoryTelling"
+import ReactStoryTelling from "../../components/ReactStoryTelling"
 import SectionHeader from "../../components/SectionHeader.astro"
 import IconArrow from "../../components/svg/IconArrow"
 import IconBase from "../../components/svg/IconBase"
-import { splitAt } from "../../lib/collections"
+import { compileAndSplitChapters } from "../../lib/content"
 
 const document = await getEntryBySlug("services", "5-packages")
-const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
-  s.startsWith("##"),
-)
-  .filter((lines) => !lines.every((line) => line === ""))
-  .map((lines) => lines.join("\n"))
+const chapters = await compileAndSplitChapters(document.body)
 ---
 
 <div class="bg-dust text-bluegray">
@@ -27,5 +23,15 @@ const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
     {document.data.title}
   </SectionHeader>
 
-  <IlStoryTelling client:load imgs={document.data.imgs!!} chapters={chapters} />
+  <ReactStoryTelling
+    client:load
+    chapters={chapters.map((chapter, index) => {
+      const [title, ...content] = chapter
+      return {
+        title: title.textContent,
+        content: content.join("\n"),
+        image: { filename: document.data.imgs?.[index]! },
+      }
+    })}
+  />
 </div>

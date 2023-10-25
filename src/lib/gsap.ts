@@ -1,4 +1,3 @@
-import GT from "gsap"
 import { gsap } from "gsap/dist/gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { Flip } from "gsap/dist/Flip"

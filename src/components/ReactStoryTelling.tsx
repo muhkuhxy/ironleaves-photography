@@ -1,23 +1,20 @@
+import { storyblokEditable } from "@storyblok/astro"
 import { ScrollTrigger } from "../lib/gsap"
-import {
-  type ComponentPropsWithoutRef,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react"
-import { compileMarkdownSync } from "../lib/content"
+import { useEffect, useRef, useState } from "react"
 import { cls } from "../lib/util"
 import SectionContent from "./ReactSectionContent"
+import type { SBChapter } from "../lib/blog"
 
 type Props = {
   className?: string
-  chapters: string[]
-  imgs: string[]
+  chapters: (Omit<SBChapter, "content"> & {
+    content: string
+  })[]
   scroller?: string
 }
 
-export default function ({ className, chapters, imgs, scroller }: Props) {
+// TODO: support progressive enhancement
+export default function ({ className, chapters, scroller }: Props) {
   // console.log("render");
 
   const imgParent = useRef(null as HTMLDivElement | null)
@@ -77,17 +74,19 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
         className="sticky nojs:!hidden max-lg:hidden w-[60%] mr-8 h-[100vh] top-0"
         ref={imgParent}
       >
-        {chapters.map((chapter, index) => (
-          <img
-            src={imgs[index]}
-            data-chapter-img
-            className={cls(
-              chaptersActive[index] ? "" : "opacity-0",
-              "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out",
-            )}
-            key={`chapter-img-${index}`}
-          />
-        ))}
+        {chapters.map((chapter, index) => {
+          return (
+            <img
+              src={chapter.image.filename}
+              data-chapter-img
+              className={cls(
+                chaptersActive[index] ? "" : "opacity-0",
+                "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out",
+              )}
+              key={`chapter-img-${index}`}
+            />
+          )
+        })}
       </div>
       <div
         className="flex flex-col gap-y-32 lg:gap-y-0 mx-auto"
@@ -98,41 +97,24 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
             data-chapter-trigger
             className="flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
             key={`chapter-content-${index}`}
+            {...storyblokEditable(chapter)}
           >
             <div className="lg:hidden nojs:lg:flex lg:w-[60%] lg:min-h-[100vh] lg:items-center lg:justify-center">
               <img
-                src={imgs[index]}
+                src={chapter.image.filename}
                 className="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
               />
             </div>
-            <MarkdownRenderer
+            <div
               className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose nojs:lg:max-w-[39%] [&>h2]:leading-none [&>h2]:mt-4"
-              content={chapter}
+              data-chapter-content
+              dangerouslySetInnerHTML={{
+                __html: `<h2>${chapter.title}</h2>${chapter.content}`,
+              }}
             />
           </div>
         ))}
       </div>
     </SectionContent>
-  )
-}
-
-export function MarkdownRenderer({
-  content,
-  className,
-}: ComponentPropsWithoutRef<"div"> & { content: string }) {
-  const html = useMemo(() => {
-    // console.log("md render");
-    const html = compileMarkdownSync(content).toString()
-    // console.log("md render done");
-    return html
-  }, [content])
-  return (
-    <div
-      className={className}
-      data-chapter-content
-      dangerouslySetInnerHTML={{
-        __html: html,
-      }}
-    ></div>
   )
 }

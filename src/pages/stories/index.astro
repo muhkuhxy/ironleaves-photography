@@ -5,17 +5,9 @@ import BlogStories from "../../components/BlogStories.astro"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
-import { tags } from "../../lib/blog"
-import { useStoryblokApi } from "@storyblok/astro"
+import { tags, useStories } from "../../lib/blog"
 
-const storyblokApi = useStoryblokApi()
-const stories = (
-  await storyblokApi.getStories({
-    version:
-      import.meta.env.DEV || import.meta.env.SB_PREVIEW ? "draft" : "published",
-    sort_by: "content.createdAt:desc",
-  })
-).data.stories
+const stories = await useStories()
 // console.log({ stories })
 ---
 
@@ -28,7 +20,7 @@ const stories = (
         />
         <SectionHeader>
           <span slot="roofline">Stories</span>
-          Immer auf dem Laufenden
+           Immer auf dem Laufenden
         </SectionHeader>
         <LayoutSpacer />
         <p>

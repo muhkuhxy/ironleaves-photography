@@ -1,17 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro"
-import type { Story } from "../../lib/blog"
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro"
-import { useStoryblokApi } from "@storyblok/astro"
+import { useStory, useStories } from "../../lib/blog"
 
 export async function getStaticPaths() {
-  const { data } = await useStoryblokApi().getStories({
-    version:
-      import.meta.env.DEV || import.meta.env.SB_PREVIEW ? "draft" : "published",
-    sort_by: "content.createdAt:desc",
-  })
+  const stories = await useStories()
 
-  return data.stories.map((story) => ({
+  return stories.map((story) => ({
     params: {
       slug: story.slug,
     },
@@ -20,14 +15,10 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 
-const storyblokApi = useStoryblokApi()
-
-const { data } = await storyblokApi.get(`cdn/stories/stories/${slug}`, {
-  version:
-    import.meta.env.DEV || import.meta.env.SB_PREVIEW ? "draft" : "published",
-})
+const story = await useStory(slug!)
+// console.log({ story })
 ---
 
 <Layout>
-  <StoryblokComponent blok={data.story.content} id={data.story.id} />
+  <StoryblokComponent blok={story.content} id={story.id} />
 </Layout>

@@ -1,23 +1,12 @@
 ---
-import { ISbRichtext, renderRichText } from "@storyblok/astro"
-import { labels } from "../lib/blog"
+import { renderRichText } from "@storyblok/astro"
+import { labels, type SBStory } from "../lib/blog"
 import ButtonEffect from "./ButtonEffect.astro"
 import SectionContent from "./SectionContent.astro"
 
 type Props = {
   class?: string
-  stories: {
-    slug: string
-    content: {
-      tag: string
-      image: {
-        filename: string
-        alt: string
-      }
-      title: string
-      teaser: ISbRichtext
-    }
-  }[]
+  stories: SBStory[]
 }
 
 const { class: classes, stories } = Astro.props
