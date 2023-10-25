@@ -1,22 +1,19 @@
 ---
-import IlStory from "../../components/IlStory.astro"
 import Layout from "../../layouts/Layout.astro"
-import SectionHeader from "../../components/SectionHeader.astro"
-import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro"
-import { fetchStories, labels } from "../../lib/blog"
-import IlTestimonial from "../../components/IlTestimonial.astro"
-import IconBase from "../../components/svg/IconBase"
-import IconArrow from "../../components/svg/IconArrow"
-import LayoutSpacer from "../../components/LayoutSpacer.astro"
-import Contact from "../../sections/home/Contact.astro"
-import BlogStories from "../../components/BlogStories.astro"
-import ButtonEffect from "../../components/ButtonEffect.astro"
-import { getEntryBySlug } from "astro:content"
-import { splitAt } from "../../lib/collections"
+import type { Story } from "../../lib/blog"
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro"
+import { useStoryblokApi } from "@storyblok/astro"
+
+const storyblokApi = useStoryblokApi()
 
 export async function getStaticPaths() {
-  const stories = await fetchStories()
-  return stories.map((story) => ({
+  const { data } = await useStoryblokApi().getStories({
+    version: import.meta.env.DEV ? "draft" : "published",
+    sort_by: "content.createdAt:desc",
+  })
+  // console.log({ data })
+
+  return data.stories.map((story: { slug: string }) => ({
     params: {
       slug: story.slug,
     },
@@ -24,89 +21,17 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params
-const newestStories = (await fetchStories())
-  .filter((s) => s.slug !== slug)
-  .slice(0, 2)
-const story = await getEntryBySlug("stories", slug!)
-const storyImgs = story?.data.storyTellingImgs ?? []
-const [excerpt, ...chapters] = splitAt(story?.body.split("\n") ?? [], (s) =>
-  s.startsWith("##"),
-).map((lines) => lines.join("\n"))
+const newestStories: Story[] = []
+// (await fetchStories())
+//   .filter((s) => s.slug !== slug)
+//   .slice(0, 2)
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
+  version: import.meta.env.DEV ? "draft" : "published",
+})
+// console.log({ content: data.story.content })
 ---
 
 <Layout>
-  {
-    story ? (
-      <section class="text-bluegray">
-        <IlStory
-          slides={story.data.slides}
-          chapters={chapters}
-          imgs={storyImgs}
-        >
-          <div
-            slot="image"
-            class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
-          >
-            <img
-              class="w-7/8 border-8 border-solid border-white drop-shadow"
-              src={story.data.imgSrc}
-              alt={story.data.imgAlt}
-            />
-            <SvgSingleBranch class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4" />
-          </div>
-
-          <SectionHeader slot="title">
-            <span slot="roofline">{labels[story.data.tag]}</span>
-            {story.data.title}
-          </SectionHeader>
-
-          <div
-            class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
-            slot="content"
-          >
-            {excerpt}
-          </div>
-        </IlStory>
-
-        {story.data.testimonial && (
-          <IlTestimonial testimonial={story.data.testimonial} />
-        )}
-
-        <IconBase className="text-sunset w-full h-16 mt-8">
-          <IconArrow />
-        </IconBase>
-
-        <LayoutSpacer />
-
-        <SectionHeader class="mx-auto text-center">
-          <span slot="roofline">Stories</span>
-          Neueste Beiträge
-        </SectionHeader>
-
-        <LayoutSpacer />
-
-        <BlogStories stories={newestStories}>
-          <div slot="tail">
-            <LayoutSpacer />
-
-            <a href="/stories">
-              <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
-                Hier gibt's alle Beiträge
-              </ButtonEffect>
-            </a>
-
-            <LayoutSpacer ms={4} />
-
-            <IconBase className="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10">
-              <IconArrow />
-            </IconBase>
-          </div>
-        </BlogStories>
-
-        <Contact class="mt-20" />
-      </section>
-    ) : (
-      "Nix gefunden"
-    )
-  }
+  <StoryblokComponent blok={data.story.content} id={data.story.id} />
 </Layout>
