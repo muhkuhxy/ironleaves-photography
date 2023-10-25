@@ -1,26 +1,26 @@
 ---
 type Props = {
   class?: string
-} & (
-  | {
-      href?: string
-    }
-  | {
-      type?: string
-      disabled?: string
-    }
-)
+} & (LinkButtonProps | RegularButtonProps)
 
-const { class: classes, href, type = "button", disabled } = Astro.props
-const Element = href ? "a" : "button"
-const bindings = href
-  ? {
-      href,
-    }
-  : {
-      type,
-      "x-bind:disabled": disabled,
-    }
+type LinkButtonProps = { href?: string }
+type RegularButtonProps = { type?: string; disabled?: string }
+
+const { class: classes, ...props } = Astro.props
+
+function isLinkButton(props: Props): props is LinkButtonProps {
+  return "href" in props
+}
+
+const [Element, bindings] = isLinkButton(props)
+  ? ["a" as keyof JSX.IntrinsicAttributes, { href: props.href }]
+  : [
+      "button" as keyof JSX.IntrinsicAttributes,
+      {
+        type: props.type,
+        "x-bind:disabled": props.disabled,
+      },
+    ]
 ---
 
 <div class:list={[classes, "btn-effect__parent w-fit"]}>
