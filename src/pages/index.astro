@@ -22,3 +22,30 @@ import Stories from "../sections/home/Stories.astro"
   <Packages />
   <Contact />
 </Landing>
+
+<script>
+  let offset: number | undefined
+
+  if (document.location.hash) {
+    retry("landing: initial scroll", 10, 250, ensureScrollIntoView)
+  }
+
+  function retry(what: string, times: number, ms: number, code: () => boolean) {
+    const done = code()
+    if (!done && times > 0) {
+      console.log(`retrying: ${what}`)
+      setTimeout(() => retry(what, times - 1, ms, code), ms)
+    }
+  }
+
+  function ensureScrollIntoView() {
+    const target = document.querySelector(document.location.hash)
+    const newOffset = target?.getBoundingClientRect()?.y
+    if (target && offset === newOffset) {
+      target.scrollIntoView()
+      return true
+    }
+    offset = newOffset
+    return false
+  }
+</script>

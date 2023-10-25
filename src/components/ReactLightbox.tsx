@@ -1,6 +1,5 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
-import { cls } from "../lib/util"
 import SvgClose from "./svg/SvgClose"
 import IconArrow from "./svg/IconArrow"
 import IconBase from "./svg/IconBase"
@@ -10,10 +9,9 @@ export type Props = {
   slides: string[]
 }
 
-function useClickoutside<T extends HTMLElement>(
-  ref: RefObject<T>,
-  notify: () => void,
-) {
+function useClickoutside<T extends HTMLElement>(notify: () => void) {
+  const ref = useRef<T | null>(null)
+
   useEffect(() => {
     function clickHandler(event: MouseEvent) {
       if (
@@ -49,12 +47,10 @@ function Lightbox({
     setTimeout(close, 500)
   }
 
-  const ref = useClickoutside<HTMLDivElement>(useRef(null), hide)
+  const ref = useClickoutside<HTMLDivElement>(hide)
 
   const [opacity, setOpacity] = useState(0)
-  useEffect(() => {
-    setOpacity(100)
-  }, [])
+  useEffect(() => setOpacity(100), [])
 
   return (
     <div
