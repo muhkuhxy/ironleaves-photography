@@ -1,6 +1,6 @@
 import { ScrollTrigger } from "../lib/gsap"
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   useEffect,
   useMemo,
   useRef,

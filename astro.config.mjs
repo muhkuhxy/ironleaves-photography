@@ -4,6 +4,8 @@ import { fileURLToPath } from "url"
 import { loadEnv } from "vite"
 import storyblok from "@storyblok/astro"
 import basicSsl from "@vitejs/plugin-basic-ssl"
+import netlify from '@astrojs/netlify/functions'
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const env = loadEnv("", process.cwd(), "")
@@ -17,13 +19,18 @@ import alpinejs from "@astrojs/alpinejs"
 // https://astro.build/config
 import react from "@astrojs/react"
 
+const deployment = {
+  output: env.SB_PREVIEW ? 'server' : 'static',
+  adapter: env.SB_PREVIEW ? netlify({
+    edgeMiddleware: true
+  }) : undefined
+}
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+      applyBaseStyles: false,
     }),
     alpinejs(),
     react(),
@@ -46,4 +53,5 @@ export default defineConfig({
       https: true,
     },
   },
+  ...deployment
 })
