@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { cls } from "../../lib/util";
+import type { ReactNode } from "react"
+import { cls } from "../../lib/util"
 
 export default function IconBase({
   className,
@@ -7,10 +7,10 @@ export default function IconBase({
   iconColor = "currentColor",
   children,
 }: {
-  className?: string;
-  iconName?: string;
-  iconColor?: string;
-  children: ReactNode;
+  className?: string
+  iconName?: string
+  iconColor?: string
+  children: ReactNode
 }) {
   return (
     <svg
@@ -22,5 +22,5 @@ export default function IconBase({
     >
       <g fill={iconColor}>{children}</g>
     </svg>
-  );
+  )
 }

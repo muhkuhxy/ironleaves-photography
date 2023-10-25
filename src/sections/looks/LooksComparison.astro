@@ -1,22 +1,22 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
 
-const document = await getEntryBySlug("looks", "2-comparison");
-const { Content } = await document.render();
+const document = await getEntryBySlug("looks", "2-comparison")
+const { Content } = await document.render()
 
-const front = "sm:z-20 start-row-1 col-span-4";
-const middle = "sm:scale-75 sm:z-10 row-start-2";
-const back = "sm:scale-50 row-start-2";
+const front = "sm:z-20 start-row-1 col-span-4"
+const middle = "sm:scale-75 sm:z-10 row-start-2"
+const back = "sm:scale-50 row-start-2"
 const cssClasses: Record<number, string[]> = {
   0: [back, "sm:translate-x-[-75%]"],
   1: [middle, "sm:translate-x-[-40%]"],
   2: [front],
   3: [middle, "sm:translate-x-[40%]"],
   4: [back, "sm:translate-x-[75%]"],
-};
+}
 ---
 
 <section class="2xl:py-[min(15vh,10rem)] text-bluegray mt-24 md:mt-40 px-16">

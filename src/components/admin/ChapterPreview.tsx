@@ -1,14 +1,14 @@
-import { HTMLElement, NodeType } from "node-html-parser";
-import type { Chapter } from "../../lib/blog";
+import { HTMLElement, NodeType } from "node-html-parser"
+import type { Chapter } from "../../lib/blog"
 
 export function ChapterPreview({
   storyImgs,
   chapters,
   gtLg,
 }: {
-  storyImgs: string[];
-  chapters: Chapter[];
-  gtLg: boolean;
+  storyImgs: string[]
+  chapters: Chapter[]
+  gtLg: boolean
 }) {
   // console.log({storyImgs})
   return (
@@ -59,13 +59,13 @@ export function ChapterPreview({
                   chapter.children
                     .map((child) => {
                       if (child.nodeType === NodeType.ELEMENT_NODE) {
-                        const el = child as HTMLElement;
+                        const el = child as HTMLElement
                         if (el.tagName === "H2") {
-                          el.classList.add("leading-none");
-                          el.classList.add("mt-4");
+                          el.classList.add("leading-none")
+                          el.classList.add("mt-4")
                         }
                       }
-                      return child.toString();
+                      return child.toString()
                     })
                     .join("") +
                   "</div>",
@@ -75,5 +75,5 @@ export function ChapterPreview({
         ))}
       </div>
     </div>
-  );
+  )
 }

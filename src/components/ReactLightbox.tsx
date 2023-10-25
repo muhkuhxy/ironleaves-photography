@@ -1,18 +1,18 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { cls } from "../lib/util";
-import SvgClose from "./svg/SvgClose";
-import IconArrow from "./svg/IconArrow";
-import IconBase from "./svg/IconBase";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
+import { cls } from "../lib/util"
+import SvgClose from "./svg/SvgClose"
+import IconArrow from "./svg/IconArrow"
+import IconBase from "./svg/IconBase"
 
 export type Props = {
-  id: string;
-  slides: string[];
-};
+  id: string
+  slides: string[]
+}
 
 function useClickoutside<T extends HTMLElement>(
   ref: RefObject<T>,
-  notify: () => void
+  notify: () => void,
 ) {
   useEffect(() => {
     function clickHandler(event: MouseEvent) {
@@ -21,18 +21,18 @@ function useClickoutside<T extends HTMLElement>(
         ref.current &&
         !ref.current.contains(event.target)
       ) {
-        notify();
+        notify()
       }
     }
 
-    document.addEventListener("mousedown", clickHandler);
+    document.addEventListener("mousedown", clickHandler)
 
     return () => {
-      document.removeEventListener("mousedown", clickHandler);
-    };
-  }, [ref]);
+      document.removeEventListener("mousedown", clickHandler)
+    }
+  }, [ref])
 
-  return ref;
+  return ref
 }
 
 function Lightbox({
@@ -40,21 +40,21 @@ function Lightbox({
   close,
   navigate,
 }: {
-  img: string;
-  close: () => void;
-  navigate: (idx: 1 | -1) => void;
+  img: string
+  close: () => void
+  navigate: (idx: 1 | -1) => void
 }) {
   const hide = () => {
-    setOpacity(0);
-    setTimeout(close, 500);
-  };
+    setOpacity(0)
+    setTimeout(close, 500)
+  }
 
-  const ref = useClickoutside<HTMLDivElement>(useRef(null), hide);
+  const ref = useClickoutside<HTMLDivElement>(useRef(null), hide)
 
-  const [opacity, setOpacity] = useState(0);
+  const [opacity, setOpacity] = useState(0)
   useEffect(() => {
-    setOpacity(100);
-  }, []);
+    setOpacity(100)
+  }, [])
 
   return (
     <div
@@ -86,12 +86,12 @@ function Lightbox({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default function ({ id, slides }: Props) {
-  const [index, setIndex] = useState<number | undefined>();
-  const img = index != null ? slides[index] : null;
+  const [index, setIndex] = useState<number | undefined>()
+  const img = index != null ? slides[index] : null
 
   const navigate = useCallback(
     (idx: 1 | -1) => {
@@ -99,54 +99,54 @@ export default function ({ id, slides }: Props) {
         setIndex(
           index === 0 && idx === -1
             ? slides.length - 1
-            : (index + idx) % slides.length
-        );
+            : (index + idx) % slides.length,
+        )
       }
     },
-    [index, setIndex, slides]
-  );
+    [index, setIndex, slides],
+  )
 
   useEffect(() => {
     const clickHandler = (event: Event) => {
       if (event.target instanceof Element && event.target.tagName === "IMG") {
-        const imgSrc = event.target.getAttribute("src");
+        const imgSrc = event.target.getAttribute("src")
         if (imgSrc) {
-          const idx = slides.indexOf(imgSrc);
+          const idx = slides.indexOf(imgSrc)
           if (idx !== -1) {
-            setIndex(idx);
+            setIndex(idx)
           }
         }
       }
-    };
+    }
 
     const map: Record<string, () => void> = {
       ArrowLeft: () => {
-        navigate(-1);
+        navigate(-1)
       },
       ArrowRight: () => {
-        navigate(1);
+        navigate(1)
       },
       Escape: () => {
-        setIndex(undefined);
+        setIndex(undefined)
       },
-    };
+    }
 
     const keyHandler = (event: KeyboardEvent) => {
-      map[event.key]?.();
-    };
+      map[event.key]?.()
+    }
 
-    const swiper = document.querySelector(`#${id} swiper-container`);
-    swiper?.addEventListener("click", clickHandler);
-    document.addEventListener("keydown", keyHandler);
+    const swiper = document.querySelector(`#${id} swiper-container`)
+    swiper?.addEventListener("click", clickHandler)
+    document.addEventListener("keydown", keyHandler)
 
     return () => {
-      swiper?.removeEventListener("click", clickHandler);
-      document.removeEventListener("keydown", keyHandler);
-    };
-  }, [setIndex, navigate, slides]);
+      swiper?.removeEventListener("click", clickHandler)
+      document.removeEventListener("keydown", keyHandler)
+    }
+  }, [setIndex, navigate, slides])
 
   if (!img) {
-    return null;
+    return null
   }
 
   return createPortal(
@@ -155,6 +155,6 @@ export default function ({ id, slides }: Props) {
       close={() => setIndex(undefined)}
       navigate={navigate}
     />,
-    document.body
-  );
+    document.body,
+  )
 }

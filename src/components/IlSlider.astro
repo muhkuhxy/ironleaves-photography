@@ -1,13 +1,13 @@
 ---
-import IlSliderArrow from "./IlSliderArrow.astro";
+import IlSliderArrow from "./IlSliderArrow.astro"
 
 type Props = {
-  id: string;
-  class?: string;
-  slides: string[];
-};
+  id: string
+  class?: string
+  slides: string[]
+}
 
-const { class: classes, slides, id } = Astro.props;
+const { class: classes, slides, id } = Astro.props
 ---
 
 <div id={id} class="h-full relative">
@@ -36,6 +36,6 @@ const { class: classes, slides, id } = Astro.props;
 </div>
 
 <script>
-  import { register } from "swiper/element/bundle";
-  register();
+  import { register } from "swiper/element/bundle"
+  register()
 </script>

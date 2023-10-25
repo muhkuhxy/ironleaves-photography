@@ -29,11 +29,12 @@ slides:
   - /images/stories/ironleaves-photography-stories-valerie-max-blumenvasen-deko.jpg
   - /images/stories/ironleaves-photography-stories-valerie-max-sitzplan.jpg
 ---
+
 Valerie und Max haben mir das größte Vertrauen überhaupt entgegen gebracht. So durfte ich zum für mich ersten Mal als Hochzeitsfotografin und Gestalterin ihre aufregende Reise bis zur Hochzeit begleiten. Neben der kompletten Papeterie durfte ich auch hautnah die Planungen unterstützen – und natürlich viel fotografieren.
 
 ## Vorfreude beim Getting Ready
 
-Ich glaube, ich war selten so aufgeregt in meinem Leben, wie vor Valeries und Max Hochzeit. Für mich ging die Reise schon früh morgens um 5 Uhr los, damit ich rechtzeitig da bin, wenn die Braut geschminkt und frisiert wird. Valerie hatte es sich im Hotel mit ihrer Trauzeugin Svenja gemütlich gemacht und gemeinsam haben sie sich eine schöne Zeit gemacht. 
+Ich glaube, ich war selten so aufgeregt in meinem Leben, wie vor Valeries und Max Hochzeit. Für mich ging die Reise schon früh morgens um 5 Uhr los, damit ich rechtzeitig da bin, wenn die Braut geschminkt und frisiert wird. Valerie hatte es sich im Hotel mit ihrer Trauzeugin Svenja gemütlich gemacht und gemeinsam haben sie sich eine schöne Zeit gemacht.
 
 ## Standesamtliche Trauung in einer Burg
 

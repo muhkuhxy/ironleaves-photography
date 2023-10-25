@@ -2,6 +2,7 @@
 roofline: Wertvolle Erinnerungen
 title: Eine Investition in den Rest Eures Lebens
 ---
+
 **Fotos sind wertvolle Erinnerungen. Ein Fotoshooting ist eine Investition in Erinnerungen für den Rest eures Lebens. All diese Momente verdienen es liebevoll festgehalten und von euch mit Freude und Hingabe angesehen zu werden. Ich möchte Euch etwas geben, was ihr den Rest eures Lebens ehrt und liebt wie ihr es miteinander tut.**
 
 Bei den Preisen für den Hochzeitsfotografen könnte man im ersten Moment vielleicht zusammenzucken. Doch es steckt viel mehr dahinter als nur die reine Shootings-Dauer.

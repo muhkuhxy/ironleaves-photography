@@ -1,8 +1,8 @@
 ---
-import LayoutContainer from "./LayoutContainer.astro";
-import LayoutSpacer from "./LayoutSpacer.astro";
+import LayoutContainer from "./LayoutContainer.astro"
+import LayoutSpacer from "./LayoutSpacer.astro"
 
-const year = new Date().getFullYear();
+const year = new Date().getFullYear()
 ---
 
 <footer class="text-bluegray pt-8 relative bg-dust">
@@ -61,12 +61,12 @@ const year = new Date().getFullYear();
 </footer>
 
 <script>
-  import Alpine from "alpinejs";
-  import { loadCurator } from "../lib/curator";
+  import Alpine from "alpinejs"
+  import { loadCurator } from "../lib/curator"
 
   Alpine.data("Curator", () => ({
     init() {
-      loadCurator();
+      loadCurator()
     },
-  }));
+  }))
 </script>

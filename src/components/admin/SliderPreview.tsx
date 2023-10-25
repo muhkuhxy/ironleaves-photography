@@ -23,5 +23,5 @@ export function SliderPreview({ slides }: { slides: string[] }) {
         </swiper-container>
       </div>
     </div>
-  );
+  )
 }

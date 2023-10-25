@@ -1,16 +1,16 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import IlStoryTelling from "../../components/ReactStoryTelling";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import { splitAt } from "../../lib/collections";
+import { getEntryBySlug } from "astro:content"
+import IlStoryTelling from "../../components/ReactStoryTelling"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import { splitAt } from "../../lib/collections"
 
-const document = await getEntryBySlug("looks", "3-aspects");
+const document = await getEntryBySlug("looks", "3-aspects")
 const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
-  s.startsWith("##")
+  s.startsWith("##"),
 )
   .filter((lines) => !lines.every((line) => line === ""))
-  .map((lines) => lines.join("\n"));
+  .map((lines) => lines.join("\n"))
 ---
 
 <section class="bg-dust text-bluegray">

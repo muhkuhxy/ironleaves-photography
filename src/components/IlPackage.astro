@@ -1,13 +1,13 @@
 ---
-import IlToggleArrow from "./IlToggleArrow.astro";
+import IlToggleArrow from "./IlToggleArrow.astro"
 type Props = {
-  class?: string;
-  imgSrc: { mobile: string; desktop: string };
-  index: number;
-};
+  class?: string
+  imgSrc: { mobile: string; desktop: string }
+  index: number
+}
 
-const { class: classes, imgSrc, index } = Astro.props;
-const id = `il-photo-package-${index}`;
+const { class: classes, imgSrc, index } = Astro.props
+const id = `il-photo-package-${index}`
 ---
 
 <div
@@ -55,38 +55,38 @@ const id = `il-photo-package-${index}`;
 </div>
 
 <script>
-  import Alpine from "alpinejs";
-  import { gsap } from "../lib/gsap";
-  import { reactiveBreakpoints } from "../lib/breakpoints";
+  import Alpine from "alpinejs"
+  import { gsap } from "../lib/gsap"
+  import { reactiveBreakpoints } from "../lib/breakpoints"
 
   Alpine.data("PackageExpander", () => ({
     duration: 0.75,
     get gtMd(): boolean {
-      return reactiveBreakpoints.md;
+      return reactiveBreakpoints.md
     },
     show() {
-      const growArea = this.$refs.grower;
-      const height = growArea.scrollHeight;
+      const growArea = this.$refs.grower
+      const height = growArea.scrollHeight
       gsap.to(growArea, {
         height,
         onComplete: () => {
-          growArea.style.height = "auto";
+          growArea.style.height = "auto"
           this.$el.dispatchEvent(
-            new CustomEvent("domchanged", { bubbles: true })
-          );
+            new CustomEvent("domchanged", { bubbles: true }),
+          )
         },
-      });
+      })
     },
     hide() {
-      const el = this.$refs.grower;
+      const el = this.$refs.grower
       gsap.to(el, {
         height: "0px",
         onComplete: () => {
           this.$el.dispatchEvent(
-            new CustomEvent("domchanged", { bubbles: true })
-          );
+            new CustomEvent("domchanged", { bubbles: true }),
+          )
         },
-      });
+      })
     },
-  }));
+  }))
 </script>

@@ -49,6 +49,7 @@ testimonial:
     Wir sind begeistert von den Fotos und auch vom Shooting. Die Fotos sind natürlich und fangen die Freude an diesem Tag ein, ohne dass es irgendwie verkrampft war oder sich der ganze Tag nur um Fotos gedreht hat.
     Es war eine total angenehme Begleitung. Wir können Tamara zu 100 Prozent weiterempfehlen!
 ---
+
 Als die Anfrage von Svenja und Beni für ihre Hochzeit kam, war ich sehr überrascht und habe mich umso mehr gefreut! Svenja und Beni waren auf der Hochzeit von Valerie und Max und waren daher schon bekannte Gesichter. Durch Corona mussten sie etwas warten, bis es mit der kirchlichen Traumhochzeit richtig klappen konnte, aber ihre Geduld hat sich wirklich ausgezahlt und sie konnten eine wunderschöne Herbst-Hochzeit in München feiern.
 
 ## Final Countdown vor dem Hochzeitstag
@@ -61,7 +62,7 @@ Schon früh am Morgen war bei der Braut einiges los. Engste Freunde und Familie,
 
 ## Große Gefühle und eine kleine Überraschung
 
-Emotional wurde es in der Kirche. Nach einer wunderschönen Predigt und einem tollen Programm, hatte die Hochzeitsgesellschaft noch eine besondere Überraschung für das Brautpaar parat: Eine Sängerin stimmte das Lied „Ich lass für Dich das Licht an“ von Revolverheld an und die restlichen Gäste stiegen zum letzten Refrain gemeinsam ein. 
+Emotional wurde es in der Kirche. Nach einer wunderschönen Predigt und einem tollen Programm, hatte die Hochzeitsgesellschaft noch eine besondere Überraschung für das Brautpaar parat: Eine Sängerin stimmte das Lied „Ich lass für Dich das Licht an“ von Revolverheld an und die restlichen Gäste stiegen zum letzten Refrain gemeinsam ein.
 
 Im Anschluss gab es vor der Kirche nach den Beglückwunschungen, erste Gruppenfotos und ein paar Snacks.
 
@@ -77,4 +78,4 @@ Die Herausforderung bestand darin, natürliche Fotos zu schießen, die nicht zei
 
 ## Party, Party, Party!
 
-Und auch für den restlichen Tag sollte keine Langeweile aufkommen. Viele Programmpunkte und Highlights – Bierfass anzapfen, der erste Tanz, Piñata-Schlagen, leckeres Essen und gute Live-Musik von einer Band – machten die Hochzeit von Anfang bis Ende zu einer ganz besonderen Party mit vielen sehr lustigen Menschen. 
+Und auch für den restlichen Tag sollte keine Langeweile aufkommen. Viele Programmpunkte und Highlights – Bierfass anzapfen, der erste Tanz, Piñata-Schlagen, leckeres Essen und gute Live-Musik von einer Band – machten die Hochzeit von Anfang bis Ende zu einer ganz besonderen Party mit vielen sehr lustigen Menschen.

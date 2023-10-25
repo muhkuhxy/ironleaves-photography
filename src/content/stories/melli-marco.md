@@ -47,6 +47,7 @@ slides:
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-umarmung-emotionen-simmerath.jpg
   - /images/stories/ironleaves-photography-stories-melli-marco-slider-wald-portrait-brautpaarshooting.jpg
 ---
+
 Die Hochzeit von Melli und Marco war eine Herzensangelegenheit. Auf der Hochzeit durfte ich nicht nur als Dienstleisterin hautnah mitwirken und unterstützen, sondern auch als Gast und Freundin eine wunderschöne Zeit verbringen. Junggesellenabschied, Location-Check, Probeshooting und natürlich Hochzeitsfeier mit Pärchenshooting inklusive. Die Fotos müsst ihr gesehen haben!
 
 ## Feucht-fröhlicher JGA am Strand in den Niederlanden
@@ -71,16 +72,16 @@ Was braucht man schon mehr für ein entspanntes Shooting? Melli und Marco hatten
 
 ## Ein besonderer Bund vor Gott
 
-Als gläubige Menschen war es Melli und Marco sehr wichtig, ihre Ehe auch vor Gott offiziell zu machen. Nachdem die beiden sich nach dem Shooting wieder etwas frisch gemacht hatten, ging es also für einen besonderen Gottesdienst in den Königreichssaal der Zeugen Jehovas nach Monschau. Mit einer wunderschönen, individuellen Ansprache, hübschen Liedern und  allen engen Freunden und Verwandten wurde ein würdiger Rahmen geschaffen, um die Eheschließung auch vor Gott zu feiern.
+Als gläubige Menschen war es Melli und Marco sehr wichtig, ihre Ehe auch vor Gott offiziell zu machen. Nachdem die beiden sich nach dem Shooting wieder etwas frisch gemacht hatten, ging es also für einen besonderen Gottesdienst in den Königreichssaal der Zeugen Jehovas nach Monschau. Mit einer wunderschönen, individuellen Ansprache, hübschen Liedern und allen engen Freunden und Verwandten wurde ein würdiger Rahmen geschaffen, um die Eheschließung auch vor Gott zu feiern.
 
 ## Große Feier am Haus am See
 
-Das Brautpaar hat sich für die Feier für eine bekannte Location der Region entschieden: Der Antoniushof in Rurberg. Die Location besticht durch große Fenster (großes Plus für die Fotografin), viel Fläche, eine wunderschöne Terrasse und der unmittelbaren Nähe zum Rursee. Melli und Marco haben im Vorfeld einige Aufgaben delegiert, wodurch es zum Beispiel sowohl mitgebrachtes Buffet von Freunden gab, als auch professionell zubereitete Speise vom Caterer. Oder eine Happy-Hour mit Cocktails. 
+Das Brautpaar hat sich für die Feier für eine bekannte Location der Region entschieden: Der Antoniushof in Rurberg. Die Location besticht durch große Fenster (großes Plus für die Fotografin), viel Fläche, eine wunderschöne Terrasse und der unmittelbaren Nähe zum Rursee. Melli und Marco haben im Vorfeld einige Aufgaben delegiert, wodurch es zum Beispiel sowohl mitgebrachtes Buffet von Freunden gab, als auch professionell zubereitete Speise vom Caterer. Oder eine Happy-Hour mit Cocktails.
 
 ## Mini-Shooting in der Abendsonne
 
-Wisst ihr, womit ihr mir eine riesige Freude machen könnt? Wenn ihr mich und meine Begeisterung kurz aushaltet, wenn ich Euch abends kurz für ein kleines Mini-Shooting von Eurer Hochzeitsfeier entführen möchte. Besonders in der Abendsonne bei goldenem Licht entstehen nochmal wunderschöne Fotos mit magischen Lichteffekten. Das dauert in der Regel nicht mehr als 5 bis 10 Minuten und dann dürft ihr auch wieder zurück in den Trubel. Aber ihr macht Eure Fotografin damit einen riesigen Gefallen! Und Euch vielleicht ja auch ;) 
+Wisst ihr, womit ihr mir eine riesige Freude machen könnt? Wenn ihr mich und meine Begeisterung kurz aushaltet, wenn ich Euch abends kurz für ein kleines Mini-Shooting von Eurer Hochzeitsfeier entführen möchte. Besonders in der Abendsonne bei goldenem Licht entstehen nochmal wunderschöne Fotos mit magischen Lichteffekten. Das dauert in der Regel nicht mehr als 5 bis 10 Minuten und dann dürft ihr auch wieder zurück in den Trubel. Aber ihr macht Eure Fotografin damit einen riesigen Gefallen! Und Euch vielleicht ja auch ;)
 
 ## Emotionale Programmpunkte
 
-Eine Hochzeit geht manchmal mit großen persönlichen Veränderungen einher – Mit einem Umzug, anderen Lebensumständen oder einem anderen Freundeskreis. Umso schöner, wenn der große Tag mit ganz vielen persönlichen und emotionalen Programmpunkten speziell für das Brautpaar gespickt ist, um  liebevolle Botschaften an das Brautpaar und besondere Wünsche für die Ehe mitzuteilen. Genauso, wie die Hochzeitsfotos – Eine Erinnerung, die garantiert für’s Leben hält.
+Eine Hochzeit geht manchmal mit großen persönlichen Veränderungen einher – Mit einem Umzug, anderen Lebensumständen oder einem anderen Freundeskreis. Umso schöner, wenn der große Tag mit ganz vielen persönlichen und emotionalen Programmpunkten speziell für das Brautpaar gespickt ist, um liebevolle Botschaften an das Brautpaar und besondere Wünsche für die Ehe mitzuteilen. Genauso, wie die Hochzeitsfotos – Eine Erinnerung, die garantiert für’s Leben hält.

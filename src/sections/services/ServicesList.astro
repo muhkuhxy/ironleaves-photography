@@ -1,12 +1,12 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import { compileAndSplitChapters } from "../../lib/content";
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import { compileAndSplitChapters } from "../../lib/content"
 
-const document = await getEntryBySlug("services", "2-list");
-const chapters = await compileAndSplitChapters(document.body);
+const document = await getEntryBySlug("services", "2-list")
+const chapters = await compileAndSplitChapters(document.body)
 ---
 
 <section class="text-bluegray">

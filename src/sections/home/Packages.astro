@@ -1,10 +1,10 @@
 ---
-import IlPackage from "../../components/IlPackage.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import IconArrow from "../../components/svg/IconArrow";
-import IconBase from "../../components/svg/IconBase";
+import IlPackage from "../../components/IlPackage.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import IconArrow from "../../components/svg/IconArrow"
+import IconBase from "../../components/svg/IconBase"
 ---
 
 <section
@@ -134,9 +134,9 @@ import IconBase from "../../components/svg/IconBase";
 </section>
 
 <script>
-  import Alpine from "alpinejs";
-  import { gsap, ScrollTrigger } from "../../lib/gsap";
-  import { reactiveBreakpoints } from "../../lib/breakpoints";
+  import Alpine from "alpinejs"
+  import { gsap, ScrollTrigger } from "../../lib/gsap"
+  import { reactiveBreakpoints } from "../../lib/breakpoints"
 
   Alpine.data("PhotoPackages", () => ({
     open: [false, false, false, false],
@@ -150,11 +150,9 @@ import IconBase from "../../components/svg/IconBase";
           start: () => "top+=200px bottom",
           end: () => "bottom-=100px top",
           onToggle: (self: ScrollTrigger) => {
-            this.triggered = true;
+            this.triggered = true
             if (reactiveBreakpoints.md) {
-              const packages = this.$el.querySelectorAll(
-                "[data-photo-package]"
-              );
+              const packages = this.$el.querySelectorAll("[data-photo-package]")
               gsap.from(packages, {
                 opacity: 0,
                 y: 60 * self.direction,
@@ -162,17 +160,17 @@ import IconBase from "../../components/svg/IconBase";
                 delay: 0.25,
                 stagger: 0.5 * self.direction,
                 ease: "expo",
-              });
+              })
             }
-            self.kill();
+            self.kill()
           },
-        })
-      );
+        }),
+      )
     },
     toggle(index: number) {
       this.open = this.open.map(
-        (open: boolean, i: number) => !open && i === index
-      );
+        (open: boolean, i: number) => !open && i === index,
+      )
     },
-  }));
+  }))
 </script>

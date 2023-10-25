@@ -1,4 +1,7 @@
-export function splitAt<T>([...elements]: T[], predicate: (_: T) => boolean): T[][] {
+export function splitAt<T>(
+  [...elements]: T[],
+  predicate: (_: T) => boolean,
+): T[][] {
   const result: T[][] = []
   while (elements.length > 0) {
     const index = elements.slice(1).findIndex(predicate) + 1

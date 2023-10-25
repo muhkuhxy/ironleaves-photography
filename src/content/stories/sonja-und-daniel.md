@@ -7,7 +7,7 @@ imgAlt: Sonja und Daniel Hochzeits-Shooting
 storyTellingImgs:
   - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-pavillon-gartenparty.jpg
   - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-do-it-yourself-hochzeitsdeko.jpg
-  - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-blumen-stecken.jpg 
+  - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-blumen-stecken.jpg
   - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-braut-vorbereitungen-herzballons.jpg
   - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-mini-brautpaar-shooting-garten.jpg
   - /images/stories/ironleaves-photography-stories-sonja-daniel-beitrag-kuchen-anschneiden.jpg
@@ -46,11 +46,12 @@ slides:
   - /images/stories/ironleaves-photography-stories-sonja-daniel-slider-umarmung-intim-emotional.jpg
   - /images/stories/ironleaves-photography-stories-sonja-daniel-slider-wedding-schild-rustikal-holz.jpg
 ---
-Die fotografische Begleitung von Sonjas und Daniels Hochzeit war ein Geschenk von der Familie an das glückliche Paar. Die beiden feierten im Sommer eine entspannte, aber wunderschöne Gartenhochzeit im engsten Kreis. Mit viel Do it yourself und Liebe zum Detail wurde der Tag zu etwas ganz Besonderem. 
+
+Die fotografische Begleitung von Sonjas und Daniels Hochzeit war ein Geschenk von der Familie an das glückliche Paar. Die beiden feierten im Sommer eine entspannte, aber wunderschöne Gartenhochzeit im engsten Kreis. Mit viel Do it yourself und Liebe zum Detail wurde der Tag zu etwas ganz Besonderem.
 
 ## Heller Pavillon im Garten
 
-Es muss nicht immer die große und teure Partylocation beim Veranstalter sein. Es lässt sich auch deutlich kostengünstiger im gemieteten Pavillon auf der Wiese neben dem Garten feiern. Ich durfte schon die Vorbereitungen am Morgen der Hochzeitsfeier begleiten. Im schattigen Pavillon fanden die offiziellen Programmpunkte statt. In der restlichen Zeit lud der wunderschöne Garten zum Entspannen und Entdecken ein. 
+Es muss nicht immer die große und teure Partylocation beim Veranstalter sein. Es lässt sich auch deutlich kostengünstiger im gemieteten Pavillon auf der Wiese neben dem Garten feiern. Ich durfte schon die Vorbereitungen am Morgen der Hochzeitsfeier begleiten. Im schattigen Pavillon fanden die offiziellen Programmpunkte statt. In der restlichen Zeit lud der wunderschöne Garten zum Entspannen und Entdecken ein.
 
 ## Do it yourself
 
@@ -78,7 +79,7 @@ Die Feierlichkeiten fanden in der modifizierten Scheune des dortigen Gutshauses 
 
 Bei einer Hochzeitsreportage kann man immer mal wieder kleinere Zeitfenster für ein paar hübsche Pärchenbilder nehmen. Das hilft Euch dabei, etwas aus dem Trubel rauszukommen und Eure Hochzeit bewusster wahrzunehmen. Abends entstehen oftmals die stimmungsvollsten Fotos.
 
-Für die späten Feierlichkeiten hat sich Sonja ein gemütliches Abendkleid bereitgelegt. Im sanften Licht des Sonnenuntergangs entdeckte ich die beiden in einem intimeren Moment, etwas abseits der Partygesellschaft, wo sie sich etwas Zeit nahmen um Nähe zueinander zu genießen. 
+Für die späten Feierlichkeiten hat sich Sonja ein gemütliches Abendkleid bereitgelegt. Im sanften Licht des Sonnenuntergangs entdeckte ich die beiden in einem intimeren Moment, etwas abseits der Partygesellschaft, wo sie sich etwas Zeit nahmen um Nähe zueinander zu genießen.
 
 ## Gartenparty in der Abenddämmerung
 

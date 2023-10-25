@@ -1,10 +1,10 @@
 ---
 type Props = {
-  class?: string;
-  btnClass?: string;
-};
+  class?: string
+  btnClass?: string
+}
 
-const { class: classes, btnClass } = Astro.props;
+const { class: classes, btnClass } = Astro.props
 ---
 
 <div x-data="TextExpander" class:list={["flex flex-col gap-4", classes]}>
@@ -27,73 +27,73 @@ const { class: classes, btnClass } = Astro.props;
 </div>
 
 <script>
-  import Alpine from "alpinejs";
-  import { gsap } from "../lib/gsap";
-  import { reactiveBreakpoints } from "../lib/breakpoints";
+  import Alpine from "alpinejs"
+  import { gsap } from "../lib/gsap"
+  import { reactiveBreakpoints } from "../lib/breakpoints"
 
   Alpine.data("TextExpander", () => ({
     showMore: false,
     duration: 0.75,
     get gtSm(): boolean {
-      return reactiveBreakpoints.sm;
+      return reactiveBreakpoints.sm
     },
     show() {
-      const growArea = this.$refs.grower;
-      const height = growArea.scrollHeight;
-      const tl = gsap.timeline();
+      const growArea = this.$refs.grower
+      const height = growArea.scrollHeight
+      const tl = gsap.timeline()
       tl.to(growArea, {
         height,
         onComplete: () => {
-          growArea.style.height = "auto";
+          growArea.style.height = "auto"
           this.$el.dispatchEvent(
-            new CustomEvent("domchanged", { bubbles: true })
-          );
+            new CustomEvent("domchanged", { bubbles: true }),
+          )
         },
-      });
+      })
       tl.to(
         this.$refs.more,
         {
           opacity: 0,
           onComplete: () => {
-            this.$refs.more.style.display = "none";
+            this.$refs.more.style.display = "none"
           },
         },
-        "<"
-      );
+        "<",
+      )
       tl.to(this.$refs.less, {
         opacity: 1,
         onStart: () => {
-          this.$refs.less.style.display = "";
+          this.$refs.less.style.display = ""
         },
-      });
+      })
     },
     hide() {
-      const el = this.$refs.grower;
-      const tl = gsap.timeline();
+      const el = this.$refs.grower
+      const tl = gsap.timeline()
       tl.to(el, {
         height: "0px",
         onComplete: () => {
           this.$el.dispatchEvent(
-            new CustomEvent("domchanged", { bubbles: true })
-          );
+            new CustomEvent("domchanged", { bubbles: true }),
+          )
         },
-      });
+      })
       tl.to(
         this.$refs.less,
         {
           opacity: 0,
           onComplete: () => {
-            this.$refs.less.style.display = "none";
+            this.$refs.less.style.display = "none"
           },
         },
-        "<"
-      );
+        "<",
+      )
       tl.to(this.$refs.more, {
         opacity: 1,
         onStart: () => {
-          this.$refs.more.style.display = "";
+          this.$refs.more.style.display = ""
         },
-      });
+      })
     },
-  }));
+  }))
 </script>

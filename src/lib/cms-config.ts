@@ -1,4 +1,4 @@
-import type { Config } from "@staticcms/core";
+import type { Config } from "@staticcms/core"
 
 export const config: Config = {
   backend: {
@@ -129,4 +129,4 @@ export const config: Config = {
       ],
     },
   ],
-};
+}

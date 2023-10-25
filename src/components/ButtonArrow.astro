@@ -1,14 +1,14 @@
 ---
-import IconBase from "./svg/IconBase";
-import IconArrow from "./svg/IconArrow";
+import IconBase from "./svg/IconBase"
+import IconArrow from "./svg/IconArrow"
 
 type Props = {
-  title?: string;
-  class?: string;
-  href: string;
-};
+  title?: string
+  class?: string
+  href: string
+}
 
-const { title, class: classes, href } = Astro.props;
+const { title, class: classes, href } = Astro.props
 ---
 
 <a class:list={[classes]} href={href} title={title}>

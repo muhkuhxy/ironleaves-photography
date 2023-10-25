@@ -1,27 +1,27 @@
 ---
-import ButtonEffect from "../../components/ButtonEffect.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import SectionLines from "../../components/SectionLines.astro";
-import SvgHeroFlower from "../../components/svg/SvgHeroFlower.astro";
-import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro";
-import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro";
+import ButtonEffect from "../../components/ButtonEffect.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import SectionLines from "../../components/SectionLines.astro"
+import SvgHeroFlower from "../../components/svg/SvgHeroFlower.astro"
+import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro"
+import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro"
 
 type Props = {
-  class?: string;
-};
+  class?: string
+}
 
-const { class: classes } = Astro.props;
+const { class: classes } = Astro.props
 
 const inputClasses =
-  "border-2 border-solid border-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1";
+  "border-2 border-solid border-white bg-sunset w-full p-1 focus:outline-none focus:ring-2 focus:ring-bluegray focus:ring-opacity-60 my-1"
 
 const form: {
-  name: string;
-  type: "text" | "email";
-  label: string;
-  required?: boolean;
+  name: string
+  type: "text" | "email"
+  label: string
+  required?: boolean
 }[] = [
   {
     name: "name",
@@ -56,7 +56,7 @@ const form: {
     label: "Wo wird die Hochzeit stattfinden?",
     required: true,
   },
-];
+]
 ---
 
 <section
@@ -220,7 +220,7 @@ const form: {
 </section>
 
 <script>
-  import Alpine from "alpinejs";
+  import Alpine from "alpinejs"
 
   Alpine.data("ContactForm", () => ({
     formInvalid: null,
@@ -228,31 +228,31 @@ const form: {
     dots: "",
 
     updateValidity(form: HTMLFormElement) {
-      this.formInvalid = !form.checkValidity();
+      this.formInvalid = !form.checkValidity()
     },
     binder: {
       [":novalidate"]: true,
       ["@input"](evt: InputEvent) {
         if (this.formInvalid != null) {
-          this.updateValidity(evt.currentTarget as HTMLFormElement);
+          this.updateValidity(evt.currentTarget as HTMLFormElement)
         }
       },
       ["@submit"](evt: SubmitEvent) {
-        evt.preventDefault();
-        const form = evt.target as HTMLFormElement;
+        evt.preventDefault()
+        const form = evt.target as HTMLFormElement
 
-        this.updateValidity(form);
+        this.updateValidity(form)
         if (this.formInvalid) {
-          this.state = "idle";
-          return;
+          this.state = "idle"
+          return
         }
 
-        this.state = "submitting";
-        const formData = new FormData(form);
+        this.state = "submitting"
+        const formData = new FormData(form)
 
         const interval = setInterval(() => {
-          this.dots += ".";
-        }, 750);
+          this.dots += "."
+        }, 750)
 
         fetch(form.action, {
           method: "POST",
@@ -260,25 +260,25 @@ const form: {
           body: new URLSearchParams(
             Array.from(formData.entries()).reduce((result, [k, v]) => {
               if (typeof v === "string") {
-                result[k] = v;
+                result[k] = v
               }
-              return result;
-            }, {} as Record<string, string>)
+              return result
+            }, {} as Record<string, string>),
           ).toString(),
         }).then(
           (response) => {
-            this.state = response.ok ? "success" : "error";
-            clearInterval(interval);
+            this.state = response.ok ? "success" : "error"
+            clearInterval(interval)
           },
           (error) => {
-            console.error(error);
-            this.state = "error";
-            clearInterval(interval);
-          }
-        );
+            console.error(error)
+            this.state = "error"
+            clearInterval(interval)
+          },
+        )
       },
     },
-  }));
+  }))
 
   Alpine.data("FormField", (required = true) => ({
     valid: !required,
@@ -287,20 +287,20 @@ const form: {
       ["@input"](evt: InputEvent) {
         this.valid = (
           evt.target as HTMLInputElement | HTMLTextAreaElement
-        ).validity.valid;
+        ).validity.valid
       },
       ["@blur"](evt: FocusEvent) {
-        this.showError = true;
+        this.showError = true
         this.valid = (
           evt.target as HTMLInputElement | HTMLTextAreaElement
-        ).validity.valid;
+        ).validity.valid
       },
       ["@invalid"]() {
-        this.valid = false;
-        this.showError = true;
+        this.valid = false
+        this.showError = true
       },
     },
-  }));
+  }))
 </script>
 
 <style>

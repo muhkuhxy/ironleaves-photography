@@ -1,5 +1,5 @@
 ---
-import SvgHeroFlower from "./svg/SvgHeroFlower.astro";
+import SvgHeroFlower from "./svg/SvgHeroFlower.astro"
 ---
 
 <div
@@ -15,15 +15,15 @@ import SvgHeroFlower from "./svg/SvgHeroFlower.astro";
 />
 
 <script>
-  import { animateHeroFlower } from "../lib/lottie";
-  import Alpine from "alpinejs";
+  import { animateHeroFlower } from "../lib/lottie"
+  import Alpine from "alpinejs"
 
   Alpine.data("FlowerAnimation", () => ({
     init() {
-      animateHeroFlower(this.$el);
-      this.$el.dispatchEvent(new CustomEvent("domchanged", { bubbles: true }));
+      animateHeroFlower(this.$el)
+      this.$el.dispatchEvent(new CustomEvent("domchanged", { bubbles: true }))
     },
-  }));
+  }))
 </script>
 
 <style>

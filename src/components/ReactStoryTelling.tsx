@@ -1,34 +1,34 @@
-import { ScrollTrigger } from "../lib/gsap";
+import { ScrollTrigger } from "../lib/gsap"
 import {
   ComponentPropsWithoutRef,
   useEffect,
   useMemo,
   useRef,
   useState,
-} from "react";
-import { compileMarkdownSync } from "../lib/content";
-import { cls } from "../lib/util";
-import SectionContent from "./ReactSectionContent";
+} from "react"
+import { compileMarkdownSync } from "../lib/content"
+import { cls } from "../lib/util"
+import SectionContent from "./ReactSectionContent"
 
 type Props = {
-  className?: string;
-  chapters: string[];
-  imgs: string[];
-  scroller?: string;
-};
+  className?: string
+  chapters: string[]
+  imgs: string[]
+  scroller?: string
+}
 
 export default function ({ className, chapters, imgs, scroller }: Props) {
   // console.log("render");
 
-  const imgParent = useRef(null as HTMLDivElement | null);
-  const contentParent = useRef(null as HTMLDivElement | null);
+  const imgParent = useRef(null as HTMLDivElement | null)
+  const contentParent = useRef(null as HTMLDivElement | null)
   const [chaptersActive, setChaptersActive] = useState(
-    Array(chapters.length).fill(false)
-  );
+    Array(chapters.length).fill(false),
+  )
 
   useEffect(() => {
     // console.log("mounted");
-    const sts: ScrollTrigger[] = [];
+    const sts: ScrollTrigger[] = []
     setTimeout(() => {
       // console.log("mounted");
       contentParent.current
@@ -36,9 +36,9 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
         .forEach((chapterTrigger, index) => {
           // console.log({ chapterImgEls, chapterTriggers });
           const activate: ScrollTrigger.Callback = (self) => {
-            setChaptersActive(chaptersActive.map((_, i) => i === index));
+            setChaptersActive(chaptersActive.map((_, i) => i === index))
             // console.log( `activating chapter ${index}`);
-          };
+          }
           sts.push(
             ScrollTrigger.create({
               scroller,
@@ -50,15 +50,15 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
               // onLeave,
               onEnterBack: activate,
               // onLeaveBack,
-            })
-          );
-        });
-    });
+            }),
+          )
+        })
+    })
     return () => {
       // console.log("unmounted");
-      sts.forEach((st) => st.kill());
-    };
-  }, []);
+      sts.forEach((st) => st.kill())
+    }
+  }, [])
 
   return (
     <SectionContent className={cls(className, "flex gap-x-8 relative py-32")}>
@@ -68,7 +68,7 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
             key={`chapter-dot-${index}`}
             className={cls(
               chaptersActive[index] ? "scale-[1.2] my-1" : "scale-[0.65]",
-              "rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
+              "rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75",
             )}
           />
         ))}
@@ -83,7 +83,7 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
             data-chapter-img
             className={cls(
               chaptersActive[index] ? "" : "opacity-0",
-              "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out"
+              "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out",
             )}
             key={`chapter-img-${index}`}
           />
@@ -113,7 +113,7 @@ export default function ({ className, chapters, imgs, scroller }: Props) {
         ))}
       </div>
     </SectionContent>
-  );
+  )
 }
 
 export function MarkdownRenderer({
@@ -122,10 +122,10 @@ export function MarkdownRenderer({
 }: ComponentPropsWithoutRef<"div"> & { content: string }) {
   const html = useMemo(() => {
     // console.log("md render");
-    const html = compileMarkdownSync(content).toString();
+    const html = compileMarkdownSync(content).toString()
     // console.log("md render done");
-    return html;
-  }, [content]);
+    return html
+  }, [content])
   return (
     <div
       className={className}
@@ -134,5 +134,5 @@ export function MarkdownRenderer({
         __html: html,
       }}
     ></div>
-  );
+  )
 }

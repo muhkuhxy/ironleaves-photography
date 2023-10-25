@@ -1,12 +1,17 @@
 ---
-import LayoutSpacer from "./LayoutSpacer.astro";
-import SectionContent from "./SectionContent.astro";
+import { renderRichText } from "@storyblok/astro"
+import LayoutSpacer from "./LayoutSpacer.astro"
+import SectionContent from "./SectionContent.astro"
 
 type Props = {
-  testimonial: { name: string; imgSrc: string; imgAlt: string; text: string };
-};
+  testimonial: {
+    name: string
+    image: { filename: string; alt: string }
+    text: any
+  }
+}
 
-const { testimonial } = Astro.props;
+const { testimonial } = Astro.props
 ---
 
 <div
@@ -14,11 +19,11 @@ const { testimonial } = Astro.props;
 >
   <img
     class="object-cover w-full h-full lg:order-2"
-    src={testimonial.imgSrc}
-    alt={testimonial.imgAlt}
+    src={testimonial.image.filename}
+    alt={testimonial.image.alt}
   />
   <SectionContent
-    class="bg-emerald text-white lg:order-1 flex flex-col justify-center"
+    class="bg-emerald text-white lg:order-1 flex flex-col justify-center w-full"
     fluid={true}
   >
     <h3 class="caption font-normal">Kundenstimme</h3>
@@ -32,7 +37,7 @@ const { testimonial } = Astro.props;
         </div>
       </div>
       <div class="flex flex-col">
-        <div>{testimonial.text}</div>
+        <Fragment set:html={renderRichText(testimonial.text)} />
         <div class="text-right mt-4">&ndash; {testimonial.name}</div>
       </div>
       <div

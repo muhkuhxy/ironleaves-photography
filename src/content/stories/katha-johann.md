@@ -43,6 +43,7 @@ slides:
   - /images/stories/ironleaves-photography-katha-johann-slider-shooting-schreiten.jpg
   - /images/stories/ironleaves-photography-katha-johann-slider-shooting-wald-moody.jpg
 ---
+
 Manchmal kommen Anfragen reingetrudelt, über die vor lauter Freude kaum noch die Mundwinkel runtergehen. So ging es mir, als Kathas Mail ankam. Als liebgewonnene ehemalige Arbeitskollegin hat sie meine kleinen Anfänge in der Hochzeitsfotografie beobachtet und begleitet. Dass sie und Johann nun mit ganz viel Vertrauen auch mich auf ihrer Hochzeit als Hochzeitsfotografin haben wollten, war eine riesige Ehre. So sah ihr ganz besonderer Tag aus:
 
 ## Kirchliche Trauung in einer wunderschönen Kirche
@@ -51,7 +52,7 @@ Für die kirchliche Hochzeit haben die beiden sich eine wunderschöne Location a
 
 ## Ein Pärchen ganz nah an den Gästen
 
-Bereits in der Kirche zeigte sich: Das Brautpaar hat auf Qualität statt Quantität gesetzt. Für ihre Hochzeitsfeier haben sie nur die engsten Freunde und Familienmitglieder eingeladen. Und die Rechnung ging auf: Die Dynamik unter den Gästen, die teilweise sogar aus dem Ausland angereist sind, war super locker und ausgelassen. Katha und Johann waren den ganzen Tag über nah an ihren Gästen und haben sich richtig lieb um die Bedürfnisse jedes Einzelnen gekümmert. 
+Bereits in der Kirche zeigte sich: Das Brautpaar hat auf Qualität statt Quantität gesetzt. Für ihre Hochzeitsfeier haben sie nur die engsten Freunde und Familienmitglieder eingeladen. Und die Rechnung ging auf: Die Dynamik unter den Gästen, die teilweise sogar aus dem Ausland angereist sind, war super locker und ausgelassen. Katha und Johann waren den ganzen Tag über nah an ihren Gästen und haben sich richtig lieb um die Bedürfnisse jedes Einzelnen gekümmert.
 
 ## Keine Sonne? Kein Problem!
 

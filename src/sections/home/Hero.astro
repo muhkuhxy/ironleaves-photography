@@ -1,16 +1,16 @@
 ---
-import IlAnimatedHeroFlower from "../../components/IlAnimatedHeroFlower.astro";
-import IlFigure from "../../components/IlFigure.astro";
-import IlFigureCaption from "../../components/IlFigureCaption.astro";
-import IlGradient from "../../components/IlGradient.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionLines from "../../components/SectionLines.astro";
-import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro";
-import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro";
-import SvgHeroLine3 from "../../components/svg/SvgHeroLine3.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import ButtonEffect from "../../components/ButtonEffect.astro";
+import IlAnimatedHeroFlower from "../../components/IlAnimatedHeroFlower.astro"
+import IlFigure from "../../components/IlFigure.astro"
+import IlFigureCaption from "../../components/IlFigureCaption.astro"
+import IlGradient from "../../components/IlGradient.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionLines from "../../components/SectionLines.astro"
+import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro"
+import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro"
+import SvgHeroLine3 from "../../components/svg/SvgHeroLine3.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import ButtonEffect from "../../components/ButtonEffect.astro"
 ---
 
 <section id="passion" data-scroll-target class="bg-emerald text-white relative">
@@ -70,8 +70,8 @@ import ButtonEffect from "../../components/ButtonEffect.astro";
 </section>
 
 <script>
-  import Alpine from "alpinejs";
-  import { gsap } from "../../lib/gsap";
+  import Alpine from "alpinejs"
+  import { gsap } from "../../lib/gsap"
 
   Alpine.data("HeroParallax", () => ({
     init() {
@@ -89,8 +89,8 @@ import ButtonEffect from "../../components/ButtonEffect.astro";
               }`,
           },
           yPercent: 20,
-        });
-      });
+        })
+      })
     },
-  }));
+  }))
 </script>

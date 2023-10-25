@@ -1,20 +1,20 @@
 ---
-import IlSlider from "../IlSlider.astro";
-import ReactStoryTelling from "./ReactStoryTelling";
-import LayoutSpacer from "../LayoutSpacer.astro";
-import SectionContent from "../SectionContent.astro";
-import { ISbRichtext, renderRichText } from "@storyblok/astro";
+import IlSlider from "../IlSlider.astro"
+import ReactStoryTelling from "./ReactStoryTelling"
+import LayoutSpacer from "../LayoutSpacer.astro"
+import SectionContent from "../SectionContent.astro"
+import { ISbRichtext, renderRichText } from "@storyblok/astro"
 
 type Props = {
-  slides: string[];
+  slides: string[]
   chapters: {
-    title: string;
-    content: ISbRichtext;
-    image: any;
-  }[];
-};
+    title: string
+    content: ISbRichtext
+    image: any
+  }[]
+}
 
-const { slides, chapters } = Astro.props;
+const { slides, chapters } = Astro.props
 ---
 
 <div class="text-bluegray pb-6">

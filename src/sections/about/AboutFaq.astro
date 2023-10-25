@@ -1,21 +1,21 @@
 ---
-import { __astro_tag_component__ } from "astro/dist/runtime/server";
-import { getEntryBySlug } from "astro:content";
-import IlToggleArrow from "../../components/IlToggleArrow.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import { compileMarkdown, splitChapters } from "../../lib/content";
+import { __astro_tag_component__ } from "astro/dist/runtime/server"
+import { getEntryBySlug } from "astro:content"
+import IlToggleArrow from "../../components/IlToggleArrow.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import { compileMarkdown, splitChapters } from "../../lib/content"
 
-const document = await getEntryBySlug("about", "5-faq");
+const document = await getEntryBySlug("about", "5-faq")
 const faq = splitChapters(await compileMarkdown(document.body)).map(
   ([question, ...children]) => {
     return {
       question: question.text,
       children,
-    };
-  }
-);
+    }
+  },
+)
 ---
 
 <section>

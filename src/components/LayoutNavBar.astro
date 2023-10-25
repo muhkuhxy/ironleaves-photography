@@ -1,13 +1,13 @@
 ---
-import LayoutContainer, { getContainerClasses } from "./ReactLayoutContainer";
-import SvgBurger from "./svg/SvgBurger.astro";
-import SvgInstagram from "./svg/SvgInstagram.astro";
+import LayoutContainer, { getContainerClasses } from "./ReactLayoutContainer"
+import SvgBurger from "./svg/SvgBurger.astro"
+import SvgInstagram from "./svg/SvgInstagram.astro"
 
 type Props = {
-  highlightCurrentSection?: boolean;
-};
+  highlightCurrentSection?: boolean
+}
 
-const { highlightCurrentSection = false } = Astro.props;
+const { highlightCurrentSection = false } = Astro.props
 
 const links = [
   { title: "Über mich", target: "about-me" },
@@ -17,12 +17,12 @@ const links = [
   { title: "Papeterie", target: "papeterie" },
   { title: "Pakete", target: "packages" },
   { title: "Kontakt", target: "contact" },
-];
+]
 const social = [
   { name: "Instagram", url: "https://instagram.com/ironleaves_photography/" },
-];
+]
 
-const containerClass = getContainerClasses(false, true);
+const containerClass = getContainerClasses(false, true)
 ---
 
 <header
@@ -92,8 +92,8 @@ const containerClass = getContainerClasses(false, true);
 </header>
 
 <script>
-  import Alpine from "alpinejs";
-  import { reactiveBreakpoints } from "../lib/breakpoints";
+  import Alpine from "alpinejs"
+  import { reactiveBreakpoints } from "../lib/breakpoints"
 
   Alpine.data("Header", () => ({
     open: false,
@@ -104,24 +104,24 @@ const containerClass = getContainerClasses(false, true);
     binder: {
       ["@click.outside"]() {
         if (this.open) {
-          this.open = false;
+          this.open = false
         }
       },
     },
 
     get gtMd() {
-      return reactiveBreakpoints.md;
+      return reactiveBreakpoints.md
     },
 
     updateMaxSection() {
       this.maxSection = Object.entries(
-        this.sectionRatios as Record<string, number>
+        this.sectionRatios as Record<string, number>,
       ).reduce(
         (memo, entry) => {
-          return entry[1] > memo[1] ? entry : memo;
+          return entry[1] > memo[1] ? entry : memo
         },
-        ["", 0]
-      )[0];
+        ["", 0],
+      )[0]
       // console.log({ maxSection: this.maxSection });
     },
 
@@ -130,30 +130,30 @@ const containerClass = getContainerClasses(false, true);
         "highlightCurrentSection" in this.$el.dataset &&
         IntersectionObserver
       ) {
-        let timer: NodeJS.Timeout | null = null;
+        let timer: NodeJS.Timeout | null = null
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              const section = (entry.target as HTMLElement).id;
-              this.sectionRatios[section] = entry.intersectionRatio;
-            });
-            timer != null && clearTimeout(timer);
+              const section = (entry.target as HTMLElement).id
+              this.sectionRatios[section] = entry.intersectionRatio
+            })
+            timer != null && clearTimeout(timer)
             timer = setTimeout(() => {
-              this.updateMaxSection();
-            }, 100);
+              this.updateMaxSection()
+            }, 100)
           },
           {
             threshold: Array(10)
               .fill(undefined)
               .map((_, index) => (index + 1) / 10),
-          }
-        );
+          },
+        )
 
-        const sections = document.querySelectorAll("[data-scroll-target][id]");
-        sections.forEach((section) => observer.observe(section));
+        const sections = document.querySelectorAll("[data-scroll-target][id]")
+        sections.forEach((section) => observer.observe(section))
       }
     },
-  }));
+  }))
 </script>
 
 <style>

@@ -1,92 +1,92 @@
-import type { TemplatePreviewProps } from "@staticcms/core";
-import { useEffect, useMemo, useState } from "react";
-import { labels, Tag } from "../../lib/blog";
-import { compileMarkdownSync } from "../../lib/content";
-import { SliderPreview } from "./SliderPreview";
-import { TestimonialPreview } from "./TestimonialPreview";
-import { nonNull } from "../../lib/util";
-import ReactStoryTelling from "../ReactStoryTelling";
-import { splitAt } from "../../lib/collections";
-import ReactSectionContent from "../ReactSectionContent";
+import type { TemplatePreviewProps } from "@staticcms/core"
+import { useEffect, useMemo, useState } from "react"
+import { labels, Tag } from "../../lib/blog"
+import { compileMarkdownSync } from "../../lib/content"
+import { SliderPreview } from "./SliderPreview"
+import { TestimonialPreview } from "./TestimonialPreview"
+import { nonNull } from "../../lib/util"
+import ReactStoryTelling from "../ReactStoryTelling"
+import { splitAt } from "../../lib/collections"
+import ReactSectionContent from "../ReactSectionContent"
 
 export type StoryPreviewProps = {
-  title?: string;
-  tag?: Tag;
-  imgSrc?: string;
-  storyTellingImgs: string[];
-  slides: string[];
+  title?: string
+  tag?: Tag
+  imgSrc?: string
+  storyTellingImgs: string[]
+  slides: string[]
   testimonial?: {
-    name?: string;
-    imgSrc?: string;
-    text?: string;
-  };
-  body: string;
-};
+    name?: string
+    imgSrc?: string
+    text?: string
+  }
+  body: string
+}
 
-let timer: NodeJS.Timeout | undefined;
+let timer: NodeJS.Timeout | undefined
 
 export default function ({
   entry,
   getAsset,
 }: TemplatePreviewProps<StoryPreviewProps>) {
-  const title = entry.data?.title;
-  const tag = entry.data?.tag;
-  const imgSrc = entry.data?.imgSrc;
+  const title = entry.data?.title
+  const tag = entry.data?.tag
+  const imgSrc = entry.data?.imgSrc
   // console.log({data: entry.data})
   const storyImgs = useMemo(
     () => entry.data?.storyTellingImgs ?? [],
-    [entry.data?.storyTellingImgs]
-  );
+    [entry.data?.storyTellingImgs],
+  )
   // console.log({storyImgs})
   const slides = useMemo(
     () => entry.data?.slides?.filter(nonNull) ?? [],
-    [entry.data?.slides]
-  );
+    [entry.data?.slides],
+  )
   const [excerpt, ...chapters] = useMemo(() => {
     return splitAt(entry.data?.body.split("\n") ?? [], (s) =>
-      s.startsWith("##")
-    ).map((lines) => lines.join("\n"));
-  }, [entry.data?.body]);
-  const testimonial = entry.data?.testimonial;
+      s.startsWith("##"),
+    ).map((lines) => lines.join("\n"))
+  }, [entry.data?.body])
+  const testimonial = entry.data?.testimonial
 
-  const [slideImages, setSlideImages] = useState([] as string[]);
-  const [storyImages, setStoryImages] = useState([] as string[]);
+  const [slideImages, setSlideImages] = useState([] as string[])
+  const [storyImages, setStoryImages] = useState([] as string[])
 
   useEffect(() => {
-    let alive = true;
+    let alive = true
     const loadImages = async () => {
       const images = await Promise.all(
         storyImgs.map(async (img) => {
-          return (await getAsset(img ?? "")).toString();
-        })
-      );
+          return (await getAsset(img ?? "")).toString()
+        }),
+      )
       if (alive) {
-        setStoryImages(images);
+        setStoryImages(images)
       }
-    };
-    loadImages();
+    }
+    loadImages()
     return () => {
-      alive = false;
-    };
-  }, [storyImgs]);
+      alive = false
+    }
+  }, [storyImgs])
 
   useEffect(() => {
-    let alive = true;
+    let alive = true
     const loadImages = async () => {
       const images = await Promise.all(
         slides.map(async (slide) => {
-          return (await getAsset(slide ?? "")).toString();
-        })
-      );
+          return (await getAsset(slide ?? "")).toString()
+        }),
+      )
       if (alive) {
-        setSlideImages(images);
+        setSlideImages(images)
       }
-    };
-    loadImages();
+    }
+    loadImages()
     return () => {
-      alive = false;
-    };
-  }, [slides]);
+      alive = false
+    }
+  }, [slides])
 
   return (
     <div className="text-bluegray pb-6">
@@ -137,5 +137,5 @@ export default function ({
         <TestimonialPreview testimonial={testimonial}></TestimonialPreview>
       )}
     </div>
-  );
+  )
 }

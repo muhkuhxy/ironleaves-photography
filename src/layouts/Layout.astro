@@ -1,9 +1,9 @@
 ---
-import ButtonArrow from "../components/ButtonArrow.astro";
-import LayoutFooter from "../components/LayoutFooter.astro";
-import LayoutLogo from "../components/LayoutLogo.astro";
-import LayoutNavBar from "../components/LayoutNavBar.astro";
-import "./main.css";
+import ButtonArrow from "../components/ButtonArrow.astro"
+import LayoutFooter from "../components/LayoutFooter.astro"
+import LayoutLogo from "../components/LayoutLogo.astro"
+import LayoutNavBar from "../components/LayoutNavBar.astro"
+import "./main.css"
 ---
 
 <!DOCTYPE html>
@@ -39,31 +39,31 @@ import "./main.css";
 </html>
 
 <script>
-  import Alpine from "alpinejs";
-  import { parallax, slideUp, ScrollTrigger } from "../lib/gsap";
+  import Alpine from "alpinejs"
+  import { parallax, slideUp, ScrollTrigger } from "../lib/gsap"
 
-  let timer: null | NodeJS.Timeout = null;
+  let timer: null | NodeJS.Timeout = null
 
   Alpine.data("App", () => ({
     init() {
       // document.documentElement.classList.remove("scroll-smooth");
       this.$nextTick(() => {
         this.$el.querySelectorAll("[data-animation=slide-up]").forEach((el) => {
-          const { y } = (el as HTMLElement).dataset;
-          slideUp({ y }, el as HTMLElement);
-        });
+          const { y } = (el as HTMLElement).dataset
+          slideUp({ y }, el as HTMLElement)
+        })
         this.$el.querySelectorAll("[data-animation=parallax]").forEach((el) => {
-          parallax("Landing", el as HTMLElement);
-        });
-      });
+          parallax("Landing", el as HTMLElement)
+        })
+      })
     },
     refresh() {
       // console.log("domChanged");
-      timer != null && clearTimeout(timer);
+      timer != null && clearTimeout(timer)
       timer = setTimeout(() => {
         // console.log("ScrollTrigger.refresh");
-        ScrollTrigger.refresh();
-      }, 250);
+        ScrollTrigger.refresh()
+      }, 250)
     },
-  }));
+  }))
 </script>

@@ -41,11 +41,12 @@ testimonial:
     Das Shooting war total unkompliziert aber trotzdem nicht unstrukturiert und wir haben uns zu jeder Zeit wohl gefühlt.
     Du hast große Liebe zum Detail und die Bilder sind einfach perfekt geworden!
 ---
+
 Samira und Kerem wollten eigentlich im August heiraten. Im sehr großen Stil. Individuell gestaltete Einladungskarten mit Gold-Veredelung inklusive. Doch dann kam Corona und änderte, wie bei vielen Hochzeiten, alles. Vor dem ersten großen Lockdown wurden alle Pläne umgeworfen und ein besonderes Hochzeitsshooting geplant.
 
 ## Ursprünglicher Plan:
 
-Ursprünglicher Plan von Samira und Kerem war eine große Hochzeit. Die Planungen und Vorbereitungen liefen bereits. Auch die hochwertigen Einladungskarten mit Goldveredelung waren bereits gedruckt. Das Brautpaarshooting sollte in einem Schlosspark stattfinden. Doch dann kam Corona und Lockdown in Bayern und damit die Unsicherheit, wie standesamtliche Trauungen und Hochzeiten in den nächsten Monaten aussehen würden. Ganz getreu dem Motto „Hauptsache zusammen“, wird die standesamtliche Hochzeit spontan vorgezogen. 
+Ursprünglicher Plan von Samira und Kerem war eine große Hochzeit. Die Planungen und Vorbereitungen liefen bereits. Auch die hochwertigen Einladungskarten mit Goldveredelung waren bereits gedruckt. Das Brautpaarshooting sollte in einem Schlosspark stattfinden. Doch dann kam Corona und Lockdown in Bayern und damit die Unsicherheit, wie standesamtliche Trauungen und Hochzeiten in den nächsten Monaten aussehen würden. Ganz getreu dem Motto „Hauptsache zusammen“, wird die standesamtliche Hochzeit spontan vorgezogen.
 
 ## Neuer Schlachtplan:
 

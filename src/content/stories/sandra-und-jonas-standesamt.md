@@ -35,6 +35,7 @@ testimonial:
     Sie hat uns bereits bei den Einladungskarten unterstützt. Wir hatten einige Vorstellungen und sie hat diese für uns perfekt umgesetzt.
     Bei der Feier war sie die ganze Zeit gut gelaunt, nie aufdringlich und gleichzeitig immer da, um schöne Momente einzufangen.
 ---
+
 Für Sandra und Jonas durfte ich das volle Programm machen – Beratung bei der Planung und das Design der Papeterie. Um Hochzeitsstress zu vermeiden, haben sie alles einfach aufgeteilt. Erst das Standesamt und an einem anderen Tag die kirchliche Trauung. Warum das so gut war?
 
 ## Generalprobe vor dem echten Shooting!
@@ -47,7 +48,7 @@ Der Vorteil, wenn man die Fotos vor der Zeremonie macht: Man sieht noch frisch a
 
 ## Standesamt im Schlossgarten
 
-Es muss nicht immer das dunkle Standesamt-Zimmer im Rathaus der Heimatstadt sein. Viele Standesämter bieten auch schöne Festsäle an. Oder man gestaltet sich eine freie Trauung an einem Ort seiner Wahl. Egal wie man heiratet – selbst wenn man „nur“ standesamtlich heiratet – man kann sich den Tag schön gestalten. 
+Es muss nicht immer das dunkle Standesamt-Zimmer im Rathaus der Heimatstadt sein. Viele Standesämter bieten auch schöne Festsäle an. Oder man gestaltet sich eine freie Trauung an einem Ort seiner Wahl. Egal wie man heiratet – selbst wenn man „nur“ standesamtlich heiratet – man kann sich den Tag schön gestalten.
 
 ## Überraschungen der Familie
 

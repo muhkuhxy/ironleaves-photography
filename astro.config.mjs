@@ -1,23 +1,21 @@
-import { defineConfig } from "astro/config";
-import path from "path";
-import { fileURLToPath } from "url";
-import { loadEnv } from "vite";
-import storyblok from "@storyblok/astro";
-import basicSsl from '@vitejs/plugin-basic-ssl'
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const env = loadEnv("", process.cwd(), "STORYBLOK");
+import { defineConfig } from "astro/config"
+import path from "path"
+import { fileURLToPath } from "url"
+import { loadEnv } from "vite"
+import storyblok from "@storyblok/astro"
+import basicSsl from "@vitejs/plugin-basic-ssl"
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const env = loadEnv("", process.cwd(), "")
 
 // https://astro.build/config
-import tailwind from "@astrojs/tailwind";
+import tailwind from "@astrojs/tailwind"
 
 // https://astro.build/config
-import alpinejs from "@astrojs/alpinejs";
+import alpinejs from "@astrojs/alpinejs"
 
 // https://astro.build/config
-import react from "@astrojs/react";
+import react from "@astrojs/react"
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,7 +43,7 @@ export default defineConfig({
       },
     },
     server: {
-      https: true
-    }
+      https: true,
+    },
   },
-});
+})

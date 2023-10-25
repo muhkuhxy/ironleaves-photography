@@ -1,15 +1,35 @@
 ---
-import { storyblokEditable, renderRichText } from "@storyblok/astro";
-import IlStory from "../components/cms/IlStory.astro";
-import SvgSingleBranch from "../components/svg/SvgSingleBranch.astro";
-import SectionHeader from "../components/SectionHeader.astro";
-import IconBase from "../components/svg/IconBase";
-import IconArrow from "../components/svg/IconArrow";
-import LayoutSpacer from "../components/LayoutSpacer.astro";
+import {
+  storyblokEditable,
+  renderRichText,
+  useStoryblokApi,
+} from "@storyblok/astro"
+import IlStory from "../components/cms/IlStory.astro"
+import SvgSingleBranch from "../components/svg/SvgSingleBranch.astro"
+import SectionHeader from "../components/SectionHeader.astro"
+import IconBase from "../components/svg/IconBase"
+import IconArrow from "../components/svg/IconArrow"
+import LayoutSpacer from "../components/LayoutSpacer.astro"
+import IlTestimonial from "../components/IlTestimonial.astro"
+import BlogStories from "../components/BlogStories.astro"
+import ButtonEffect from "../components/ButtonEffect.astro"
+import Contact from "../sections/home/Contact.astro"
 
-const { blok } = Astro.props;
+const { id, blok } = Astro.props
 
-const { teaser, chapters, slides, title, image } = blok;
+const { teaser, chapters, slides, title, image, testimonial } = blok
+
+const storyblokApi = useStoryblokApi()
+const newestStories = (
+  await storyblokApi.getStories({
+    version: import.meta.env.DEV ? "draft" : "published",
+    sort_by: "content.createdAt:desc",
+    per_page: 3,
+  })
+).data.stories
+  .filter((s) => s.id !== id)
+  .slice(0, 2)
+console.log({ stories: newestStories })
 ---
 
 <section class="text-bluegray" {...storyblokEditable(blok)}>
@@ -43,9 +63,33 @@ const { teaser, chapters, slides, title, image } = blok;
     </div>
   </IlStory>
 
+  {testimonial.length && <IlTestimonial testimonial={testimonial[0]} />}
+
   <IconBase className="text-sunset w-full h-16 mt-8">
     <IconArrow />
   </IconBase>
 
   <LayoutSpacer />
+
+  <BlogStories stories={newestStories}>
+    <div slot="tail">
+      <LayoutSpacer />
+
+      <a href="/stories">
+        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+          Hier gibt's alle Beiträge
+        </ButtonEffect>
+      </a>
+
+      <LayoutSpacer ms={4} />
+
+      <IconBase
+        className="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10"
+      >
+        <IconArrow />
+      </IconBase>
+    </div>
+  </BlogStories>
+
+  <Contact class="mt-20" />
 </section>

@@ -42,6 +42,7 @@ testimonial:
     Selbst als kamerascheues Pärchen hat sie es mit ihrer lockeren und liebevollen Art geschafft, dass wir uns die gesamte Zeit über wohlgefühlt haben.
     Sie ist wunderbar auf uns eingegangen und hat tolle Erinnerungen für uns geschaffen. Vielen Dank!
 ---
+
 Julia und Martins Hochzeit war für mich etwas ganz Besonderes – nicht zuletzt, weil die beiden schon lange sehr wichtige Menschen in meinem Leben sind. Was für eine Ehre, dass ich für ihre wunderschöne, kleine Hochzeit als Hochzeitsfotografin und Gast da sein durfte!
 
 ## Kleine Boho-Hochzeit in Magdeburg
@@ -58,11 +59,11 @@ Trotz beruhigender Abba-Musik war Martin sehr aufgeregt. Er hatte sich etwas Bes
 
 ## Der erste Blick
 
-Der First Look ist ein emotionaler und intimer Moment. Als Hochzeitsfotograf liebe ich die Vorfreude, wenn sich das Brautpaar zum ersten Mal am Tag ihrer Hochzeit sehen. Julia sah in ihrem Vintage-Brautkleid mit Blätter-Applikationen und dem Wildblumen-Kranz sooo bezaubernd aus! 
+Der First Look ist ein emotionaler und intimer Moment. Als Hochzeitsfotograf liebe ich die Vorfreude, wenn sich das Brautpaar zum ersten Mal am Tag ihrer Hochzeit sehen. Julia sah in ihrem Vintage-Brautkleid mit Blätter-Applikationen und dem Wildblumen-Kranz sooo bezaubernd aus!
 
 ## Kleine Runde am Standesamt
 
-Durch die Covid-19-Pandemie, durfte nur der engste Freundes- und Familienkreis bei der Trauung dabei sein. Die Standesbeamtin hat sich jedoch sehr viel Mühe gegeben und die Zeremonie sehr lebhaft gestaltet. 
+Durch die Covid-19-Pandemie, durfte nur der engste Freundes- und Familienkreis bei der Trauung dabei sein. Die Standesbeamtin hat sich jedoch sehr viel Mühe gegeben und die Zeremonie sehr lebhaft gestaltet.
 
 Kleiner Tipp, damit die Zeremonie nicht zu schnell vorbei ist: Kostet die wichtigsten Momente, wie den ersten Kuss und das Ringe anstecken voll aus und lasst Euch Zeit, um den Moment bewusst wahrzunehmen.
 
@@ -72,7 +73,7 @@ Nach der Standesamt-Zeremonie ging es direkt am Dom mit dem Brautpaar-Shooting l
 
 ## Nächster Halt: Stadtpark!
 
-Ein kleiner Roadtrip für die Hochzeitsfotos inklusive Stadtführung für die Hochzeitsfotografin? Fand ich cool! Wenn man sich eine kleine Route für das Shooting zurecht legt, ist man automatisch mehr in Bewegung, hat Verschnaufspausen zwischen den Fotos, vielfältigere Hintergründe und die Bilder wirken nebenbei auch noch dynamischer. Und wenn man die Fotos aus dem Stadtpark sieht, könnte man nicht meinen, dass wir noch immer mitten in der Stadt waren, oder? 
+Ein kleiner Roadtrip für die Hochzeitsfotos inklusive Stadtführung für die Hochzeitsfotografin? Fand ich cool! Wenn man sich eine kleine Route für das Shooting zurecht legt, ist man automatisch mehr in Bewegung, hat Verschnaufspausen zwischen den Fotos, vielfältigere Hintergründe und die Bilder wirken nebenbei auch noch dynamischer. Und wenn man die Fotos aus dem Stadtpark sieht, könnte man nicht meinen, dass wir noch immer mitten in der Stadt waren, oder?
 
 ## Spontanes Shooting abends am Elbe-Ufer
 

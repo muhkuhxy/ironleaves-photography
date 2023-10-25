@@ -1,13 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import BlogStories from "../../components/BlogStories.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro";
-import { tags, fetchStories } from "../../lib/blog";
+import Layout from "../../layouts/Layout.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import BlogStories from "../../components/BlogStories.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
+import { tags, fetchStories } from "../../lib/blog"
 
-const stories = await fetchStories();
+const stories = await fetchStories()
 ---
 
 <Layout>
@@ -61,8 +61,8 @@ const stories = await fetchStories();
 </Layout>
 
 <script>
-  import Alpine from "alpinejs";
-  import { gsap, Flip } from "../../lib/gsap";
+  import Alpine from "alpinejs"
+  import { gsap, Flip } from "../../lib/gsap"
 
   Alpine.data("StoryFilter", () => ({
     query: null,
@@ -71,31 +71,31 @@ const stories = await fetchStories();
     init() {
       this.stories = gsap.utils.toArray(
         this.$el.querySelectorAll(
-          "[data-tag], [data-stories-parent], [x-ref=noStories]"
-        )
-      );
+          "[data-tag], [data-stories-parent], [x-ref=noStories]",
+        ),
+      )
     },
 
     filter(query: string) {
-      this.query = query;
-      const state = Flip.getState(this.stories);
+      this.query = query
+      const state = Flip.getState(this.stories)
 
-      let matches = 0;
-      (this.stories as HTMLElement[]).forEach((item) => {
+      let matches = 0
+      ;(this.stories as HTMLElement[]).forEach((item) => {
         if ("tag" in item.dataset) {
           if (!query || item.dataset.tag === query) {
-            matches++;
-            item.classList.remove("hidden");
+            matches++
+            item.classList.remove("hidden")
           } else {
-            item.classList.add("hidden");
+            item.classList.add("hidden")
           }
         }
-      });
+      })
 
       if (matches === 0) {
-        this.$refs.noStories.classList.remove("hidden");
+        this.$refs.noStories.classList.remove("hidden")
       } else {
-        this.$refs.noStories.classList.add("hidden");
+        this.$refs.noStories.classList.add("hidden")
       }
 
       Flip.from(state, {
@@ -107,7 +107,7 @@ const stories = await fetchStories();
           gsap.from(elements, {
             opacity: 0,
             delay: 0.65,
-          });
+          })
         },
         onLeave: (elements) =>
           gsap.to(elements, {
@@ -116,7 +116,7 @@ const stories = await fetchStories();
             duration: 0.5,
             ease: "power1.inOut",
           }),
-      });
+      })
     },
-  }));
+  }))
 </script>

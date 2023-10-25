@@ -48,12 +48,14 @@ slides:
 testimonial:
   name: Verena & Uwe
   imgSrc: /images/stories/ironleaves-photography-stories-uwe-verena-kundenstimme.jpg
-  text: Tamara hat uns bei unserer Hochzeit im Mai 2023 den ganzen Tag begleitet.
+  text:
+    Tamara hat uns bei unserer Hochzeit im Mai 2023 den ganzen Tag begleitet.
     Sie hat wundervolle Arbeit geleistet. Immer freundlich, zuvorkommend und zur
     Stelle. ❤️ Sie war eine tolle Unterstützung und hat alle unsere Wünsche
     liebevoll umgesetzt! Außerdem hat Sie unsere Papeterie entworfen. Es ist so
     wunderschön geworden!! Eine absolute Empfehlung! ❤️
 ---
+
 Uwe und Verenas Hochzeit? Eine logistische Meisterleistung! Oder wie sonst würde man eine Hochzeit beschreiben, die genau dort stattfindet, wo das Brautpaar und der Großteil der Gäste NICHT wohnen? Damit die wichtigsten Familienmitglieder an der Hochzeit teilnehmen konnten, hat das Brautpaar 2 Stunden Fahrtzeit und viel Planung auf sich genommen und ihre Hochzeit in Steckenborn gefeiert. Ich durfte Planung, Papeterie und natürlich auch den großen Tag mit den beiden begleiten.
 
 ## Zauberhafte Haare zaubern mit Verena
@@ -62,7 +64,7 @@ Ich geb’s zu! Ich konnte mich vor lauter Bewunderung kaum von Verena beim Gett
 
 ## Die wichtigsten Männer des Tages
 
-Direkt vom Friseur aus ging es für mich noch zur Residenz des Bräutigams. Der machte sich mit den männlichen Ehrengästen des Tages fertig. Das hieß auch für den kleinsten Gast: Suit up! Obwohl Uwe seiner Verena bereits länger im Voraus im Standesamt das Ja-Wort gegeben hatte, war er vor der kirchlichen Trauung sehr aufgeregt und angespannt, ob der Tag reibungslos verlaufen würde. Kleiner Spoiler vorweg: Natürlich war seine Sorge unbegründet. ;) 
+Direkt vom Friseur aus ging es für mich noch zur Residenz des Bräutigams. Der machte sich mit den männlichen Ehrengästen des Tages fertig. Das hieß auch für den kleinsten Gast: Suit up! Obwohl Uwe seiner Verena bereits länger im Voraus im Standesamt das Ja-Wort gegeben hatte, war er vor der kirchlichen Trauung sehr aufgeregt und angespannt, ob der Tag reibungslos verlaufen würde. Kleiner Spoiler vorweg: Natürlich war seine Sorge unbegründet. ;)
 
 ## Kirchliche Trauung
 

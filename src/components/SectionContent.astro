@@ -1,15 +1,15 @@
 ---
-import LayoutContainer from "../components/LayoutContainer.astro";
+import LayoutContainer from "../components/LayoutContainer.astro"
 
 type Props = {
-  class?: string;
-  fluid?: boolean;
-  animation?: string;
-  ref?: string;
-  fluffy?: boolean;
-};
+  class?: string
+  fluid?: boolean
+  animation?: string
+  ref?: string
+  fluffy?: boolean
+}
 
-const { class: classes, fluffy, fluid, animation, ref } = Astro.props;
+const { class: classes, fluffy, fluid, animation, ref } = Astro.props
 ---
 
 <LayoutContainer
@@ -17,7 +17,7 @@ const { class: classes, fluffy, fluid, animation, ref } = Astro.props;
   class={`${classes ?? ""} ${
     fluffy ? "2xl:py-[min(15vh,10rem)]" : ""
   } py-12 lg:py-16 xl:py-20`}
-  {...{animation,fluid}}
+  {...{ animation, fluid }}
 >
   <slot />
 </LayoutContainer>

@@ -45,15 +45,16 @@ testimonial:
     Sie hat uns bereits bei den Einladungskarten unterstützt. Wir hatten einige Vorstellungen und sie hat diese für uns perfekt umgesetzt.
     Bei der Feier war sie die ganze Zeit gut gelaunt, nie aufdringlich und gleichzeitig immer da, um schöne Momente einzufangen.
 ---
+
 Am Tag der Hochzeit hat es schon morgens ziemlich stark geregnet. Nach der Kirche sogar so schlimm, dass das Shooting erstmal nicht stattfinden konnte. Und ganz ehrlich? Das hat den Tag sogar noch viel besser gemacht, als ursprünglich geplant! Lest hier, wie Sandras und Jonas Hochzeitstag war!
 
 ## Getting Ready zu Hause
 
-Mädels, mal ehrlich: Ihr wollt am Tag Eurer Hochzeit einfach nur entspannt eine schöne Brautfrisur gesteckt bekommen und in Euer Kleid schlüpfen? Dann macht’s doch so wie Sandra! Die hat ihren Bräutigam, Jonas, einfach Erledigungen machen geschickt. So konnte sie die Vorbereitungen zur Hochzeit mit ihrem Bruder, ihrer Trauzeugin und ihrer Mutter genießen. 
+Mädels, mal ehrlich: Ihr wollt am Tag Eurer Hochzeit einfach nur entspannt eine schöne Brautfrisur gesteckt bekommen und in Euer Kleid schlüpfen? Dann macht’s doch so wie Sandra! Die hat ihren Bräutigam, Jonas, einfach Erledigungen machen geschickt. So konnte sie die Vorbereitungen zur Hochzeit mit ihrem Bruder, ihrer Trauzeugin und ihrer Mutter genießen.
 
 ## Hochzeitsfotograf im Schlepptau
 
-An Eurem Hochzeitstag bin ich voll und ganz für Euch da. Wenn ich bei Hochzeitsreportagen die Hochzeitsfotos mache, finde ich es daher besonders spannend, wenn mich die Brautpaare einfach überall hin mitnehmen, wo sie auch gerade sind. Egal, ob bei den letzten Vorbereitungen, beim fertig machen zu Hause oder im Hotel oder im Brautauto. 
+An Eurem Hochzeitstag bin ich voll und ganz für Euch da. Wenn ich bei Hochzeitsreportagen die Hochzeitsfotos mache, finde ich es daher besonders spannend, wenn mich die Brautpaare einfach überall hin mitnehmen, wo sie auch gerade sind. Egal, ob bei den letzten Vorbereitungen, beim fertig machen zu Hause oder im Hotel oder im Brautauto.
 
 ## Platzregen im Hochsommer
 
@@ -61,7 +62,7 @@ Was macht man, wenn es am Hochzeitstag regnet? Das Beste aus der Situation! So h
 
 ## Trauung in der Kirche
 
-Die Kirche in Bad Berneck bei Bayreuth war ein wunderschöner Ort für die kirchliche Hochzeit von Sandra und Jonas. Als Hochzeitsfotografin ist besonders bei der kirchlichen Zeremonie Rücksicht gefragt. Im Voraus empfiehlt es sich, mit dem Pfarrer oder der Pfarrerin zu sprechen, damit kein Fauxpas passiert. Für diesen Anlass hatte ich extra leise Sneaker an, um möglichst wenig störende Geräusche zu verursachen. 
+Die Kirche in Bad Berneck bei Bayreuth war ein wunderschöner Ort für die kirchliche Hochzeit von Sandra und Jonas. Als Hochzeitsfotografin ist besonders bei der kirchlichen Zeremonie Rücksicht gefragt. Im Voraus empfiehlt es sich, mit dem Pfarrer oder der Pfarrerin zu sprechen, damit kein Fauxpas passiert. Für diesen Anlass hatte ich extra leise Sneaker an, um möglichst wenig störende Geräusche zu verursachen.
 
 ## Hochzeitstraditionen
 
@@ -69,7 +70,7 @@ Bei Sandras und Jonas Hochzeit ist die Familie in den Hochzeitstraditionen aufge
 
 ## Hochzeitsfeier im Liebesbier Bayreuth
 
-Das Liebesbier in Bayreuth hat Kultstatus und ist eine beliebte Hochzeitslocation. Der urbane Einrichtungsstil passt perfekt zu modernen Hochzeiten mit Charakter.  Sandra und Jonas feierten mit klassisch, eleganter Dekoration, die durch den Retro-Stil des Liebesbiers ergänzt wurde. 
+Das Liebesbier in Bayreuth hat Kultstatus und ist eine beliebte Hochzeitslocation. Der urbane Einrichtungsstil passt perfekt zu modernen Hochzeiten mit Charakter. Sandra und Jonas feierten mit klassisch, eleganter Dekoration, die durch den Retro-Stil des Liebesbiers ergänzt wurde.
 
 ## Kuchen anschneiden und Gruppenfotos
 
@@ -77,7 +78,7 @@ Durch den unerwartet starken Regen nach der Kirche, verschob sich das ursprüngl
 
 ## Endlich! Auf zum Shooting!
 
-Die Hochzeitsfotos sollten ursprünglich in der Eremitage Bayreuth aufgenommen werden. Dank diverser Baustellen hätte aber alleine die Anfahrt zu lange gebraucht, also fiel die Wahl spontan auf den nähergelegenen Hofgarten in Bayreuth. Die noch schüchterne Nachmittagssonne belohnte uns mit einem sanften Licht. 
+Die Hochzeitsfotos sollten ursprünglich in der Eremitage Bayreuth aufgenommen werden. Dank diverser Baustellen hätte aber alleine die Anfahrt zu lange gebraucht, also fiel die Wahl spontan auf den nähergelegenen Hofgarten in Bayreuth. Die noch schüchterne Nachmittagssonne belohnte uns mit einem sanften Licht.
 
 ## Sonniger Seifenblasenempfang
 

@@ -1,18 +1,18 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import IlStoryTelling from "../../components/ReactStoryTelling";
-import SectionHeader from "../../components/SectionHeader.astro";
-import IconArrow from "../../components/svg/IconArrow";
-import IconBase from "../../components/svg/IconBase";
-import { splitAt } from "../../lib/collections";
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import IlStoryTelling from "../../components/ReactStoryTelling"
+import SectionHeader from "../../components/SectionHeader.astro"
+import IconArrow from "../../components/svg/IconArrow"
+import IconBase from "../../components/svg/IconBase"
+import { splitAt } from "../../lib/collections"
 
-const document = await getEntryBySlug("services", "5-packages");
+const document = await getEntryBySlug("services", "5-packages")
 const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
-  s.startsWith("##")
+  s.startsWith("##"),
 )
   .filter((lines) => !lines.every((line) => line === ""))
-  .map((lines) => lines.join("\n"));
+  .map((lines) => lines.join("\n"))
 ---
 
 <div class="bg-dust text-bluegray">

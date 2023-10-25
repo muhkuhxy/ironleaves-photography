@@ -1,19 +1,19 @@
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkHtml from "remark-html";
-import { HTMLElement, Node, parse } from "node-html-parser";
-import { splitAt } from "./collections";
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkHtml from "remark-html"
+import { HTMLElement, Node, parse } from "node-html-parser"
+import { splitAt } from "./collections"
 
 export function compileMarkdownSync(md: string): HTMLElement {
   return parse(
-    String(unified().use(remarkParse).use(remarkHtml).processSync(md))
-  );
+    String(unified().use(remarkParse).use(remarkHtml).processSync(md)),
+  )
 }
 
 export async function compileMarkdown(md: string): Promise<HTMLElement> {
   return parse(
-    String(await unified().use(remarkParse).use(remarkHtml).process(md))
-  );
+    String(await unified().use(remarkParse).use(remarkHtml).process(md)),
+  )
 }
 
 /**
@@ -23,17 +23,17 @@ export async function compileMarkdown(md: string): Promise<HTMLElement> {
  */
 export function splitChapters(doc: Node, splitAtTag = "H2"): Node[][] {
   if (!doc) {
-    return [];
+    return []
   }
   return splitAt(
     Array.from(doc.childNodes),
-    (el) => "tagName" in el && el.tagName === splitAtTag
-  );
+    (el) => "tagName" in el && el.tagName === splitAtTag,
+  )
 }
 
 export async function compileAndSplitChapters(
   markdown: string,
-  splitAtTag = "H2"
+  splitAtTag = "H2",
 ): Promise<Node[][]> {
-  return splitChapters(await compileMarkdown(markdown), splitAtTag);
+  return splitChapters(await compileMarkdown(markdown), splitAtTag)
 }

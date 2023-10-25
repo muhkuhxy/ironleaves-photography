@@ -1,11 +1,11 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
 
-const document = await getEntryBySlug("looks", "4-howto");
-const { Content } = await document.render();
+const document = await getEntryBySlug("looks", "4-howto")
+const { Content } = await document.render()
 ---
 
 <section>

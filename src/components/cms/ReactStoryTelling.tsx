@@ -1,33 +1,33 @@
-import { storyblokEditable } from "@storyblok/astro";
-import { ScrollTrigger } from "../../lib/gsap";
-import { useEffect, useRef, useState } from "react";
-import { cls } from "../../lib/util";
-import SectionContent from "../ReactSectionContent";
+import { storyblokEditable } from "@storyblok/astro"
+import { ScrollTrigger } from "../../lib/gsap"
+import { useEffect, useRef, useState } from "react"
+import { cls } from "../../lib/util"
+import SectionContent from "../ReactSectionContent"
 
 type Props = {
-  className?: string;
+  className?: string
   chapters: {
-    title: string;
-    content: string;
+    title: string
+    content: string
     image: {
-      filename: string;
-    };
-  }[];
-  scroller?: string;
-};
+      filename: string
+    }
+  }[]
+  scroller?: string
+}
 
 export default function ({ className, chapters, scroller }: Props) {
   // console.log("render");
 
-  const imgParent = useRef(null as HTMLDivElement | null);
-  const contentParent = useRef(null as HTMLDivElement | null);
+  const imgParent = useRef(null as HTMLDivElement | null)
+  const contentParent = useRef(null as HTMLDivElement | null)
   const [chaptersActive, setChaptersActive] = useState(
-    Array(chapters.length).fill(false)
-  );
+    Array(chapters.length).fill(false),
+  )
 
   useEffect(() => {
     // console.log("mounted");
-    const sts: ScrollTrigger[] = [];
+    const sts: ScrollTrigger[] = []
     setTimeout(() => {
       // console.log("mounted");
       contentParent.current
@@ -35,9 +35,9 @@ export default function ({ className, chapters, scroller }: Props) {
         .forEach((chapterTrigger, index) => {
           // console.log({ chapterImgEls, chapterTriggers });
           const activate: ScrollTrigger.Callback = (self) => {
-            setChaptersActive(chaptersActive.map((_, i) => i === index));
+            setChaptersActive(chaptersActive.map((_, i) => i === index))
             // console.log( `activating chapter ${index}`);
-          };
+          }
           sts.push(
             ScrollTrigger.create({
               scroller,
@@ -49,15 +49,15 @@ export default function ({ className, chapters, scroller }: Props) {
               // onLeave,
               onEnterBack: activate,
               // onLeaveBack,
-            })
-          );
-        });
-    });
+            }),
+          )
+        })
+    })
     return () => {
       // console.log("unmounted");
-      sts.forEach((st) => st.kill());
-    };
-  }, []);
+      sts.forEach((st) => st.kill())
+    }
+  }, [])
 
   return (
     <SectionContent className={cls(className, "flex gap-x-8 relative py-32")}>
@@ -67,7 +67,7 @@ export default function ({ className, chapters, scroller }: Props) {
             key={`chapter-dot-${index}`}
             className={cls(
               chaptersActive[index] ? "scale-[1.2] my-1" : "scale-[0.65]",
-              "rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75"
+              "rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75",
             )}
           />
         ))}
@@ -82,7 +82,7 @@ export default function ({ className, chapters, scroller }: Props) {
             data-chapter-img
             className={cls(
               chaptersActive[index] ? "" : "opacity-0",
-              "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out"
+              "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out",
             )}
             key={`chapter-img-${index}`}
           />
@@ -116,5 +116,5 @@ export default function ({ className, chapters, scroller }: Props) {
         ))}
       </div>
     </SectionContent>
-  );
+  )
 }

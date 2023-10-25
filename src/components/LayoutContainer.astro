@@ -1,12 +1,12 @@
 ---
 type Props = {
-  retractable?: boolean;
-  tag?: string;
-  fluid?: boolean;
-  class?: string;
-  animation?: string;
-  ref?: string;
-};
+  retractable?: boolean
+  tag?: string
+  fluid?: boolean
+  class?: string
+  animation?: string
+  ref?: string
+}
 
 const {
   retractable = false,
@@ -15,21 +15,21 @@ const {
   class: classes,
   animation,
   ref,
-} = Astro.props;
+} = Astro.props
 
-const extraClasses = getContainerClasses(fluid, retractable);
+const extraClasses = getContainerClasses(fluid, retractable)
 
 export function getContainerClasses(fluid: boolean, retractable: boolean) {
-  const classes = ["xl:mx-auto xl:px-16 px-8 md:px-16"];
+  const classes = ["xl:mx-auto xl:px-16 px-8 md:px-16"]
   // fluid has no max-width
   if (!fluid) {
     if (retractable) {
-      classes.push("w-full md:w-auto md:max-w-screen-2xl");
+      classes.push("w-full md:w-auto md:max-w-screen-2xl")
     } else {
-      classes.push("max-w-screen-2xl");
+      classes.push("max-w-screen-2xl")
     }
   }
-  return classes;
+  return classes
 }
 ---
 

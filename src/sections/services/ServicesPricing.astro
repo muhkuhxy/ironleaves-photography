@@ -1,12 +1,12 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro";
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
 
-const document = await getEntryBySlug("services", "4-pricing");
-const { Content } = await document.render();
+const document = await getEntryBySlug("services", "4-pricing")
+const { Content } = await document.render()
 ---
 
 <section>

@@ -2,6 +2,7 @@
 title: Die Welt ist bunt – und ihr seid es auch!
 roofline: Bildlooks
 ---
+
 Immerhin ist es euer besonderer Tag! Die Fotos sollten also euch
 widerspiegeln. Ihr bestimmt also den Bildlook eurer Bilder in
 Zusammenarbeit mit mir. Dabei könnt ihr unter unterschiedlichen

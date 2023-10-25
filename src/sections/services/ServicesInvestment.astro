@@ -1,18 +1,18 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import IlFigure from "../../components/IlFigure.astro";
-import IlFigureCaption from "../../components/IlFigureCaption.astro";
-import IlGradient from "../../components/IlGradient.astro";
-import LayoutSpacer from "../../components/LayoutSpacer.astro";
-import SectionContent from "../../components/SectionContent.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import SectionLines from "../../components/SectionLines.astro";
-import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro";
-import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro";
-import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro";
+import { getEntryBySlug } from "astro:content"
+import IlFigure from "../../components/IlFigure.astro"
+import IlFigureCaption from "../../components/IlFigureCaption.astro"
+import IlGradient from "../../components/IlGradient.astro"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import SectionLines from "../../components/SectionLines.astro"
+import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro"
+import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro"
+import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro"
 
-const document = await getEntryBySlug("services", "3-investment");
-const { Content } = await document.render();
+const document = await getEntryBySlug("services", "3-investment")
+const { Content } = await document.render()
 ---
 
 <section class="bg-emerald text-white relative overflow-y-hidden">
