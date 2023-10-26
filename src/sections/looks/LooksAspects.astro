@@ -1,26 +1,28 @@
 ---
 import { getEntryBySlug } from "astro:content"
-import IlStoryTelling from "../../components/ReactStoryTelling"
+import ReactStoryTelling from "../../components/ReactStoryTelling"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
-import { splitAt } from "../../lib/collections"
+import { compileAndSplitChapters } from "../../lib/content"
 
 const document = await getEntryBySlug("looks", "3-aspects")
-const chapters = splitAt(document.body.split("\n") ?? [], (s) =>
-  s.startsWith("##"),
-)
-  .filter((lines) => !lines.every((line) => line === ""))
-  .map((lines) => lines.join("\n"))
+const chapters = await compileAndSplitChapters(document.body)
 ---
 
 <section class="bg-dust text-bluegray">
   <SectionContent>
     <SectionHeader class="text-center" set:html={document.data.title} />
 
-    <IlStoryTelling
+    <ReactStoryTelling
       client:load
-      imgs={document.data.imgs!!}
-      chapters={chapters}
+      chapters={chapters.map((chapter, index) => {
+        const [title, ...content] = chapter
+        return {
+          title: title.textContent,
+          content: content.join("\n"),
+          image: { filename: document.data.imgs?.[index]! },
+        }
+      })}
     />
   </SectionContent>
 </section>

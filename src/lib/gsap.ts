@@ -1,4 +1,3 @@
-import GT from "gsap"
 import { gsap } from "gsap/dist/gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { Flip } from "gsap/dist/Flip"
@@ -13,7 +12,7 @@ export function slideUp(options: { y?: string }, el: HTMLElement) {
     // markers: true,
     trigger: el,
     start: () => "top+=200px bottom",
-    onToggle: (self) => {
+    onToggle: (self: ScrollTrigger) => {
       // console.log('toggle, active: ', self.isActive, el)
       if (!self.isActive) {
         self.kill(false, true)

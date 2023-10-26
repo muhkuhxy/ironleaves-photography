@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react"
+import { type RefObject, useCallback, useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import SvgClose from "./svg/SvgClose"
 import IconArrow from "./svg/IconArrow"

@@ -1,7 +1,6 @@
 ---
 import { getEntryBySlug } from "astro:content"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
-import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 
 const document = await getEntryBySlug("looks", "2-comparison")
@@ -21,15 +20,15 @@ const cssClasses: Record<number, string[]> = {
 
 <section class="2xl:py-[min(15vh,10rem)] text-bluegray mt-24 md:mt-40 px-16">
   <div
-    class="grid grid-rows-[4fr,1fr] grid-cols-4 justify-between gap-2 sm:block relative sm:h-[50vh] lg:h-[85vh]"
+    class="grid grid-rows-[4fr,1fr] grid-cols-4 justify-between gap-2 sm:block relative sm:h-[50vh] lg:h-[85vh] sm:aspect-[3/1.4] mx-auto max-w-full"
   >
     {
       (document.data.imgs ?? []).map((img, index) => (
         <div
-          class={
-            cssClasses[index].join(" ") +
-            " sm:absolute inset-0 inline-block w-full sm:w-[50%] h-full m-auto"
-          }
+          class:list={[
+            cssClasses[index],
+            "sm:absolute inset-0 inline-block w-full sm:w-[50%] h-full m-auto",
+          ]}
         >
           <div class="h-full origin-center">
             <img

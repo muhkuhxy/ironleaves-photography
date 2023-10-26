@@ -5,9 +5,10 @@ import BlogStories from "../../components/BlogStories.astro"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
-import { tags, fetchStories } from "../../lib/blog"
+import { tags, useStories } from "../../lib/blog"
 
-const stories = await fetchStories()
+const stories = await useStories()
+// console.log({ stories })
 ---
 
 <Layout>
@@ -19,7 +20,7 @@ const stories = await fetchStories()
         />
         <SectionHeader>
           <span slot="roofline">Stories</span>
-          Immer auf dem Laufenden
+           Immer auf dem Laufenden
         </SectionHeader>
         <LayoutSpacer />
         <p>
@@ -103,13 +104,13 @@ const stories = await fetchStories()
         absolute: "[data-tag]",
         duration: 0.75,
         ease: "sine.inOut",
-        onEnter: (elements) => {
+        onEnter: (elements: Element[]) => {
           gsap.from(elements, {
             opacity: 0,
             delay: 0.65,
           })
         },
-        onLeave: (elements) =>
+        onLeave: (elements: Element[]) =>
           gsap.to(elements, {
             scale: 0.85,
             opacity: 0,

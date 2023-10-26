@@ -3,14 +3,15 @@ import IlSlider from "./IlSlider.astro"
 import ReactStoryTelling from "./ReactStoryTelling"
 import LayoutSpacer from "./LayoutSpacer.astro"
 import SectionContent from "./SectionContent.astro"
+import { type SBChapter } from "../lib/blog"
+import { renderRichText } from "@storyblok/astro"
 
 type Props = {
   slides: string[]
-  chapters: string[]
-  imgs: string[]
+  chapters: SBChapter[]
 }
 
-const { slides, chapters, imgs } = Astro.props
+const { slides, chapters } = Astro.props
 ---
 
 <div class="text-bluegray pb-6">
@@ -29,10 +30,16 @@ const { slides, chapters, imgs } = Astro.props
   <ReactStoryTelling
     client:load
     className="bg-white"
-    chapters={chapters}
-    imgs={imgs}
+    chapters={chapters.map((chapter) => ({
+      ...chapter,
+      content: renderRichText(chapter.content),
+    }))}
   />
-  <div class="h-[50vh]">
-    <IlSlider id="story" class="!pb-8 h-full" slides={slides} />
-  </div>
+  {
+    slides.length ? (
+      <div class="h-[50vh]">
+        <IlSlider id="story" class="!pb-8 h-full" slides={slides} />
+      </div>
+    ) : null
+  }
 </div>

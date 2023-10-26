@@ -1,10 +1,6 @@
 ---
-import {
-  storyblokEditable,
-  renderRichText,
-  useStoryblokApi,
-} from "@storyblok/astro"
-import IlStory from "../components/cms/IlStory.astro"
+import { storyblokEditable, renderRichText } from "@storyblok/astro"
+import IlStory from "../components/IlStory.astro"
 import SvgSingleBranch from "../components/svg/SvgSingleBranch.astro"
 import SectionHeader from "../components/SectionHeader.astro"
 import IconBase from "../components/svg/IconBase"
@@ -14,29 +10,24 @@ import IlTestimonial from "../components/IlTestimonial.astro"
 import BlogStories from "../components/BlogStories.astro"
 import ButtonEffect from "../components/ButtonEffect.astro"
 import Contact from "../sections/home/Contact.astro"
+import { useLatestStories, type SBStory } from "../lib/blog"
+
+type Props = {
+  id: string
+  blok: SBStory["content"]
+}
 
 const { id, blok } = Astro.props
 
 const { teaser, chapters, slides, title, image, testimonial } = blok
 
-const storyblokApi = useStoryblokApi()
-const newestStories = (
-  await storyblokApi.getStories({
-    version: import.meta.env.DEV ? "draft" : "published",
-    sort_by: "content.createdAt:desc",
-    per_page: 3,
-  })
-).data.stories
-  .filter((s) => s.id !== id)
-  .slice(0, 2)
-console.log({ stories: newestStories })
+const newestStories = await useLatestStories(id)
+// console.log(`rendering ${id}`, { testimonial })
+// console.log({ newestStories })
 ---
 
 <section class="text-bluegray" {...storyblokEditable(blok)}>
-  <IlStory
-    slides={slides.map((slide: any) => slide.filename)}
-    chapters={chapters}
-  >
+  <IlStory slides={slides.map((slide) => slide.filename)} chapters={chapters}>
     <div
       slot="image"
       class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
@@ -63,7 +54,7 @@ console.log({ stories: newestStories })
     </div>
   </IlStory>
 
-  {testimonial.length && <IlTestimonial testimonial={testimonial[0]} />}
+  {testimonial?.length && <IlTestimonial testimonial={testimonial[0]} />}
 
   <IconBase className="text-sunset w-full h-16 mt-8">
     <IconArrow />
