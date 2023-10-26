@@ -104,13 +104,13 @@ const stories = await useStories()
         absolute: "[data-tag]",
         duration: 0.75,
         ease: "sine.inOut",
-        onEnter: (elements) => {
+        onEnter: (elements: Element[]) => {
           gsap.from(elements, {
             opacity: 0,
             delay: 0.65,
           })
         },
-        onLeave: (elements) =>
+        onLeave: (elements: Element[]) =>
           gsap.to(elements, {
             scale: 0.85,
             opacity: 0,
