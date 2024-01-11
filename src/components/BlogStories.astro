@@ -30,8 +30,8 @@ const { class: classes, stories } = Astro.props
                 {labels[story.content.tag]}
               </div>
               <img
-                src={story.content.image.filename}
-                alt={story.content.image.alt}
+                src={story.content.image?.filename}
+                alt={story.content.image?.alt}
               />
               <h2 class="font-bold">{story.content.title}</h2>
               <div

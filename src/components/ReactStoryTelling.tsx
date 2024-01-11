@@ -7,7 +7,7 @@ import type { SBChapter } from "../lib/blog"
 
 type Props = {
   className?: string
-  chapters: (Omit<SBChapter, "content"> & {
+  chapters?: (Omit<SBChapter, "content"> & {
     content: string
   })[]
   scroller?: string
@@ -20,7 +20,7 @@ export default function ({ className, chapters, scroller }: Props) {
   const imgParent = useRef(null as HTMLDivElement | null)
   const contentParent = useRef(null as HTMLDivElement | null)
   const [chaptersActive, setChaptersActive] = useState(
-    Array(chapters.length).fill(false),
+    Array(chapters?.length ?? 0).fill(false),
   )
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function ({ className, chapters, scroller }: Props) {
         ?.querySelectorAll("[data-chapter-trigger]")
         .forEach((chapterTrigger, index) => {
           // console.log({ chapterImgEls, chapterTriggers });
-          const activate: ScrollTrigger.Callback = (self) => {
+          const activate: ScrollTrigger.Callback = (/*self*/) => {
             setChaptersActive(chaptersActive.map((_, i) => i === index))
             // console.log( `activating chapter ${index}`);
           }
@@ -60,7 +60,7 @@ export default function ({ className, chapters, scroller }: Props) {
   return (
     <SectionContent className={cls(className, "flex gap-x-8 relative py-32")}>
       <div className="sticky nojs:!hidden hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center">
-        {chapters.map((chapter, index) => (
+        {chapters?.map((chapter, index) => (
           <div
             key={`chapter-dot-${index}`}
             className={cls(
@@ -74,10 +74,10 @@ export default function ({ className, chapters, scroller }: Props) {
         className="sticky nojs:!hidden max-lg:hidden w-[60%] mr-8 h-[100vh] top-0"
         ref={imgParent}
       >
-        {chapters.map((chapter, index) => {
+        {chapters?.map((chapter, index) => {
           return (
             <img
-              src={chapter.image.filename}
+              src={chapter.image?.filename}
               data-chapter-img
               className={cls(
                 chaptersActive[index] ? "" : "opacity-0",
@@ -92,7 +92,7 @@ export default function ({ className, chapters, scroller }: Props) {
         className="flex flex-col gap-y-32 lg:gap-y-0 mx-auto"
         ref={contentParent}
       >
-        {chapters.map((chapter, index) => (
+        {chapters?.map((chapter, index) => (
           <div
             data-chapter-trigger
             className="flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
@@ -101,7 +101,7 @@ export default function ({ className, chapters, scroller }: Props) {
           >
             <div className="lg:hidden nojs:lg:flex lg:w-[60%] lg:min-h-[100vh] lg:items-center lg:justify-center">
               <img
-                src={chapter.image.filename}
+                src={chapter.image?.filename}
                 className="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
               />
             </div>

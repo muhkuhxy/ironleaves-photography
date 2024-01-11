@@ -50,7 +50,7 @@ export type SBImage = {
 export type SBChapter = {
   title: string
   content: ISbRichtext
-  image: SBImage
+  image?: SBImage
 }
 
 export type SBStory = {
@@ -58,21 +58,18 @@ export type SBStory = {
   id: string
   content: Pick<StoryFrontmatter, "tag" | "title" | "createdAt"> & {
     tag: string
-    image: {
-      filename: string
-      alt: string
-    }
+    image?: SBImage
     title: string
     teaser: ISbRichtext
     chapters: SBChapter[]
-    testimonial: [SBTestimonial]
-    slides: SBImage[]
+    testimonial?: [SBTestimonial]
+    slides?: SBImage[]
   }
 }
 
 export type SBTestimonial = {
   name: string
-  image: { filename: string; alt: string }
+  image?: { filename: string; alt: string }
   text: ISbRichtext
 }
 
@@ -84,10 +81,10 @@ export type Story = StoryFrontmatter & {
   chapters: Chapter[]
 }
 
-export type Tag = "stories" | "infos" | "tipps"
+export type Tag = "story" | "infos" | "tipps"
 
 export const tags: { label: string; tag: Tag }[] = [
-  { label: "Stories", tag: "stories" },
+  { label: "Stories", tag: "story" },
   { label: "Informationen", tag: "infos" },
   { label: "Tipps & Tricks", tag: "tipps" },
 ]

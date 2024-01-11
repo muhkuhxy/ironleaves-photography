@@ -7,8 +7,8 @@ import { type SBChapter } from "../lib/blog"
 import { renderRichText } from "@storyblok/astro"
 
 type Props = {
-  slides: string[]
-  chapters: SBChapter[]
+  slides?: string[]
+  chapters?: SBChapter[]
 }
 
 const { slides, chapters } = Astro.props
@@ -30,13 +30,13 @@ const { slides, chapters } = Astro.props
   <ReactStoryTelling
     client:load
     className="bg-white"
-    chapters={chapters.map((chapter) => ({
+    chapters={chapters?.map((chapter) => ({
       ...chapter,
       content: renderRichText(chapter.content),
     }))}
   />
   {
-    slides.length ? (
+    slides?.length ? (
       <div class="h-[50vh]">
         <IlSlider id="story" class="!pb-8 h-full" slides={slides} />
       </div>
