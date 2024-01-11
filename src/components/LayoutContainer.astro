@@ -10,7 +10,6 @@ type Props = {
 
 const {
   retractable = false,
-  Tag = "div",
   fluid = false,
   class: classes,
   animation,
@@ -33,10 +32,10 @@ export function getContainerClasses(fluid: boolean, retractable: boolean) {
 }
 ---
 
-<Tag
+<div
   class:list={[classes, extraClasses]}
   data-animation={animation}
   x-ref={ref}
 >
   <slot />
-</Tag>
+</div>
