@@ -21,19 +21,10 @@ const { Content } = await document.render()
   >
     <IlFigure class="slide-up lg:h-full lg:w-full" data-delay="0.3">
       <picture>
-        <source
-          media="(max-width: 767px)"
-          srcset="
-              /images/mobile/ironleaves-photography-werte-mobile.jpg
-            "
-        />
-        <source
-          media="(min-width: 768px)"
-          srcset="/images/desktop/ironleaves-photography-werte.jpg"
-        />
         <img
           class="object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
-          alt="Ehrliche Schnappschüsse"
+          src={document.data.sectionImg}
+          alt="Pärchenshooting"
         />
       </picture>
       <IlGradient

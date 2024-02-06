@@ -1,18 +1,11 @@
 ---
 roofline: Aus dem Nähkästchen
-title: Über mich
+title: Das macht mich aus
+sectionImg: /images/about/ironleaves-photography-ueber-mich-ehemann-hund.jpg
 ---
 
-Ich bin leidenschaftlich gerne mit meiner Kamera unterwegs. Nicht
-nur beruflich. Ich liebe Natur- und Makroaufnahmen und verlasse auch
-für Spaziergänge selten das Haus ohne Kamera.
+Fotografieren ist für mich nicht nur ein Beruf. Ich bin auch in meiner Freizeit leidenschaftlich gerne mit meiner Kamera unterwegs – Am liebsten für Natur- und Makroaufnahmen.
 
-Am liebsten bin ich draußen in der Natur. Ich finde Tiere,
-Sonnenuntergänge, sonnige Nebeltage, den Geruch von Regen und kalte,
-bunte Herbsttage total toll. Und wenn’s rein in die Bude geht, sind
-gutes Essen, Musik, viel Lachen, ein warmes Bett, ein spannendes
-Buch und warme Mousse au Chocolat total genial.
+Ich bin mit einem wunderbaren Ehemann verheiratet, der mich ganz toll unterstützt. Zusammen kümmern wir uns um einen ganz süßen Hund aus dem griechischen Tierschutz. 
 
-Ich bin ein großes Fangirl von meinem Ehemann und meinem Auto. Für
-Mathe bin ich viel zu verpeilt. Meine Lieblingsfarbe ist blau. Ich
-bin ein kleiner Zwerg.
+Ich würde mich als großer Natur-Liebhaber und Kreativmensch bezeichnen. Ich male gerne und gehe in kreativen Projekten voll auf. Sonnenuntergänge, sonnige Nebeltage, den Geruch von Regen und bunte Herbsttage finde ich total toll. Und wenn’s rein in die Bude geht, sind gutes Essen, Musik, ein Gammeltag im warmen Bett, ein spannendes Buch und warme Mousse au Chocolat total genial. 

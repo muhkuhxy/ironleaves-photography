@@ -1,21 +1,9 @@
 ---
 roofline: Spontan, locker &amp; natürlich
 title: Mein Fotografie-Style
+sectionImg: /images/about/ironleaves-photography-ueber-mich-fotografie-style.jpg
 ---
 
-Meinen Fotografie-Stil würde ich als spontan und locker beschreiben.
-Ich bin kein Fan von gestellten und gezwungenen Fotos. Beim
-Fotografieren laufe ich gerne viel herum, um möglichst dynamische
-und vielfältige Pärchenfotos festzuhalten. Ich arbeite mit
-natürlichem Licht und schleppe keinen Blitz mit mir rum. Dadurch bin
-ich flexibler und kann schneller agieren.
+Meinen Fotografie-Stil würde ich als spontan und locker beschreiben. Ich bevorzuge natürliche und ungezwungene Fotos, daher meide ich gestellte Posen. Beim Fotografieren bewege ich mich gerne viel, um dynamische und vielfältige Bilder einzufangen. Ich arbeite am liebsten mit natürlichem Licht, ohne Blitz, was mir mehr Flexibilität ermöglicht und es mir erlaubt, mich spontan an die Gegebenheiten anzupassen. Ich halte nicht mit Aufnahmen zurück - bei einer Hochzeitsreportage können so schon mal 10.000 Bilder entstehen. 
 
-Ich weiß, dass Paaren vor dem Shooting oftmals viele Gedanken durch
-den Kopf gehen. Wichtig ist mir, dass ihr Euch wohlfühlt und fallen
-lassen könnt. Deswegen versuche ich Euch das Shooting so locker wie
-möglich zu gestalten. Ich plappere viel mit Euch und schwärme
-lautstark, wenn ihr besonders knuffig ausseht. Bei
-Hochzeitsreportagen versuche ich einen Ausgleich zwischen unsichtbar
-und aufdringlich zu finden. Ich mache gerne spontane Schnappschüsse
-und ehrliche Momentaufnahmen. Gleichzeit mische ich mich gerne unter
-die Gäste und interagiere mit ihnen.
+Während Shootings bin ich kommunikativ und unterhaltsam. Bei Hochzeitsreportagen versuche ich einen Ausgleich zwischen unsichtbar und aufdringlich zu finden. Ich mache gerne spontane Schnappschüsse und ehrliche Momentaufnahmen. Gleichzeit mische ich mich unter die Gäste und interagiere mit ihnen.

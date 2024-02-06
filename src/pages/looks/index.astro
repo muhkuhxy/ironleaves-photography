@@ -9,6 +9,41 @@ import LooksComparison from "../../sections/looks/LooksComparison.astro"
 import LooksAspects from "../../sections/looks/LooksAspects.astro"
 import LooksHowTo from "../../sections/looks/LooksHowTo.astro"
 import LooksTips from "../../sections/looks/LooksTips.astro"
+import LooksWhyCustomLook from "../../sections/looks/LooksWhyCustomLook.astro"
+import LooksIronleavesLook from "../../sections/looks/LooksIronleavesLook.astro"
+import IlSlider from "../../components/IlSlider.astro"
+
+const slides = [
+  "/images/looks/ironleaves-photography-bildlooks-slider-doris-cedrik-allee-muenchen.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-doris-cedrik-brautstrauss.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-doris-cedrik-sonnenuntergang.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-doris-cedrik-sunflare-sonnenuntergang.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-doris-cedrik-tanzen.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-natuerlich.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-portrait.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-shooting.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-tanz.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-wald-herbst.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-katha-johann-wald.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-detail.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-lensflare.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-sonnenuntergang.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-wald-lichtung.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-wald.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-waldweg.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-melli-marco-wiese.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-bank.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-braut.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-eskimokuss.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-natuerlich.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-wald.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-waldweg.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-valerie-max-wanderschuhe.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-verena-uwe-danke.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-verena-uwe-intim.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-verena-uwe-ringe.jpg",
+  "/images/looks/ironleaves-photography-bildlooks-slider-verena-uwe-schleier.jpg",
+]
 ---
 
 <Layout>
@@ -26,6 +61,14 @@ import LooksTips from "../../sections/looks/LooksTips.astro"
 
   <LooksHowTo />
 
+  <LooksWhyCustomLook />
+
+  <LooksIronleavesLook />
+
+  <IlSlider id="looks-slider" slides={slides} />
+
+  <LayoutSpacer />
+  
   <IconBase className="text-sunset w-full h-16 -translate-y-6">
     <IconArrow />
   </IconBase>

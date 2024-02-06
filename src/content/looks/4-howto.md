@@ -3,11 +3,6 @@ roofline: So geht's
 title: Eure Hochzeitsfotos in Eurem Bildlook
 ---
 
-Die Option zum individuellen Bildlook könnt ihr ganz einfach zubuchen. Nachdem ihr
-euren Tag in vollen Zügen genossen habt, schicke ich Euch mögliche Bildlooks für Eure
-Fotos zu. Ihr sucht Euch einfach Euren Favoriten aus, oder nehmt noch Feinjustierungen vor.
-Wenn ihr Eure Wahl getroffen habt, werde ich alle Bilder für Euch in diesem Bildlook
-bearbeiten.
+Ihr könnt die Option für einen individuellen Bildlook ganz einfach hinzubuchen. Nachdem ihr euren Tag in vollen Zügen genossen habt, sende ich euch mögliche Bildlooks für eure Fotos zu. Ihr wählt einfach euren Favoriten aus oder nehmt noch Feinjustierungen vor. Sobald ihr eure Wahl getroffen habt, werde ich alle Bilder entsprechend bearbeiten. 
 
-Achtung: Die optionale Wahl eines eigenen Bildlooks wirkt sich auf das Lieferungsdatum
-aus, da sich die Bearbeitungszeit um den Entscheidungszeitpunkt verschiebt.
+Bitte beachtet: Die optionale Auswahl eines eigenen Bildlooks wirkt sich auf das Lieferdatum aus, da sich die Bearbeitungszeit um den Zeitpunkt der Entscheidung verschiebt.

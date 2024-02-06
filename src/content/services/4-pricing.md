@@ -1,8 +1,9 @@
 ---
 roofline: Klartext
 title: Faire Preise für wertvolle Momente
+sectionImg: /images/services/ironleaves-photography-leistungen-fairer-stundenlohn.jpg
 ---
 
-Mir ist Transparenz sehr wichtig. Ich persönlich mag auch keine Dienstleister, die ich erst anschreiben muss, bevor sie mir einen Preis nennen. Viele Fotografen beharren auch erst auf ein Gespräch, bevor sie einen Preis nennen. Und ganz ehrlich? Das würde ich auch gerne, weil die Sympathie am Ende der entscheidende Faktor sein sollte!
+Mir ist Transparenz sehr wichtig. Ich schätze es auch, wenn Dienstleister von Anfang an klare Preise kommunizieren, ohne dass man sie erst kontaktieren muss. Viele Fotografen bestehen darauf, zunächst ein Gespräch zu führen, bevor sie einen Preis nennen. Und ehrlich gesagt? Das würde ich auch gerne so handhaben, denn die Sympathie sollte am Ende der entscheidende Faktor sein! 
 
-Ein gutes Miteinander basiert in erster Linie aber auf Kommunikation und Ehrlichkeit. Du bekommst mich für **260 Euro pro Stunde** (zzgl. Reise- bzw. Übernachtungskosten). Ihr könnt auch am selben tag noch entscheiden, ob ich etwas länger bleiben oder früher gehen soll. Ganz flexibel und ohne Gedöns.
+Eine gute Zusammenarbeit basiert jedoch in erster Linie auf transparente Kommunikation und Ehrlichkeit. Mein Stundensatz beträgt **250 Euro** (zzgl. Reise- und Übernachtungskosten). Ihr könnt am Shooting-Tag spontan noch entscheiden, ob ich länger bleiben oder früher gehen soll - ganz flexibel und unkompliziert.

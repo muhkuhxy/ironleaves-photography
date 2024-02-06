@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import AboutCv from "../../sections/about/AboutCv.astro"
-import AboutFaq from "../../sections/about/AboutFaq.astro"
 import IconBase from "../../components/svg/IconBase"
 import IconArrow from "../../components/svg/IconArrow"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
@@ -9,6 +8,14 @@ import ContactLink from "../../components/ContactLink.astro"
 import AboutIntro from "../../sections/about/AboutIntro.astro"
 import AboutMe from "../../sections/about/AboutMe.astro"
 import AboutStyle from "../../sections/about/AboutStyle.astro"
+import IlSlider from "../../components/IlSlider.astro"
+
+const slides = [
+  "/images/about/ironleaves-photography-ueber-mich-ehemann-hund.jpg",
+  "/images/about/ironleaves-photography-ueber-mich-fotografie-style.jpg",
+  "/images/about/ironleaves-photography-ueber-mich-header.jpg",
+  "/images/about/ironleaves-photography-ueber-mich-lebenslauf.jpg",
+]
 ---
 
 <Layout>
@@ -20,8 +27,10 @@ import AboutStyle from "../../sections/about/AboutStyle.astro"
 
   <AboutStyle />
 
-  <AboutFaq />
+  <IlSlider id="about-slider" slides={slides} />
 
+  <LayoutSpacer />
+  
   <IconBase className="text-sunset w-full h-16">
     <IconArrow />
   </IconBase>

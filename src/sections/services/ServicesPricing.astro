@@ -16,19 +16,9 @@ const { Content } = await document.render()
         <picture
           class="after:absolute after:inset-0 after:w-1/2 after:bg-gradient-to-r after:from-white"
         >
-          <source
-            media="(max-width: 767px)"
-            srcset="
-                /images/mobile/ironleaves-photography-blog-mobile.jpg
-              "
-          />
-          <source
-            media="(min-width: 768px)"
-            srcset="/images/desktop/ironleaves-photography-blog.jpg"
-          />
           <img
             class="w-full object-cover"
-            src="/images/desktop/ironleaves-photography-blog.jpg"
+            src={document.data.sectionImg}
             alt="Tamara und Timon"
           />
         </picture>

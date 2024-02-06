@@ -1,0 +1,37 @@
+---
+import { getEntryBySlug } from "astro:content"
+import LayoutSpacer from "../../components/LayoutSpacer.astro"
+import SectionContent from "../../components/SectionContent.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+
+const document = await getEntryBySlug("looks", "6-ironleaves-look")
+const { Content } = await document.render()
+---
+
+<section>
+  <SectionContent class="text-bluegray" fluffy={true}>
+    <div class="flex flex-col lg:flex-row items-center md:gap-8">
+      <figure class="relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16">
+        <picture>
+          <img
+            class="w-full object-cover"
+            src={document.data.sectionImg}
+            alt="Tamara und Timon"
+          />
+        </picture>
+      </figure>
+      <div
+        class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
+      >
+        <SectionHeader>
+          <span slot="roofline" set:html={document.data.roofline} />
+          <Fragment set:html={document.data.title} />
+        </SectionHeader>
+        <LayoutSpacer />
+        <div class="max-w-prose flex flex-col gap-y-4">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </SectionContent>
+</section>
