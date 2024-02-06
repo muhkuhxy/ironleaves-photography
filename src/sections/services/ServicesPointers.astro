@@ -18,7 +18,7 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
       </div>
 
       <div class="lg:col-start-2">
-        <ol class="list-decimal list-inside flex flex-col gap-12">
+        <ol class="list-decimal list-inside flex flex-col gap-24">
           {
             chapters.map(([title, ...chapter]) => (
               <li class="marker:text-sunset marker:playfair marker:font-bold">
