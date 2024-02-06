@@ -32,8 +32,12 @@
     font-weight: 300;
   }
 
-  strong {
+  b, strong {
     @apply font-bold;
+  }
+
+  ul:not([class]) {
+    @apply list-disc pl-6;
   }
 
   .playfair {
