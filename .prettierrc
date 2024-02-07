@@ -3,5 +3,14 @@
   "useTabs": false,
   "semi": false,
   "trailingComma": "all",
-  "singleQuote": false
+  "singleQuote": false,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

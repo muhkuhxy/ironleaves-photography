@@ -32,7 +32,8 @@
     font-weight: 300;
   }
 
-  b, strong {
+  b,
+  strong {
     @apply font-bold;
   }
 
