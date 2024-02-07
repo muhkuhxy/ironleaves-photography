@@ -10,7 +10,7 @@ type Props = {
 const { class: classes, slides, id } = Astro.props
 ---
 
-<div id={id} class="h-full relative">
+<div id={id} class="h-full pb-8 relative">
   <swiper-container
     class:list={["overflow-x-hidden w-full", classes]}
     autoplay-delay="5000"
@@ -39,4 +39,6 @@ const { class: classes, slides, id } = Astro.props
 <script>
   import { register } from "swiper/element/bundle"
   register()
+  // const slider = document.querySelector('[data-swiper]')
+  // console.log(slider.isEnd)
 </script>
