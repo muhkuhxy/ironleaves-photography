@@ -12,33 +12,33 @@ const { testimonial } = Astro.props
 ---
 
 <div
-  class="grid grid-rows-[auto,auto] lg:grid-rows-1 grid-cols-1 lg:grid-cols-2"
+  class="grid grid-cols-1 grid-rows-[auto,auto] lg:grid-cols-2 lg:grid-rows-1"
 >
   <img
-    class="object-cover w-full h-full lg:order-2"
+    class="h-full w-full object-cover lg:order-2"
     src={testimonial.image?.filename}
     alt={testimonial.image?.alt}
   />
   <SectionContent
-    class="bg-emerald text-white lg:order-1 flex flex-col justify-center w-full"
+    class="flex w-full flex-col justify-center bg-emerald text-white lg:order-1"
     fluid={true}
   >
     <h3 class="caption font-normal">Kundenstimme</h3>
     <LayoutSpacer />
     <div class="relative flex flex-nowrap justify-self-center">
-      <div class="relative self-end -ml-4 sm:ml-0 pr-4 sm:pr-6">
+      <div class="relative -ml-4 self-end pr-4 sm:ml-0 sm:pr-6">
         <div
-          class="relative caption text-[7rem] sm:text-[15rem] leading-[0] top-[-4.5rem] sm:-top-24 opacity-50"
+          class="caption relative top-[-4.5rem] text-[7rem] leading-[0] opacity-50 sm:-top-24 sm:text-[15rem]"
         >
           &bdquo;
         </div>
       </div>
       <div class="flex flex-col">
         <Fragment set:html={renderRichText(testimonial.text)} />
-        <div class="text-right mt-4">&ndash; {testimonial.name}</div>
+        <div class="mt-4 text-right">&ndash; {testimonial.name}</div>
       </div>
       <div
-        class="relative caption text-[7rem] sm:text-[15rem] sm:-ml-2 leading-[0] top-8 sm:top-14 opacity-50"
+        class="caption relative top-8 text-[7rem] leading-[0] opacity-50 sm:top-14 sm:-ml-2 sm:text-[15rem]"
       >
         &ldquo;
       </div>

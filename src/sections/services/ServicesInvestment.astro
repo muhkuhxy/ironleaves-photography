@@ -15,15 +15,15 @@ const document = await getEntryBySlug("services", "3-investment")
 const { Content } = await document.render()
 ---
 
-<section class="bg-emerald text-white relative overflow-y-hidden">
+<section class="relative overflow-y-hidden bg-emerald text-white">
   <div
-    class="relative lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:right-0"
+    class="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[50%] 2xl:w-[40%]"
   >
     <IlFigure class="slide-up lg:h-full lg:w-full" data-delay="0.3">
       <picture>
         <img
           data-animation="parallax"
-          class="object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
+          class="max-h-[75vh] w-full translate-y-[-10%] scale-[1.23] object-cover lg:h-full lg:max-h-full"
           src={document.data.sectionImg}
           alt="Pärchenshooting"
         />
@@ -31,29 +31,29 @@ const { Content } = await document.render()
       <IlGradient
         direction="disabled"
         halfHeight={true}
-        class="bg-gradient-to-t lg:bg-gradient-to-br lg:top-0 lg:opacity-25 translate-y-2 lg:translate-y-0"
+        class="translate-y-2 bg-gradient-to-t lg:top-0 lg:translate-y-0 lg:bg-gradient-to-br lg:opacity-25"
       />
     </IlFigure>
     <IlFigureCaption
-      class="lg:text-right lg:left-0 lg:top-0 lg:pt-12 lg:px-0 lg:ml-[-40%] z-20"
+      class="z-20 lg:left-0 lg:top-0 lg:ml-[-40%] lg:px-0 lg:pt-12 lg:text-right"
     >
       <div>
         Invest in beautiful<br />memories
       </div>
     </IlFigureCaption>
   </div>
-  <SectionLines class="xl:block z-10" data-delay="1" data-y="0">
+  <SectionLines class="z-10 xl:block" data-delay="1" data-y="0">
     <SvgHeroLine1
-      class="absolute text-white opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] mt-[-0.5rem] ml-[37%] 2xl:ml-[50%]"
+      class="absolute ml-[37%] mt-[-0.5rem] h-[calc(100%+2rem)] fill-none stroke-current stroke-2 text-white opacity-25 2xl:ml-[50%]"
     />
     <SvgHeroLine2
-      class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full ml-[49%] 2xl:ml-[55%]"
+      class="absolute ml-[49%] h-full fill-none stroke-current stroke-2 text-sunset opacity-75 2xl:ml-[55%]"
     />
   </SectionLines>
   <SectionContent class="relative z-10">
-    <div class="lg:py-32 lg:mr-[55%] 2xl:mr-[45%]">
+    <div class="lg:mr-[55%] lg:py-32 2xl:mr-[45%]">
       <SvgSingleGrass
-        class="relative lg:absolute w-[39%] sm:w-[30%] lg:w-[18%] float-right mt-[-25%] md:mr-6 2xl:mr-[28%] mb-4 lg:-mb-2 lg:ml-[45%] 2xl:ml-[55%] text-white fill-current lg:bottom-0 lg:left-0 z-10"
+        class="relative z-10 float-right mb-4 mt-[-25%] w-[39%] fill-current text-white sm:w-[30%] md:mr-6 lg:absolute lg:bottom-0 lg:left-0 lg:-mb-2 lg:ml-[45%] lg:w-[18%] 2xl:ml-[55%] 2xl:mr-[28%]"
       />
       <div>
         <SectionHeader>

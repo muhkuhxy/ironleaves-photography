@@ -10,7 +10,7 @@ const { class: classes, btnClass } = Astro.props
 <div x-data="TextExpander" class:list={["flex flex-col gap-4", classes]}>
   <div
     x-effect="showMore || gtSm ? show() : hide()"
-    class="max-w-prose overflow-y-hidden flex flex-col gap-4"
+    class="flex max-w-prose flex-col gap-4 overflow-y-hidden"
     x-ref="grower"
   >
     <slot />

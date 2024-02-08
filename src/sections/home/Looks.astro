@@ -13,10 +13,10 @@ import SvgThreeStraws from "../../components/svg/SvgThreeStraws.astro"
 <section
   id="looks"
   data-scroll-target
-  class="bg-emerald text-white lg:relative overflow-y-hidden"
+  class="overflow-y-hidden bg-emerald text-white lg:relative"
 >
   <IlFigure
-    class="lg:absolute lg:w-[50%] 2xl:w-[40%] lg:inset-y-0 lg:left-0"
+    class="lg:absolute lg:inset-y-0 lg:left-0 lg:w-[50%] 2xl:w-[40%]"
     animation={{ name: "slide-up", delay: 0.3 }}
   >
     <picture>
@@ -30,7 +30,7 @@ import SvgThreeStraws from "../../components/svg/SvgThreeStraws.astro"
       />
       <img
         data-animation="parallax"
-        class="object-cover w-full max-h-[75vh] lg:max-h-full lg:h-full translate-y-[-10%] scale-[1.23]"
+        class="max-h-[75vh] w-full translate-y-[-10%] scale-[1.23] object-cover lg:h-full lg:max-h-full"
         alt="Paarshooting im Freien"
       />
     </picture>
@@ -38,20 +38,20 @@ import SvgThreeStraws from "../../components/svg/SvgThreeStraws.astro"
   </IlFigure>
   <SectionLines animation={{ name: "slide-up", y: 0 }} class="max-xl:hidden">
     <SvgHeroLine2
-      class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-full 2xl:h-[124%] 2xl:top-[-16%] ml-[42%] 2xl:ml-[31%] 2xl:rotate-[24deg]"
+      class="absolute ml-[42%] h-full fill-none stroke-current stroke-2 text-sunset opacity-75 2xl:top-[-16%] 2xl:ml-[31%] 2xl:h-[124%] 2xl:rotate-[24deg]"
     />
   </SectionLines>
   <SectionContent>
     <SvgThreeStraws
-      class="fill-current float-right lg:float-none w-[28%] md:w-1/4 lg:w-auto lg:h-[60%] relative lg:absolute right-0 lg:bottom-0 lg:right-0 -mt-48 md:-mt-56 lg:mt-0 -mr-6 lg:mr-[45%] 2xl:mr-[55%] mb-8 lg:-mb-4 ml-4 lg:pr-8"
+      class="relative right-0 float-right -mr-6 -mt-48 mb-8 ml-4 w-[28%] fill-current md:-mt-56 md:w-1/4 lg:absolute lg:bottom-0 lg:right-0 lg:float-none lg:-mb-4 lg:mr-[45%] lg:mt-0 lg:h-[60%] lg:w-auto lg:pr-8 2xl:mr-[55%]"
     />
-    <div data-animation="slide-up" class="lg:py-24 lg:ml-[55%] 2xl:ml-[45%]">
+    <div data-animation="slide-up" class="lg:ml-[55%] lg:py-24 2xl:ml-[45%]">
       <SectionHeader>
         <span slot="roofline">Bildlooks</span>
         Die Welt ist bunt &ndash; und ihr seid es auch!
       </SectionHeader>
       <LayoutSpacer />
-      <p class="max-w-prose mb-4">
+      <p class="mb-4 max-w-prose">
         Optional könnt ihr die Bildbearbeitung und die Anmutung Eurer Fotos
         mitbestimmen.
       </p>

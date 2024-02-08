@@ -24,7 +24,7 @@ Bei der Hochzeitsreportage begleite ich Euch den ganzen Tag. Also vom Einkleiden
 
 ## After-Wedding-Shooting
 
-Ihr bekommt nicht genug von Euren tollen Outfits? Alles ist am Hochzeitstag schief gelaufen und ihr wollt die Hochzeitsfotos mit schönen Erinnerungen verknüpfen? Das aufwendige Brautkleid muss unbedingt im Sonnenuntergang an Eurem Lieblingsort in Szene gesetzt werden? An Eurem großen Tag hat es den ganzen Tag nur geregnet? Ihr wollt Euren Hochzeitstag auch Jahre danach nochmal erleben? Ihr findet Trash-the-Dress-Bilder richtig cool? 
+Ihr bekommt nicht genug von Euren tollen Outfits? Alles ist am Hochzeitstag schief gelaufen und ihr wollt die Hochzeitsfotos mit schönen Erinnerungen verknüpfen? Das aufwendige Brautkleid muss unbedingt im Sonnenuntergang an Eurem Lieblingsort in Szene gesetzt werden? An Eurem großen Tag hat es den ganzen Tag nur geregnet? Ihr wollt Euren Hochzeitstag auch Jahre danach nochmal erleben? Ihr findet Trash-the-Dress-Bilder richtig cool?
 
 Es gibt viele Gründe für ein After-Wedding-Shooting. Immer her mit Euren Ideen – Wir machen uns einfach eine lustige Zeit!
 
@@ -34,6 +34,6 @@ Ihr denkt Euch jetzt: “Bla bla bla – Hochzeit. Aber was ist mit Fotos für e
 
 ## Ganz was anderes?
 
-Natürlich bin ich nicht nur in der Welt der Hochzeitsfotos zuhause. Wollt ihr ein ganz anderes Shooting machen? Oder habt ihr zu einem Paket eine kreative Idee? Oder wollt ihr ein Schwangerschaftsshooting mit Eurem Hund machen? Oder ein Bierbauch-Shooting? Oder - oder - oder? 
+Natürlich bin ich nicht nur in der Welt der Hochzeitsfotos zuhause. Wollt ihr ein ganz anderes Shooting machen? Oder habt ihr zu einem Paket eine kreative Idee? Oder wollt ihr ein Schwangerschaftsshooting mit Eurem Hund machen? Oder ein Bierbauch-Shooting? Oder - oder - oder?
 
 Quatscht mich in jedem Fall gerne an. Gemeinsam schauen wir, ob ich Eure Idee umsetzen kann. :)

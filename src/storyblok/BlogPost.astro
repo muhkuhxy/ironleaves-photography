@@ -30,14 +30,14 @@ const newestStories = await useLatestStories(id)
   <IlStory slides={slides?.map((slide) => slide.filename)} chapters={chapters}>
     <div
       slot="image"
-      class="relative w-[95%] lg:w-1/2 self-start lg:self-center flex-initial"
+      class="relative w-[95%] flex-initial self-start lg:w-1/2 lg:self-center"
     >
       <img
         class="w-7/8 border-8 border-solid border-white drop-shadow"
         src={image?.filename}
       />
       <SvgSingleBranch
-        class="w-1/4 text-emerald fill-current absolute right-0 bottom-0 -translate-x-1 translate-y-4"
+        class="absolute bottom-0 right-0 w-1/4 -translate-x-1 translate-y-4 fill-current text-emerald"
       />
     </div>
 
@@ -47,7 +47,7 @@ const newestStories = await useLatestStories(id)
     </SectionHeader>
 
     <div
-      class="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose"
+      class="flex max-w-prose flex-col items-center gap-4 text-center lg:items-start lg:text-left"
       slot="content"
     >
       <Fragment set:html={renderRichText(teaser)} />
@@ -56,7 +56,7 @@ const newestStories = await useLatestStories(id)
 
   {testimonial?.length && <IlTestimonial testimonial={testimonial[0]} />}
 
-  <IconBase className="text-sunset w-full h-16 mt-8">
+  <IconBase className="mt-8 h-16 w-full text-sunset">
     <IconArrow />
   </IconBase>
 
@@ -67,7 +67,7 @@ const newestStories = await useLatestStories(id)
       <LayoutSpacer />
 
       <a href="/stories">
-        <ButtonEffect class="text-sunset w-[fit-content] mx-auto">
+        <ButtonEffect class="mx-auto w-[fit-content] text-sunset">
           Hier gibt's alle Beiträge
         </ButtonEffect>
       </a>
@@ -75,7 +75,7 @@ const newestStories = await useLatestStories(id)
       <LayoutSpacer ms={4} />
 
       <IconBase
-        className="text-sunset w-full h-16 mt-8 absolute bottom-0 -mb-10"
+        className="absolute bottom-0 -mb-10 mt-8 h-16 w-full text-sunset"
       >
         <IconArrow />
       </IconBase>

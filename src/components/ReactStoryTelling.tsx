@@ -58,20 +58,20 @@ export default function ({ className, chapters, scroller }: Props) {
   }, [])
 
   return (
-    <SectionContent className={cls(className, "flex gap-x-8 relative py-32")}>
-      <div className="sticky nojs:!hidden hidden lg:flex flex-col gap-1 h-[100vh] top-0 left-0 justify-center items-center">
+    <SectionContent className={cls(className, "relative flex gap-x-8 py-32")}>
+      <div className="sticky left-0 top-0 hidden h-[100vh] flex-col items-center justify-center gap-1 nojs:!hidden lg:flex">
         {chapters?.map((chapter, index) => (
           <div
             key={`chapter-dot-${index}`}
             className={cls(
-              chaptersActive[index] ? "scale-[1.2] my-1" : "scale-[0.65]",
-              "rounded-[50%] border-4 border-bluegray transition-all duration-[.75s] cursor-pointer opacity-75",
+              chaptersActive[index] ? "my-1 scale-[1.2]" : "scale-[0.65]",
+              "cursor-pointer rounded-[50%] border-4 border-bluegray opacity-75 transition-all duration-[.75s]",
             )}
           />
         ))}
       </div>
       <div
-        className="sticky nojs:!hidden max-lg:hidden w-[60%] mr-8 h-[100vh] top-0"
+        className="sticky top-0 mr-8 h-[100vh] w-[60%] nojs:!hidden max-lg:hidden"
         ref={imgParent}
       >
         {chapters?.map((chapter, index) => {
@@ -81,7 +81,7 @@ export default function ({ className, chapters, scroller }: Props) {
               data-chapter-img
               className={cls(
                 chaptersActive[index] ? "" : "opacity-0",
-                "absolute max-w-full max-h-[75vh] object-contain left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] duration-700 ease-in-out",
+                "absolute left-[50%] top-[50%] max-h-[75vh] max-w-full translate-x-[-50%] translate-y-[-50%] object-contain duration-700 ease-in-out",
               )}
               key={`chapter-img-${index}`}
             />
@@ -89,24 +89,24 @@ export default function ({ className, chapters, scroller }: Props) {
         })}
       </div>
       <div
-        className="flex flex-col gap-y-32 lg:gap-y-0 mx-auto"
+        className="mx-auto flex flex-col gap-y-32 lg:gap-y-0"
         ref={contentParent}
       >
         {chapters?.map((chapter, index) => (
           <div
             data-chapter-trigger
-            className="flex flex-col lg:flex-row gap-y-4 gap-x-16 items-center lg:min-h-[100vh]"
+            className="flex flex-col items-center gap-x-16 gap-y-4 lg:min-h-[100vh] lg:flex-row"
             key={`chapter-content-${index}`}
             {...storyblokEditable(chapter)}
           >
-            <div className="lg:hidden nojs:lg:flex lg:w-[60%] lg:min-h-[100vh] lg:items-center lg:justify-center">
+            <div className="lg:hidden lg:min-h-[100vh] lg:w-[60%] lg:items-center lg:justify-center nojs:lg:flex">
               <img
                 src={chapter.image?.filename}
-                className="max-h-[50vh] lg:max-h-[75vh] max-w-[100%] object-contain"
+                className="max-h-[50vh] max-w-[100%] object-contain lg:max-h-[75vh]"
               />
             </div>
             <div
-              className="flex flex-col gap-4 items-center lg:items-start text-center lg:text-left max-w-prose nojs:lg:max-w-[39%] [&>h2]:leading-none [&>h2]:mt-4"
+              className="flex max-w-prose flex-col items-center gap-4 text-center lg:items-start lg:text-left nojs:lg:max-w-[39%] [&>h2]:mt-4 [&>h2]:leading-none"
               data-chapter-content
               dangerouslySetInnerHTML={{
                 __html: `<h2>${chapter.title}</h2>${chapter.content}`,

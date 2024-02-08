@@ -10,9 +10,9 @@ type Props = {
 const { class: classes, slides, id } = Astro.props
 ---
 
-<div id={id} class="h-full pb-8 relative">
+<div id={id} class="relative h-full pb-8">
   <swiper-container
-    class:list={["overflow-x-hidden w-full", classes]}
+    class:list={["w-full overflow-x-hidden", classes]}
     autoplay-delay="5000"
     loop="true"
     loop-additional-slides="5"
@@ -26,8 +26,8 @@ const { class: classes, slides, id } = Astro.props
   >
     {
       slides.map((url) => (
-        <swiper-slide class="!w-auto flex items-center max-w-[90%]">
-          <img class="object-cover h-full" src={url} />
+        <swiper-slide class="flex !w-auto max-w-[90%] items-center">
+          <img class="h-full object-cover" src={url} />
         </swiper-slide>
       ))
     }

@@ -13,7 +13,7 @@ import SectionHeader from "../../components/SectionHeader.astro"
 import ButtonEffect from "../../components/ButtonEffect.astro"
 ---
 
-<section id="passion" data-scroll-target class="bg-emerald text-white relative">
+<section id="passion" data-scroll-target class="relative bg-emerald text-white">
   <IlFigure class="shadow-lg">
     <picture>
       <source
@@ -26,7 +26,7 @@ import ButtonEffect from "../../components/ButtonEffect.astro"
       />
       <img
         x-data="HeroParallax"
-        class="object-cover w-full max-h-[75vh] scale-[1.2] translate-y-[-10%] md:translate-y-0"
+        class="max-h-[75vh] w-full translate-y-[-10%] scale-[1.2] object-cover md:translate-y-0"
         data-start="top center"
         src="/images/desktop/ironleaves-photography-valerie-max-heroshot.jpg"
         alt="Hochzeitsshooting im Wald"
@@ -40,13 +40,13 @@ import ButtonEffect from "../../components/ButtonEffect.astro"
   <div class="relative">
     <SectionLines class="sm:block">
       <SvgHeroLine2
-        class="absolute text-sunset opacity-75 stroke-current stroke-2 fill-none h-[110%] md:h-full right-0 mr-[23%] md:mr-[34%] rotate-[-20deg] md:rotate-0"
+        class="absolute right-0 mr-[23%] h-[110%] rotate-[-20deg] fill-none stroke-current stroke-2 text-sunset opacity-75 md:mr-[34%] md:h-full md:rotate-0"
       />
       <SvgHeroLine1
-        class="absolute hidden md:block opacity-25 stroke-current stroke-2 fill-none h-[calc(100%+2rem)] right-0 top-[-0.5rem] mr-[11%]"
+        class="absolute right-0 top-[-0.5rem] mr-[11%] hidden h-[calc(100%+2rem)] fill-none stroke-current stroke-2 opacity-25 md:block"
       />
       <SvgHeroLine3
-        class="absolute hidden lg:block opacity-50 stroke-current stroke-2 fill-none h-full right-0 mr-[1%]"
+        class="absolute right-0 mr-[1%] hidden h-full fill-none stroke-current stroke-2 opacity-50 lg:block"
       />
     </SectionLines>
     <SectionContent class="relative">

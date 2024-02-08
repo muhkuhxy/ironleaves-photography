@@ -17,7 +17,7 @@ const chapters = await compileAndSplitChapters(document.body)
     </SectionHeader>
     <LayoutSpacer />
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-20">
+    <div class="grid grid-cols-1 gap-x-20 gap-y-8 lg:grid-cols-2">
       {chapters.map((chapter) => <div class="space-y-4">{chapter}</div>)}
     </div>
   </SectionContent>

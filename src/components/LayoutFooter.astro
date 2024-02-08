@@ -5,7 +5,7 @@ import LayoutSpacer from "./LayoutSpacer.astro"
 const year = new Date().getFullYear()
 ---
 
-<footer class="text-bluegray pt-8 relative bg-dust">
+<footer class="relative bg-dust pt-8 text-bluegray">
   <LayoutContainer>
     <div x-cloak x-show="true" x-data="Curator">
       <LayoutSpacer />
@@ -15,19 +15,19 @@ const year = new Date().getFullYear()
         <a
           href="https://curator.io"
           target="_blank"
-          class="text-bluegray text-sm crt-logo crt-tag"
+          class="crt-logo crt-tag text-sm text-bluegray"
         >
           Powered by Curator.io
         </a>
       </div>
       <LayoutSpacer />
-      <hr class="md:hidden mb-8" />
+      <hr class="mb-8 md:hidden" />
     </div>
     <div
-      class="grid grid-cols-3 lg:grid-cols-[2fr,1fr,1fr,1fr] lg:grid-rows-[(repeat(3,auto))] gap-x-4 gap-y-1 auto-rows-auto grid-flow-col text-center"
+      class="grid grid-flow-col auto-rows-auto grid-cols-3 gap-x-4 gap-y-1 text-center lg:grid-cols-[2fr,1fr,1fr,1fr] lg:grid-rows-[(repeat(3,auto))]"
     >
       <div
-        class="row-start-4 lg:row-start-1 lg:row-span-3 col-start-1 col-span-3 lg:col-span-1 self-end text-center mt-2 lg:mt-0 lg:text-left"
+        class="col-span-3 col-start-1 row-start-4 mt-2 self-end text-center lg:col-span-1 lg:row-span-3 lg:row-start-1 lg:mt-0 lg:text-left"
       >
         &copy; Tamara Loeffen &ndash; Ironleaves Photography {year}
       </div>
@@ -54,7 +54,7 @@ const year = new Date().getFullYear()
   <a
     href="https://ironleaves-design.com"
     target="_blank"
-    class="mt-4 py-2 block underline text-center bg-bluegray text-white"
+    class="mt-4 block bg-bluegray py-2 text-center text-white underline"
   >
     Designed by Ironleaves Design
   </a>

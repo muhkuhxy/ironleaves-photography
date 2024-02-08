@@ -14,7 +14,7 @@ const { id, class: classes, side } = Astro.props
 
 <div
   class:list={[
-    "absolute mb-8 bottom-0 top-0 flex items-end z-20",
+    "absolute bottom-0 top-0 z-20 mb-8 flex items-end",
     classes,
     side === "left" ? "left-0" : "right-0",
   ]}
@@ -26,12 +26,12 @@ const { id, class: classes, side } = Astro.props
   <button
     id={id}
     class:list={[
-      `cursor-pointer mb-2 text-white`,
-      side === "left" ? "ml-4 md:ml-8 mr-4" : "mr-4 md:mr-8 ml-4",
+      `mb-2 cursor-pointer text-white`,
+      side === "left" ? "ml-4 mr-4 md:ml-8" : "ml-4 mr-4 md:mr-8",
     ]}
   >
     <IconBase
-      className={`text-white w-10 lg:w-16 ${
+      className={`w-10 text-white lg:w-16 ${
         side === "left" ? "rotate-90" : "-rotate-90"
       }`}
     >

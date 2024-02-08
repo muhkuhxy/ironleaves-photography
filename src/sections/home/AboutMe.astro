@@ -9,16 +9,16 @@ import IconBase from "../../components/svg/IconBase"
 import SvgFlowerGrass from "../../components/svg/SvgFlowerGrass.astro"
 ---
 
-<section id="about-me" class="text-bluegray relative" data-scroll-target>
-  <IconBase className="text-sunset w-full h-16 -translate-y-4">
+<section id="about-me" class="relative text-bluegray" data-scroll-target>
+  <IconBase className="h-16 w-full -translate-y-4 text-sunset">
     <IconArrow />
   </IconBase>
   <SectionContent
     animation="slide-up"
-    class="flex flex-col lg:flex-row items-center md:gap-y-8"
+    class="flex flex-col items-center md:gap-y-8 lg:flex-row"
   >
     <figure
-      class="relative w-2/3 sm:w-1/2 mb-12 pr-8 lg:pr-16"
+      class="relative mb-12 w-2/3 pr-8 sm:w-1/2 lg:pr-16"
       data-animation="slide-up"
     >
       <picture>
@@ -28,19 +28,19 @@ import SvgFlowerGrass from "../../components/svg/SvgFlowerGrass.astro"
         />
       </picture>
       <SvgFlowerGrass
-        class="text-sunset fill-current w-[45%] lg:w-[40%] absolute bottom-0 right-0 mr-[max(-2.5rem,-8%)] sm:mr-[-11%] lg:mr-0 -mb-8 md:-mb-12"
+        class="absolute bottom-0 right-0 -mb-8 mr-[max(-2.5rem,-8%)] w-[45%] fill-current text-sunset sm:mr-[-11%] md:-mb-12 lg:mr-0 lg:w-[40%]"
       />
     </figure>
     <div
       data-animation="slide-up"
-      class="lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
+      class="max-w-prose text-center lg:w-1/2 lg:max-w-[none] lg:flex-initial lg:text-left"
     >
       <SectionHeader>
         <span slot="roofline">Über mich</span>
         Hoch&shy;zeits&shy;foto&shy;grafin&nbsp;&amp; Gestalterin
       </SectionHeader>
       <LayoutSpacer />
-      <div class="lg:pl-8 xl:lp-16 flex flex-col gap-4">
+      <div class="xl:lp-16 flex flex-col gap-4 lg:pl-8">
         <p>
           Ich heiße Tamara und freue mich jetzt schon sehr darauf, euch
           kennenzulernen!
@@ -72,14 +72,14 @@ import SvgFlowerGrass from "../../components/svg/SvgFlowerGrass.astro"
           </p>
         </IlTextExpander>
         <LayoutSpacer />
-        <ButtonEffect class="text-sunset mx-auto lg:mx-0" href="#contact">
+        <ButtonEffect class="mx-auto text-sunset lg:mx-0" href="#contact">
           Schreibt mich gerne an!
         </ButtonEffect>
       </div>
     </div>
   </SectionContent>
   <LayoutSpacer />
-  <IconBase className="text-sunset w-full h-16 absolute bottom-0 -mb-4 z-10">
+  <IconBase className="absolute bottom-0 z-10 -mb-4 h-16 w-full text-sunset">
     <IconArrow />
   </IconBase>
 </section>

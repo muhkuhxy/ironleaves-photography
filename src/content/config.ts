@@ -4,7 +4,7 @@ const aboutSchema = z.object({
   title: z.string(),
   roofline: z.string(),
   heroImg: z.optional(z.string()),
-  sectionImg: z.optional(z.string())
+  sectionImg: z.optional(z.string()),
 })
 
 export type AboutFrontmatter = z.infer<typeof aboutSchema>

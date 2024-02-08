@@ -14,12 +14,12 @@ type Props = {
 const { slides, chapters } = Astro.props
 ---
 
-<div class="text-bluegray pb-6">
+<div class="pb-6 text-bluegray">
   <div class="bg-dust">
-    <SectionContent class="flex flex-col lg:flex-row items-center gap-8">
+    <SectionContent class="flex flex-col items-center gap-8 lg:flex-row">
       <slot name="image" />
       <div
-        class="lg:w-1/2 flex-initial text-center lg:text-left flex flex-col gap-4 max-w-prose mx-auto lg:mx-0"
+        class="mx-auto flex max-w-prose flex-initial flex-col gap-4 text-center lg:mx-0 lg:w-1/2 lg:text-left"
       >
         <slot name="title" />
         <slot name="content" />

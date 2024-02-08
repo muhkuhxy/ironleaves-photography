@@ -54,28 +54,28 @@ function Lightbox({
 
   return (
     <div
-      className="z-50 fixed inset-0 grid place-content-center backdrop-opacity-10 bg-black/50 grid-cols-[fit-content(90%)] transition-all"
+      className="fixed inset-0 z-50 grid grid-cols-[fit-content(90%)] place-content-center bg-black/50 backdrop-opacity-10 transition-all"
       style={{ opacity }}
     >
       <div
         ref={ref}
-        className="p-4 md:p-8 mx-auto bg-gray-100 relative h-full flex flex-col gap-2"
+        className="relative mx-auto flex h-full flex-col gap-2 bg-gray-100 p-4 md:p-8"
       >
         <div
-          className="self-end cursor-pointer p-0.5 border-2 border-sunset text-sunset hover:bg-sunset hover:text-white transition-all"
+          className="cursor-pointer self-end border-2 border-sunset p-0.5 text-sunset transition-all hover:bg-sunset hover:text-white"
           onClick={hide}
         >
           <SvgClose className="w-4" />
         </div>
-        <img className="object-contain max-h-[calc(100vh-12rem)]" src={img} />
-        <div className="self-center flex gap-12">
+        <img className="max-h-[calc(100vh-12rem)] object-contain" src={img} />
+        <div className="flex gap-12 self-center">
           <div onClick={() => navigate(-1)}>
-            <IconBase className="text-sunset w-8 rotate-90 cursor-pointer">
+            <IconBase className="w-8 rotate-90 cursor-pointer text-sunset">
               <IconArrow></IconArrow>
             </IconBase>
           </div>
           <div onClick={() => navigate(1)}>
-            <IconBase className="text-sunset w-8 -rotate-90 cursor-pointer">
+            <IconBase className="w-8 -rotate-90 cursor-pointer text-sunset">
               <IconArrow></IconArrow>
             </IconBase>
           </div>

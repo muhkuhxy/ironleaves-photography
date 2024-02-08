@@ -6,7 +6,7 @@ import LayoutNavBar from "../components/LayoutNavBar.astro"
 import "./main.css"
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@ import "./main.css"
   </head>
   <body>
     <div
-      class="min-h-screen flex flex-col"
+      class="flex min-h-screen flex-col"
       data-layout
       x-data="App"
       x-bind:class="'js'"
@@ -30,7 +30,7 @@ import "./main.css"
       </main>
       <LayoutFooter />
       <ButtonArrow
-        class="fixed bottom-[1rem] right-[1rem] bg-white text-sunset opacity-90 w-10 md:w-12 h-10 md:h-12 p-[0.35rem] shadow-lg border border-sunset border-opacity-50 z-50"
+        class="fixed bottom-[1rem] right-[1rem] z-50 h-10 w-10 border border-sunset border-opacity-50 bg-white p-[0.35rem] text-sunset opacity-90 shadow-lg md:h-12 md:w-12"
         title="Back to top"
         href="#"
       />

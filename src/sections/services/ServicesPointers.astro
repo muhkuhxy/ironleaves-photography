@@ -8,22 +8,22 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
 ---
 
 <section>
-  <SectionContent fluffy={true} class="text-emerald text-center">
+  <SectionContent fluffy={true} class="text-center text-emerald">
     <div
-      class="grid grid-cols-1 lg:grid-cols-[28rem,auto] gap-16 justify-center max-w-prose lg:max-w-none mx-auto text-center lg:text-left"
+      class="mx-auto grid max-w-prose grid-cols-1 justify-center gap-16 text-center lg:max-w-none lg:grid-cols-[28rem,auto] lg:text-left"
     >
-      <div class="col-start-1 self-start lg:sticky top-20">
+      <div class="top-20 col-start-1 self-start lg:sticky">
         <h2 class="mb-8 leading-[1.1]" set:html={document.data.title} />
         {excerpt}
       </div>
 
       <div class="lg:col-start-2">
-        <ol class="list-decimal list-inside flex flex-col gap-24">
+        <ol class="flex list-inside list-decimal flex-col gap-24">
           {
             chapters.map(([title, ...chapter]) => (
-              <li class="marker:text-sunset marker:playfair marker:font-bold">
+              <li class="marker:playfair marker:font-bold marker:text-sunset">
                 <span
-                  class="text-sunset playfair font-bold"
+                  class="playfair font-bold text-sunset"
                   set:html={title.textContent}
                 />
                 <br />

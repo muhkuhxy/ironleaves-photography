@@ -12,14 +12,14 @@ import { stories } from "../../lib/slides"
 ---
 
 <section id="stories" data-scroll-target>
-  <IconBase className="text-sunset w-full h-16 mt-8">
+  <IconBase className="mt-8 h-16 w-full text-sunset">
     <IconArrow />
   </IconBase>
   <LayoutSpacer />
 
   <SectionContent class="text-bluegray">
-    <div class="flex flex-col lg:flex-row items-center md:gap-8">
-      <figure class="lg:order-2 relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16">
+    <div class="flex flex-col items-center md:gap-8 lg:flex-row">
+      <figure class="relative mb-12 w-full pl-8 sm:w-2/3 lg:order-2 lg:pl-16">
         <picture
           class="after:absolute after:inset-0 after:w-1/2 after:bg-gradient-to-r after:from-white"
         >
@@ -38,11 +38,11 @@ import { stories } from "../../lib/slides"
           />
         </picture>
         <SvgPetalFlower
-          class="text-emerald fill-current w-[min(30%,7rem)] xl:w-32 absolute bottom-0 left-0 -mb-8 sm:-mb-12 lg:ml-6 rotate-[-20deg]"
+          class="absolute bottom-0 left-0 -mb-8 w-[min(30%,7rem)] rotate-[-20deg] fill-current text-emerald sm:-mb-12 lg:ml-6 xl:w-32"
         />
       </figure>
       <div
-        class="lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
+        class="max-w-prose text-center lg:order-1 lg:w-1/2 lg:max-w-[none] lg:flex-initial lg:text-left"
       >
         <SectionHeader>
           <span slot="roofline">Stories</span>
@@ -63,7 +63,7 @@ import { stories } from "../../lib/slides"
   <div class="bg-emerald text-white">
     <SectionContent>
       <div
-        class="mx-auto max-w-[40ch] sm:max-w-[50ch] lg:max-w-[54ch] text-center"
+        class="mx-auto max-w-[40ch] text-center sm:max-w-[50ch] lg:max-w-[54ch]"
       >
         <h2>Hochzeitsstories, Tipps und Tricks und viel mehr!</h2>
       </div>
@@ -75,7 +75,7 @@ import { stories } from "../../lib/slides"
         Euren Hochzeitsfotografen beachten müsst.
       </p>
       <LayoutSpacer />
-      <a href="/stories" class="block w-fit mx-auto">
+      <a href="/stories" class="mx-auto block w-fit">
         <ButtonEffect>Alle Beiträge sehen</ButtonEffect>
       </a>
     </SectionContent>
@@ -86,7 +86,7 @@ import { stories } from "../../lib/slides"
     <ReactLightbox client:only="react" id="stories" slides={stories} />
   </div>
 
-  <IconBase className="text-sunset w-full h-16 mt-8 mb-12">
+  <IconBase className="mb-12 mt-8 h-16 w-full text-sunset">
     <IconArrow />
   </IconBase>
 </section>

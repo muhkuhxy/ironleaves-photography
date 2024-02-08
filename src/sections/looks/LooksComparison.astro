@@ -18,21 +18,21 @@ const cssClasses: Record<number, string[]> = {
 }
 ---
 
-<section class="2xl:py-[min(15vh,10rem)] text-bluegray mt-24 md:mt-40 px-16">
+<section class="mt-24 px-16 text-bluegray md:mt-40 2xl:py-[min(15vh,10rem)]">
   <div
-    class="grid grid-rows-[4fr,1fr] grid-cols-4 justify-between gap-2 sm:block relative sm:h-[50vh] lg:h-[85vh] sm:aspect-[3/1.4] mx-auto max-w-full"
+    class="relative mx-auto grid max-w-full grid-cols-4 grid-rows-[4fr,1fr] justify-between gap-2 sm:block sm:aspect-[3/1.4] sm:h-[50vh] lg:h-[85vh]"
   >
     {
       (document.data.imgs ?? []).map((img, index) => (
         <div
           class:list={[
             cssClasses[index],
-            "sm:absolute inset-0 inline-block w-full sm:w-[50%] h-full m-auto",
+            "inset-0 m-auto inline-block h-full w-full sm:absolute sm:w-[50%]",
           ]}
         >
           <div class="h-full origin-center">
             <img
-              class="w-full h-full object-cover sm:object-contain aspect-square sm:aspect-[1/3]"
+              class="aspect-square h-full w-full object-cover sm:aspect-[1/3] sm:object-contain"
               src={img}
             />
           </div>
@@ -41,7 +41,7 @@ const cssClasses: Record<number, string[]> = {
     }
   </div>
 
-  <div class="max-w-prose mx-auto mt-[6rem] md:mt-[10rem]">
+  <div class="mx-auto mt-[6rem] max-w-prose md:mt-[10rem]">
     <SectionHeader class="text-center" set:html={document.data.title} />
 
     <LayoutSpacer />

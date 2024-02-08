@@ -79,7 +79,10 @@ export const tags: { label: string; tag: Tag }[] = [
   { label: "Tipps & Tricks", tag: "tipps" },
 ]
 
-export const labels = tags.reduce((result, { tag, label }) => {
-  result[tag] = label
-  return result
-}, {} as Record<string, string>)
+export const labels = tags.reduce(
+  (result, { tag, label }) => {
+    result[tag] = label
+    return result
+  },
+  {} as Record<string, string>,
+)

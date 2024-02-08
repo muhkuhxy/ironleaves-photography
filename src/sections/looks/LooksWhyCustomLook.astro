@@ -10,24 +10,21 @@ const { Content } = await document.render()
 
 <section>
   <SectionContent class="text-bluegray" fluffy={true}>
-    <div class="flex flex-col lg:flex-row items-center md:gap-8">
-      <figure class="lg:order-2 relative w-full sm:w-2/3 mb-12 pl-8 lg:pl-16">
+    <div class="flex flex-col items-center md:gap-8 lg:flex-row">
+      <figure class="relative mb-12 w-full pl-8 sm:w-2/3 lg:order-2 lg:pl-16">
         <picture>
-          <img
-            class="w-full object-cover"
-            src={document.data.sectionImg}
-          />
+          <img class="w-full object-cover" src={document.data.sectionImg} />
         </picture>
       </figure>
       <div
-        class="lg:order-1 lg:flex-initial max-w-prose lg:max-w-[none] lg:w-1/2 text-center lg:text-left"
+        class="max-w-prose text-center lg:order-1 lg:w-1/2 lg:max-w-[none] lg:flex-initial lg:text-left"
       >
         <SectionHeader>
           <span slot="roofline" set:html={document.data.roofline} />
           <Fragment set:html={document.data.title} />
         </SectionHeader>
         <LayoutSpacer />
-        <div class="max-w-prose mx-auto space-y-4">
+        <div class="mx-auto max-w-prose space-y-4">
           <Content />
         </div>
       </div>

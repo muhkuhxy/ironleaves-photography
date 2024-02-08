@@ -26,7 +26,7 @@ Habt ihr schon vom modernen "moody" Bildlook gehört? Bei dieser Bearbeitung sin
 
 ## Weich oder hart?
 
-Sollen die Fotos verträumt und weich aussehen? Oder lieber doch cool und definiert? 
+Sollen die Fotos verträumt und weich aussehen? Oder lieber doch cool und definiert?
 
 Die Rede ist von der Atmosphäre, bzw. die Klarheit, die Bilder ausstrahlen. Verträumte und weiche Fotos sind super, um kleine Unperfektheiten, wie Hautunreinheiten, zu kaschieren oder eine geheimnisvolle Atmosphäre zu erzeugen. Definierte Fotos sorgen für interessante Effekte. Sie lassen Details richtig „poppen“ und sind aktuell total im Trend.
 

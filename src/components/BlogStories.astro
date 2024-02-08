@@ -12,10 +12,10 @@ type Props = {
 const { class: classes, stories } = Astro.props
 ---
 
-<div class:list={["bg-dust relative", classes]}>
+<div class:list={["relative bg-dust", classes]}>
   <SectionContent>
     <div
-      class="relative grid grid-cols-1 md:grid-cols-2 md:auto-rows-[1fr] place-content-center gap-12"
+      class="relative grid grid-cols-1 place-content-center gap-12 md:auto-rows-[1fr] md:grid-cols-2"
       data-stories-parent
     >
       {
@@ -23,10 +23,10 @@ const { class: classes, stories } = Astro.props
           return (
             <a
               data-tag={story.content.tag}
-              class="flex flex-col justify-center gap-6 bg-white text-center px-8 pt-4 pb-8 drop-shadow cursor-pointer"
+              class="flex cursor-pointer flex-col justify-center gap-6 bg-white px-8 pb-8 pt-4 text-center drop-shadow"
               href={`/stories/${story.slug}`}
             >
-              <div class="text-sunset uppercase -mb-2">
+              <div class="-mb-2 uppercase text-sunset">
                 {labels[story.content.tag]}
               </div>
               <img
@@ -38,7 +38,7 @@ const { class: classes, stories } = Astro.props
                 class="grow"
                 set:html={renderRichText(story.content.teaser)}
               />
-              <div class="text-sunset mx-auto">
+              <div class="mx-auto text-sunset">
                 <ButtonEffect>Hier geht's zur Story</ButtonEffect>
               </div>
             </a>

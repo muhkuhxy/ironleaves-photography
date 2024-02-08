@@ -6,7 +6,7 @@ Was gibt es zu beachten? Warum sollte man sich überhaupt für einen Fotografen 
 
 ## Nehmt Profis!
 
-Seitdem es Smartphones gibt, war es noch nie einfacher, spontan überall Fotos zu machen. Und natürlich ist es auch immer einfacher, eine hochwertige Kamera im Schrank stehen zu haben. Aber in einem einzigartigen Moment, den es so nie wieder geben wird, in einem dunklen Raum die richtigen Knöpfe gekonnt so zu drücken, dass die Bilder scharf und gut aussehen? Das ist jahrelanges Üben, viel Erfahrung und ganz besonders: Viel Verantwortung! Riskiert nicht, später überhaupt keine schöne Erinnerung an Eure Hochzeit zu haben. 
+Seitdem es Smartphones gibt, war es noch nie einfacher, spontan überall Fotos zu machen. Und natürlich ist es auch immer einfacher, eine hochwertige Kamera im Schrank stehen zu haben. Aber in einem einzigartigen Moment, den es so nie wieder geben wird, in einem dunklen Raum die richtigen Knöpfe gekonnt so zu drücken, dass die Bilder scharf und gut aussehen? Das ist jahrelanges Üben, viel Erfahrung und ganz besonders: Viel Verantwortung! Riskiert nicht, später überhaupt keine schöne Erinnerung an Eure Hochzeit zu haben.
 
 ## Wählt Profis, die sich spezialisiert haben
 
