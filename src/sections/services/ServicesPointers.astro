@@ -10,7 +10,7 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
 <section>
   <SectionContent fluffy={true} class="text-center text-emerald">
     <div
-      class="mx-auto grid max-w-prose grid-cols-1 justify-center gap-16 text-center lg:max-w-none lg:grid-cols-[28rem,auto] lg:text-left"
+      class="mx-auto grid max-w-prose grid-cols-1 justify-center gap-32 text-center lg:max-w-none lg:grid-cols-2 lg:text-left"
     >
       <div class="top-20 col-start-1 self-start lg:sticky">
         <h2 class="mb-8 leading-[1.1]" set:html={document.data.title} />
@@ -27,7 +27,7 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
                   set:html={title.textContent}
                 />
                 <br />
-                <div class="mt-4 pl-12">{chapter}</div>
+                <div class="mt-4 max-w-prose pl-12">{chapter}</div>
               </li>
             ))
           }

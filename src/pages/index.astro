@@ -6,20 +6,22 @@ import Candor from "../sections/home/Candor.astro"
 import Contact from "../sections/home/Contact.astro"
 import Hero from "../sections/home/Hero.astro"
 import Looks from "../sections/home/Looks.astro"
-import Packages from "../sections/home/Packages.astro"
 import Papeterie from "../sections/home/Papeterie.astro"
 import Stories from "../sections/home/Stories.astro"
+import Services from "../sections/home/Services.astro"
 ---
 
 <Landing>
   <Hero />
   <AboutMe />
-  <Candor />
+  <Services />
   <LayoutSpacer responsive={false} ms={4} />
   <Looks />
   <Stories />
   <Papeterie />
-  <Packages />
+  <LayoutSpacer />
+  <Candor />
+  <LayoutSpacer />
   <Contact />
 </Landing>
 

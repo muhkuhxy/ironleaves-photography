@@ -1,4 +1,5 @@
 ---
+import ButtonEffect from "../../components/ButtonEffect.astro"
 import IlFigure from "../../components/IlFigure.astro"
 import IlFigureCaption from "../../components/IlFigureCaption.astro"
 import IlGradient from "../../components/IlGradient.astro"
@@ -13,35 +14,26 @@ import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro"
 ---
 
 <section
-  id="candor"
+  id="services"
   data-scroll-target
-  class="relative mb-8 bg-emerald text-white"
+  class="relative bg-bluegray text-white"
 >
   <div
     class="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[50%] 2xl:w-[40%]"
   >
     <IlFigure animation={{ name: "slide-up" }} class="lg:h-full lg:w-full">
-      <picture>
-        <img
-          data-animation="parallax"
-          class="max-h-[75vh] w-full translate-y-[-10%] scale-[1.23] object-cover lg:h-full lg:max-h-full"
-          alt="Ehrliche Schnappschüsse"
-          src="/images/desktop/ironleaves-photography-werte-authentisch.jpg"
-        />
-      </picture>
+      <img
+        data-animation="parallax"
+        class="max-h-[75vh] w-full translate-y-[-10%] scale-[1.23] object-cover lg:h-full lg:max-h-full"
+        alt="Ehrliche Schnappschüsse"
+        src="/images/desktop/ironleaves-photography-leistungen.jpg"
+      />
       <IlGradient
         direction="disabled"
         halfHeight={true}
         class="translate-y-2 bg-gradient-to-t lg:top-0 lg:translate-y-0 lg:bg-gradient-to-br lg:opacity-25"
       />
     </IlFigure>
-    <IlFigureCaption
-      class="z-20 lg:left-0 lg:top-0 lg:ml-[-40%] lg:px-0 lg:pt-12 lg:text-right"
-    >
-      <div data-animation="slide-up">
-        Embrace the flaws<br /> and the gems
-      </div>
-    </IlFigureCaption>
   </div>
   <SectionLines
     class="z-10 max-xl:hidden"
@@ -62,34 +54,29 @@ import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro"
       />
       <div data-animation="slide-up">
         <SectionHeader>
-          <span slot="roofline">Meine Werte</span>
-          Ehrlich authentisch
+          <span slot="roofline">Leistungen</span>
+          Für einen unvergess­lichen Tag
         </SectionHeader>
         <LayoutSpacer />
         <p class="mb-4 max-w-prose">
-          Ich glaube ganz fest daran, dass jeder Mensch schön ist.
+          Die Auswahl eines Fotografen für Eure Hochzeit ist eine bedeutende
+          Entscheidung, denn nicht nur die Fotos sollen wunderschön sein,
+          sondern auch die Chemie zwischen Euch und Eurem Fotografen muss
+          stimmen. Die Bilder sollen auch noch Jahre später Gänsehaut
+          verursachen und Euch ein Lächeln ins Gesicht zaubern. Deshalb möchte
+          ich nicht nur als Fotograf, sondern auch als Unterstützerin,
+          Beraterin, Designerin und Freundin an Eurer Seite sein und Teil eurer
+          Hochzeit werden.
         </p>
-        <p class="mb-4 max-w-prose">
-          Denn alle scheinbar unperfekten Sachen, machen eine Sache erst zu
-          etwas ganz Besonderem. Jeder Makel erzählt eine persönliche
-          Geschichte. Jede Falte enthält Weisheit. Jedes aufrichtige Lachen
-          zeigt das Kämpferherz dahinter. Deswegen fotografiere ich keinen
-          gestellten Glanz und Glamour. Ich mache keine Hautretuschen, bis man
-          keine Poren mehr sehen kann. Und ich bin auch kein Fan von
-          herausgestreckten Brüsten, eingezogenem Bauch und aufgesetzem Lächeln.
+        <p class="max-w-prose">
+          Hier findet ihr alle wichtigen Informationen für Eure Buchung, Tipps
+          zur Auswahl des richtigen Hochzeitsfotografen und mein fairer Preis
+          für Eure wunderschönen und einzigartigen Erinnerungen.
         </p>
-        <IlTextExpander class="items-start">
-          <p>
-            Ich fotografiere die perfekte Unperfektheit. Denn die schönsten
-            Bilder mit Geschichte entstehen nur, wenn man sich nicht verstellt.
-            Wenn man sich so liebt, wie man ist. Wenn man sich nicht zu ernst
-            nimmt. Und selbst, wenn ihr noch nie vor der Kamera wart: Alles was
-            ich brauche, ist gute Laune und Euer Gefühl zueinander. Ich hoffe,
-            wenn ihr eure fertigen Bilder dann seht, geht es Euch so wie mir:
-            Regelrecht platzend vor Freude über so wunderbare, schöne Menschen!
-            :)
-          </p>
-        </IlTextExpander>
+        <LayoutSpacer />
+        <ButtonEffect class="mx-auto lg:mx-0" href="/services">
+          Zur Leistungsübersicht
+        </ButtonEffect>
       </div>
     </div>
   </SectionContent>

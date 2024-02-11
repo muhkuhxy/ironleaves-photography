@@ -8,6 +8,7 @@ imgs:
   - /images/services/ironleaves-photography-leistungen-after-wedding-shooting.jpg
   - /images/services/ironleaves-photography-leistungen-paerchenshooting.jpg
   - /images/services/ironleaves-photography-leistungen-shooting.jpg
+  - /images/services/ironleaves-photography-leistungen-papeterie.jpg
 ---
 
 ## Verlobungsshooting
@@ -37,3 +38,9 @@ Ihr denkt Euch jetzt: “Bla bla bla – Hochzeit. Aber was ist mit Fotos für e
 Natürlich bin ich nicht nur in der Welt der Hochzeitsfotos zuhause. Wollt ihr ein ganz anderes Shooting machen? Oder habt ihr zu einem Paket eine kreative Idee? Oder wollt ihr ein Schwangerschaftsshooting mit Eurem Hund machen? Oder ein Bierbauch-Shooting? Oder - oder - oder?
 
 Quatscht mich in jedem Fall gerne an. Gemeinsam schauen wir, ob ich Eure Idee umsetzen kann. :)
+
+## Eure individuelle Papeterie aus einer Hand
+
+Gerne unterstütze ich euch bei der Entwicklung eines individuellen Designs, das perfekt zu eurer Hochzeit passt. Zusammen können wir das Konzept eurer Hochzeit erarbeiten oder – falls ihr bereits konkrete Vorstellungen habt – eure Farben, Blumen und Dekoration einbeziehen. Ich gestalte Save-the-Date-Karten, Einladungen, Menükarten, Sitzpläne und vieles mehr ganz nach euren Wünschen. Jedes Detail wird mit Liebe und Sorgfalt gestaltet, um sicherzustellen, dass eure Papeterie einzigartig ist. Ihr könnt euch entspannt zurücklehnen und mir alles überlassen. So können wir gemeinsam sicherstellen, dass alles perfekt aufeinander abgestimmt ist und eure Hochzeit zu einem unvergesslichen Erlebnis wird.
+
+Und wenn ihr mich sogar als Hochzeitsfotografin engagieren möchtet, haben wir die schöne Möglichkeit, uns schon vorab kennenzulernen und vielleicht sogar einige schöne Fotos aus einem Verlobungsshooting in die Gestaltung einzubeziehen. ;)

@@ -1,7 +1,7 @@
 ---
+import ButtonEffect from "../../components/ButtonEffect.astro"
 import IlFigure from "../../components/IlFigure.astro"
 import IlGradient from "../../components/IlGradient.astro"
-import IlTextExpander from "../../components/IlTextExpander.astro"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
@@ -51,20 +51,20 @@ import SvgThreeStraws from "../../components/svg/SvgThreeStraws.astro"
         Die Welt ist bunt &ndash; und ihr seid es auch!
       </SectionHeader>
       <LayoutSpacer />
-      <p class="mb-4 max-w-prose">
-        Optional könnt ihr die Bildbearbeitung und die Anmutung Eurer Fotos
-        mitbestimmen.
+      <p class="max-w-prose">
+        Eure Fotos sollen eure Persönlichkeit widerspiegeln und eure Hochzeit so
+        einfangen, wie ihr sie in Erinnerung habt. Optional könnt ihr daher
+        Einfluss auf die Bildbearbeitung und den Stil eurer Fotos nehmen! Mögt
+        ihr rustikale, dunkle und warme Bilder? Oder bevorzugt ihr einen
+        reduzierten, hellen und cleanen Stil? Mögt ihr es lieber moody oder
+        klar? Zeitlos oder modern? Wählt aus verschiedenen Atmosphären den Look
+        aus, der am besten zu euch passt! Worauf es dabei ankommt erfahrt ihr im
+        folgenden Link.
       </p>
-      <IlTextExpander class="items-start">
-        <p>
-          Eure Fotos sollen Euch und Euren Charakter widerspiegeln und Eure
-          Hochzeit genau so wiedergeben, wie ihr sie in Erinnerung habt. Mögt
-          ihr rustikale, dunkle und warme Bilder? Oder doch reduziert, hell und
-          clean? Moody oder leuchtend? Zeitlos oder modern? Sucht Euch unter
-          unterschiedlichen Atmosphären genau den Look aus, der am besten zu
-          Euch passt!
-        </p>
-      </IlTextExpander>
+      <LayoutSpacer />
+      <ButtonEffect class="mx-auto lg:mx-0" href="/looks">
+        Mehr über Bildlooks
+      </ButtonEffect>
     </div>
   </SectionContent>
 </section>

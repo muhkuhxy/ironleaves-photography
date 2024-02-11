@@ -11,11 +11,11 @@ const { highlightCurrentSection = false } = Astro.props
 
 const links = [
   { title: "Über mich", target: "about-me" },
-  { title: "Werte", target: "candor" },
+  { title: "Leistungen", target: "services" },
   { title: "Bildlooks", target: "looks" },
   { title: "Stories", target: "stories" },
   { title: "Papeterie", target: "papeterie" },
-  { title: "Pakete", target: "packages" },
+  { title: "Werte", target: "candor" },
   { title: "Kontakt", target: "contact" },
 ]
 const social = [
@@ -97,7 +97,7 @@ const containerClass = getContainerClasses(false, true)
 
   Alpine.data("Header", () => ({
     open: false,
-    sectionRatios: {},
+    sectionRatios: {} as Record<string, number>,
     maxSection: "",
     lastScrollY: 0,
 
@@ -114,9 +114,7 @@ const containerClass = getContainerClasses(false, true)
     },
 
     updateMaxSection() {
-      this.maxSection = Object.entries(
-        this.sectionRatios as Record<string, number>,
-      ).reduce(
+      this.maxSection = Object.entries(this.sectionRatios).reduce(
         (memo, entry) => {
           return entry[1] > memo[1] ? entry : memo
         },
