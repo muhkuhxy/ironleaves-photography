@@ -1,12 +1,17 @@
 ---
 import SvgHeroFlower from "./svg/SvgHeroFlower.astro"
+
+const { class: classes } = Astro.props
 ---
 
 <div
   x-data="FlowerAnimation"
   x-cloak
   x-show="true"
-  class="hero-flower relative float-right mr-[max(-10%,-2rem)] mt-[-61%] w-[50%] md:mr-[max(-9%,-4rem)] md:mt-[max(-57%,-25rem)] md:w-[min(53%,25rem)] lg:mr-0 lg:mt-[-41%] lg:w-[40%] xl:mr-[-2%]"
+  class:list={[
+    classes,
+    "hero-flower relative float-right mr-[max(-10%,-2rem)] mt-[-61%] w-[50%] md:mr-[max(-9%,-4rem)] md:mt-[max(-57%,-25rem)] md:w-[min(53%,25rem)] lg:mr-0 lg:mt-[-41%] lg:w-[40%] xl:mr-[-2%]",
+  ]}
 >
 </div>
 <SvgHeroFlower
