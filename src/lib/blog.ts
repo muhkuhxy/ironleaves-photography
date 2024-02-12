@@ -1,4 +1,3 @@
-import type { Node } from "node-html-parser"
 import {
   useStoryblokApi,
   type ISbStoriesParams,
