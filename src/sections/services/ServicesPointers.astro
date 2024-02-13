@@ -14,7 +14,7 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
       class="mx-auto grid max-w-prose grid-cols-1 justify-center gap-32 text-center lg:max-w-none lg:grid-cols-2 lg:text-left"
     >
       <div
-        class="top-20 col-start-1 grid grid-rows-[repeat(3,auto)] gap-8 self-start lg:sticky"
+        class="top-20 col-start-1 grid gap-8 self-start lg:sticky lg:grid-rows-[repeat(3,auto)]"
       >
         <h2 class="leading-[1.1]" set:html={document.data.title} />
         {excerpt}
