@@ -11,7 +11,10 @@ const chapters = await compileAndSplitChapters(document.body)
 
 <section class="bg-dust text-bluegray">
   <SectionContent>
-    <SectionHeader class="text-center" set:html={document.data.title} />
+    <SectionHeader
+      class="text-center max-lg:mt-20"
+      set:html={document.data.title}
+    />
 
     <ReactStoryTelling
       client:load

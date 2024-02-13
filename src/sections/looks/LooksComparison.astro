@@ -2,6 +2,7 @@
 import { getEntryBySlug } from "astro:content"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
+import SvgFlowerZweigBluemchen from "../../components/svg/SvgFlowerZweigBluemchen.astro"
 
 const document = await getEntryBySlug("looks", "2-comparison")
 const { Content } = await document.render()
@@ -41,11 +42,22 @@ const cssClasses: Record<number, string[]> = {
     }
   </div>
 
-  <div class="mx-auto mt-[6rem] max-w-prose md:mt-[10rem]">
-    <SectionHeader class="text-center" set:html={document.data.title} />
+  <div
+    class="mx-auto mt-24 grid max-w-prose grid-cols-[auto,auto] gap-8 max-lg:mb-24 md:mt-[10rem] lg:max-w-[50rem]"
+  >
+    <SvgFlowerZweigBluemchen
+      class="mx-auto mt-8 h-[clamp(15rem,50vh,24rem)] fill-current text-emerald max-lg:hidden"
+    />
 
-    <LayoutSpacer />
+    <div>
+      <SectionHeader
+        class="max-lg:text-center"
+        set:html={document.data.title}
+      />
 
-    <Content />
+      <LayoutSpacer />
+
+      <Content />
+    </div>
   </div>
 </section>
