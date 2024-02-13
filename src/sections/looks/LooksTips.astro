@@ -2,6 +2,7 @@
 import { getEntryBySlug } from "astro:content"
 import SectionContent from "../../components/SectionContent.astro"
 import { compileAndSplitChapters } from "../../lib/content"
+import SvgFlowerBluemchen from "../../components/svg/SvgFlowerBluemchen.astro"
 
 const document = await getEntryBySlug("looks", "7-tips")
 const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
@@ -12,9 +13,14 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
     <div
       class="mx-auto grid max-w-prose grid-cols-1 justify-center gap-32 text-center lg:max-w-none lg:grid-cols-2 lg:text-left"
     >
-      <div class="top-20 col-start-1 self-start lg:sticky">
-        <h2 class="mb-8 leading-[1.1]" set:html={document.data.title} />
+      <div
+        class="top-20 col-start-1 grid gap-8 self-start lg:sticky lg:grid-rows-[repeat(3,auto)]"
+      >
+        <h2 class="leading-[1.1]" set:html={document.data.title} />
         {excerpt}
+        <SvgFlowerBluemchen
+          class="h-[min(25rem,50vh)] place-self-center fill-current max-lg:hidden"
+        />
       </div>
 
       <div class="lg:col-start-2">
