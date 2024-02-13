@@ -2,7 +2,7 @@
 import { getEntryBySlug } from "astro:content"
 import SectionContent from "../../components/SectionContent.astro"
 import { compileAndSplitChapters } from "../../lib/content"
-import SvgFlowerBaellchen from "../../components/svg/SvgFlowerBaellchen.astro"
+import SvgFlowerBlumeGesteck from "../../components/svg/SvgFlowerBlumeGesteck.astro"
 
 const document = await getEntryBySlug("services", "6-pointers")
 const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
@@ -18,8 +18,8 @@ const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
       >
         <h2 class="leading-[1.1]" set:html={document.data.title} />
         {excerpt}
-        <SvgFlowerBaellchen
-          class="h-[min(20rem,40vh)] place-self-center fill-current max-lg:hidden"
+        <SvgFlowerBlumeGesteck
+          class="h-[min(25rem,50vh)] place-self-center fill-current max-lg:hidden"
         />
       </div>
 

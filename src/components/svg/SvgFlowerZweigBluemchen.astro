@@ -1,13 +1,20 @@
 ---
 type Props = {
+  animation?: { name: string; y: number }
   class?: string
 }
 
-const { class: classes } = Astro.props
+const { class: classes, animation } = Astro.props
 ---
 
 <!--?xml version="1.0" encoding="utf-8"?--><!-- Generator: Adobe Illustrator 28.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" class={classes}>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 600 800"
+  class={classes}
+  data-animation={animation?.name}
+  data-y={animation?.y}
+>
   <g>
     <path
       d="M439.2,517.8c-9.1,13.9-25.5,15.2-36.3,25.3c4.4-11.1,5.7-23.4,5.2-35.8c1.2-3,2.2-6,2.8-9.1

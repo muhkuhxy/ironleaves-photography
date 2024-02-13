@@ -9,7 +9,7 @@ import SectionHeader from "../../components/SectionHeader.astro"
 import SectionLines from "../../components/SectionLines.astro"
 import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro"
 import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro"
-import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro"
+import SvgFlowerZweigBluemchen from "../../components/svg/SvgFlowerZweigBluemchen.astro"
 ---
 
 <section
@@ -56,10 +56,11 @@ import SvgSingleGrass from "../../components/svg/SvgSingleGrass.astro"
   </SectionLines>
   <SectionContent class="relative z-10">
     <div class="lg:mr-[55%] lg:py-32 2xl:mr-[45%]">
-      <SvgSingleGrass
-        class="relative z-10 float-right mb-4 mt-[-25%] w-[39%] fill-current text-white sm:w-[30%] md:mr-6 lg:absolute lg:bottom-0 lg:left-0 lg:-mb-2 lg:ml-[45%] lg:w-[18%] 2xl:ml-[55%] 2xl:mr-[28%]"
-        animation={{ name: "slide-up", y: 0 }}
-      />
+      <div
+        class="relative z-10 float-right mb-4 mt-[-25%] w-[39%] scale-x-[-1] fill-current text-white sm:w-[30%] md:mr-6 lg:absolute lg:bottom-0 lg:left-0 lg:-mb-2 lg:ml-[42%] lg:w-[18%] 2xl:ml-[55%] 2xl:mr-[28%]"
+      >
+        <SvgFlowerZweigBluemchen animation={{ name: "slide-up", y: 0 }} />
+      </div>
       <div data-animation="slide-up">
         <SectionHeader>
           <span slot="roofline">Meine Werte</span>
