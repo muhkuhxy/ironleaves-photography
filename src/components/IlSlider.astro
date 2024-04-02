@@ -12,7 +12,9 @@ const { class: classes, slides, id } = Astro.props
 
 <div id={id} class="relative h-full pb-8">
   <swiper-container
+    data-swiper
     class:list={["w-full overflow-x-hidden", classes]}
+    init="false"
     autoplay-delay="5000"
     loop="true"
     loop-additional-slides="5"
@@ -39,6 +41,25 @@ const { class: classes, slides, id } = Astro.props
 <script>
   import { register } from "swiper/element/bundle"
   register()
-  // const slider = document.querySelector('[data-swiper]')
-  // console.log(slider.isEnd)
+
+  document.querySelectorAll("[data-swiper]").forEach((swiperElm) => {
+    const swiperParams = {
+      on: {
+        afterInit() {
+          setTimeout(() => {
+            console.log("afterInit")
+            if (swiperElm.querySelector(".swiper-slide-active:last-child")) {
+              console.log("fixing")
+              setTimeout(() => {
+                this.update()
+                this.slideToLoop(0, 0)
+              }, 100)
+            }
+          })
+        },
+      },
+    }
+    Object.assign(swiperElm, swiperParams)
+    swiperElm.initialize()
+  })
 </script>
