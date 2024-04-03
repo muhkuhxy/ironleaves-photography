@@ -42,24 +42,16 @@ const { class: classes, slides, id } = Astro.props
   import { register } from "swiper/element/bundle"
   register()
 
-  document.querySelectorAll("[data-swiper]").forEach((swiperElm) => {
-    const swiperParams = {
-      on: {
-        afterInit() {
-          setTimeout(() => {
-            console.log("afterInit")
-            if (swiperElm.querySelector(".swiper-slide-active:last-child")) {
-              console.log("fixing")
-              setTimeout(() => {
-                this.update()
-                this.slideToLoop(0, 0)
-              }, 100)
-            }
-          })
-        },
-      },
-    }
-    Object.assign(swiperElm, swiperParams)
-    swiperElm.initialize()
+  window.addEventListener("load", () => {
+    document.querySelectorAll("swiper-container").forEach((swiperElm) => {
+      if (
+        "initialize" in swiperElm &&
+        swiperElm.initialize instanceof Function
+      ) {
+        swiperElm.initialize()
+      } else {
+        console.warn("could not initialize swiper on element", swiperElm)
+      }
+    })
   })
 </script>

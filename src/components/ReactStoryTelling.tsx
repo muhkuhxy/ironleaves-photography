@@ -67,6 +67,11 @@ export default function ({ className, chapters, scroller }: Props) {
               chaptersActive[index] ? "my-1 scale-[1.2]" : "scale-[0.65]",
               "cursor-pointer rounded-[50%] border-4 border-bluegray opacity-75 transition-all duration-[.75s]",
             )}
+            onClick={() => {
+              document
+                .querySelectorAll("[data-chapter-trigger]")
+                [index].scrollIntoView()
+            }}
           />
         ))}
       </div>
