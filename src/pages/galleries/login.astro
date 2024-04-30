@@ -30,8 +30,6 @@ if (Astro.request.method === "POST") {
     .from(Galleries)
     .where(eq(Galleries.id, gallery))
 
-  console.log({ dbpw, formdata: bcrypt.hashSync(pw, 10) })
-
   if (!bcrypt.compareSync(pw, dbpw[0]?.password)) {
     return Astro.redirect(
       `/galleries/login?gallery=${gallery}&error=Falsches Passwort`,
@@ -41,8 +39,8 @@ if (Astro.request.method === "POST") {
   // get token
 
   const sessionId = Astro.cookies.get("ironleaves_session")?.value ?? uuid()
-  const theSession = await getSession(sessionId)
-  if (!theSession) {
+  const session = await getSession(sessionId)
+  if (!session) {
     await db.insert(Sessions).values({
       id: sessionId,
       expires: new Date(),
@@ -50,7 +48,7 @@ if (Astro.request.method === "POST") {
       token: "token",
     })
   } else {
-    const newGalleries = new Set(theSession.galleries).add(gallery)
+    const newGalleries = new Set(session.galleries).add(gallery)
     await db
       .update(Sessions)
       .set({ galleries: [...newGalleries] })
