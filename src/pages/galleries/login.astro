@@ -1,0 +1,74 @@
+---
+import { db, Sessions, Galleries, eq } from "astro:db"
+import { v4 as uuid } from "uuid"
+import bcrypt from "bcrypt"
+import { getSession } from "../../../db/services"
+
+export const prerender = false
+
+const gallery = Astro.url.searchParams.get("gallery")
+const error = Astro.url.searchParams.get("error")
+
+console.log(gallery)
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData()
+  console.log("posted", formData)
+  const pw = formData.get("password")?.toString()
+  const gallery = formData.get("gallery")?.toString()
+
+  if (!gallery || !pw) {
+    return new Response(null, {
+      status: 400,
+      statusText: "missing form parameter gallery",
+    })
+  }
+
+  // check password
+  const dbpw = await db
+    .select()
+    .from(Galleries)
+    .where(eq(Galleries.id, gallery))
+
+  console.log({ dbpw, formdata: bcrypt.hashSync(pw, 10) })
+
+  if (!bcrypt.compareSync(pw, dbpw[0]?.password)) {
+    return Astro.redirect(
+      `/galleries/login?gallery=${gallery}&error=Falsches Passwort`,
+    )
+  }
+
+  // get token
+
+  const sessionId = Astro.cookies.get("ironleaves_session")?.value ?? uuid()
+  const theSession = await getSession(sessionId)
+  if (!theSession) {
+    await db.insert(Sessions).values({
+      id: sessionId,
+      expires: new Date(),
+      galleries: [gallery],
+      token: "token",
+    })
+  } else {
+    const newGalleries = new Set(theSession.galleries).add(gallery)
+    await db
+      .update(Sessions)
+      .set({ galleries: [...newGalleries] })
+      .where(eq(Sessions.id, sessionId))
+  }
+
+  Astro.cookies.set("ironleaves_session", sessionId)
+
+  return Astro.redirect(`/galleries/${gallery}`)
+}
+---
+
+<h1>{gallery} Login</h1>
+<form method="post">
+  <label>
+    Passwort:
+    <input type="password" name="password" />
+    <input type="hidden" name="gallery" value={gallery} />
+  </label>
+  {error && <div>Fehler: {error}</div>}
+</form>

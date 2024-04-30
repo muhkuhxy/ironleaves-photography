@@ -1,0 +1,29 @@
+---
+import { db, Sessions, eq } from "astro:db"
+import { getSession } from "../../../db/services"
+
+export const prerender = false
+
+const { slug } = Astro.params
+const sessionId = Astro.cookies.get("ironleaves_session")?.value
+
+if (!sessionId) {
+  return Astro.redirect(`/galleries/login?gallery=${slug}`)
+}
+
+const session = await getSession(sessionId)
+
+if (!session) {
+  console.error("no session found")
+  Astro.cookies.delete("ironleaves_session")
+  return Astro.redirect(`/galleries/login?gallery=${slug}`)
+}
+
+if (session.expires) {
+  // get new token
+}
+
+if (!(session.galleries as string[]).includes(slug!)) {
+  return Astro.redirect(`/galleries/login?gallery=${slug}`)
+}
+---
