@@ -4,5 +4,5 @@ import bcrypt from "bcrypt"
 export default async function () {
   await db
     .insert(Galleries)
-    .values([{ id: "lisa-max", password: bcrypt.hashSync("test", 10) }])
+    .values([{ id: "23-08_Bucky", password: bcrypt.hashSync("test", 10) }])
 }

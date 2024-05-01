@@ -9,6 +9,13 @@ const Sessions = defineTable({
   },
 })
 
+export type SessionType = {
+  id: string
+  token: string
+  expires: Date
+  galleries: string[]
+}
+
 const Galleries = defineTable({
   columns: {
     id: column.text({ primaryKey: true }),

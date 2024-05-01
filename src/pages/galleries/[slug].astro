@@ -1,6 +1,9 @@
 ---
-import { db, Sessions, eq } from "astro:db"
-import { getSession } from "../../../db/services"
+import { getSession, updateSession } from "../../../db/services"
+import dayjs from "dayjs"
+import { getToken, getThumbnails } from "../../lib/graph-client"
+import Layout from "../../layouts/Layout.astro"
+import { like } from "astro:db"
 
 export const prerender = false
 
@@ -11,7 +14,7 @@ if (!sessionId) {
   return Astro.redirect(`/galleries/login?gallery=${slug}`)
 }
 
-const session = await getSession(sessionId)
+let session = await getSession(sessionId)
 
 if (!session) {
   console.error("no session found")
@@ -19,11 +22,38 @@ if (!session) {
   return Astro.redirect(`/galleries/login?gallery=${slug}`)
 }
 
-if (session.expires) {
-  // get new token
-}
-
 if (!(session.galleries as string[]).includes(slug!)) {
   return Astro.redirect(`/galleries/login?gallery=${slug}`)
 }
+
+const now = dayjs()
+const expired = now.isAfter(session.expires)
+
+if (expired) {
+  const [token, expires] = await getToken()
+  await updateSession(
+    {
+      token,
+      expires,
+    },
+    sessionId,
+  )
+  session = { ...session, token, expires }
+}
+
+const thumbs = await getThumbnails(slug!, session.token)
 ---
+
+<Layout>
+  <ul
+    class="bg-green-5 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
+  >
+    {
+      thumbs.map((thumb) => (
+        <li class:list={[thumb.height > thumb.width ? "row-span-2" : ""]}>
+          <img class:list={["h-full w-full object-cover"]} src={thumb.url} />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

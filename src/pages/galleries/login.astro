@@ -1,23 +1,22 @@
 ---
-import { db, Sessions, Galleries, eq } from "astro:db"
+import { db, Galleries, eq } from "astro:db"
 import { v4 as uuid } from "uuid"
 import bcrypt from "bcrypt"
-import { getSession } from "../../../db/services"
+import { getSession, updateSession, createSession } from "../../../db/services"
+import { getToken } from "../../lib/graph-client"
 
 export const prerender = false
 
 const gallery = Astro.url.searchParams.get("gallery")
 const error = Astro.url.searchParams.get("error")
 
-console.log(gallery)
-
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData()
   console.log("posted", formData)
   const pw = formData.get("password")?.toString()
-  const gallery = formData.get("gallery")?.toString()
+  const galleryId = formData.get("gallery")?.toString()
 
-  if (!gallery || !pw) {
+  if (!galleryId || !pw) {
     return new Response(null, {
       status: 400,
       statusText: "missing form parameter gallery",
@@ -25,39 +24,37 @@ if (Astro.request.method === "POST") {
   }
 
   // check password
-  const dbpw = await db
+  const gallery = await db
     .select()
     .from(Galleries)
-    .where(eq(Galleries.id, gallery))
+    .where(eq(Galleries.id, galleryId))
 
-  if (!bcrypt.compareSync(pw, dbpw[0]?.password)) {
+  if (!bcrypt.compareSync(pw, gallery[0]?.password)) {
     return Astro.redirect(
-      `/galleries/login?gallery=${gallery}&error=Falsches Passwort`,
+      `/galleries/login?gallery=${galleryId}&error=Falsches Passwort`,
     )
   }
 
   // get token
+  const [token, expiresIn] = await getToken()
 
   const sessionId = Astro.cookies.get("ironleaves_session")?.value ?? uuid()
   const session = await getSession(sessionId)
   if (!session) {
-    await db.insert(Sessions).values({
+    await createSession({
       id: sessionId,
-      expires: new Date(),
-      galleries: [gallery],
-      token: "token",
+      galleries: [galleryId],
+      expires: expiresIn,
+      token,
     })
   } else {
-    const newGalleries = new Set(session.galleries).add(gallery)
-    await db
-      .update(Sessions)
-      .set({ galleries: [...newGalleries] })
-      .where(eq(Sessions.id, sessionId))
+    const newGalleries = new Set(session.galleries).add(galleryId)
+    await updateSession({ galleries: [...newGalleries] }, sessionId)
   }
 
   Astro.cookies.set("ironleaves_session", sessionId)
 
-  return Astro.redirect(`/galleries/${gallery}`)
+  return Astro.redirect(`/galleries/${galleryId}`)
 }
 ---
 
