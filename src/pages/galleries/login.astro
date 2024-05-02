@@ -19,7 +19,7 @@ if (Astro.request.method === "POST") {
   if (!galleryId || !pw) {
     return new Response(null, {
       status: 400,
-      statusText: "missing form parameter gallery",
+      statusText: "form incomplete",
     })
   }
 
@@ -28,6 +28,13 @@ if (Astro.request.method === "POST") {
     .select()
     .from(Galleries)
     .where(eq(Galleries.id, galleryId))
+
+  if (!gallery[0]) {
+    console.warn("Unbekannte Gallerie")
+    return Astro.redirect(
+      `/galleries/login?gallery=${galleryId}&error=Falsches Passwort`,
+    )
+  }
 
   if (!bcrypt.compareSync(pw, gallery[0]?.password)) {
     return Astro.redirect(

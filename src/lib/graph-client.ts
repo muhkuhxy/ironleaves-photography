@@ -1,6 +1,8 @@
 import dayjs from "dayjs"
 
 export async function getToken() {
+  console.log("getToken")
+
   const response = await fetch(
     `https://login.microsoftonline.com/${import.meta.env.GALLERY_TENANT}/oauth2/v2.0/token`,
     {
@@ -17,6 +19,8 @@ export async function getToken() {
   if (!response.ok) {
     throw await response.text()
   }
+
+  console.log("getToken OK")
 
   const { access_token, expires_in } = await response.json()
 
@@ -73,6 +77,8 @@ function bytes(value: number) {
 }
 
 async function getDriveItems(token: string, path: string) {
+  console.log("getDriveItems")
+
   const params = new URLSearchParams({
     $select: [
       "content.downloadUrl",
@@ -83,6 +89,7 @@ async function getDriveItems(token: string, path: string) {
       "image",
     ].join(","),
   })
+
   const response = await fetch(
     `https://graph.microsoft.com/v1.0/drives/${import.meta.env.GALLERY_DRIVE_ID}/root:/${path}:/children?${params}`,
     {
@@ -95,6 +102,8 @@ async function getDriveItems(token: string, path: string) {
   if (!response.ok) {
     throw await response.text()
   }
+
+  console.log("getDriveItems OK")
 
   const { value: items } = (await response.json()) as { value: DriveItem[] }
 

@@ -3,7 +3,6 @@ import { getSession, updateSession } from "../../../db/services"
 import dayjs from "dayjs"
 import { getToken, getThumbnails } from "../../lib/graph-client"
 import Layout from "../../layouts/Layout.astro"
-import { like } from "astro:db"
 
 export const prerender = false
 
@@ -46,7 +45,7 @@ const thumbs = await getThumbnails(slug!, session.token)
 
 <Layout>
   <ul
-    class="bg-green-5 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
+    class="bg-green-5 m-2 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
   >
     {
       thumbs.map((thumb) => (
