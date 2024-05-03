@@ -3,6 +3,9 @@ import { getSession, updateSession } from "../../../db/services"
 import dayjs from "dayjs"
 import { getToken, getThumbnails } from "../../lib/graph-client"
 import Layout from "../../layouts/Layout.astro"
+import IlStoryHeader from "../../components/IlStoryHeader.astro"
+import SectionHeader from "../../components/SectionHeader.astro"
+import SvgSingleBranch from "../../components/svg/SvgSingleBranch.astro"
 
 export const prerender = false
 
@@ -44,15 +47,65 @@ const thumbs = await getThumbnails(slug!, session.token)
 ---
 
 <Layout>
-  <ul
-    class="bg-green-5 m-2 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
-  >
-    {
-      thumbs.map((thumb) => (
-        <li class:list={[thumb.height > thumb.width ? "row-span-2" : ""]}>
-          <img class:list={["h-full w-full object-cover"]} src={thumb.url} />
-        </li>
-      ))
-    }
-  </ul>
+  <div class="pb-6 text-bluegray">
+    <IlStoryHeader>
+      <div
+        slot="image"
+        class="relative w-[95%] flex-initial self-start lg:w-1/2 lg:self-center"
+      >
+        <img
+          class="w-7/8 border-8 border-solid border-white drop-shadow"
+          src={thumbs[0].url}
+        />
+        <SvgSingleBranch
+          class="absolute bottom-0 right-0 w-1/4 -translate-x-1 translate-y-4 fill-current text-emerald"
+        />
+      </div>
+
+      <SectionHeader slot="title">
+        <span slot="roofline">Stories</span>
+        {slug}
+      </SectionHeader>
+
+      <div slot="content">
+        content
+        <div>
+          <button>download all</button>
+        </div>
+      </div>
+    </IlStoryHeader>
+    <div x-data="{lightbox:false, src:null}">
+      <ul
+        class="bg-green-5 m-2 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
+      >
+        {
+          thumbs.map((thumb) => (
+            <li class:list={[thumb.height > thumb.width ? "row-span-2" : ""]}>
+              <img
+                class:list={["h-full w-full cursor-pointer object-cover"]}
+                src={thumb.url}
+                x-on:click={`lightbox=true; src='${thumb.url}'`}
+              />
+            </li>
+          ))
+        }
+      </ul>
+      <template x-teleport="body">
+        <div
+          x-show="lightbox"
+          x-transition
+          x-transition.duration.250ms
+          class="absolute inset-0 z-50 grid place-content-center bg-white"
+        >
+          <img x-bind:src="src" class="max-h-full max-w-full" />
+          <div class="flex justify-between">
+            <button>download</button>
+            <button x-on:click="lightbox=false">close</button>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <script></script>
+  </div>
 </Layout>

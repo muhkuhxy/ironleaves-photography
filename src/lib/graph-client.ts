@@ -110,6 +110,26 @@ async function getDriveItems(token: string, path: string) {
   return items
 }
 
+export async function downloadContent(
+  path: string,
+  token: string,
+): Promise<Blob> {
+  const response = await fetch(
+    `https://graph.microsoft.com/v1.0/drives/${import.meta.env.GALLERY_DRIVE_ID}/root:/${path}:/content`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
+  )
+
+  if (!response.ok) {
+    throw await response.text()
+  }
+
+  return response.blob()
+}
+
 export async function getChildren(
   gallery: string,
   token: string,
