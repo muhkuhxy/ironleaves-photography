@@ -76,16 +76,18 @@ const thumbs = await getThumbnails(slug!, session.token)
     </IlStoryHeader>
     <div x-data="{lightbox:false, src:null}">
       <ul
-        class="bg-green-5 m-2 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
+        class="ip-masonry m-2 grid grid-flow-dense grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] gap-2"
       >
         {
           thumbs.map((thumb) => (
-            <li class:list={[thumb.height > thumb.width ? "row-span-2" : ""]}>
-              <img
-                class:list={["h-full w-full cursor-pointer object-cover"]}
-                src={thumb.url}
-                x-on:click={`lightbox=true; src='${thumb.url}'`}
-              />
+            <li class="ip-masonry-item overflow-hidden">
+              <div class="ip-masonry-content">
+                <img
+                  class:list={[" h-full w-full cursor-pointer object-cover"]}
+                  src={thumb.url}
+                  x-on:click={`lightbox=true; src='${thumb.url}'`}
+                />
+              </div>
             </li>
           ))
         }
@@ -95,7 +97,7 @@ const thumbs = await getThumbnails(slug!, session.token)
           x-show="lightbox"
           x-transition
           x-transition.duration.250ms
-          class="absolute inset-0 z-50 grid place-content-center bg-white"
+          class="fixed inset-0 z-50 grid place-content-center bg-white"
         >
           <img x-bind:src="src" class="max-h-full max-w-full" />
           <div class="flex justify-between">
@@ -105,7 +107,51 @@ const thumbs = await getThumbnails(slug!, session.token)
         </div>
       </template>
     </div>
-
-    <script></script>
   </div>
 </Layout>
+
+<script>
+  function resizeGridItem(
+    rowHeight: number,
+    rowGap: number,
+    item: HTMLElement,
+  ) {
+    const rowSpan = Math.floor(
+      (item.querySelector(".ip-masonry-content")!.getBoundingClientRect()
+        .height +
+        rowGap) /
+        (rowHeight + rowGap),
+    )
+    item.style.gridRowEnd = "span " + rowSpan
+  }
+
+  function resizeAllGridItems() {
+    const grid = document.getElementsByClassName("ip-masonry")[0]
+
+    grid.classList.remove("grid-flow-dense")
+    grid.classList.add("auto-rows-[1rem]")
+
+    const rowHeight = parseInt(
+      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"),
+    )
+    const rowGap = parseInt(
+      window.getComputedStyle(grid).getPropertyValue("grid-row-gap"),
+    )
+
+    const allitems = document.getElementsByClassName("ip-masonry-item")
+    for (const item of allitems) {
+      resizeGridItem(rowHeight, rowGap, item as HTMLElement)
+    }
+  }
+
+  function debounce<TArgs>(fn: (x: TArgs) => void, delay: number = 250) {
+    let timer: NodeJS.Timeout | null = null
+    return (args: TArgs) => {
+      timer && clearTimeout(timer)
+      timer = setTimeout(() => fn(args), delay)
+    }
+  }
+
+  window.addEventListener("load", () => resizeAllGridItems())
+  window.addEventListener("resize", debounce(resizeAllGridItems, 100))
+</script>

@@ -17,9 +17,9 @@ import "./main.css"
   </head>
   <body>
     <div
-      class="flex min-h-screen flex-col"
-      data-layout
       x-data="App"
+      class="relative flex min-h-screen flex-col"
+      data-layout
       x-bind:class="'js'"
       x-on:domchanged="refresh"
     >
@@ -57,6 +57,7 @@ import "./main.css"
         })
       })
     },
+
     refresh() {
       // console.log("domChanged");
       timer != null && clearTimeout(timer)
