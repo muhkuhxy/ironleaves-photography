@@ -5,6 +5,7 @@ import LayoutSpacer from "./LayoutSpacer.astro"
 import SectionContent from "./SectionContent.astro"
 import { type SBChapter } from "../lib/blog"
 import { renderRichText } from "@storyblok/astro"
+import IlStoryHeader from "./IlStoryHeader.astro"
 
 type Props = {
   slides?: string[]
@@ -15,18 +16,11 @@ const { slides, chapters } = Astro.props
 ---
 
 <div class="pb-6 text-bluegray">
-  <div class="bg-dust">
-    <SectionContent class="flex flex-col items-center gap-8 lg:flex-row">
-      <slot name="image" />
-      <div
-        class="mx-auto flex max-w-prose flex-initial flex-col gap-4 text-center lg:mx-0 lg:w-1/2 lg:text-left"
-      >
-        <slot name="title" />
-        <slot name="content" />
-        <LayoutSpacer responsive={false} ms={1} />
-      </div>
-    </SectionContent>
-  </div>
+  <IlStoryHeader>
+    <slot name="image" slot="image" />
+    <slot name="title" slot="title" />
+    <slot name="content" slot="content" />
+  </IlStoryHeader>
   <ReactStoryTelling
     client:load
     className="bg-white"

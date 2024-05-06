@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "ironleaves-photography",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -12,15 +12,15 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.3.1",
-    "@astrojs/netlify": "^3.0.3",
-    "@astrojs/react": "^3.0.4",
-    "@astrojs/tailwind": "^5.0.2",
-    "@storyblok/astro": "^3.0.1",
+    "@astrojs/alpinejs": "^0.4.0",
+    "@astrojs/netlify": "^5.2.0",
+    "@astrojs/react": "^3.3.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@storyblok/astro": "^4.0.5",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "alpinejs": "^3.11.1",
-    "astro": "^3.3.4",
+    "astro": "^4.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-html": "^15.0.1",
@@ -37,6 +37,7 @@
     "lottie-web": "^5.10.1",
     "node-html-parser": "^6.1.4",
     "postcss-nested": "^6.0.0",
+    "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "swiper": "^11.0.3"
