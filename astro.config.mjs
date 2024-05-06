@@ -8,14 +8,13 @@ import netlify from "@astrojs/netlify/functions";
 import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 import react from "@astrojs/react";
-import db from "@astrojs/db";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const env = loadEnv("", process.cwd(), "");
 
 const deployment = {
-  output: env.SB_PREVIEW ? "server" : "hybrid",
+  output: env.SB_PREVIEW ? "server" : "static",
   adapter: env.SB_PREVIEW ? netlify({
     edgeMiddleware: true
   }) : undefined
@@ -33,7 +32,7 @@ export default defineConfig({
       blogPost: "storyblok/BlogPost"
     },
     apiOptions: {}
-  }), db()],
+  })],
   vite: {
     plugins: [basicSsl()],
     resolve: {
