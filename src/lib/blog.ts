@@ -24,6 +24,7 @@ export async function useStories(params: ISbStoriesParams = {}) {
           ? "draft"
           : "published",
       sort_by: "content.createdAt:desc",
+      starts_with: "stories/",
     },
     params,
   )
