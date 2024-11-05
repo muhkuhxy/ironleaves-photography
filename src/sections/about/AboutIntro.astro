@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getEntry } from "astro:content"
 import IlAnimatedHeroFlower from "../../components/IlAnimatedHeroFlower.astro"
 import IlFigure from "../../components/IlFigure.astro"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
@@ -10,7 +10,7 @@ import SvgHeroLine1 from "../../components/svg/SvgHeroLine1.astro"
 import SvgHeroLine2 from "../../components/svg/SvgHeroLine2.astro"
 import SvgHeroLine3 from "../../components/svg/SvgHeroLine3.astro"
 
-const document = await getEntryBySlug("about", "1-intro")
+const document = await getEntry("about", "1-intro")
 const { Content } = await document.render()
 ---
 

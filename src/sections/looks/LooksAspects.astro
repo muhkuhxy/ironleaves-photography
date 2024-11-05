@@ -1,11 +1,11 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getEntry } from "astro:content"
 import ReactStoryTelling from "../../components/ReactStoryTelling"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import { compileAndSplitChapters } from "../../lib/content"
 
-const document = await getEntryBySlug("looks", "3-aspects")
+const document = await getEntry("looks", "3-aspects")
 const chapters = await compileAndSplitChapters(document.body)
 ---
 

@@ -1,10 +1,10 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getEntry } from "astro:content"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import SvgFlowerZweigBluemchen from "../../components/svg/SvgFlowerZweigBluemchen.astro"
 
-const document = await getEntryBySlug("looks", "2-comparison")
+const document = await getEntry("looks", "2-comparison")
 const { Content } = await document.render()
 
 const front = "sm:z-20 start-row-1 col-span-4"

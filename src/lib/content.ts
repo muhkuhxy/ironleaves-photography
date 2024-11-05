@@ -1,7 +1,8 @@
 import { unified } from "unified"
 import remarkParse from "remark-parse"
 import remarkHtml from "remark-html"
-import { HTMLElement, Node, parse } from "node-html-parser"
+import type { HTMLElement, Node } from "node-html-parser"
+import { parse } from "node-html-parser"
 import { splitAt } from "./collections"
 
 export async function compileMarkdown(md: string): Promise<HTMLElement> {

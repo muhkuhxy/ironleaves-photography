@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getEntry } from "astro:content"
 import LayoutSpacer from "../../components/LayoutSpacer.astro"
 import ReactStoryTelling from "../../components/ReactStoryTelling"
 import SectionHeader from "../../components/SectionHeader.astro"
@@ -7,7 +7,7 @@ import IconArrow from "../../components/svg/IconArrow"
 import IconBase from "../../components/svg/IconBase"
 import { compileAndSplitChapters } from "../../lib/content"
 
-const document = await getEntryBySlug("services", "5-packages")
+const document = await getEntry("services", "5-packages")
 const chapters = await compileAndSplitChapters(document.body)
 ---
 

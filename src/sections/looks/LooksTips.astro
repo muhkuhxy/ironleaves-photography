@@ -1,10 +1,10 @@
 ---
-import { getEntryBySlug } from "astro:content"
+import { getEntry } from "astro:content"
 import SectionContent from "../../components/SectionContent.astro"
 import { compileAndSplitChapters } from "../../lib/content"
 import SvgFlowerBluemchen from "../../components/svg/SvgFlowerBluemchen.astro"
 
-const document = await getEntryBySlug("looks", "7-tips")
+const document = await getEntry("looks", "7-tips")
 const [excerpt, ...chapters] = await compileAndSplitChapters(document.body)
 ---
 
