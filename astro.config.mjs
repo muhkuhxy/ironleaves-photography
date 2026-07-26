@@ -2,12 +2,12 @@ import { defineConfig } from "astro/config"
 import path from "path"
 import { fileURLToPath } from "url"
 import { loadEnv } from "vite"
-import storyblok from "@storyblok/astro"
+import {storyblok} from "@storyblok/astro"
 import basicSsl from "@vitejs/plugin-basic-ssl"
 import netlify from "@astrojs/netlify/functions"
-import tailwind from "@astrojs/tailwind"
 import alpinejs from "@astrojs/alpinejs"
 import react from "@astrojs/react"
+import tailwindcss from "@tailwindcss/vite";
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -27,9 +27,6 @@ const deployment = {
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
     alpinejs(),
     react(),
     storyblok({
@@ -41,7 +38,7 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [basicSsl()],
+    plugins: [basicSsl(), tailwindcss()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

@@ -4,9 +4,10 @@ import LayoutSpacer from "../../components/LayoutSpacer.astro"
 import SectionContent from "../../components/SectionContent.astro"
 import SectionHeader from "../../components/SectionHeader.astro"
 import SvgPetalFlower from "../../components/svg/SvgPetalFlower.astro"
+import { render } from "astro:content"
 
 const document = await getEntry("about", "2-cv")
-const { Content } = await document.render()
+const { Content } = await render(document)
 ---
 
 <section>
